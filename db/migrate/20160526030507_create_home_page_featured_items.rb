@@ -6,7 +6,7 @@ ROM::SQL.migration do
       String  :title, null: false
       String  :description, null: false
       String  :url, null: false
-      String  :image_id, null: false
+      String  :cover_image, null: false
     end
   end
 

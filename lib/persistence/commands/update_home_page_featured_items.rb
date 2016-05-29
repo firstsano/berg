@@ -15,7 +15,7 @@ module Persistence
               title: item[:title],
               description: item[:description],
               url: item[:url],
-              image_id: item[:image_id]
+              cover_image: item[:cover_image]
             }
           end
 

@@ -14,7 +14,7 @@ module Admin
             required(:title).filled
             required(:description).filled
             required(:url).filled
-            required(:image_id).filled
+            required(:cover_image).filled
           end
         end
       end

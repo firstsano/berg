@@ -26,8 +26,8 @@ module Admin
                 text_field :url,
                   label: "URL"
 
-                text_field :image_id,
-                  label: "Image ID"
+                text_field :cover_image,
+                  label: "Cover Image"
             end
           end
         end

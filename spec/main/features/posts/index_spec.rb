@@ -1,14 +1,14 @@
 require "main_app_helper"
 
 RSpec.feature "Main / Posts / Index", js: false do
-
+  include_context 'main people'
   include_context 'main posts'
   include_context 'main categories'
 
   before do
-    @user = create_user(first_name: "Jane", last_name: "Doe")
+    @author = create_person("Jane Doe", "person@example.com", "bio")
     21.times do |i|
-      create_post("foo #{i+1}", "teaser-foo-#{i+1}", "foo-#{i+1}", @user)
+      create_post("foo #{i+1}", "teaser-foo-#{i+1}", "foo-#{i+1}", @author)
     end
   end
 
@@ -32,7 +32,7 @@ RSpec.feature "Main / Posts / Index", js: false do
 
   scenario "I can filter posts by category" do
     category = create_category("Ruby", "ruby")
-    post = create_post("A Ruby Post", "it'll be good", "a-ruby-post", @user)
+    post = create_post("A Ruby Post", "it'll be good", "a-ruby-post", @author)
     categorise_post(category[:id], post[:id])
 
     visit "/posts/category/ruby"

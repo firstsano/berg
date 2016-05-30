@@ -20,12 +20,10 @@ module Admin
           def locals(options = {})
             selected_about_page_people = about_page_people.listing_by_position
 
-            # raise selected_about_page_people.inspect
-
-            page_validation = options[:page_validation]
+            validation = options[:validation]
 
             super.merge(
-              page_form: page_form(selected_about_page_people, page_validation)
+              page_form: page_form(selected_about_page_people, validation)
             )
           end
 

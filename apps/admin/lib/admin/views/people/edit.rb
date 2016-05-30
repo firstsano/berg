@@ -17,11 +17,11 @@ module Admin
         def locals(options = {})
           person = people[options[:id]]
 
-          person_validation = options[:person_validation]
+          validation = options[:validation]
 
           super.merge(
             person: person,
-            person_form: person_form(prepare_values(person), person_validation),
+            person_form: person_form(prepare_values(person), validation),
             csrf_token: options[:scope].csrf_token
           )
         end

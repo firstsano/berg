@@ -13,6 +13,6 @@ p.link-children
       input type="hidden" name="_method" value="put"
       fieldset
         legend.hide-visually Edit home page
-        div data-view-formalist=page_form
+        div data-view-formalist=JSON.generate(page_form.to_h(csrfToken: csrf_token))
       p
         button.button.button--primary type="submit" Save changes

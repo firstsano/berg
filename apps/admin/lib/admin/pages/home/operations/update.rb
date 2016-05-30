@@ -6,9 +6,9 @@ module Admin
     module Home
       module Operations
         class Update
-          include Admin::Import[
+          include Admin::Import(
             "core.persistence.commands.update_home_page_featured_items"
-          ]
+          )
 
           include Dry::ResultMatcher.for(:call)
 

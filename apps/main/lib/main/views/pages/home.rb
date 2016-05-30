@@ -5,7 +5,9 @@ module Main
   module Views
     module Pages
       class Home < Main::View
-        include Main::Import("main.persistence.repositories.home_page_featured_items")
+        include Main::Import(
+          "main.persistence.repositories.home_page_featured_items"
+        )
 
         configure do |config|
           config.template = "pages/home"

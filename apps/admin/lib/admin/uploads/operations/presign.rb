@@ -19,7 +19,7 @@ module Admin
             hmac: OpenSSL::HMAC.hexdigest(OpenSSL::Digest.new("sha1"), attache_secret_key, "#{uuid}#{expiration}"),
           }
 
-          Right(payload)
+          return payload
         end
 
         private

@@ -22,7 +22,7 @@ module Admin
             people.all_people.to_a.map { |person|
               {
                 id: person.id,
-                label: person.full_name
+                label: person.name
               }
             }
           end

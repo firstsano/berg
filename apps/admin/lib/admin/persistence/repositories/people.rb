@@ -28,7 +28,6 @@ module Admin
           people
             .order(:name)
             .as(Entities::Person)
-            .to_a
         end
       end
     end

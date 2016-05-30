@@ -9,7 +9,6 @@ module Admin
         def listing_by_position
           about_page_people
             .order(:position)
-            .to_a
         end
       end
     end

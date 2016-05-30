@@ -22,7 +22,7 @@ module Admin
             }
 
             super.merge(
-              page_form: form_data(featured_items, options[:validation]),
+              page_form: form_data(prepare_values(featured_items), options[:validation]),
               csrf_token: options[:scope].csrf_token
             )
           end
@@ -35,6 +35,9 @@ module Admin
             else
               edit_form.build(featured_items)
             end
+          end
+
+          def prepare_values(featured_items)
           end
         end
       end

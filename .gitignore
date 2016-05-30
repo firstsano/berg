@@ -1,6 +1,6 @@
 # Assets in submodule
-/admin/assets
-/main/assets
+apps/admin/assets
+apps/main/assets
 
 # RSpec artifacts
 /spec/examples.txt

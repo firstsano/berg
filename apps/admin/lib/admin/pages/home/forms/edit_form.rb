@@ -28,12 +28,12 @@ module Admin
 
                 text_field :url,
                   label: "URL"
-              end
 
-              upload_field :cover_image,
-                label: "Cover Image",
-                hint: "A cover image for this item",
-                presign_url: "#{Berg::Container["config"].canonical_domain}/admin/uploads/presign"
+                upload_field :cover_image,
+                  label: "Cover Image",
+                  hint: "A cover image for this item",
+                  presign_url: "#{Berg::Container["config"].canonical_domain}/admin/uploads/presign"
+                end
           end
         end
       end

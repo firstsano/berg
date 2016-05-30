@@ -16,7 +16,10 @@ module Admin
               label: "Featured Items",
               action_label: "Add a featured item",
               placeholder: "No featured items added yet.",
-              validation: {} do
+              validation: {
+                min_size: 4,
+                max_size: 4
+              } do
                 text_field :title,
                   label: "Title"
 
@@ -25,10 +28,12 @@ module Admin
 
                 text_field :url,
                   label: "URL"
+              end
 
-                text_field :cover_image,
-                  label: "Cover Image"
-            end
+              upload_field :cover_image,
+                label: "Cover Image",
+                hint: "A cover image for this item",
+                presign_url: "#{Berg::Container["config"].canonical_domain}/admin/uploads/presign"
           end
         end
       end

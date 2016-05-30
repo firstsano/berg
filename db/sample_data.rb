@@ -77,7 +77,8 @@ end
     intro: Faker::Hipster.sentence,
     body: Faker::Hipster.paragraph,
     tags: Faker::Hipster.word,
-    status: "draft"
+    status: "draft",
+    case_study: false
   )
 end
 

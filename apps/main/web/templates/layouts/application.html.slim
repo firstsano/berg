@@ -1,9 +1,11 @@
 html
   head
     meta charset="utf-8"
+    script
+      == page.assets.read("main__inline-header.js")
     title Berg
     link rel="stylesheet" type="text/css" href=page.assets["main__public.css"]
-    script type="text/javascript" src=page.assets["main__public.js"]
+    script type="text/javascript" src=page.assets["main__public.js"] async="async"
   body
     == page.flash
     a.skip-link.skip-link--main-navigation href="#main-navigation" tabindex="1" Skip to the main navigation
@@ -44,3 +46,5 @@ html
             a.nav-footer__anchor href="#" Notes
           li.nav-footer__item
             a.nav-footer__anchor href="#" Get in touch
+    script
+      == page.assets.read("main__inline-footer.js")

@@ -31,12 +31,30 @@ html
         p Work with us, we&rsquo;re good people
     .footer role="contentinfo"
       .footer__inner.mx-auto.clearfix
-        .footer__address.fl-left
-          | Canberra
-        .footer__address.fl-left
-          | Melbourne
-        .footer__contact.fl-left
-          | Get in touch
+        .footer__column.fl-left
+          .footer__column-heading Canberra
+          p
+            | Level 3<br />
+            | 8-10 Hobart Place<br />
+            | Canberra<br />
+            | ACT 2601<br />
+            | Australia
+          p + 61 2 6162 0241
+        .footer__column.fl-left
+          .footer__column-heading Melbourne
+          p
+            | 15-25 Keele St<br />
+            | Collingwood<br />
+            | VIC 3036<br />
+            | Australia
+          p + 61 3 9416 3198
+        .footer__column.fl-left
+          .footer__column-heading Get in touch
+          p
+            a href="mailto:hello@icelab.com.au"
+              | hello@icelab.com.au<br />
+            a href="http://twitter.com/icelab"
+              | @icelab<br />
         ul.nav-footer.fl-right role="navigation"
           li.nav-footer__item
             a.nav-footer__anchor.nav-footer__anchor--active href="#" Work

@@ -7,7 +7,7 @@ module Admin
       class Edit < Admin::View
         include Admin::Import(
           "admin.persistence.repositories.people",
-          "admin.people.forms.edit_form",
+          "admin.people.forms.form",
         )
 
         configure do |config|
@@ -30,9 +30,9 @@ module Admin
 
         def person_form(person, validation)
           if validation
-            edit_form.build(validation, validation.messages)
+            form.build(validation, validation.messages)
           else
-            edit_form.build(person)
+            form.build(person)
           end
         end
 

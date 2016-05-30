@@ -119,8 +119,6 @@ ALTER SEQUENCE categorisations_id_seq OWNED BY categorisations.id;
 
 CREATE TABLE people (
     id integer NOT NULL,
-    first_name text NOT NULL,
-    last_name text NOT NULL,
     twitter text,
     email text NOT NULL,
     bio text NOT NULL,
@@ -129,7 +127,8 @@ CREATE TABLE people (
     job_title text,
     created_at timestamp without time zone DEFAULT now() NOT NULL,
     updated_at timestamp without time zone DEFAULT now() NOT NULL,
-    short_bio text DEFAULT ''::text NOT NULL
+    short_bio text DEFAULT ''::text NOT NULL,
+    name text DEFAULT ''::text NOT NULL
 );
 
 

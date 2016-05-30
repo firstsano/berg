@@ -3,8 +3,7 @@ module Persistence
     class People < ROM::Relation[:sql]
       schema(:people) do
         attribute :id, Types::Serial
-        attribute :first_name, Types::Strict::String
-        attribute :last_name, Types::Strict::String
+        attribute :name, Types::Strict::String
         attribute :email, Types::Strict::String
         attribute :bio, Types::Strict::String
         attribute :short_bio, Types::Strict::String

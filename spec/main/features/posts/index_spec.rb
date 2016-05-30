@@ -5,7 +5,7 @@ RSpec.feature "Main / Posts / Index", js: false do
   include_context 'main posts'
 
   before do
-    author = create_person("Jane", "Doe", "person@example.com", "bio")
+    author = create_person("Jane Doe", "person@example.com", "bio")
     21.times do |i|
       create_post("foo #{i+1}", "teaser-foo-#{i+1}", "foo-#{i+1}", author)
     end

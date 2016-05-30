@@ -23,8 +23,7 @@ module Admin
         optional(:bio).filled
         optional(:short_bio).filled
         optional(:previous_email).maybe
-        optional(:first_name).filled
-        optional(:last_name).filled
+        optional(:name).filled
 
         optional(:avatar).maybe(:str?)
         optional(:twitter).maybe(:str?)

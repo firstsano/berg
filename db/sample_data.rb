@@ -52,8 +52,7 @@ create_user(
 
 create_person(
   email: "person@icelab.com.au",
-  first_name: "Icelab",
-  last_name: "Person",
+  name: "Icelab Person",
   bio: "An icelab person",
   short_bio: "An icelab person"
 )

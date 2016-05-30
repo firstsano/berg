@@ -8,8 +8,7 @@ module Admin
 
         define do
           group do
-            text_field :first_name, label: "First name"
-            text_field :last_name, label: "Last name"
+            text_field :name, label: "Name"
           end
 
           group do

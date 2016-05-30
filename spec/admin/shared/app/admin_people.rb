@@ -1,8 +1,7 @@
 RSpec.shared_context "admin people" do
-  def create_person(first_name, last_name, email, bio, attrs = {})
+  def create_person(name, email, bio, attrs = {})
     Admin::Container["admin.people.operations.create"].({
-      "first_name" => first_name,
-      "last_name" => last_name,
+      "name" => name,
       "email" => email,
       "bio" => bio,
       "short_bio" => bio,
@@ -10,5 +9,5 @@ RSpec.shared_context "admin people" do
     }.merge(attrs)).value
   end
 
-  let!(:sample_person) { create_person("Jane", "Doe", "person@example.com", "bio") }
+  let!(:sample_person) { create_person("Jane Doe", "person@example.com", "bio") }
 end

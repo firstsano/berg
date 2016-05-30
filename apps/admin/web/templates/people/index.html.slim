@@ -9,16 +9,14 @@ h1.h-1 People
         thead
           tr
             th ID
-            th First Name
-            th Last Name
+            th Name
             th Email
             th
         tbody
           - people.each do |person|
             tr id="person-#{person.id}"
               td.f-mono = person.id
-              td = person.first_name
-              td = person.last_name
+              td = person.name
               td.f-mono = person.email
               td
                 a> href="/admin/people/#{person.id}/edit" Edit

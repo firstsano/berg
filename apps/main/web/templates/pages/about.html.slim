@@ -2,7 +2,7 @@ ul
   - people.each do |person|
     li
       p= person.avatar_url
-      p= person.full_name
+      p= person.name
       p= person.job_title_text
       p= person.bio
       a href="http://twitter.com/#{person.twitter_username}"

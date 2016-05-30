@@ -20,13 +20,13 @@ module Admin
           people
             .per_page(per_page)
             .page(page)
-            .order(:first_name)
+            .order(:name)
             .as(Entities::Person)
         end
 
         def all_people
           people
-            .order(:first_name)
+            .order(:name)
             .as(Entities::Person)
             .to_a
         end

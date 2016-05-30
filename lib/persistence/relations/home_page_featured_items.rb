@@ -7,7 +7,7 @@ module Persistence
         attribute :title, Types::Strict::String
         attribute :description, Types::Strict::String
         attribute :url, Types::Strict::String
-        attribute :cover_image, Types::Strict::String
+        attribute :cover_image, Types::Strict::Hash
       end
     end
   end

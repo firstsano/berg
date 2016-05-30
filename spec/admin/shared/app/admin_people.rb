@@ -9,5 +9,5 @@ RSpec.shared_context "admin people" do
     }.merge(attrs)).value
   end
 
-  let!(:sample_person) { create_person("Jane Doe", "person@example.com", "bio") }
+  let!(:sample_person) { create_person("Jane", "person@example.com", "bio") }
 end

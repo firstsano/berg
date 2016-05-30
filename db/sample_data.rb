@@ -45,8 +45,7 @@ end
 
 create_user(
   email: "hello@icelab.com.au",
-  first_name: "Icelab",
-  last_name: "Admin",
+  name: "Icelab Admin",
   active: true
 )
 

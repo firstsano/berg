@@ -22,7 +22,7 @@ RSpec.feature "Admin / Posts / Create", js: true do
     find("#body").set("Some sample content for this post")
 
     find(:xpath, "//button[contains(@class, 'selection-field')]", match: :first).trigger("click")
-    find(:xpath, "//button[contains(@class, 'selection-field__optionButton')][div='#{jane.first_name} #{jane.last_name}']").trigger("click")
+    find(:xpath, "//button[contains(@class, 'selection-field__optionButton')][div='#{jane.name}']").trigger("click")
 
     find("button", text: "Create post").trigger("click")
 
@@ -56,7 +56,7 @@ RSpec.feature "Admin / Posts / Create", js: true do
     find("input[name='post[person_id]']", visible: false).set(jane.id)
 
     find(:xpath, "//button[contains(@class, 'selection-field')]", match: :first).trigger("click")
-    find(:xpath, "//button[contains(@class, 'selection-field__optionButton')][div='#{jane.first_name} #{jane.last_name}']").trigger("click")
+    find(:xpath, "//button[contains(@class, 'selection-field__optionButton')][div='#{jane.name}']").trigger("click")
 
     find(:xpath, "//button[contains(@class, 'multi-selection-field')]").trigger("click")
     find(:xpath, "//button[contains(@class, 'multi-selection-field__optionButton')][div='My Tag']").trigger("click")

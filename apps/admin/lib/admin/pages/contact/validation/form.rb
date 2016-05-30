@@ -10,11 +10,11 @@ module Admin
             config.messages = :i18n
           end
 
-          key(:office_locations).each do
+          required(:office_locations).each do
             schema do
-              key(:name).required
-              key(:address).required
-              key(:phone_number).required
+              required(:name).filled
+              required(:address).filled
+              required(:phone_number).filled
             end
           end
         end

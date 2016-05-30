@@ -31,6 +31,7 @@ module Admin
     plugin :view
     plugin :page
     plugin :auth
+    plugin :json
 
     def name
       :admin

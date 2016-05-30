@@ -3,11 +3,7 @@ class Admin::Application < Dry::Web::Application
     r.on "presign" do
       r.post do
         r.resolve "admin.uploads.operations.presign" do |presign|
-          presign.() do |m|
-            m.success do |payload|
-              payload
-            end
-          end
+          presign.()
         end
       end
     end

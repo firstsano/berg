@@ -6,7 +6,6 @@ module Admin
   module Uploads
     module Operations
       class Presign
-        include Dry::ResultMatcher.for(:call)
 
         def call()
           uuid = SecureRandom.uuid
@@ -19,7 +18,7 @@ module Admin
             hmac: OpenSSL::HMAC.hexdigest(OpenSSL::Digest.new("sha1"), attache_secret_key, "#{uuid}#{expiration}"),
           }
 
-          Right(payload)
+          payload
         end
 
         private

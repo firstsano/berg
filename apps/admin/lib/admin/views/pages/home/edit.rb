@@ -38,6 +38,7 @@ module Admin
           end
 
           def prepare_values(featured_items)
+            # TODO
           end
         end
       end

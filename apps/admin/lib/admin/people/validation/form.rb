@@ -19,15 +19,15 @@ module Admin
           end
         end
 
-        optional(:email).filled
-        optional(:bio).filled
-        optional(:short_bio).filled
-        optional(:previous_email).maybe
-        optional(:name).filled
+        required(:email).filled
+        required(:bio).filled
+        required(:short_bio).filled
+        required(:name).filled
 
+        optional(:job_title).maybe(:str?)
+        optional(:previous_email).maybe
         optional(:avatar).maybe(:str?)
         optional(:twitter).maybe(:str?)
-        optional(:job_title).maybe(:str?)
         optional(:website).maybe(:str?)
 
         rule(email: [:email, :previous_email]) do |email, previous_email|

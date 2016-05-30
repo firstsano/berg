@@ -14,7 +14,7 @@ module Admin
             url: "#{attache_host}/upload",
             uuid: uuid,
             expiration: expiration,
-            hmac: OpenSSL::HMAC.hexdigest(OpenSSL::Digest.new("sha1"), attache_secret_key, "#{uuid}#{expiration}"),
+            hmac: OpenSSL::HMAC.hexdigest(OpenSSL::Digest.new("sha1"), attache_secret_key, "#{uuid}#{expiration}")
           }
         end
 

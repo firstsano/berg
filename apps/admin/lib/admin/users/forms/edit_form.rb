@@ -11,10 +11,9 @@ module Admin
             label: "Email",
             validation: {
               filled: true,
-              format: "/.+@.+\..+/i"
+              format: EMAIL_VALIDATION_REGEX
             }
-          text_field :first_name, label: "First name"
-          text_field :last_name, label: "Last name"
+          text_field :name, label: "Name"
           check_box :active, label: "Status", question_text: "Mark as active?"
         end
       end

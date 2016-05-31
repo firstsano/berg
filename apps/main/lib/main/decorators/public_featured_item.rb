@@ -2,7 +2,7 @@ require "berg/decorator"
 
 module Main
   module Decorators
-    class PublicHomePageFeaturedItem < Berg::Decorator
+    class PublicFeaturedItem < Berg::Decorator
       def cover_image_url
         cover_image["original_url"]
       end

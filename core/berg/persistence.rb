@@ -26,4 +26,8 @@ Berg::Container.namespace "persistence" do |container|
   container.register "commands.update_about_page_people" do
     container["persistence.rom"].command(:about_page_people)[:update]
   end
+
+  container.register "commands.update_work_page_featured_items" do
+    container["persistence.rom"].command(:work_page_featured_items)[:update]
+  end
 end

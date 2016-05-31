@@ -46,24 +46,24 @@ class Admin::Application < Dry::Web::Application
           end
         end
       end
-    end
 
-    r.on "work" do
-      r.is do
-        r.get do
-          r.view "pages.work.edit"
-        end
+      r.on "work" do
+        r.is do
+          r.get do
+            r.view "pages.work.edit"
+          end
 
-        r.post do
-          r.resolve "admin.pages.work.operations.update" do |update_work_page|
-            update_work_page.(r[:page]) do |m|
-              m.success do
-                flash[:notice] = t["admin.pages.page_updated"]
-                r.redirect "/admin"
-              end
+          r.post do
+            r.resolve "admin.pages.work.operations.update" do |update_work_page|
+              update_work_page.(r[:page]) do |m|
+                m.success do
+                  flash[:notice] = t["admin.pages.page_updated"]
+                  r.redirect "/admin"
+                end
 
-              m.failure do |validation|
-                r.view "pages.work.edit", validation: validation
+                m.failure do |validation|
+                  r.view "pages.work.edit", validation: validation
+                end
               end
             end
           end

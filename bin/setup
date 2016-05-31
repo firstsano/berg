@@ -1,23 +1,55 @@
 #!/usr/bin/env ruby
 
 require "fileutils"
+require "optparse"
+
+options = {}
+OptionParser.new do |opts|
+  opts.banner = "Usage: ./bin/setup [options]"
+
+  opts.on("-c", "--ci", "Run for CI") do |c|
+    options[:ci] = c
+  end
+
+  opts.on("-w", "--with-private-submodules", "Install assets from private submodule") do |w|
+    options[:with_submodules] = w
+  end
+end.parse!
 
 APP_ROOT = File.expand_path("../../",  __FILE__)
 
 Dir.chdir(APP_ROOT) do
-  puts "== Installing dependencies =="
-  system "bundle"
-  system "npm install"
-
   puts "== Initializing config =="
   FileUtils.cp "config/application.example.yml", "config/application.yml" unless File.exist?("config/application.yml")
 
-  puts "== Creating database =="
-  system "createdb berg_development || true"
+  puts "== Installing dependencies =="
+  system "bundle"
+  if options[:ci]
+    system "nvm install 4.4.2"
+    system "nvm use 4.4.2"
+    system "npm install -g npm"
+  end
+  system "npm install"
+
+  puts "== Creating databases =="
+  system "createdb berg_development || true" unless options[:ci]
   system "createdb berg_test || true"
 
   puts "== Migrating database =="
   system "RACK_ENV=development bundle exec rake db:migrate"
   system "RACK_ENV=test bundle exec rake db:migrate"
+
+  if options[:with_submodules]
+    system "git submodule update --init"
+  else
+    puts "== Creating asset stubs =="
+    system "mkdir -p apps/main/assets/inline-header/"
+    system "touch apps/main/assets/inline-header/index.js"
+    system "touch apps/main/assets/inline-header/target.js"
+
+    system "mkdir -p apps/main/assets/inline-footer/"
+    system "touch apps/main/assets/inline-footer/index.js"
+    system "touch apps/main/assets/inline-footer/target.js"
+  end
 end
 

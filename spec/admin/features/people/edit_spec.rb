@@ -16,7 +16,7 @@ RSpec.feature "Admin / People / Edit", js: true do
     find("nav a", text: "People").trigger("click")
 
     within "#person-#{@person.id}" do
-      find("a", text: "Edit").trigger("click")
+      find("a", text: @person.name).trigger("click")
     end
 
     find("#name").set("Ben Kenobi")
@@ -34,7 +34,7 @@ RSpec.feature "Admin / People / Edit", js: true do
     find("nav a", text: "People").trigger("click")
 
     within "#person-#{@person.id}" do
-      find("a", text: "Edit").trigger("click")
+      find("a", text: @person.name).trigger("click")
     end
 
     find("#name").set("Madona")

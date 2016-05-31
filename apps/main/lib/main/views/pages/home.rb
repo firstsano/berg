@@ -1,5 +1,6 @@
 require "main/import"
 require "main/view"
+require "main/decorators/public_home_page_featured_item"
 
 module Main
   module Views
@@ -15,7 +16,10 @@ module Main
 
         def locals(options = {})
           super.merge(
-            featured_items: home_page_featured_items.listing_by_position
+            featured_items:
+              home_page_featured_items.listing_by_position.map! do |featured_item|
+                Decorators::PublicHomePageFeaturedItem.decorate(featured_item)
+              end
           )
         end
       end

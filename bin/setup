@@ -31,7 +31,7 @@ Dir.chdir(APP_ROOT) do
   system "createdb berg_test || true"
 
   puts "== Migrating database =="
-  system "RACK_ENV=development bundle exec rake db:migrate"
+  system "RACK_ENV=development bundle exec rake db:migrate" unless options[:ci]
   system "RACK_ENV=test bundle exec rake db:migrate"
 
   if options[:with_submodules]

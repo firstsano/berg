@@ -3,6 +3,7 @@ ul
     li
       img src= person.avatar_url(250)
       p= person.name
-      p= person.job_title_text
+      p= person.job_title
       p= person.bio
-      a href="http://twitter.com/#{person.twitter_username}"
+      p= person.website
+      a href="http://twitter.com/#{person.twitter}"

@@ -9,9 +9,9 @@ module Admin
       attribute :bio, Types::Strict::String
       attribute :short_bio, Types::Strict::String
       attribute :avatar, Types::Form::Hash
-      attribute :job_title, Types::Maybe::Strict::String
-      attribute :twitter, Types::Maybe::Strict::String
-      attribute :website, Types::Maybe::Strict::String
+      attribute :job_title, Types::Strict::String.optional
+      attribute :twitter, Types::Strict::String.optional
+      attribute :website, Types::Strict::String.optional
     end
   end
 end

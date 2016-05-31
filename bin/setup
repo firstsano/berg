@@ -24,11 +24,6 @@ Dir.chdir(APP_ROOT) do
 
   puts "== Installing dependencies =="
   system "bundle"
-  if options[:ci]
-    system "nvm install 4.4.2"
-    system "nvm use 4.4.2"
-    system "npm install -g npm"
-  end
   system "npm install"
 
   puts "== Creating databases =="

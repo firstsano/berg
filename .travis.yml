@@ -24,6 +24,9 @@ before_install:
 - "phantomjs --version"
 before_script:
 - cp ./config/application.travisci.yml ./config/application.yml
+- nvm install 4.4.2
+- nvm use 4.4.2
+- npm install -g npm
 - ./bin/setup --ci
 script:
 - bundle exec rake assets:precompile

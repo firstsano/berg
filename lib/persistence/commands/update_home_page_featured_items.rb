@@ -7,7 +7,7 @@ module Persistence
 
       def execute(tuple)
         if tuple[:home_page_featured_items]
-          home_page_featured_items.delete
+          relation.delete
 
           home_page_featured_items_tuples = tuple[:home_page_featured_items].each_with_index.map do |item, position|
             {
@@ -19,14 +19,8 @@ module Persistence
             }
           end
 
-          home_page_featured_items.multi_insert(home_page_featured_items_tuples)
+          relation.multi_insert(home_page_featured_items_tuples)
         end
-      end
-
-      private
-
-      def home_page_featured_items
-        relation.home_page_featured_items
       end
     end
   end

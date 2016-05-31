@@ -9,7 +9,6 @@ module Admin
         def listing_by_position
           home_page_featured_items
             .order(:position)
-            .to_a
         end
       end
     end

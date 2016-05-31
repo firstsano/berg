@@ -16,7 +16,7 @@ module Admin
             validation = Validation::Form.(attributes)
 
             if validation.success?
-              home_page_featured_items = update_home_page_featured_items.(validation.output)
+              home_page_featured_items = update_home_page_featured_items.(validation.to_h)
               Right(home_page_featured_items)
             else
               Left(validation)

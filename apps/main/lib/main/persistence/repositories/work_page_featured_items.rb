@@ -9,6 +9,7 @@ module Main
         def listing_by_position
           work_page_featured_items
             .order(:position)
+            .to_a
         end
       end
     end

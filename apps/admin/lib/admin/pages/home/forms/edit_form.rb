@@ -27,7 +27,6 @@ module Admin
                   label: "Description"
 
                 text_field :url,
-                  placeholder: "The full path - e.g. http://icelab.com.au/notes/my-past-and-future-ruby",
                   label: "URL"
 
                 upload_field :cover_image,

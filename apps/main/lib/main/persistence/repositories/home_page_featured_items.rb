@@ -6,7 +6,7 @@ module Main
       class HomePageFeaturedItems < Berg::Repository[:home_page_featured_items]
         relations :home_page_featured_items
 
-        def listing_by_position
+        def listing
           home_page_featured_items
             .order(:position)
             .to_a

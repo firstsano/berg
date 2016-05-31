@@ -17,7 +17,7 @@ module Main
         def locals(options = {})
           super.merge(
             featured_items:
-              home_page_featured_items.listing_by_position.map! do |featured_item|
+              home_page_featured_items.listing.map! do |featured_item|
                 Decorators::PublicHomePageFeaturedItem.decorate(featured_item)
               end
           )

@@ -32,7 +32,7 @@ module Admin
                 upload_field :cover_image,
                   label: "Cover Image",
                   hint: "A cover image for this item",
-                  presign_url: "#{Berg::Container["config"].canonical_domain}/admin/uploads/presign"
+                  presign_url: "/admin/uploads/presign"
                 end
           end
         end

@@ -30,8 +30,8 @@ module Admin
             presign_url: "#{Berg::Container["config"].canonical_domain}/admin/uploads/presign"
 
           group label: "Social" do
-            text_field :website, label: "Website", placeholder: "http://foo.com", hint: "(optional)"
-            text_field :twitter, label: "Twitter", placeholder: "http://twitter.com/username", hint: "(optional)"
+            text_field :website, label: "Website URL", placeholder: "http://icelab.com.au", hint: "(optional)"
+            text_field :twitter, label: "Twitter Username", placeholder: "icelab", hint: "(optional)"
           end
         end
       end

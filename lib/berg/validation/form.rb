@@ -12,6 +12,10 @@ module Berg
       def email?(input)
         EMAIL_REGEX.match(input).size > 0
       end
+
+      def uri?(input)
+        ! URI.regexp.match(input).nil?
+      end
     end
 
     def self.Form(&block)

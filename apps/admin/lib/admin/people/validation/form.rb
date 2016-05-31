@@ -40,7 +40,7 @@ module Admin
           end
         end
         optional(:twitter).maybe(:str?)
-        optional(:website).maybe(:str?)
+        optional(:website).maybe(:uri?)
 
         rule(email: [:email, :previous_email]) do |email, previous_email|
           email.not_eql?(previous_email).then(email.email_unique?)

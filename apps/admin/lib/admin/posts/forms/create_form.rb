@@ -5,7 +5,7 @@ module Admin
     module Forms
       class CreateForm < Berg::Form
         include Admin::Import[
-          "admin.persistence.repositories.users",
+          "admin.persistence.repositories.people",
           "admin.persistence.repositories.categories"
         ]
 
@@ -18,7 +18,7 @@ module Admin
             end
             group do
               text_area :teaser, label: "Teaser"
-              selection_field :author_id, label: "Author", options: dep(:author_list)
+              selection_field :person_id, label: "Author", options: dep(:author_list)
             end
 
             text_area :body, label: "Body"
@@ -31,7 +31,7 @@ module Admin
         end
 
         def author_list
-          users.listing.map { |user| { id: user.id, label: user.full_name } }
+          people.all_people.map { |person| { id: person.id, label: person.name } }
         end
 
         def categories_list

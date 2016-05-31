@@ -9,11 +9,11 @@ module Persistence
         attribute :slug, Types::String
         attribute :color, Types::String
         attribute :status, Types::String
-        attribute :author_id, Types::ForeignKey(:users)
+        attribute :person_id, Types::ForeignKey(:people)
         attribute :published_at, Types::Time
 
         associate do
-          belongs :author, relation: :users
+          belongs :author, relation: :people
           many :categories, through: :categorisations
         end
       end
@@ -35,6 +35,12 @@ module Persistence
 
       def published
         where(status: "published")
+      end
+
+      def for_category(category_id)
+        select(*columns.map {|c| :"posts__#{c}" })
+          .inner_join(:categorisations, post_id: :posts__id)
+          .where(category_id: category_id)
       end
     end
   end

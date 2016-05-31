@@ -10,6 +10,8 @@ cache:
     - vendor/bundle
     - node_modules
     - travis_phantomjs
+git:
+  submodules: false
 before_install:
 - export DISPLAY=:99.0
 - sh -e /etc/init.d/xvfb start
@@ -21,15 +23,13 @@ before_install:
 - "if [ $(phantomjs --version) != '2.1.1' ]; then tar -xvf $PWD/travis_phantomjs/phantomjs-2.1.1-linux-x86_64.tar.bz2 -C $PWD/travis_phantomjs; fi"
 - "phantomjs --version"
 before_script:
-- psql -c 'create database berg_test;' -U postgres
 - cp ./config/application.travisci.yml ./config/application.yml
 - nvm install 4.4.2
 - nvm use 4.4.2
 - npm install -g npm
-- npm install
+- ./bin/setup --ci
 script:
 - bundle exec rake assets:precompile
-- bundle exec rake db:migrate
 - bundle exec rake spec
 notifications:
   email: false
@@ -37,4 +37,4 @@ notifications:
     on_success: change
     on_failure: change
     rooms:
-      - icelab:6dXO9CHlWw9h4xhLSlGr9Hhv
+      secure: jiWKX7LdupH0eLEqLcPwQBIPWe0RtjGNcUROxgfA62j31Bzk0jU1SmXO3P4AzP/e4GXJAPUDpFqba+29uvaiN86HIWQM995DHqR0xxndDz7e1PcfH4kJHbzrtOdxkX76peg/wM5kiNVkXIOfUFJhFKXQwjDwJDNiuSFpt7ZTou13gjbHIiPZx3r+I2btEe0T/ugfLd9t4eYKPKgVBgiuMIS2zTkRkrdW5tF2258osYyIeRaFoGoyps458Qlew525pxoVShqRWDhhCh1/juVThSLZvcPhah7dhoULeXIvyheQCJOVv+0UxnRU42RcrstJavpzbXOBSRdkVOAR859kzRC6VPJJKqDr46WWFTRRLNhA2nCNjnJuqi6X0KoPsf/xr71Pj797V0FJAOJB3xJLYxDQlLd2Y7ozXfNVV95W8XTTs8c+25ULdwMAg0nO3hevzs3i0G/PKCmA5GNQlJirefQZ88GF4TsbQ4Im1Q+IqITMWENsIdx4/Yry3okfOBvC/7rhPTJE73dgpAaQ64CcUaR1KSzeW4KPtOVKQNAQqCbJXMOERoW+An6gU6vjT5PBX3Ve9Toc9BHtJaS6PvB5GKfmGvUqPmTtZigg8TM80epFAa3Ho/g0xzLw21HOXS2Kr5jk2N5aI1QkUbFtJln2we03pr8GPfoZDnU1TsN4s/I=

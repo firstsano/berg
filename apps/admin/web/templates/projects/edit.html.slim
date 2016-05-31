@@ -6,8 +6,6 @@ p.link-children
     ' /
     h1.h-1 = "Editing ‘#{project.title}’"
 
-.tabs
-  span.tab.tab--active Edit project
 .panel
   .panel__primary
     form action="/admin/projects/#{project.slug}" method="post"

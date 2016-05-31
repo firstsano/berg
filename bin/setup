@@ -20,11 +20,7 @@ APP_ROOT = File.expand_path("../../",  __FILE__)
 
 Dir.chdir(APP_ROOT) do
   puts "== Initializing config =="
-  if options[:ci]
-    FileUtils.cp "config/application.travisci.yml", "config/application.yml" unless File.exist?("config/application.yml")
-  else
-    FileUtils.cp "config/application.example.yml", "config/application.yml" unless File.exist?("config/application.yml")
-  end
+  FileUtils.cp "config/application.example.yml", "config/application.yml" unless File.exist?("config/application.yml")
 
   puts "== Installing dependencies =="
   system "bundle"

@@ -28,7 +28,7 @@ class Admin::Application < Dry::Web::Application
     r.on "work" do
       r.is do
         r.get do
-          r.view "pages.about.work"
+          r.view "pages.work.edit"
         end
 
         r.post do

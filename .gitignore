@@ -15,3 +15,6 @@ apps/main/assets
 # Node
 /node_modules
 /npm-debug.log
+
+# byebug history
+/.byebug_history

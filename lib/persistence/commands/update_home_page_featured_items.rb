@@ -15,7 +15,7 @@ module Persistence
               title: item[:title],
               description: item[:description],
               url: item[:url],
-              cover_image: item[:cover_image]
+              cover_image: Sequel.pg_json(item[:cover_image])
             }
           end
 

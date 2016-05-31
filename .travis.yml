@@ -24,7 +24,6 @@ before_install:
 - "phantomjs --version"
 before_script:
 - ./bin/setup --ci
-- cp ./config/application.travisci.yml ./config/application.yml
 script:
 - bundle exec rake assets:precompile
 - bundle exec rake spec

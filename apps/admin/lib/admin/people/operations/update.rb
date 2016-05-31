@@ -2,6 +2,7 @@ require "admin/import"
 require "admin/entities/person"
 require "admin/people/validation/form"
 require "kleisli"
+require "sequel"
 
 module Admin
   module People
@@ -29,7 +30,8 @@ module Admin
 
         def prepare_attributes(attributes)
           attributes.merge(
-            previous_email: attributes["email"]
+            previous_email: attributes["email"],
+            avatar: Sequel.pg_json(attributes["avatar"])
           )
         end
       end

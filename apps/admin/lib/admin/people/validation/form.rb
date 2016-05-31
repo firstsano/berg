@@ -26,7 +26,7 @@ module Admin
 
         optional(:job_title).maybe(:str?)
         optional(:previous_email).maybe
-        optional(:avatar).maybe(:hash?)
+        optional(:avatar).filled
         optional(:twitter).maybe(:str?)
         optional(:website).maybe(:str?)
 

@@ -38,7 +38,7 @@ module Admin
 
         def prepare_values(person)
           person.to_h.merge(
-            avatar: person.avatar.value,
+            avatar: person.avatar,
             twitter: person.twitter.value,
             website: person.website.value,
             job_title: person.job_title.value

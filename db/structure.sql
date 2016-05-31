@@ -167,6 +167,38 @@ ALTER SEQUENCE home_page_featured_items_id_seq OWNED BY home_page_featured_items
 
 
 --
+-- Name: office_contact_details; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE office_contact_details (
+    id integer NOT NULL,
+    "position" integer NOT NULL,
+    name text NOT NULL,
+    address text NOT NULL,
+    phone_number text NOT NULL
+);
+
+
+--
+-- Name: office_contact_details_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE office_contact_details_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: office_contact_details_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE office_contact_details_id_seq OWNED BY office_contact_details.id;
+
+
+--
 -- Name: people; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -176,7 +208,7 @@ CREATE TABLE people (
     email text NOT NULL,
     bio text NOT NULL,
     website text,
-    avatar text,
+    avatar json,
     job_title text,
     created_at timestamp without time zone DEFAULT now() NOT NULL,
     updated_at timestamp without time zone DEFAULT now() NOT NULL,
@@ -406,6 +438,13 @@ ALTER TABLE ONLY home_page_featured_items ALTER COLUMN id SET DEFAULT nextval('h
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
+ALTER TABLE ONLY office_contact_details ALTER COLUMN id SET DEFAULT nextval('office_contact_details_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
 ALTER TABLE ONLY people ALTER COLUMN id SET DEFAULT nextval('people_id_seq'::regclass);
 
 
@@ -467,6 +506,14 @@ ALTER TABLE ONLY categorisations
 
 ALTER TABLE ONLY home_page_featured_items
     ADD CONSTRAINT home_page_featured_items_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: office_contact_details_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY office_contact_details
+    ADD CONSTRAINT office_contact_details_pkey PRIMARY KEY (id);
 
 
 --

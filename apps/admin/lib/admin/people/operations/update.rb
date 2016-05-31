@@ -16,9 +16,9 @@ module Admin
 
         def call(id, attributes)
           validation = Validation::Form.(prepare_attributes(attributes))
-          # raise validation.output.inspect
+
           if validation.success?
-            people.update(id, validation.output)
+            people.update(id, validation.to_h)
             Right(people[id])
           else
             Left(validation)

@@ -1,5 +1,6 @@
 ul
-- featured_items.each do |featured_item|
-  li = featured_item.title
-  li = featured_item.cover_image_url
- 
+  - featured_items.each do |featured_item|
+    li
+      p = featured_item.title
+      p = featured_item.description
+      p = featured_item.cover_image_url

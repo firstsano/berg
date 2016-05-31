@@ -20,12 +20,15 @@ APP_ROOT = File.expand_path("../../",  __FILE__)
 
 Dir.chdir(APP_ROOT) do
   puts "== Initializing config =="
-  FileUtils.cp "config/application.example.yml", "config/application.yml" unless File.exist?("config/application.yml")
+  if options[:ci]
+    FileUtils.cp "config/application.travis.yml", "config/application.yml" unless File.exist?("config/application.yml")
+  else
+    FileUtils.cp "config/application.example.yml", "config/application.yml" unless File.exist?("config/application.yml")
+  end
 
   puts "== Installing dependencies =="
   system "bundle"
   if options[:ci]
-    FileUtils.cp "config/application.travis.yml", "config/application.yml" unless File.exist?("config/application.yml")
     system "nvm install 4.4.2"
     system "nvm use 4.4.2"
     system "npm install -g npm"

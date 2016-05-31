@@ -48,29 +48,9 @@ SET default_with_oids = false;
 --
 
 CREATE TABLE about_page_people (
-    id integer NOT NULL,
     "position" integer NOT NULL,
     person_id integer NOT NULL
 );
-
-
---
--- Name: about_page_people_id_seq; Type: SEQUENCE; Schema: public; Owner: -
---
-
-CREATE SEQUENCE about_page_people_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
---
--- Name: about_page_people_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
---
-
-ALTER SEQUENCE about_page_people_id_seq OWNED BY about_page_people.id;
 
 
 --
@@ -134,71 +114,6 @@ ALTER SEQUENCE categorisations_id_seq OWNED BY categorisations.id;
 
 
 --
--- Name: home_page_featured_items; Type: TABLE; Schema: public; Owner: -; Tablespace: 
---
-
-CREATE TABLE home_page_featured_items (
-    id integer NOT NULL,
-    "position" integer NOT NULL,
-    title text NOT NULL,
-    description text NOT NULL,
-    url text NOT NULL,
-    image_id text NOT NULL
-);
-
-
---
--- Name: home_page_featured_items_id_seq; Type: SEQUENCE; Schema: public; Owner: -
---
-
-CREATE SEQUENCE home_page_featured_items_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
---
--- Name: home_page_featured_items_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
---
-
-ALTER SEQUENCE home_page_featured_items_id_seq OWNED BY home_page_featured_items.id;
-
-
---
--- Name: office_contact_details; Type: TABLE; Schema: public; Owner: -; Tablespace: 
---
-
-CREATE TABLE office_contact_details (
-    id integer NOT NULL,
-    "position" integer NOT NULL,
-    name text NOT NULL,
-    address text NOT NULL,
-    phone_number text NOT NULL
-);
-
-
---
--- Name: office_contact_details_id_seq; Type: SEQUENCE; Schema: public; Owner: -
---
-
-CREATE SEQUENCE office_contact_details_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
---
--- Name: office_contact_details_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
---
-
-ALTER SEQUENCE office_contact_details_id_seq OWNED BY office_contact_details.id;
-
-
---
 -- Name: people; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -250,8 +165,7 @@ CREATE TABLE posts (
     published_at timestamp without time zone,
     created_at timestamp without time zone DEFAULT now() NOT NULL,
     updated_at timestamp without time zone DEFAULT now() NOT NULL,
-    teaser text DEFAULT ''::text NOT NULL,
-    color text DEFAULT ''::text NOT NULL
+    teaser text DEFAULT ''::text NOT NULL
 );
 
 
@@ -378,12 +292,7 @@ CREATE TABLE users (
     access_token_expiration timestamp without time zone NOT NULL,
     active boolean DEFAULT true NOT NULL,
     created_at timestamp without time zone DEFAULT now() NOT NULL,
-    updated_at timestamp without time zone DEFAULT now() NOT NULL,
-    bio text DEFAULT ''::text,
-    website text DEFAULT ''::text,
-    twitter text DEFAULT ''::text,
-    job_title text DEFAULT ''::text,
-    short_bio text DEFAULT ''::text
+    updated_at timestamp without time zone DEFAULT now() NOT NULL
 );
 
 
@@ -410,13 +319,6 @@ ALTER SEQUENCE users_id_seq OWNED BY users.id;
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY about_page_people ALTER COLUMN id SET DEFAULT nextval('about_page_people_id_seq'::regclass);
-
-
---
--- Name: id; Type: DEFAULT; Schema: public; Owner: -
---
-
 ALTER TABLE ONLY categories ALTER COLUMN id SET DEFAULT nextval('categories_id_seq'::regclass);
 
 
@@ -425,20 +327,6 @@ ALTER TABLE ONLY categories ALTER COLUMN id SET DEFAULT nextval('categories_id_s
 --
 
 ALTER TABLE ONLY categorisations ALTER COLUMN id SET DEFAULT nextval('categorisations_id_seq'::regclass);
-
-
---
--- Name: id; Type: DEFAULT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY home_page_featured_items ALTER COLUMN id SET DEFAULT nextval('home_page_featured_items_id_seq'::regclass);
-
-
---
--- Name: id; Type: DEFAULT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY office_contact_details ALTER COLUMN id SET DEFAULT nextval('office_contact_details_id_seq'::regclass);
 
 
 --
@@ -477,14 +365,6 @@ ALTER TABLE ONLY users ALTER COLUMN id SET DEFAULT nextval('users_id_seq'::regcl
 
 
 --
--- Name: about_page_people_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
---
-
-ALTER TABLE ONLY about_page_people
-    ADD CONSTRAINT about_page_people_pkey PRIMARY KEY (id);
-
-
---
 -- Name: categories_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -498,22 +378,6 @@ ALTER TABLE ONLY categories
 
 ALTER TABLE ONLY categorisations
     ADD CONSTRAINT categorisations_pkey PRIMARY KEY (id);
-
-
---
--- Name: home_page_featured_items_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
---
-
-ALTER TABLE ONLY home_page_featured_items
-    ADD CONSTRAINT home_page_featured_items_pkey PRIMARY KEY (id);
-
-
---
--- Name: office_contact_details_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
---
-
-ALTER TABLE ONLY office_contact_details
-    ADD CONSTRAINT office_contact_details_pkey PRIMARY KEY (id);
 
 
 --

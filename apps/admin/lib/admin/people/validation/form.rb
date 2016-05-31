@@ -26,7 +26,23 @@ module Admin
 
         optional(:job_title).maybe(:str?)
         optional(:previous_email).maybe
-        optional(:avatar).filled
+        optional(:avatar).schema do
+          optional(:original_url).maybe(:str?)
+          optional(:file_name).maybe(:str?)
+          optional(:path).maybe(:str?)
+          optional(:uid).maybe(:str?)
+          optional(:geometry).maybe(:str?)
+          optional(:type).maybe(:str?)
+
+          # without these the preview seems to fail — might need to update formalist though
+          optional(:lastModifiedDate).maybe(:str?)
+          optional(:progress).maybe(:str?)
+          optional(:uploadURL).maybe(:str?)
+
+          optional(:file).schema do
+            optional(:preview).maybe(:str?)
+          end
+        end
         optional(:twitter).maybe(:str?)
         optional(:website).maybe(:str?)
 

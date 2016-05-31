@@ -1,16 +1,13 @@
 require "admin/import"
-require "admin/entities/person"
 require "admin/people/validation/form"
 require "kleisli"
-require "sequel"
 
 module Admin
   module People
     module Operations
       class Update
         include Admin::Import(
-          "admin.persistence.repositories.people",
-          "core.authentication.encrypt_password"
+          "admin.persistence.repositories.people"
         )
 
         include Dry::ResultMatcher.for(:call)
@@ -19,7 +16,7 @@ module Admin
           validation = Validation::Form.(prepare_attributes(attributes))
 
           if validation.success?
-            people.update(id, validation.to_h)
+            people.update(id, prepare_avatar(validation.to_h))
             Right(people[id])
           else
             Left(validation)
@@ -31,7 +28,13 @@ module Admin
         def prepare_attributes(attributes)
           attributes.merge(
             previous_email: attributes["email"],
-            avatar: Sequel.pg_json(attributes["avatar"])
+            avatar: attributes["avatar"]
+          )
+        end
+
+        def prepare_avatar(attributes)
+          attributes.merge(
+            avatar: attributes[:avatar].to_json
           )
         end
       end

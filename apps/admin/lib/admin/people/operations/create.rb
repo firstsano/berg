@@ -19,11 +19,19 @@ module Admin
           validation = Validation::Form.(attributes)
 
           if validation.success?
-            person = Entities::Person.new(people.create(validation.output))
+            person = Entities::Person.new(people.create(prepare_attributes(validation.output)))
             Right(person)
           else
             Left(validation)
           end
+        end
+
+        private
+
+        def prepare_attributes(attributes)
+          attributes.merge(
+            avatar: attributes[:avatar].to_json
+          )
         end
       end
     end

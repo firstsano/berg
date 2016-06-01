@@ -9,7 +9,7 @@ module Persistence
         attribute :short_bio, Types::Strict::String
         attribute :twitter_handle, Types::Strict::String.optional
         attribute :website_url, Types::Strict::String.optional
-        attribute :avatar_image, Types::Form::Hash
+        attribute :avatar_image, ROM::SQL::Types::JSON
         attribute :job_title, Types::Strict::String.optional
       end
 

@@ -7,12 +7,13 @@ module Persistence
         attribute :teaser, Types::String
         attribute :body, Types::String
         attribute :slug, Types::String
+        attribute :color, Types::String
         attribute :status, Types::String
-        attribute :author_id, Types::ForeignKey(:users)
+        attribute :person_id, Types::ForeignKey(:people)
         attribute :published_at, Types::Time
 
         associate do
-          belongs :author, relation: :users
+          belongs :author, relation: :people
           many :categories, through: :categorisations
         end
       end

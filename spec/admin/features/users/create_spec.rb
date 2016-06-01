@@ -13,8 +13,7 @@ RSpec.feature "Admin / Users / Create", js: true do
     find("a", text: "Add a user").trigger("click")
 
     find("#email").set("jade@doe.org")
-    find("#first_name").set("Jade")
-    find("#last_name").set("Doe")
+    find("#name").set("Jade")
     check("active")
 
     find("button", text: "Create user").trigger("click")
@@ -30,8 +29,7 @@ RSpec.feature "Admin / Users / Create", js: true do
     find("a", text: "Add a user").trigger("click")
 
     find("#email").set("")
-    find("#first_name").set("Jade")
-    find("#last_name").set("Doe")
+    find("#name").set("Jade")
     check("active")
 
     find("button", text: "Create user").trigger("click")

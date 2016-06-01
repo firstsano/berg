@@ -1,12 +1,12 @@
 h1== post.title
-p== "By #{post.author.full_name} &middot; #{post.published_date}"
+p== "By #{post.author.name} &middot; #{post.published_date}"
 
 div.post
   == post.body_html
 
 div.author-details
   h3 Author
-  == post.author.full_name
+  == post.author.name
   / == post.author.avatar
   / == post.author.short_bio
 

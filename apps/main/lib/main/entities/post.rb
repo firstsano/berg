@@ -1,5 +1,5 @@
 require "types"
-require "main/entities/user"
+require "main/entities/person"
 require "main/entities/category"
 
 module Main
@@ -13,15 +13,16 @@ module Main
       attribute :teaser, Types::Strict::String
       attribute :slug, Types::Strict::String
       attribute :status, Status
-      attribute :author_id, Types::Strict::Int
+      attribute :person_id, Types::Strict::Int
       attribute :published_at, Types::Strict::Time
+      attribute :color, Types::PostHighlightColor
 
       class WithAuthor < Post
-        attribute :author, Entities::User
+        attribute :author, Entities::Person
       end
 
       class WithAuthorAndCategories < Post
-        attribute :author, Entities::User
+        attribute :author, Entities::Person
         attribute :categories, Types::Strict::Array.member(Entities::Category)
       end
     end

@@ -37,7 +37,7 @@ CREATE FUNCTION set_updated_at_column() RETURNS trigger
     LANGUAGE plpgsql
     AS $$
       BEGIN
-        NEW.updated_at = CURRENT_TIMESTAMP;
+        NEW.updated_at = Sequel.lit("(now() at time zone 'utc')");
         RETURN NEW;
       END;
       $$;
@@ -194,8 +194,8 @@ CREATE TABLE people (
     website text,
     avatar text,
     job_title text,
-    created_at timestamp without time zone DEFAULT now() NOT NULL,
-    updated_at timestamp without time zone DEFAULT now() NOT NULL,
+    created_at timestamp without time zone DEFAULT timezone('utc'::text, now()) NOT NULL,
+    updated_at timestamp without time zone DEFAULT timezone('utc'::text, now()) NOT NULL,
     short_bio text DEFAULT ''::text NOT NULL,
     name text DEFAULT ''::text NOT NULL
 );
@@ -232,8 +232,8 @@ CREATE TABLE posts (
     status text DEFAULT 'draft'::text,
     person_id integer NOT NULL,
     published_at timestamp without time zone,
-    created_at timestamp without time zone DEFAULT now() NOT NULL,
-    updated_at timestamp without time zone DEFAULT now() NOT NULL,
+    created_at timestamp without time zone DEFAULT timezone('utc'::text, now()) NOT NULL,
+    updated_at timestamp without time zone DEFAULT timezone('utc'::text, now()) NOT NULL,
     teaser text DEFAULT ''::text NOT NULL,
     color text DEFAULT ''::text NOT NULL
 );
@@ -273,8 +273,8 @@ CREATE TABLE projects (
     slug text NOT NULL,
     status text DEFAULT 'draft'::text,
     published_at timestamp without time zone,
-    created_at timestamp without time zone DEFAULT now() NOT NULL,
-    updated_at timestamp without time zone DEFAULT now() NOT NULL,
+    created_at timestamp without time zone DEFAULT timezone('utc'::text, now()) NOT NULL,
+    updated_at timestamp without time zone DEFAULT timezone('utc'::text, now()) NOT NULL,
     case_study boolean DEFAULT false NOT NULL
 );
 
@@ -360,8 +360,8 @@ CREATE TABLE users (
     access_token text NOT NULL,
     access_token_expiration timestamp without time zone NOT NULL,
     active boolean DEFAULT true NOT NULL,
-    created_at timestamp without time zone DEFAULT now() NOT NULL,
-    updated_at timestamp without time zone DEFAULT now() NOT NULL,
+    created_at timestamp without time zone DEFAULT timezone('utc'::text, now()) NOT NULL,
+    updated_at timestamp without time zone DEFAULT timezone('utc'::text, now()) NOT NULL,
     name text DEFAULT ''::text NOT NULL
 );
 

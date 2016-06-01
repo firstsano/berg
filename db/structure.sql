@@ -37,7 +37,7 @@ CREATE FUNCTION set_updated_at_column() RETURNS trigger
     LANGUAGE plpgsql
     AS $$
       BEGIN
-        NEW.updated_at = Sequel.lit("(now() at time zone 'utc')");
+        NEW.updated_at = CURRENT_TIMESTAMP;
         RETURN NEW;
       END;
       $$;

@@ -15,8 +15,7 @@ module Admin
             many :work_page_featured_items,
               label: "Featured Items",
               action_label: "Add a featured item",
-              placeholder: "No featured items added yet.",
-              validation: {} do
+              placeholder: "No featured items added yet." do
                 text_field :title,
                   label: "Title"
 
@@ -29,7 +28,7 @@ module Admin
                 upload_field :cover_image,
                   label: "Cover Image",
                   hint: "A cover image for this item",
-                  presign_url: "#{Berg::Container["config"].canonical_domain}/admin/uploads/presign"
+                  presign_url: "/admin/uploads/presign"
                 end
           end
         end

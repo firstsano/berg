@@ -23,6 +23,13 @@ Admin::Container.namespace "admin.persistence" do |container|
     )
   end
 
+  container.register "category_slug_uniqueness_check" do
+    Admin::Persistence::UniquenessCheck.new(
+      container["core.persistence.rom"].relation(:categories),
+      :slug
+    )
+  end
+
   container.register "post_color_picker" do
     Admin::Persistence::PostColorPicker.new(
       Types::PostHighlightColor,

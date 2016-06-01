@@ -7,7 +7,7 @@ class Admin::Application < Dry::Web::Application
             r.view "pages.about.edit"
           end
 
-          r.post do
+          r.put do
             r.resolve "admin.pages.about.operations.update" do |update_about_page|
               update_about_page.(r[:page]) do |m|
                 m.success do
@@ -30,7 +30,7 @@ class Admin::Application < Dry::Web::Application
             r.view "pages.contact.edit"
           end
 
-          r.post do
+          r.put do
             r.resolve "admin.pages.contact.operations.update" do |update_contact_page|
               update_contact_page.(r[:page]) do |m|
                 m.success do

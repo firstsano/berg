@@ -7,6 +7,7 @@ module Persistence
         attribute :teaser, Types::String
         attribute :body, Types::String
         attribute :slug, Types::String
+        attribute :color, Types::String
         attribute :status, Types::String
         attribute :person_id, Types::ForeignKey(:people)
         attribute :published_at, Types::Time

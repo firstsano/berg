@@ -45,8 +45,7 @@ end
 
 create_user(
   email: "hello@icelab.com.au",
-  first_name: "Icelab",
-  last_name: "Admin",
+  name: "Icelab Admin",
   active: true
 )
 
@@ -77,7 +76,8 @@ end
     intro: Faker::Hipster.sentence,
     body: Faker::Hipster.paragraph,
     tags: Faker::Hipster.word,
-    status: "draft"
+    status: "draft",
+    case_study: false
   )
 end
 

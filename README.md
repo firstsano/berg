@@ -25,3 +25,7 @@ Just the bare-bones steps for now:
 ```
 foreman start -f Procfile.dev
 ```
+
+### Assets
+
+The design-specifics for this site are contained in a separate Icelab-specific `berg-assets` private repo.

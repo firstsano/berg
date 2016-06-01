@@ -12,7 +12,7 @@ RSpec.feature "Admin / People / Edit", js: true do
     sign_in(jane.email, jane.password)
   end
 
-  scenario "I can edit a post, and change the slug" do
+  scenario "I can edit a person" do
     find("nav a", text: "People").trigger("click")
 
     within "#person-#{@person.id}" do

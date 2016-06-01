@@ -53,7 +53,7 @@ class Admin::Application < Dry::Web::Application
             r.view "pages.home.edit"
           end
 
-          r.post do
+          r.put do
             r.resolve "admin.pages.home.operations.update" do |update_home_page|
               update_home_page.(r[:page]) do |m|
                 m.success do
@@ -76,7 +76,7 @@ class Admin::Application < Dry::Web::Application
             r.view "pages.work.edit"
           end
 
-          r.post do
+          r.put do
             r.resolve "admin.pages.work.operations.update" do |update_work_page|
               update_work_page.(r[:page]) do |m|
                 m.success do

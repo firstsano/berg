@@ -7,8 +7,8 @@ module Main
         published_at.strftime('%d %b %Y')
       end
 
-      def decorated_author
-        Decorators::PublicPerson.decorate(author)
+      def author
+        @auhor ||= Decorators::PublicPerson.decorate(__getobj__.author)
       end
     end
   end

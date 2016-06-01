@@ -19,7 +19,7 @@ RSpec.feature "Admin / Categories / Delete", js: true do
       click_link "Delete"
     end
 
-    expect(page).to have_content("Category has been deleted")
+    expect(page).to have_content("Category has been deleted", wait: 1)
 
     expect(page).to_not have_content("Ruby")
   end
@@ -42,7 +42,7 @@ RSpec.feature "Admin / Categories / Delete", js: true do
 
     find("button", text: "Create post").trigger("click")
 
-    expect(page).to have_content("Post has been created")
+    expect(page).to have_content("Post has been created", wait: 1)
 
     find("a", text: "A sample title").trigger("click")
     expect(page).to have_content("Ruby")

@@ -38,9 +38,7 @@ def create_project(attrs)
 end
 
 def create_category(attrs)
-  if !admin["admin.persistence.repositories.categories"].by_slug(attrs[:slug])
-    admin["admin.categories.operations.create"].call(attrs).value
-  end
+  admin["admin.categories.operations.create"].call(attrs).value
 end
 
 create_user(
@@ -63,8 +61,9 @@ author = admin["admin.persistence.repositories.people"].by_email("person@icelab.
     title: Faker::Hipster.sentence,
     teaser: Faker::Hipster.sentence,
     body: Faker::Hipster.paragraph,
-    status: "draft",
-    person_id: author.id
+    status: "published",
+    person_id: author.id,
+    published_at: Time.now
   )
 end
 
@@ -88,5 +87,5 @@ end
   ios: "iOS",
   design: "Design",
   react: "React" }.each do |slug, name|
-    create_category(name: name, slug: slug)
+    create_category(name: name, slug: slug.to_s)
 end

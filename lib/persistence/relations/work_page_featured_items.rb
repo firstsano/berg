@@ -3,7 +3,7 @@ module Persistence
     class WorkPageFeaturedItems < ROM::Relation[:sql]
       schema(:work_page_featured_items) do
         attribute :id, Types::Serial
-        attribute :position, Types::Int
+        attribute :position, Types::Strict::Int
         attribute :title, Types::Strict::String
         attribute :description, Types::Strict::String
         attribute :url, Types::Strict::String

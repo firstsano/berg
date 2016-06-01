@@ -28,13 +28,13 @@ module Admin
         def prepare_attributes(attributes)
           attributes.merge(
             previous_email: attributes["email"],
-            avatar: attributes["avatar"]
+            avatar_image: attributes["avatar_image"]
           )
         end
 
         def prepare_avatar(attributes)
           attributes.merge(
-            avatar: attributes[:avatar].to_json
+            avatar_image: attributes[:avatar_image].to_json
           )
         end
       end

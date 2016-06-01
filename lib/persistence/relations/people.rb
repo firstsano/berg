@@ -7,8 +7,8 @@ module Persistence
         attribute :email, Types::Strict::String
         attribute :bio, Types::Strict::String
         attribute :short_bio, Types::Strict::String
-        attribute :twitter, Types::Strict::String.optional
-        attribute :website, Types::Strict::String.optional
+        attribute :twitter_handle, Types::Strict::String.optional
+        attribute :website_url, Types::Strict::String.optional
         attribute :avatar, Types::Form::Hash
         attribute :job_title, Types::Strict::String.optional
       end

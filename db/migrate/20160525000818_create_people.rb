@@ -4,11 +4,11 @@ ROM::SQL.migration do
       primary_key :id
       String :first_name, null: false
       String :last_name, null: false
-      String :twitter, null: true
+      String :twitter_handle, null: true
       String :email, null: false
       String :bio, null: false
-      String :website, null: true
-      String :avatar, null: true
+      String :website_url, null: true
+      String :avatar_image, null: true
       String :job_title, null: true
       DateTime :created_at, null: false, default: Sequel::CURRENT_TIMESTAMP
       DateTime :updated_at, null: false, default: Sequel::CURRENT_TIMESTAMP

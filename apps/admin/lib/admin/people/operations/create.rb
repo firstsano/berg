@@ -30,7 +30,7 @@ module Admin
 
         def prepare_attributes(attributes)
           attributes.merge(
-            avatar: attributes[:avatar].to_json
+            avatar_image: attributes[:avatar_image].to_json
           )
         end
       end

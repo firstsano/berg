@@ -119,11 +119,11 @@ ALTER SEQUENCE categorisations_id_seq OWNED BY categorisations.id;
 
 CREATE TABLE people (
     id integer NOT NULL,
-    twitter text,
+    twitter_handle text,
     email text NOT NULL,
     bio text NOT NULL,
-    website text,
-    avatar json,
+    website_url text,
+    avatar_image json,
     job_title text,
     created_at timestamp without time zone DEFAULT now() NOT NULL,
     updated_at timestamp without time zone DEFAULT now() NOT NULL,

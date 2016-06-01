@@ -26,7 +26,7 @@ module Admin
 
         required(:job_title).maybe(:str?)
         optional(:previous_email).maybe
-        required(:avatar).maybe(:hash?).schema do
+        required(:avatar_image).maybe(:hash?).schema do
           optional(:original_url).maybe(:str?)
           optional(:file_name).maybe(:str?)
           optional(:path).maybe(:str?)
@@ -35,8 +35,8 @@ module Admin
           optional(:type).maybe(:str?)
           optional(:uploadURL).maybe(:str?)
         end
-        required(:twitter).maybe(:str?)
-        required(:website).maybe(:uri?)
+        required(:twitter_handle).maybe(:str?)
+        required(:website_url).maybe(:uri?)
 
         rule(email: [:email, :previous_email]) do |email, previous_email|
           email.not_eql?(previous_email).then(email.email_unique?)

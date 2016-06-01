@@ -1,6 +1,6 @@
 require "main/import"
 require "main/view"
-require "main/decorators/public_home_page_featured_item"
+require "main/entities/home_page_featured_item"
 
 module Main
   module Views
@@ -16,7 +16,7 @@ module Main
 
         def locals(options = {})
           super.merge(
-            featured_items: Decorators::PublicHomePageFeaturedItem.decorate(home_page_featured_items.listing)
+            featured_items: home_page_featured_items.listing
           )
         end
       end

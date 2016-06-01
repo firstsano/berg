@@ -1,8 +1,15 @@
-require "berg/decorator"
+require "types"
 
 module Main
-  module Decorators
-    class PublicHomePageFeaturedItem < Berg::Decorator
+  module Entities
+    class HomePageFeaturedItem < Dry::Types::Value
+      attribute :id, Types::Strict::Int
+      attribute :position, Types::Strict::Int
+      attribute :title, Types::Strict::String
+      attribute :description, Types::Strict::String
+      attribute :url, Types::Strict::String
+      attribute :cover_image, Types::Hash
+
       def cover_image_url(size = "original")
         attache_url_for(cover_image["path"], size.to_s) if cover_image
       end

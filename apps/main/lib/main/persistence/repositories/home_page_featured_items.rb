@@ -1,4 +1,5 @@
 require "berg/repository"
+require "main/entities/home_page_featured_item"
 
 module Main
   module Persistence
@@ -9,7 +10,7 @@ module Main
         def listing
           home_page_featured_items
             .order(:position)
-            .to_a
+            .as(Entities::HomePageFeaturedItem)
         end
       end
     end

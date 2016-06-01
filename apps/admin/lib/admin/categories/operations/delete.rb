@@ -14,14 +14,6 @@ module Admin
         def call(slug)
           categories.delete(slug)
         end
-
-        private
-
-        def prepare_attributes(attributes)
-          attributes.merge(
-            slug: slugify.(attributes[:name], categories.method(:slug_exists?))
-          )
-        end
       end
     end
   end

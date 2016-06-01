@@ -48,7 +48,7 @@ class Admin::Application < Dry::Web::Application
               end
 
               m.failure do |validation|
-                r.view "categories.edit", slug: slug, category_validation: validation
+                r.view "categories.edit", slug: slug, validation: validation
               end
             end
           end

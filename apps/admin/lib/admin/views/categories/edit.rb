@@ -18,11 +18,11 @@ module Admin
         def locals(options = {})
           category = categories.by_slug(options[:slug])
 
-          category_validation = options[:category_validation]
+          validation = options[:validation]
 
           super.merge(
             category: category,
-            form: category_form(category, category_validation)
+            form: category_form(category, validation)
           )
         end
 

@@ -1,4 +1,5 @@
 require "bugsnag"
+require "rack/methodoverride"
 require "rack/csrf"
 require "dry/web/application"
 require "admin/container"
@@ -17,6 +18,7 @@ module Admin
       key: "berg.session",
       secret: Berg::Container["config"].session_secret
 
+    use Rack::MethodOverride
     use Rack::Csrf, raise: true
     use Bugsnag::Rack
 
@@ -31,6 +33,7 @@ module Admin
     plugin :view
     plugin :page
     plugin :auth
+    plugin :all_verbs
 
     def name
       :admin

@@ -50,7 +50,7 @@ class Admin::Application < Dry::Web::Application
           r.get do
             r.view "users.password", id: id
           end
-          r.post do
+          r.put do
             r.resolve "admin.users.operations.change_password" do |change_password|
               change_password.(id, r[:user]) do |m|
                 m.success do

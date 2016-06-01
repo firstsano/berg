@@ -18,7 +18,6 @@ RSpec.feature "Admin / Categories / Delete", js: true do
       click_link "Delete"
     end
 
-
     expect(page).to have_content("Category has been deleted")
 
     expect(page).to_not have_content("Ruby")

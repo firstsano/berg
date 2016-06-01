@@ -31,24 +31,24 @@ class Admin::Application < Dry::Web::Application
           r.view "categories.edit", slug: slug
         end
 
-        r.post do
-          if r["_method"] == "delete"
-            r.resolve("admin.categories.operations.delete") do |delete_category|
-              delete_category.(slug)
-              flash[:notice] = t["admin.categories.category_deleted"]
-              r.redirect '/admin/categories'
-            end
-          else
-            r.resolve "admin.categories.operations.update" do |update_category|
-              update_category.(slug, r[:category]) do |m|
-                m.success do
-                  flash[:notice] = t["admin.categories.category_updated"]
-                  r.redirect "/admin/categories"
-                end
+        r.delete do
+          r.resolve("admin.categories.operations.delete") do |delete_category|
+            delete_category.(slug)
+            flash[:notice] = t["admin.categories.category_deleted"]
+            r.redirect '/admin/categories'
+          end
+        end
 
-                m.failure do |validation|
-                  r.view "categories.edit", slug: slug, category_validation: validation
-                end
+        r.put do
+          r.resolve "admin.categories.operations.update" do |update_category|
+            update_category.(slug, r[:category]) do |m|
+              m.success do
+                flash[:notice] = t["admin.categories.category_updated"]
+                r.redirect "/admin/categories"
+              end
+
+              m.failure do |validation|
+                r.view "categories.edit", slug: slug, category_validation: validation
               end
             end
           end

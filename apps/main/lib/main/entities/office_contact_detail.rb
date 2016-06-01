@@ -1,0 +1,12 @@
+require "types"
+
+module Main
+  module Entities
+    class OfficeContactDetail < Dry::Types::Value
+      attribute :id, Types::Strict::Int
+      attribute :name, Types::Strict::String
+      attribute :address, Types::Strict::String
+      attribute :phone_number, Types::Strict::String
+    end
+  end
+end

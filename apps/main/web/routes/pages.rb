@@ -4,6 +4,10 @@ module Main
       r.view "pages.about"
     end
 
+    route "contact" do |r|
+      r.view "pages.contact"
+    end
+
     route "work" do |r|
       r.view "pages.work"
     end

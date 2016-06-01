@@ -14,6 +14,7 @@ module Admin
       attribute :status, Status
       attribute :person_id, Types::Strict::Int
       attribute :published_at, Types::Time
+      attribute :color, Types::PostHighlightColor
 
       def deleted?
         status == "deleted"

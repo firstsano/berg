@@ -31,7 +31,7 @@ class Admin::Application < Dry::Web::Application
           r.view "people.edit", id: id
         end
 
-        r.post do
+        r.put do
           r.resolve "admin.people.operations.update" do |update_person|
             update_person.(id, r[:person]) do |m|
               m.success do

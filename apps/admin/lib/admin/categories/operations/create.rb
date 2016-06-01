@@ -1,5 +1,6 @@
 require "admin/import"
-require "admin/entities/post"
+require "admin/entities/category"
+require "admin/categories/validation/form"
 require "kleisli"
 
 module Admin
@@ -14,8 +15,14 @@ module Admin
         include Dry::ResultMatcher.for(:call)
 
         def call(attributes)
-          category = Entities::Category.new(categories.create(prepare_attributes(attributes)))
-          Right(category)
+          validation = Validation::Form.(attributes)
+
+          if validation.success?
+            category = Entities::Category.new(categories.create(prepare_attributes(validation.output)))
+            Right(category)
+          else
+            Left(validation)
+          end
         end
 
         private

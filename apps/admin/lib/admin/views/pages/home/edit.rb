@@ -18,12 +18,11 @@ module Admin
 
           def locals(options = {})
             featured_items = {
-              home_page_featured_items: home_page_featured_items.listing_by_position.map(&:to_h)
+              home_page_featured_items: home_page_featured_items.listing.map(&:to_h)
             }
 
             super.merge(
-              page_form: form_data(featured_items, options[:validation]),
-              csrf_token: options[:scope].csrf_token
+              page_form: form_data(featured_items, options[:validation])
             )
           end
 

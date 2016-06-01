@@ -27,6 +27,7 @@ module Admin
 
         # Required in only the edit form
         optional(:slug).filled
+        optional(:color).filled
         optional(:previous_slug).maybe
         optional(:person_id).filled(:int?)
         optional(:post_categories).each(:int?)

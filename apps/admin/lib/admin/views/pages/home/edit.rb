@@ -22,8 +22,7 @@ module Admin
             }
 
             super.merge(
-              page_form: form_data(featured_items, options[:validation]),
-              csrf_token: options[:scope].csrf_token
+              page_form: form_data(featured_items, options[:validation])
             )
           end
 

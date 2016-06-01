@@ -15,11 +15,7 @@ module Admin
             many :home_page_featured_items,
               label: "Featured Items",
               action_label: "Add a featured item",
-              placeholder: "No featured items added yet.",
-              validation: {
-                min_size: 4,
-                max_size: 4
-              } do
+              placeholder: "No featured items added yet." do
                 text_field :title,
                   label: "Title"
 
@@ -33,7 +29,7 @@ module Admin
                   label: "Cover Image",
                   hint: "A cover image for this item",
                   presign_url: "/admin/uploads/presign"
-                end
+              end
           end
         end
       end

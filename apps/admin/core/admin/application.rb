@@ -33,6 +33,7 @@ module Admin
     plugin :view
     plugin :page
     plugin :auth
+    plugin :json
     plugin :all_verbs
 
     def name

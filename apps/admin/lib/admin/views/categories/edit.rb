@@ -1,6 +1,6 @@
 require "admin/import"
 require "admin/view"
-require "admin/categories/forms/edit_form"
+require "admin/categories/forms/form"
 
 module Admin
   module Views
@@ -8,7 +8,7 @@ module Admin
       class Edit < Admin::View
         include Admin::Import(
           "admin.persistence.repositories.categories",
-          "admin.categories.forms.edit_form",
+          "admin.categories.forms.form",
         )
 
         configure do |config|
@@ -22,7 +22,7 @@ module Admin
 
           super.merge(
             category: category,
-            category_form: category_form(category, category_validation)
+            form: category_form(category, category_validation)
           )
         end
 
@@ -30,9 +30,9 @@ module Admin
 
         def category_form(category, validation)
           if validation
-            edit_form.build(validation, validation.messages)
+            form.build(validation, validation.messages)
           else
-            edit_form.build(category)
+            form.build(category)
           end
         end
       end

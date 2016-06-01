@@ -3,7 +3,7 @@ require "berg/form"
 module Admin
   module Categories
     module Forms
-      class EditForm < Berg::Form
+      class Form < Berg::Form
         include Admin::Import["admin.persistence.repositories.categories"]
 
         prefix :category

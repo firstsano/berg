@@ -1,46 +1,28 @@
 html
   head
     meta charset="utf-8"
+    == page.metaquery_breakpoints
+    script
+      == page.assets.read("main__inline-header.js")
     title Berg
     link rel="stylesheet" type="text/css" href=page.assets["main__public.css"]
-    script type="text/javascript" src=page.assets["main__public.js"]
+    script type="text/javascript" src=page.assets["main__public.js"] async="async"
   body
     == page.flash
-    a.skip-link.skip-link--main-navigation href="#main-navigation" tabindex="1" Skip to the main navigation
-    a.skip-link.skip-link--main-content href="#main-content" tabindex="2" Skip to the content
-    .content.mx-auto#main-content role="main"
+    == page.skip_links
+    .content.mx-auto
       .content__inner
         .masthead.flex-y-center
           h1.masthead__logo
             a.masthead__logo-anchor.flex-y-center href="#"
               span.masthead__logo-berg.mr-small
               | Icelab
-          ul.nav-main.fl-right#main-navigation role="navigation"
-            li.nav-main__item
-              a.nav-main__anchor.nav-main__anchor--active href="#" Work
-            li.nav-main__item
-              a.nav-main__anchor href="#" About
-            li.nav-main__item
-              a.nav-main__anchor href="#" Notes
-            li.nav-main__item
-              a.nav-main__anchor href="#" Get in touch
-        == yield
-      .get-in-touch.t-center
-        p Work with us, we&rsquo;re good people
-    .footer role="contentinfo"
-      .footer__inner.mx-auto.clearfix
-        .footer__address.fl-left
-          | Canberra
-        .footer__address.fl-left
-          | Melbourne
-        .footer__contact.fl-left
-          | Get in touch
-        ul.nav-footer.fl-right role="navigation"
-          li.nav-footer__item
-            a.nav-footer__anchor.nav-footer__anchor--active href="#" Work
-          li.nav-footer__item
-            a.nav-footer__anchor href="#" About
-          li.nav-footer__item
-            a.nav-footer__anchor href="#" Notes
-          li.nav-footer__item
-            a.nav-footer__anchor href="#" Get in touch
+          == page.nav_main
+        .main-content#main-content role="main"
+          == yield
+      a.get-in-touch.t-center.clearfix.d-flex.flex-x-center href=""
+        span.get-in-touch__text Work with us, we&rsquo;re good people
+        span.get-in-touch__button.button Get in touch
+    == page.footer
+    script
+      == page.assets.read("main__inline-footer.js")

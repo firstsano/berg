@@ -44,6 +44,16 @@ SET default_tablespace = '';
 SET default_with_oids = false;
 
 --
+-- Name: about_page_people; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE about_page_people (
+    "position" integer NOT NULL,
+    person_id integer NOT NULL
+);
+
+
+--
 -- Name: categories; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -104,6 +114,76 @@ ALTER SEQUENCE categorisations_id_seq OWNED BY categorisations.id;
 
 
 --
+-- Name: office_contact_details; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE office_contact_details (
+    id integer NOT NULL,
+    "position" integer NOT NULL,
+    name text NOT NULL,
+    address text NOT NULL,
+    phone_number text NOT NULL
+);
+
+
+--
+-- Name: office_contact_details_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE office_contact_details_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: office_contact_details_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE office_contact_details_id_seq OWNED BY office_contact_details.id;
+
+
+--
+-- Name: people; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE people (
+    id integer NOT NULL,
+    twitter text,
+    email text NOT NULL,
+    bio text NOT NULL,
+    website text,
+    avatar text,
+    job_title text,
+    created_at timestamp without time zone DEFAULT now() NOT NULL,
+    updated_at timestamp without time zone DEFAULT now() NOT NULL,
+    short_bio text DEFAULT ''::text NOT NULL,
+    name text DEFAULT ''::text NOT NULL
+);
+
+
+--
+-- Name: people_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE people_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: people_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE people_id_seq OWNED BY people.id;
+
+
+--
 -- Name: posts; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -113,11 +193,12 @@ CREATE TABLE posts (
     body text NOT NULL,
     slug text,
     status text DEFAULT 'draft'::text,
-    author_id integer NOT NULL,
+    person_id integer NOT NULL,
     published_at timestamp without time zone,
     created_at timestamp without time zone DEFAULT now() NOT NULL,
     updated_at timestamp without time zone DEFAULT now() NOT NULL,
-    teaser text DEFAULT ''::text NOT NULL
+    teaser text DEFAULT ''::text NOT NULL,
+    color text DEFAULT ''::text NOT NULL
 );
 
 
@@ -138,6 +219,46 @@ CREATE SEQUENCE posts_id_seq
 --
 
 ALTER SEQUENCE posts_id_seq OWNED BY posts.id;
+
+
+--
+-- Name: projects; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE projects (
+    id integer NOT NULL,
+    title text NOT NULL,
+    client text NOT NULL,
+    url text NOT NULL,
+    intro text NOT NULL,
+    body text,
+    tags text NOT NULL,
+    slug text NOT NULL,
+    status text DEFAULT 'draft'::text,
+    published_at timestamp without time zone,
+    created_at timestamp without time zone DEFAULT now() NOT NULL,
+    updated_at timestamp without time zone DEFAULT now() NOT NULL,
+    case_study boolean DEFAULT false NOT NULL
+);
+
+
+--
+-- Name: projects_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE projects_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: projects_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE projects_id_seq OWNED BY projects.id;
 
 
 --
@@ -198,14 +319,13 @@ CREATE TABLE schema_migrations (
 CREATE TABLE users (
     id integer NOT NULL,
     email text NOT NULL,
-    first_name text NOT NULL,
-    last_name text NOT NULL,
     encrypted_password text,
     access_token text NOT NULL,
     access_token_expiration timestamp without time zone NOT NULL,
     active boolean DEFAULT true NOT NULL,
     created_at timestamp without time zone DEFAULT now() NOT NULL,
-    updated_at timestamp without time zone DEFAULT now() NOT NULL
+    updated_at timestamp without time zone DEFAULT now() NOT NULL,
+    name text DEFAULT ''::text NOT NULL
 );
 
 
@@ -246,7 +366,28 @@ ALTER TABLE ONLY categorisations ALTER COLUMN id SET DEFAULT nextval('categorisa
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
+ALTER TABLE ONLY office_contact_details ALTER COLUMN id SET DEFAULT nextval('office_contact_details_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY people ALTER COLUMN id SET DEFAULT nextval('people_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
 ALTER TABLE ONLY posts ALTER COLUMN id SET DEFAULT nextval('posts_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY projects ALTER COLUMN id SET DEFAULT nextval('projects_id_seq'::regclass);
 
 
 --
@@ -280,6 +421,22 @@ ALTER TABLE ONLY categorisations
 
 
 --
+-- Name: office_contact_details_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY office_contact_details
+    ADD CONSTRAINT office_contact_details_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: people_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY people
+    ADD CONSTRAINT people_pkey PRIMARY KEY (id);
+
+
+--
 -- Name: posts_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -293,6 +450,22 @@ ALTER TABLE ONLY posts
 
 ALTER TABLE ONLY posts
     ADD CONSTRAINT posts_slug_key UNIQUE (slug);
+
+
+--
+-- Name: projects_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY projects
+    ADD CONSTRAINT projects_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: projects_slug_key; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY projects
+    ADD CONSTRAINT projects_slug_key UNIQUE (slug);
 
 
 --
@@ -328,10 +501,24 @@ ALTER TABLE ONLY users
 
 
 --
+-- Name: set_updated_at_on_people; Type: TRIGGER; Schema: public; Owner: -
+--
+
+CREATE TRIGGER set_updated_at_on_people BEFORE UPDATE ON people FOR EACH ROW EXECUTE PROCEDURE set_updated_at_column();
+
+
+--
 -- Name: set_updated_at_on_posts; Type: TRIGGER; Schema: public; Owner: -
 --
 
 CREATE TRIGGER set_updated_at_on_posts BEFORE UPDATE ON posts FOR EACH ROW EXECUTE PROCEDURE set_updated_at_column();
+
+
+--
+-- Name: set_updated_at_on_projects; Type: TRIGGER; Schema: public; Owner: -
+--
+
+CREATE TRIGGER set_updated_at_on_projects BEFORE UPDATE ON projects FOR EACH ROW EXECUTE PROCEDURE set_updated_at_column();
 
 
 --

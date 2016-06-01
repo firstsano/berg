@@ -1,0 +1,24 @@
+h1== post.title
+p== "By #{post.author.name} &middot; #{post.published_date}"
+
+div.post
+  == post.body_html
+
+div.author-details
+  h3 Author
+  == post.author.name
+  / == post.author.avatar
+  / == post.author.short_bio
+
+div.meta
+  h3 Published on
+  == post.published_date
+
+- unless post.categories.empty?
+  div.categories
+    h3 Categories
+    ul
+      - post.categories.each do |category|
+        li
+          a href="/posts/category/#{category.slug}"
+            = category.name

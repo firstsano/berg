@@ -1,6 +1,7 @@
 require "admin_app_helper"
 
 RSpec.feature "Admin / Posts / Edit", js: true do
+  include_context "admin people"
   include_context "admin users"
   include_context "admin posts"
 
@@ -21,8 +22,6 @@ RSpec.feature "Admin / Posts / Edit", js: true do
     find("button", text: "Save changes").trigger("click")
 
     expect(page).to have_content("Post has been updated")
-
-    find("nav a", text: "Posts").trigger("click")
 
     expect(page).to have_content("A new title")
   end

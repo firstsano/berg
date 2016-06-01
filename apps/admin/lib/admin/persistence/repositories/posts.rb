@@ -32,6 +32,14 @@ module Admin
             .order(Sequel.desc(:created_at))
             .as(Entities::Post)
         end
+
+        def recent_colors
+          posts
+            .select(:color)
+            .order(Sequel.desc(:created_at))
+            .limit(5)
+            .map{ |p| p[:color] }
+        end
       end
     end
   end

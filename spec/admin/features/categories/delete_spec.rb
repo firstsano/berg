@@ -2,6 +2,7 @@ require "admin_app_helper"
 
 RSpec.feature "Admin / Categories / Delete", js: true do
   include_context "admin users"
+  include_context "admin people"
   include_context "admin categories"
 
   background do
@@ -31,10 +32,10 @@ RSpec.feature "Admin / Categories / Delete", js: true do
     find("#title").set("A sample title")
     find("#teaser").set("A teaser for this sample article")
     find("#body").set("Some sample content for this post")
-    find("input[name='post[author_id]']", visible: false).set(jane.id)
+    find("input[name='post[person_id]']", visible: false).set(jane.id)
 
     find(:xpath, "//button[contains(@class, 'selection-field')]", match: :first).trigger("click")
-    find(:xpath, "//button[contains(@class, 'selection-field__optionButton')][div='#{jane.first_name} #{jane.last_name}']").trigger("click")
+    find(:xpath, "//button[contains(@class, 'selection-field__optionButton')][div='#{sample_person.name}']").trigger("click")
 
     find(:xpath, "//button[contains(@class, 'multi-selection-field')]").trigger("click")
     find(:xpath, "//button[contains(@class, 'multi-selection-field__optionButton')][div='Ruby']").trigger("click")

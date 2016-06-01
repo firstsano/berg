@@ -1,0 +1,18 @@
+== actions
+
+p.link-children
+  a> href="/admin/people" People
+  span.c-grey-mid
+    ' /
+    h1.h-1 = "Editing ‘#{person.name}’"
+
+.panel
+  .panel__primary
+    form action="/admin/people/#{person.id}" method="post"
+      == csrf_tag
+      input type="hidden" name="_method" value="put"
+      fieldset
+        legend.hide-visually Edit User
+        div data-view-formalist=JSON.generate(person_form.to_h(csrfToken: csrf_token))
+      p
+        button.button.button--primary type="submit" Save changes

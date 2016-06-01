@@ -1,4 +1,5 @@
 require "dry-validation"
+require "uri"
 
 module Berg
   module Validation

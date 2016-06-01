@@ -10,11 +10,11 @@ module Admin
           uuid = SecureRandom.uuid
           expiration = (Time.now + 60*60*3).to_i
 
-          {
+          payload = {
             url: "#{attache_host}/upload",
             uuid: uuid,
             expiration: expiration,
-            hmac: OpenSSL::HMAC.hexdigest(OpenSSL::Digest.new("sha1"), attache_secret_key, "#{uuid}#{expiration}")
+            hmac: OpenSSL::HMAC.hexdigest(OpenSSL::Digest.new("sha1"), attache_secret_key, "#{uuid}#{expiration}"),
           }
 
           payload

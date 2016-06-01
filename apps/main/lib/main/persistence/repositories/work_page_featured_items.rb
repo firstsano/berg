@@ -1,4 +1,5 @@
 require "berg/repository"
+require "main/entities/work_page_featured_item"
 
 module Main
   module Persistence
@@ -6,10 +7,10 @@ module Main
       class WorkPageFeaturedItems < Berg::Repository[:work_page_featured_items]
         relations :work_page_featured_items
 
-        def listing_by_position
+        def listing
           work_page_featured_items
             .order(:position)
-            .to_a
+            .as(Entities::WorkPageFeaturedItem)
         end
       end
     end

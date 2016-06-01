@@ -6,7 +6,7 @@ module Admin
       class WorkPageFeaturedItems < Berg::Repository[:work_page_featured_items]
         relations :work_page_featured_items
 
-        def listing_by_position
+        def listing
           work_page_featured_items
             .order(:position)
         end

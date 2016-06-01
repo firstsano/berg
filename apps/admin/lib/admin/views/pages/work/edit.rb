@@ -18,7 +18,7 @@ module Admin
 
           def locals(options = {})
             featured_items = {
-              work_page_featured_items: work_page_featured_items.listing_by_position.map(&:to_h)
+              work_page_featured_items: work_page_featured_items.listing.map(&:to_h)
             }
 
             super.merge(

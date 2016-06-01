@@ -1,5 +1,5 @@
 require "rom/sql"
-require "dry/types"
+require "dry-types"
 require "json"
 
 module ROM::SQL::Types

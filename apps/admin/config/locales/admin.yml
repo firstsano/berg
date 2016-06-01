@@ -21,7 +21,7 @@ en:
       project_created: "Project has been created"
       project_updated: "Project has been updated"
     pages:
-      page_update: "Page has been updated"
+      page_updated: "Page has been updated"
     people:
       person_created: "Person has been created"
       person_updated: "Person has been updated"
@@ -31,3 +31,7 @@ en:
           subject: "Activate your Berg account"
         reset_password:
           subject: "Berg password reset request"
+    categories:
+      category_created: "Category has been created"
+      category_updated: "Category has been updated"
+      category_deleted: "Category has been deleted"

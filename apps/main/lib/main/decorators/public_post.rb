@@ -1,4 +1,5 @@
 require "berg/decorator"
+require "redcarpet"
 
 module Main
   module Decorators
@@ -9,6 +10,17 @@ module Main
 
       def author
         @auhor ||= Decorators::PublicPerson.decorate(__getobj__.author)
+      end
+
+      def body_html
+        to_html(body)
+      end
+
+      private
+
+      def to_html(input)
+        markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, footnotes: true, hard_wrap: true)
+        markdown.render(input)
       end
     end
   end

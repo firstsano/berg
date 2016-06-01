@@ -114,6 +114,71 @@ ALTER SEQUENCE categorisations_id_seq OWNED BY categorisations.id;
 
 
 --
+-- Name: home_page_featured_items; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE home_page_featured_items (
+    id integer NOT NULL,
+    "position" integer NOT NULL,
+    title text NOT NULL,
+    description text NOT NULL,
+    url text NOT NULL,
+    cover_image json DEFAULT '{}'::json NOT NULL
+);
+
+
+--
+-- Name: home_page_featured_items_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE home_page_featured_items_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: home_page_featured_items_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE home_page_featured_items_id_seq OWNED BY home_page_featured_items.id;
+
+
+--
+-- Name: office_contact_details; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE office_contact_details (
+    id integer NOT NULL,
+    "position" integer NOT NULL,
+    name text NOT NULL,
+    address text NOT NULL,
+    phone_number text NOT NULL
+);
+
+
+--
+-- Name: office_contact_details_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE office_contact_details_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: office_contact_details_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE office_contact_details_id_seq OWNED BY office_contact_details.id;
+
+
+--
 -- Name: people; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -165,7 +230,8 @@ CREATE TABLE posts (
     published_at timestamp without time zone,
     created_at timestamp without time zone DEFAULT now() NOT NULL,
     updated_at timestamp without time zone DEFAULT now() NOT NULL,
-    teaser text DEFAULT ''::text NOT NULL
+    teaser text DEFAULT ''::text NOT NULL,
+    color text DEFAULT ''::text NOT NULL
 );
 
 
@@ -198,13 +264,14 @@ CREATE TABLE projects (
     client text NOT NULL,
     url text NOT NULL,
     intro text NOT NULL,
-    body text NOT NULL,
+    body text,
     tags text NOT NULL,
     slug text NOT NULL,
     status text DEFAULT 'draft'::text,
     published_at timestamp without time zone,
     created_at timestamp without time zone DEFAULT now() NOT NULL,
-    updated_at timestamp without time zone DEFAULT now() NOT NULL
+    updated_at timestamp without time zone DEFAULT now() NOT NULL,
+    case_study boolean DEFAULT false NOT NULL
 );
 
 
@@ -285,14 +352,13 @@ CREATE TABLE schema_migrations (
 CREATE TABLE users (
     id integer NOT NULL,
     email text NOT NULL,
-    first_name text NOT NULL,
-    last_name text NOT NULL,
     encrypted_password text,
     access_token text NOT NULL,
     access_token_expiration timestamp without time zone NOT NULL,
     active boolean DEFAULT true NOT NULL,
     created_at timestamp without time zone DEFAULT now() NOT NULL,
-    updated_at timestamp without time zone DEFAULT now() NOT NULL
+    updated_at timestamp without time zone DEFAULT now() NOT NULL,
+    name text DEFAULT ''::text NOT NULL
 );
 
 
@@ -316,6 +382,39 @@ ALTER SEQUENCE users_id_seq OWNED BY users.id;
 
 
 --
+-- Name: work_page_featured_items; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE work_page_featured_items (
+    id integer NOT NULL,
+    "position" integer NOT NULL,
+    title text NOT NULL,
+    description text NOT NULL,
+    url text NOT NULL,
+    cover_image json DEFAULT '{}'::json NOT NULL
+);
+
+
+--
+-- Name: work_page_featured_items_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE work_page_featured_items_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: work_page_featured_items_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE work_page_featured_items_id_seq OWNED BY work_page_featured_items.id;
+
+
+--
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
@@ -327,6 +426,20 @@ ALTER TABLE ONLY categories ALTER COLUMN id SET DEFAULT nextval('categories_id_s
 --
 
 ALTER TABLE ONLY categorisations ALTER COLUMN id SET DEFAULT nextval('categorisations_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY home_page_featured_items ALTER COLUMN id SET DEFAULT nextval('home_page_featured_items_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY office_contact_details ALTER COLUMN id SET DEFAULT nextval('office_contact_details_id_seq'::regclass);
 
 
 --
@@ -365,6 +478,13 @@ ALTER TABLE ONLY users ALTER COLUMN id SET DEFAULT nextval('users_id_seq'::regcl
 
 
 --
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY work_page_featured_items ALTER COLUMN id SET DEFAULT nextval('work_page_featured_items_id_seq'::regclass);
+
+
+--
 -- Name: categories_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -378,6 +498,22 @@ ALTER TABLE ONLY categories
 
 ALTER TABLE ONLY categorisations
     ADD CONSTRAINT categorisations_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: home_page_featured_items_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY home_page_featured_items
+    ADD CONSTRAINT home_page_featured_items_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: office_contact_details_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY office_contact_details
+    ADD CONSTRAINT office_contact_details_pkey PRIMARY KEY (id);
 
 
 --
@@ -450,6 +586,14 @@ ALTER TABLE ONLY users
 
 ALTER TABLE ONLY users
     ADD CONSTRAINT users_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: work_page_featured_items_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY work_page_featured_items
+    ADD CONSTRAINT work_page_featured_items_pkey PRIMARY KEY (id);
 
 
 --

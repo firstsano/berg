@@ -10,8 +10,7 @@ h1.h-1 Users
           tr
             th ID
             th Email
-            th First Name
-            th Last Name
+            th Name
             th Status
             th
         tbody
@@ -19,8 +18,7 @@ h1.h-1 Users
             tr id="user-#{user.id}"
               td.f-mono = user.id
               td.f-mono = user.email
-              td = user.first_name
-              td = user.last_name
+              td = user.name
               td = user.active ? "Active" : "Deactivated"
               td
                 a> href="/admin/users/#{user.id}/edit" Edit

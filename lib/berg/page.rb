@@ -7,7 +7,10 @@ module Berg
     end
 
     def view_locals
-      {csrf_tag: csrf_tag}
+      {
+        csrf_tag: csrf_tag,
+        csrf_token: csrf_token
+      }
     end
 
     def csrf_metatag

@@ -19,11 +19,11 @@ def create_user(attrs)
   end
 end
 
-# def create_person(attrs)
-#   if !admin["admin.persistence.repositories.people"].by_email(attrs[:email])
-#     admin["admin.people.operations.create"].call(attrs).value
-#   end
-# end
+def create_person(attrs)
+  if !admin["admin.persistence.repositories.people"].by_email(attrs[:email])
+    admin["admin.people.operations.create"].call(attrs).value
+  end
+end
 
 def create_post(attrs)
   if !admin["admin.persistence.repositories.posts"].by_slug(attrs[:slug])
@@ -38,36 +38,34 @@ def create_project(attrs)
 end
 
 def create_category(attrs)
-  if !admin["admin.persistence.repositories.categories"].by_slug(attrs[:slug])
-    admin["admin.categories.operations.create"].call(attrs).value
-  end
+  admin["admin.categories.operations.create"].call(attrs).value
 end
 
 create_user(
   email: "hello@icelab.com.au",
-  first_name: "Icelab",
-  last_name: "Admin",
+  name: "Icelab Admin",
   active: true
 )
 
-# create_person(
-#   email: "person@icelab.com.au",
-#   name: "Icelab Person",
-#   bio: "An icelab person",
-#   short_bio: "An icelab person"
-# )
+create_person(
+  email: "person@icelab.com.au",
+  name: "Icelab Person",
+  bio: "An icelab person",
+  short_bio: "An icelab person"
+)
 
-# author = admin["admin.persistence.repositories.people"].by_email("person@icelab.com.au")
+author = admin["admin.persistence.repositories.people"].by_email("person@icelab.com.au")
 
-# 20.times do |n|
-#   create_post(
-#     title: Faker::Hipster.sentence,
-#     teaser: Faker::Hipster.sentence,
-#     body: Faker::Hipster.paragraph,
-#     status: "draft",
-#     person_id: author.id
-#   )
-# end
+20.times do |n|
+  create_post(
+    title: Faker::Hipster.sentence,
+    teaser: Faker::Hipster.sentence,
+    body: Faker::Hipster.paragraph,
+    status: "published",
+    person_id: author.id,
+    published_at: Time.now
+  )
+end
 
 20.times do |n|
   create_project(
@@ -77,7 +75,8 @@ create_user(
     intro: Faker::Hipster.sentence,
     body: Faker::Hipster.paragraph,
     tags: Faker::Hipster.word,
-    status: "draft"
+    status: "draft",
+    case_study: false
   )
 end
 
@@ -88,5 +87,5 @@ end
   ios: "iOS",
   design: "Design",
   react: "React" }.each do |slug, name|
-    create_category(name: name, slug: slug)
+    create_category(name: name, slug: slug.to_s)
 end

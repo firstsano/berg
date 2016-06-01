@@ -31,7 +31,7 @@ class Admin::Application < Dry::Web::Application
           r.view "projects.edit", slug: slug
         end
 
-        r.post do
+        r.put do
           r.resolve "admin.projects.operations.update" do |update_project|
             update_project.(slug, r[:project]) do |m|
               m.success do

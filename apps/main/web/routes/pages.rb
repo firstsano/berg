@@ -7,5 +7,9 @@ module Main
     route "contact" do |r|
       r.view "pages.contact"
     end
+
+    route "work" do |r|
+      r.view "pages.work"
+    end
   end
 end

@@ -13,17 +13,17 @@ RSpec.feature "Main / Posts / Index", js: false do
   end
 
   scenario "I can view a list of posts" do
-    visit "/posts"
+    visit "/notes"
 
     expect(page).to have_content("foo 1")
   end
 
   scenario "I can paginate through the list of posts" do
-    visit "/posts"
+    visit "/notes"
 
     expect(page).to have_content("Older")
     expect(page).to have_content("Newer")
-    expect(page).to_not have_css("a[href='/posts/foo-1']")
+    expect(page).to_not have_css("a[href='/notes/foo-1']")
 
     click_link("Older", :match => :first)
 
@@ -35,13 +35,13 @@ RSpec.feature "Main / Posts / Index", js: false do
     post = create_post("A Ruby Post", "it'll be good", "a-ruby-post", @author)
     categorise_post(category[:id], post[:id])
 
-    visit "/posts/category/ruby"
+    visit "/notes/category/ruby"
 
     expect(page).to have_content "A Ruby Post"
   end
 
   scenario "I see the 404 page if I try view a category that doesn't exist" do
-    visit "/posts/category/rb"
+    visit "/notes/category/rb"
 
     expect(page).to have_content "Oops! We couldn’t find this page."
   end

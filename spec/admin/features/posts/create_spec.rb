@@ -95,7 +95,7 @@ RSpec.feature "Admin / Posts / Create", js: true do
     find("input[name='post[published_at]']", visible: false).set(Time.now)
     click_button "Save changes"
 
-    visit "/posts"
+    visit "/notes"
 
     expect(page).to have_css("[data-test-color]:not([data-test-color=''])")
   end

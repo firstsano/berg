@@ -13,8 +13,6 @@ RSpec.feature "Admin / Categories / Delete", js: true do
   scenario "I can delete a category" do
     visit "/admin/categories"
 
-    click_link "Add a category"
-
     within("#category-ruby}") do
       click_link "Delete"
     end

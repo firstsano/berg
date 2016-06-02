@@ -13,7 +13,7 @@ module Persistence
         attribute :status, Types::Strict::String
         attribute :published_at, Types::Strict::Time.optional
         attribute :case_study, Types::Strict::Bool
-        attribute :cover_image, Types::Hash
+        attribute :cover_image, Types::JSON
       end
 
       use :pagination

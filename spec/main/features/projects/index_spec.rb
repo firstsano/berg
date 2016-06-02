@@ -4,7 +4,7 @@ RSpec.feature "Main / Projects / Index", js: false do
   include_context "main_projects"
 
   before do
-    21.times do |i|
+    5.times do |i|
       create_project("Foo#{i + 1}Corp")
     end
   end
@@ -13,6 +13,6 @@ RSpec.feature "Main / Projects / Index", js: false do
     visit "/work"
 
     expect(page).to have_content("Foo1Corp")
-    expect(page).to have_content("Foo21Corp")
+    expect(page).to have_content("Foo5Corp")
   end
 end

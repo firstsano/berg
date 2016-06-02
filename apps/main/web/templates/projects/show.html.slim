@@ -9,9 +9,9 @@ div.project
   h3 Project
   = project.body
 
-div.tags
-  h3 Tags
+/ div.tags
+/   h3 Tags
   / ul
   /   - project.tags.each do |tag|
   /     li
-  /       a href="/projects/tagged/#{tag.slug}" tag.name
+  /       a href="/work/tagged/#{tag.slug}" tag.name

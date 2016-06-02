@@ -8,6 +8,10 @@ module Main
         published_at.strftime('%d %b %Y')
       end
 
+      def author
+        @auhor ||= Decorators::PublicPerson.decorate(__getobj__.author)
+      end
+
       def body_html
         to_html(body)
       end

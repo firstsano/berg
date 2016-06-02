@@ -31,7 +31,7 @@ module Admin
         # Required in only the edit form
         optional(:slug).filled
         optional(:previous_slug).maybe
-        optional(:status).filled(included_in?: Entities::Project::Status.values)
+        optional(:status).filled(included_in?: Types::ProjectStatus.values)
         optional(:published_at).maybe(:time?)
 
         rule(body: [:body, :case_study]) do |body, case_study|

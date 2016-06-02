@@ -19,11 +19,11 @@ module Admin
         def locals(options = {})
           post = posts.by_slug(options.fetch(:slug))
 
-          post_validation = options[:post_validation]
+          validation = options[:validation]
 
           super.merge(
             post: post,
-            post_form: post_form(post, post_validation)
+            post_form: post_form(post, validation)
           )
         end
 

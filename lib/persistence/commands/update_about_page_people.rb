@@ -7,7 +7,7 @@ module Persistence
 
       def execute(tuple)
         if tuple[:about_page_people]
-          about_page_people.delete
+          relation.delete
 
           about_page_people_tuples = tuple[:about_page_people].map.with_index do |person_id, position|
             {
@@ -16,14 +16,8 @@ module Persistence
             }
           end
 
-          about_page_people.multi_insert(about_page_people_tuples)
+          relation.multi_insert(about_page_people_tuples)
         end
-      end
-
-      private
-
-      def about_page_people
-        relation.about_page_people
       end
     end
   end

@@ -11,15 +11,13 @@ h1.h-1 People
             th ID
             th Name
             th Email
-            th
         tbody
           - people.each do |person|
             tr id="person-#{person.id}"
               td.f-mono = person.id
-              td = person.name
-              td.f-mono = person.email
               td
-                a> href="/admin/people/#{person.id}/edit" Edit
-                a href="/admin/people/#{person.id}/password" Change password
+                a> href="/admin/people/#{person.id}/edit"
+                  = person.name
+              td.f-mono = person.email
 p
   == paginator.pagination

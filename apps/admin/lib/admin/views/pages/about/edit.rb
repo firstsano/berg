@@ -20,10 +20,10 @@ module Admin
           def locals(options = {})
             selected_about_page_people = about_page_people.listing_by_position
 
-            page_validation = options[:page_validation]
+            validation = options[:validation]
 
             super.merge(
-              page_form: page_form(selected_about_page_people, page_validation)
+              page_form: page_form(selected_about_page_people, validation)
             )
           end
 
@@ -39,7 +39,7 @@ module Admin
 
           def form_input(people_list)
             {
-              about_page_people: people_list.map(&:person_id)
+              about_page_people: people_list.to_a.map(&:person_id)
             }
           end
         end

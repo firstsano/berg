@@ -188,11 +188,11 @@ ALTER SEQUENCE office_contact_details_id_seq OWNED BY office_contact_details.id;
 
 CREATE TABLE people (
     id integer NOT NULL,
-    twitter text,
+    twitter_handle text,
     email text NOT NULL,
     bio text NOT NULL,
-    website text,
-    avatar text,
+    website_url text,
+    avatar_image json,
     job_title text,
     created_at timestamp without time zone DEFAULT timezone('utc'::text, now()) NOT NULL,
     updated_at timestamp without time zone DEFAULT timezone('utc'::text, now()) NOT NULL,

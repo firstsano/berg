@@ -5,7 +5,11 @@ RSpec.shared_context "admin people" do
       "email" => email,
       "bio" => bio,
       "short_bio" => bio,
-      "active" => true
+      "active" => true,
+      "avatar_image" => {},
+      "twitter_handle" => "",
+      "website_url" => "",
+      "job_title" => "Developer"
     }.merge(attrs)).value
   end
 

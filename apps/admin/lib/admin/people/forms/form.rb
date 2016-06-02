@@ -3,7 +3,7 @@ require "berg/form"
 module Admin
   module People
     module Forms
-      class EditForm < Berg::Form
+      class Form < Berg::Form
         prefix :person
 
         define do
@@ -24,14 +24,14 @@ module Admin
           text_area :bio, label: "Bio"
           text_area :short_bio, label: "Short Bio"
 
-          upload_field :avatar,
+          upload_field :avatar_image,
             label: "Avatar",
             hint: "An image of this person",
             presign_url: "#{Berg::Container["config"].canonical_domain}/admin/uploads/presign"
 
-          group label: :social do
-            text_field :website, label: "Website", placeholder: "http://foo.com", hint: "(optional)"
-            text_field :twitter, label: "Twitter", placeholder: "http://twitter.com/username", hint: "(optional)"
+          group label: "Social" do
+            text_field :website_url, label: "Website URL", placeholder: "http://icelab.com.au", hint: "(optional)"
+            text_field :twitter_handle, label: "Twitter Username", placeholder: "icelab", hint: "(optional)"
           end
         end
       end

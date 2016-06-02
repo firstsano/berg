@@ -12,11 +12,11 @@ RSpec.feature "Admin / People / Edit", js: true do
     sign_in(jane.email, jane.password)
   end
 
-  scenario "I can edit a post, and change the slug" do
+  scenario "I can edit a person" do
     find("nav a", text: "People").trigger("click")
 
     within "#person-#{@person.id}" do
-      find("a", text: "Edit").trigger("click")
+      click_link @person.name
     end
 
     find("#name").set("Ben Kenobi")
@@ -34,10 +34,10 @@ RSpec.feature "Admin / People / Edit", js: true do
     find("nav a", text: "People").trigger("click")
 
     within "#person-#{@person.id}" do
-      find("a", text: "Edit").trigger("click")
+      click_link @person.name
     end
 
-    find("#name").set("Madona")
+    find("#name").set("Madonna")
     find("#bio").set("")
     find("#short_bio").set("Singer")
 

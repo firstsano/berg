@@ -7,8 +7,8 @@ div.post
 div.author-details
   h3 Author
   == post.author.name
-  / == post.author.avatar
-  / == post.author.short_bio
+  img src= post.author.avatar_url(100)
+  == post.author.bio
 
 div.meta
   h3 Published on

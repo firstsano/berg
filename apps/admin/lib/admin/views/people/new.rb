@@ -5,7 +5,7 @@ module Admin
   module Views
     module People
       class New < Admin::View
-        include Admin::Import("admin.people.forms.create_form")
+        include Admin::Import("admin.people.forms.form")
 
         configure do |config|
           config.template = "people/new"
@@ -20,9 +20,9 @@ module Admin
 
         def form_data(validation)
           if validation
-            create_form.build(validation, validation.messages)
+            form.build(validation, validation.messages)
           else
-            create_form.build
+            form.build
           end
         end
       end

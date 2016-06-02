@@ -7,7 +7,7 @@ module Admin
       class Edit < Admin::View
         include Admin::Import(
           "admin.persistence.repositories.people",
-          "admin.people.forms.edit_form",
+          "admin.people.forms.form",
         )
 
         configure do |config|
@@ -17,11 +17,11 @@ module Admin
         def locals(options = {})
           person = people[options[:id]]
 
-          person_validation = options[:person_validation]
+          validation = options[:validation]
 
           super.merge(
             person: person,
-            person_form: person_form(prepare_values(person), person_validation),
+            person_form: person_form(person, validation),
             csrf_token: options[:scope].csrf_token
           )
         end
@@ -30,19 +30,10 @@ module Admin
 
         def person_form(person, validation)
           if validation
-            edit_form.build(validation, validation.messages)
+            form.build(validation, validation.messages)
           else
-            edit_form.build(person)
+            form.build(person)
           end
-        end
-
-        def prepare_values(person)
-          person.to_h.merge(
-            avatar: person.avatar.value,
-            twitter: person.twitter.value,
-            website: person.website.value,
-            job_title: person.job_title.value
-          )
         end
       end
     end

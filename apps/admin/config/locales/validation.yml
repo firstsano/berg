@@ -3,3 +3,4 @@ en:
     email?: "is not an email address"
     email_unique?: "email address is already taken"
     slug_unique?: "slug is already taken"
+    uri?: "is not a valid URI"

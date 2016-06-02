@@ -18,11 +18,11 @@ module Admin
         def locals(options = {})
           project = projects.by_slug(options.fetch(:slug))
 
-          project_validation = options[:project_validation]
+          validation = options[:validation]
 
           super.merge(
             project: project,
-            project_form: project_form(project, project_validation)
+            project_form: project_form(project, validation)
           )
         end
 

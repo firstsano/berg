@@ -36,11 +36,11 @@ module Admin
         end
 
         def author_list
-          people.all_people.map { |person| { id: person.id, label: person.name } }
+          people.all_people.to_a.map { |person| { id: person.id, label: person.name } }
         end
 
         def status_list
-          Entities::Post::Status.values.map { |value| [value, value.capitalize] }
+          Types::PostStatus.values.map { |value| [value, value.capitalize] }
         end
 
         def categories_list

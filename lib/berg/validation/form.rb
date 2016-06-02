@@ -1,4 +1,5 @@
 require "dry-validation"
+require "uri"
 
 module Berg
   module Validation
@@ -11,6 +12,10 @@ module Berg
 
       def email?(input)
         ! EMAIL_REGEX.match(input).nil?
+      end
+
+      def uri?(input)
+        ! URI.regexp.match(input).nil?
       end
     end
 

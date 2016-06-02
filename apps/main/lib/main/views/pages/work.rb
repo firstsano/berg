@@ -6,7 +6,8 @@ module Main
     module Pages
       class Work < Main::View
         include Main::Import(
-          "main.persistence.repositories.work_page_featured_items"
+          "main.persistence.repositories.work_page_featured_items",
+          "main.persistence.repositories.projects"
         )
 
         configure do |config|
@@ -15,7 +16,8 @@ module Main
 
         def locals(options = {})
           super.merge(
-            featured_items: work_page_featured_items.listing
+            featured_items: work_page_featured_items.listing,
+            projects: projects.listing
           )
         end
       end

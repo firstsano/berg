@@ -8,5 +8,5 @@ ul
 ul
   - projects.each do |project|
     li
-      p = project.title
+      a href="/projects/#{project.slug}" = project.title
       p = project.intro

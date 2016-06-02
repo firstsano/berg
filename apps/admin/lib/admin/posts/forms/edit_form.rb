@@ -40,7 +40,7 @@ module Admin
         end
 
         def status_list
-          Entities::Post::Status.values.map { |value| [value, value.capitalize] }
+          Types::PostStatus.values.map { |value| [value, value.capitalize] }
         end
 
         def categories_list

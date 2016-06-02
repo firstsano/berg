@@ -10,7 +10,7 @@ module Main
       attribute :id, Types::Strict::Int
       attribute :title, Types::Strict::String
       attribute :body, Types::Strict::String
-      attribute :cover_image, Types::Coercible::Hash
+      attribute :cover_image, Types::Hash
       attribute :teaser, Types::Strict::String
       attribute :slug, Types::Strict::String
       attribute :status, Status

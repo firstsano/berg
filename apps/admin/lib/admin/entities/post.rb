@@ -10,7 +10,7 @@ module Admin
       attribute :title, Types::Strict::String
       attribute :teaser, Types::Strict::String
       attribute :body, Types::Strict::String
-      attribute :cover_image, Types::Form::Hash
+      attribute :cover_image, Types::Hash
       attribute :slug, Types::Strict::String
       attribute :status, Status
       attribute :person_id, Types::Strict::Int

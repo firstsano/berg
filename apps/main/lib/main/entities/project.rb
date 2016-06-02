@@ -14,7 +14,7 @@ module Main
       attribute :tags, Types::Strict::String
       attribute :slug, Types::Strict::String
       attribute :status, Status
-      attribute :published_at, Types::DateTime
+      attribute :published_at, Types::Time
     end
   end
 end

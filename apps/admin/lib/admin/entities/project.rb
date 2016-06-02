@@ -14,7 +14,7 @@ module Admin
       attribute :tags, Types::Strict::String
       attribute :slug, Types::Strict::String
       attribute :status, Status
-      attribute :published_at, Types::DateTime
+      attribute :published_at, Types::Time
       attribute :case_study, Types::Bool
 
       def deleted?

@@ -51,7 +51,11 @@ create_person(
   email: "person@icelab.com.au",
   name: "Icelab Person",
   bio: "An icelab person",
-  short_bio: "An icelab person"
+  short_bio: "An icelab person",
+  job_title: "Developer",
+  website_url: nil,
+  twitter_handle: "",
+  avatar_image: nil
 )
 
 author = admin["admin.persistence.repositories.people"].by_email("person@icelab.com.au")
@@ -63,7 +67,8 @@ author = admin["admin.persistence.repositories.people"].by_email("person@icelab.
     body: Faker::Hipster.paragraph,
     status: "published",
     person_id: author.id,
-    published_at: Time.now
+    published_at: Time.now,
+    cover_image: nil
   )
 end
 

@@ -17,7 +17,7 @@ module Main
       end
 
       def cover_image_url(size="original")
-        attache_url_for(cover_image["path"], size.to_s) unless cover_image.empty?
+        attache_url_for(cover_image["path"], size.to_s) if cover_image.any?
       end
 
       private
@@ -28,7 +28,7 @@ module Main
       end
 
       def to_html(input)
-        markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, footnotes: true, hard_wrap: true)
+        markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, footnotes: true, hard_wrap: true, fenced_code_blocks: true, tables: true, underline:true, no_intra_emphasis: true)
         markdown.render(input)
       end
     end

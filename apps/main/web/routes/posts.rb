@@ -1,6 +1,6 @@
 module Main
   class Application < Dry::Web::Application
-    route "posts" do |r|
+    route "notes" do |r|
       r.on "category" do
         r.on ":category" do |category|
           r.view "posts.category.index", category: category, page: r[:page] || 1

@@ -21,8 +21,7 @@ module Admin
 
           super.merge(
             person: person,
-            person_form: person_form(person, validation),
-            csrf_token: options[:scope].csrf_token
+            form: person_form(person, validation)
           )
         end
 

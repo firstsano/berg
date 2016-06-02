@@ -6,6 +6,7 @@ module Persistence
         attribute :title, Types::String
         attribute :teaser, Types::String
         attribute :body, Types::String
+        attribute :cover_image, Types::JSON
         attribute :slug, Types::String
         attribute :color, Types::String
         attribute :status, Types::String

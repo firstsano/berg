@@ -32,6 +32,11 @@ module Admin
               label: "Categories",
               selector_label: "Choose categories",
               options: dep(:categories_list)
+
+            upload_field :cover_image,
+              label: "Cover Image",
+              hint: "Will be displayed on the notes index page",
+              presign_url: "#{Berg::Container["config"].canonical_domain}/admin/uploads/presign"
           end
         end
 

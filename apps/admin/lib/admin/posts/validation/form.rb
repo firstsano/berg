@@ -24,6 +24,15 @@ module Admin
         required(:teaser).filled
         required(:body).filled
         required(:person_id).filled(:int?)
+        required(:cover_image).maybe(:hash?).schema do
+          optional(:original_url).maybe(:str?)
+          optional(:file_name).maybe(:str?)
+          optional(:path).maybe(:str?)
+          optional(:uid).maybe(:str?)
+          optional(:geometry).maybe(:str?)
+          optional(:type).maybe(:str?)
+          optional(:uploadURL).maybe(:str?)
+        end
 
         # Required in only the edit form
         optional(:slug).filled

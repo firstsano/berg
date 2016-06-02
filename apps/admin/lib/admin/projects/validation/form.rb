@@ -33,6 +33,7 @@ module Admin
         optional(:previous_slug).maybe
         optional(:status).filled(included_in?: Types::ProjectStatus.values)
         optional(:published_at).maybe(:time?)
+        required(:cover_image).filled
 
         rule(body: [:body, :case_study]) do |body, case_study|
           case_study.eql?(true).then(body.filled?)

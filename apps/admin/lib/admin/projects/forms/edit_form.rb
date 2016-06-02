@@ -16,6 +16,10 @@ module Admin
           text_area :body, label: "Body"
           text_field :slug, label: "Slug"
           text_field :tags, label: "Tags"
+          upload_field :cover_image,
+            label: "Cover Image",
+            hint: "A cover image for this project",
+            presign_url: "/admin/uploads/presign"
           select_box :status, label: "Status", options: [
             ["draft", "Draft"], ["published", "Published"], ["deleted", "Deleted"]
           ]

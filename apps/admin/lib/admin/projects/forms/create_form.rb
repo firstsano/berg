@@ -15,6 +15,10 @@ module Admin
           text_area :intro, label: "Introduction"
           text_area :body, label: "Body"
           text_field :tags, label: "Tags"
+          upload_field :cover_image,
+            label: "Cover Image",
+            hint: "A cover image for this project",
+            presign_url: "/admin/uploads/presign"
           check_box :case_study, label: "Case Study", question_text: "Mark as a Case Study?"
         end
       end

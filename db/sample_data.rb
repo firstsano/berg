@@ -51,7 +51,11 @@ create_person(
   email: "person@icelab.com.au",
   name: "Icelab Person",
   bio: "An icelab person",
-  short_bio: "An icelab person"
+  short_bio: "An icelab person",
+  job_title: "Developer",
+  website_url: nil,
+  twitter_handle: "",
+  avatar_image: {}
 )
 
 author = admin["admin.persistence.repositories.people"].by_email("person@icelab.com.au")

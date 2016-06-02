@@ -38,4 +38,12 @@ Berg::Container.namespace "persistence" do |container|
   container.register "commands.update_office_contact_details" do
     container["persistence.rom"].command(:office_contact_details)[:update]
   end
+
+  container.register "commands.create_project" do
+    container["persistence.rom"].command(:projects)[:create]
+  end
+
+  container.register "commands.update_project" do
+    container["persistence.rom"].command(:projects)[:update]
+  end
 end

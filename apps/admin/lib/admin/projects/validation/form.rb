@@ -27,7 +27,7 @@ module Admin
         required(:body).maybe
         required(:tags).filled
         required(:case_study).filled(:bool?)
-        required(:cover_image).filled(:hash?).schema do
+        required(:cover_image).maybe(:hash?).schema do
           optional(:original_url).maybe(:str?)
           optional(:file_name).maybe(:str?)
           optional(:path).maybe(:str?)

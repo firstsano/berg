@@ -29,8 +29,7 @@ module Admin
 
         def prepare_attributes(attributes)
           attributes.merge(
-            slug: slugify.(attributes[:title], projects.method(:slug_exists?)),
-            cover_image: attributes[:cover_image].to_json
+            slug: slugify.(attributes[:title], projects.method(:slug_exists?))
           )
         end
       end

@@ -27,7 +27,13 @@ module Admin
         required(:body).maybe
         required(:tags).filled
         required(:case_study).filled(:bool?)
-        required(:cover_image).maybe(:hash?).schema do
+
+        # Required in only the edit form
+        optional(:slug).filled
+        optional(:previous_slug).maybe
+        optional(:status).filled(included_in?: Types::ProjectStatus.values)
+        optional(:published_at).maybe(:time?)
+        optional(:cover_image).maybe(:hash?).schema do
           optional(:original_url).maybe(:str?)
           optional(:file_name).maybe(:str?)
           optional(:path).maybe(:str?)
@@ -36,12 +42,6 @@ module Admin
           optional(:type).maybe(:str?)
           optional(:uploadURL).maybe(:str?)
         end
-
-        # Required in only the edit form
-        optional(:slug).filled
-        optional(:previous_slug).maybe
-        optional(:status).filled(included_in?: Types::ProjectStatus.values)
-        optional(:published_at).maybe(:time?)
 
         rule(body: [:body, :case_study]) do |body, case_study|
           case_study.eql?(true).then(body.filled?)
@@ -53,6 +53,10 @@ module Admin
 
         rule(published_at: [:status, :published_at]) do |status, published_at|
           status.eql?("published").then(published_at.filled?)
+        end
+
+        rule(cover_image: [:status, :cover_image]) do |status, cover_image|
+          status.eql?("published").then(cover_image.filled?)
         end
       end
     end

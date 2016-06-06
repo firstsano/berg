@@ -1,4 +1,6 @@
 en:
+  errors:
+    image_url: "You must fill in 'Image URL' or 'Image Upload'"
   admin:
     auth:
       access_token_invalid: "Token is invalid or expired"

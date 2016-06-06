@@ -28,12 +28,8 @@ module Admin
           status.eql?("published").then(published_at.filled?)
         end
 
-        rule(image_upload: [:image_url, :image_upload]) do |image_url, image_upload|
-          image_upload.empty?.then(image_url.filled?)
-        end
-
         rule(image_url: [:image_url, :image_upload]) do |image_url, image_upload|
-          image_url.empty?.then(image_upload.filled?)
+          image_url.filled? ^ image_upload.filled?
         end
       end
     end

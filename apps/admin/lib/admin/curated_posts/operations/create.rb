@@ -1,5 +1,5 @@
 require "admin/import"
-require "admin/entities/post"
+require "admin/entities/curated_post"
 require "admin/curated_posts/validation/form"
 require "kleisli"
 

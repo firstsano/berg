@@ -29,7 +29,7 @@ module Admin
           posts
             .per_page(per_page)
             .page(page)
-            .order(Sequel.desc(:created_at))
+            .order(Sequel.desc(:published_at))
             .as(Entities::Post)
         end
 

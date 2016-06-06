@@ -7,5 +7,20 @@ module Berg
         new(object)
       end
     end
+
+    def type
+      __getobj__.class.name.split('::').last.gsub(/::/, '/').
+       gsub(/([A-Z]+)([A-Z][a-z])/,'\1_\2').
+       gsub(/([a-z\d])([A-Z])/,'\1_\2').
+       tr("-", "_").
+       downcase
+    end
+
+    private
+
+    def attache_url_for(file_path, geometry)
+      prefix, basename = File.split(file_path)
+      [Berg::Container["config"].attache_downloads_base_url, "view", prefix, CGI.escape(geometry), CGI.escape(basename)].join('/')
+    end
   end
 end

@@ -17,7 +17,11 @@ ul
 
 ul
   - posts.each do |post|
-    li
-      p = post.title
-      p = post.teaser
-      img src= post.image_url(100)
+    - if post.type == "public_external_post"
+      li
+        img src="#{post.image_url(100)}" title="#{post.title}"
+    - else
+      li class="post-color-#{post.color}"
+        h3= post.title
+        p = post.teaser
+

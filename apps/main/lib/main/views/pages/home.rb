@@ -25,6 +25,7 @@ module Main
             Decorators::PublicPost.decorate(posts.for_home_page),
             Decorators::PublicExternalPost.decorate(external_posts.for_home_page)
           ).posts
+
           super.merge(
             posts: Decorators::HomePagePost.decorate(combined_home_page_posts),
             featured_items: home_page_featured_items.listing

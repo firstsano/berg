@@ -1,0 +1,18 @@
+== actions
+
+p.link-children
+  a> href="/admin/external_posts" External posts
+  span.c-grey-mid
+    ' /
+    h1.h-1 = "Editing ‘#{external_post.title}’"
+
+.panel
+  .panel__primary
+    form action="/admin/external_posts/#{external_post.id}" method="post"
+      == csrf_tag
+      input type="hidden" name="_method" value="put"
+      fieldset
+        legend.hide-visually Edit External Post
+        div data-view-formalist=JSON.generate(form.to_h(csrfToken: csrf_token))
+      p
+        button.button.button--primary type="submit" Save changes

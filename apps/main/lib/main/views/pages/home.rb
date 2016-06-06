@@ -1,13 +1,17 @@
 require "main/import"
 require "main/view"
 require "main/entities/home_page_featured_item"
+require "main/decorators/home_page_post"
+require "main/persistence/post_mixer"
 
 module Main
   module Views
     module Pages
       class Home < Main::View
         include Main::Import(
-          "main.persistence.repositories.home_page_featured_items"
+          "main.persistence.repositories.home_page_featured_items",
+          "main.persistence.repositories.posts",
+          "main.persistence.repositories.external_posts",
         )
 
         configure do |config|
@@ -15,7 +19,9 @@ module Main
         end
 
         def locals(options = {})
+          combined_home_page_posts = Main::Persistence::PostMixer.new(posts.for_home_page, external_posts.for_home_page).posts
           super.merge(
+            posts: Decorators::HomePagePost.decorate(combined_home_page_posts),
             featured_items: home_page_featured_items.listing
           )
         end

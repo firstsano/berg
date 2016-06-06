@@ -25,13 +25,11 @@ module Main
             .as(Entities::Post::WithAuthor)
         end
 
-        def for_category(category_id, page: 1, per_page: 20)
+        def for_home_page
           posts
             .published
-            .for_category(category_id)
-            .per_page(per_page)
-            .page(page)
-            .order(:published_at)
+            .limit(10)
+            .order(Sequel.desc(:published_at))
             .combine(one: { author: [people, person_id: :id] })
             .as(Entities::Post::WithAuthor)
         end

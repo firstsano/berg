@@ -13,7 +13,7 @@ RSpec.feature "Admin / Posts / Create", js: true do
   # Currently Formalist appears to not add an ID to selection_field field types so we can't
   # target #person_id - it doesn't exist
   scenario "I can create a post, with a slug generated automatically" do
-    find("nav a", text: "Posts").trigger("click")
+    find("nav a", text: "Posts", match: :prefer_exact).trigger("click")
 
     find("a", text: "Add a post").trigger("click")
 
@@ -32,7 +32,7 @@ RSpec.feature "Admin / Posts / Create", js: true do
   end
 
   scenario "I can see validation errors" do
-    find("nav a", text: "Posts").trigger("click")
+    find("nav a", text: "Posts", match: :prefer_exact).trigger("click")
 
     find("a", text: "Add a post").trigger("click")
 
@@ -46,7 +46,7 @@ RSpec.feature "Admin / Posts / Create", js: true do
   end
 
   scenario "I can add an existing category to a post" do
-    find("nav a", text: "Posts").trigger("click")
+    find("nav a", text: "Posts", match: :prefer_exact).trigger("click")
 
     find("a", text: "Add a post").trigger("click")
 
@@ -71,7 +71,7 @@ RSpec.feature "Admin / Posts / Create", js: true do
   end
 
   scenario "A new post gets a color assigned" do
-    find("nav a", text: "Posts").trigger("click")
+    find("nav a", text: "Posts", match: :prefer_exact).trigger("click")
 
     find("a", text: "Add a post").trigger("click")
 

@@ -14,3 +14,10 @@ ul
       p = featured_item.title
       p = featured_item.description
       p = featured_item.cover_image_url
+
+ul
+  - posts.each do |post|
+    li
+      p = post.title
+      p = post.teaser
+      img src= post.image_url(100)

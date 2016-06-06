@@ -10,7 +10,7 @@ RSpec.feature "Admin / Posts / Edit", js: true do
   end
 
   scenario "I can edit a post, and change the slug" do
-    find("nav a", text: "Posts").trigger("click")
+    find("nav a", text: "Posts", match: :prefer_exact).trigger("click")
 
     within("#post-#{sample_post.slug}") {
       find("a", text: "#{sample_post.title}").trigger("click")
@@ -27,7 +27,7 @@ RSpec.feature "Admin / Posts / Edit", js: true do
   end
 
   scenario "I can see validation errors" do
-    find("nav a", text: "Posts").trigger("click")
+    find("nav a", text: "Posts", match: :prefer_exact).trigger("click")
 
     within("#post-#{sample_post.slug}") {
       find("a", text: "#{sample_post.title}").trigger("click")

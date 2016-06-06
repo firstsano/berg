@@ -1,0 +1,31 @@
+== actions
+
+h1.h-1 External Posts
+
+.panel
+  .panel__primary
+    .table.link-children
+      table
+        thead
+          tr
+            th
+            th Title
+            th Status
+            th Published at
+        tbody
+          - external_posts.each do |external_post|
+            tr id="external-post-#{external_post.id}"
+              td.vertical-align--middle
+                a href="/admin/external_posts/#{external_post.id}/edit"
+                  img src= external_post.thumbnail_image_url style="width: 64px"
+              td.vertical-align--middle
+                a href="/admin/external_posts/#{external_post.id}/edit" = external_post.title
+              td.vertical-align--middle
+                .label class="label--#{external_post.status_class}"
+                  = external_post.status_label
+              - if external_post.published?
+                td.vertical-align--middle.f-mono = external_post.published_date
+              - else
+                td
+p
+  == paginator.pagination

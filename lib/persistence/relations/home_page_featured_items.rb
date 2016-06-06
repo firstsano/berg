@@ -8,6 +8,7 @@ module Persistence
         attribute :description, Types::Strict::String
         attribute :url, Types::Strict::String
         attribute :cover_image, Types::Strict::Hash
+        attribute :highlight_color, Types::Strict::String
       end
     end
   end

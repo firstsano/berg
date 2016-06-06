@@ -33,15 +33,7 @@ module Admin
         optional(:previous_slug).maybe
         optional(:status).filled(included_in?: Types::ProjectStatus.values)
         optional(:published_at).maybe(:time?)
-        optional(:cover_image).maybe(:hash?).schema do
-          optional(:original_url).maybe(:str?)
-          optional(:file_name).maybe(:str?)
-          optional(:path).maybe(:str?)
-          optional(:uid).maybe(:str?)
-          optional(:geometry).maybe(:str?)
-          optional(:type).maybe(:str?)
-          optional(:uploadURL).maybe(:str?)
-        end
+        optional(:cover_image).maybe(:hash?)
 
         rule(body: [:body, :case_study]) do |body, case_study|
           case_study.eql?(true).then(body.filled?)

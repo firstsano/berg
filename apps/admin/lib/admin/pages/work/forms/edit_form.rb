@@ -27,7 +27,6 @@ module Admin
 
                 upload_field :cover_image,
                   label: "Cover Image",
-                  hint: "A cover image for this item",
                   presign_url: "/admin/uploads/presign"
                 end
           end

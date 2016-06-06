@@ -25,9 +25,15 @@ module Admin
                 text_field :url,
                   label: "URL"
 
+                text_field :highlight_color,
+                  label: "Highlight Colour",
+                  placeholder: "Six-digit hexadecimal code, without the leading #",
+                  validation: {
+                    format: "/^([a-fA-F0-9]{3}|[a-fA-F0-9]{6})$/"
+                  }
+
                 upload_field :cover_image,
                   label: "Cover Image",
-                  hint: "A cover image for this item",
                   presign_url: "/admin/uploads/presign"
               end
           end

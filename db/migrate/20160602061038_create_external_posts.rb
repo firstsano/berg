@@ -1,6 +1,6 @@
 ROM::SQL.migration do
   up do
-    create_table :external_posts do
+    create_table :curated_posts do
       primary_key :id
       String  :title, null: false
       String  :website_url, null: true
@@ -13,17 +13,17 @@ ROM::SQL.migration do
     end
 
     run <<-SQL
-      CREATE TRIGGER set_updated_at_on_external_posts
-        BEFORE UPDATE ON external_posts FOR EACH ROW
+      CREATE TRIGGER set_updated_at_on_curated_posts
+        BEFORE UPDATE ON curated_posts FOR EACH ROW
         EXECUTE PROCEDURE set_updated_at_column();
     SQL
   end
 
   down do
     run <<-SQL
-      DROP TRIGGER IF EXISTS set_updated_at_on_external_posts ON external_posts;
+      DROP TRIGGER IF EXISTS set_updated_at_on_curated_posts ON curated_posts;
     SQL
 
-    drop_table :external_posts
+    drop_table :curated_posts
   end
 end

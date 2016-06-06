@@ -2,7 +2,7 @@ require "admin/import"
 require "berg/validation/form"
 
 module Admin
-  module ExternalPosts
+  module CuratedPosts
     module Validation
       Form = Berg::Validation.Form do
         configure do

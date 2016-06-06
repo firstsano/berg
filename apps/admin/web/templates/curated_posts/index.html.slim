@@ -1,0 +1,31 @@
+== actions
+
+h1.h-1 External Posts
+
+.panel
+  .panel__primary
+    .table.link-children
+      table
+        thead
+          tr
+            th
+            th Title
+            th Status
+            th Published at
+        tbody
+          - curated_posts.each do |curated_post|
+            tr id="external-post-#{curated_post.id}"
+              td.vertical-align--middle
+                a href="/admin/curated_posts/#{curated_post.id}/edit"
+                  img src= curated_post.thumbnail_image_url style="width: 64px"
+              td.vertical-align--middle
+                a href="/admin/curated_posts/#{curated_post.id}/edit" = curated_post.title
+              td.vertical-align--middle
+                .label class="label--#{curated_post.status_class}"
+                  = curated_post.status_label
+              - if curated_post.published?
+                td.vertical-align--middle.f-mono = curated_post.published_date
+              - else
+                td
+p
+  == paginator.pagination

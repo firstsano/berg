@@ -1,6 +1,6 @@
 module Admin
   module Decorators
-    class ExternalPost < SimpleDelegator
+    class CuratedPost < SimpleDelegator
       def published_date
         published_at.strftime("%e %b %Y %H:%M:%S%p")
       end

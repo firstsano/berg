@@ -1,8 +1,8 @@
 require "types"
 
-module Admin
+module Main
   module Entities
-    class ExternalPost < Dry::Types::Value
+    class CuratedPost < Dry::Types::Value
       attribute :id, Types::Strict::Int
       attribute :title, Types::Strict::String
       attribute :website_url, Types::Strict::String.optional
@@ -10,14 +10,6 @@ module Admin
       attribute :status, Types::PostStatus
       attribute :image_upload, Types::Form::Hash
       attribute :published_at, Types::Time
-
-      def deleted?
-        status == "deleted"
-      end
-
-      def published?
-        status == "published"
-      end
     end
   end
 end

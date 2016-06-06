@@ -18,7 +18,7 @@ ul
 ul
   - posts.each do |post|
     a href="#{post.url}"
-      - if post.type == "public_external_post"
+      - if post.type == "public_curated_post"
         li
           img src="#{post.image_url(100)}" title="#{post.title}"
       - else

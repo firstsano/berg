@@ -1,13 +1,13 @@
 require "admin/import"
-require "admin/entities/external_post"
-require "admin/external_posts/validation/form"
+require "admin/entities/curated_post"
+require "admin/curated_posts/validation/form"
 require "kleisli"
 
 module Admin
-  module ExternalPosts
+  module CuratedPosts
     module Operations
       class Update
-        include Admin::Import("admin.persistence.repositories.external_posts")
+        include Admin::Import("admin.persistence.repositories.curated_posts")
 
         include Dry::ResultMatcher.for(:call)
 
@@ -15,8 +15,8 @@ module Admin
           validation = Validation::Form.(attributes)
 
           if validation.success?
-            external_posts.update(id, validation.to_h)
-            Right(external_posts[id])
+            curated_posts.update(id, validation.to_h)
+            Right(curated_posts[id])
           else
             Left(validation)
           end

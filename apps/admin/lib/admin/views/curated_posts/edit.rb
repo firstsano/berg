@@ -3,35 +3,35 @@ require "admin/view"
 
 module Admin
   module Views
-    module ExternalPosts
+    module CuratedPosts
       class Edit < Admin::View
         include Admin::Import(
-          "admin.persistence.repositories.external_posts",
-          "admin.external_posts.forms.form",
+          "admin.persistence.repositories.curated_posts",
+          "admin.curated_posts.forms.form",
         )
 
         configure do |config|
-          config.template = "external_posts/edit"
+          config.template = "curated_posts/edit"
         end
 
         def locals(options = {})
-          external_post = external_posts[options.fetch(:id)]
+          curated_post = curated_posts[options.fetch(:id)]
 
           validation = options[:validation]
 
           super.merge(
-            external_post: external_post,
-            form: external_post_form(external_post, validation)
+            curated_post: curated_post,
+            form: curated_post_form(curated_post, validation)
           )
         end
 
         private
 
-        def external_post_form(external_post, validation)
+        def curated_post_form(curated_post, validation)
           if validation
             form.build(validation, validation.messages)
           else
-            form.build(external_post)
+            form.build(curated_post)
           end
         end
       end

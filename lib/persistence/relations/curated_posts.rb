@@ -1,7 +1,7 @@
 module Persistence
   module Relations
-    class ExternalPosts < ROM::Relation[:sql]
-      schema(:external_posts) do
+    class CuratedPosts < ROM::Relation[:sql]
+      schema(:curated_posts) do
         attribute :id, Types::Serial
         attribute :title, Types::String
         attribute :website_url, Types::String

@@ -1,22 +1,22 @@
 require "berg/repository"
-require "admin/entities/external_post"
+require "admin/entities/curated_post"
 
 module Admin
   module Persistence
     module Repositories
-      class ExternalPosts < Berg::Repository[:external_posts]
+      class CuratedPosts < Berg::Repository[:curated_posts]
         commands :create, update: [:by_id]
 
         def [](id)
-          external_posts.by_id(id).as(Entities::ExternalPost).one
+          curated_posts.by_id(id).as(Entities::CuratedPost).one
         end
 
         def listing(per_page: 20, page: 1)
-          external_posts
+          curated_posts
             .per_page(per_page)
             .page(page)
             .order(Sequel.desc(:created_at))
-            .as(Entities::ExternalPost)
+            .as(Entities::CuratedPost)
         end
       end
     end

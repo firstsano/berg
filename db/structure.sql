@@ -114,10 +114,10 @@ ALTER SEQUENCE categorisations_id_seq OWNED BY categorisations.id;
 
 
 --
--- Name: external_posts; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+-- Name: curated_posts; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
-CREATE TABLE external_posts (
+CREATE TABLE curated_posts (
     id integer NOT NULL,
     title text NOT NULL,
     website_url text,
@@ -146,7 +146,7 @@ CREATE SEQUENCE external_posts_id_seq
 -- Name: external_posts_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
-ALTER SEQUENCE external_posts_id_seq OWNED BY external_posts.id;
+ALTER SEQUENCE external_posts_id_seq OWNED BY curated_posts.id;
 
 
 --
@@ -469,7 +469,7 @@ ALTER TABLE ONLY categorisations ALTER COLUMN id SET DEFAULT nextval('categorisa
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY external_posts ALTER COLUMN id SET DEFAULT nextval('external_posts_id_seq'::regclass);
+ALTER TABLE ONLY curated_posts ALTER COLUMN id SET DEFAULT nextval('external_posts_id_seq'::regclass);
 
 
 --
@@ -548,7 +548,7 @@ ALTER TABLE ONLY categorisations
 -- Name: external_posts_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
 --
 
-ALTER TABLE ONLY external_posts
+ALTER TABLE ONLY curated_posts
     ADD CONSTRAINT external_posts_pkey PRIMARY KEY (id);
 
 
@@ -652,7 +652,7 @@ ALTER TABLE ONLY work_page_featured_items
 -- Name: set_updated_at_on_external_posts; Type: TRIGGER; Schema: public; Owner: -
 --
 
-CREATE TRIGGER set_updated_at_on_external_posts BEFORE UPDATE ON external_posts FOR EACH ROW EXECUTE PROCEDURE set_updated_at_column();
+CREATE TRIGGER set_updated_at_on_external_posts BEFORE UPDATE ON curated_posts FOR EACH ROW EXECUTE PROCEDURE set_updated_at_column();
 
 
 --

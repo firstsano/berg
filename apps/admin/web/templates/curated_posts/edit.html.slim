@@ -1,14 +1,14 @@
 == actions
 
 p.link-children
-  a> href="/admin/external_posts" External posts
+  a> href="/admin/curated_posts" External posts
   span.c-grey-mid
     ' /
-    h1.h-1 = "Editing ‘#{external_post.title}’"
+    h1.h-1 = "Editing ‘#{curated_post.title}’"
 
 .panel
   .panel__primary
-    form action="/admin/external_posts/#{external_post.id}" method="post"
+    form action="/admin/curated_posts/#{curated_post.id}" method="post"
       == csrf_tag
       input type="hidden" name="_method" value="put"
       fieldset

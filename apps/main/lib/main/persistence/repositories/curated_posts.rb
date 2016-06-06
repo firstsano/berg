@@ -1,16 +1,16 @@
 require "berg/repository"
-require "main/entities/external_post"
+require "main/entities/curated_post"
 
 module Main
   module Persistence
     module Repositories
-      class ExternalPosts < Berg::Repository[:external_posts]
+      class CuratedPosts < Berg::Repository[:curated_posts]
         def for_home_page
-          external_posts
+          curated_posts
             .published
             .limit(6)
             .order(Sequel.desc(:published_at))
-            .as(Entities::ExternalPost)
+            .as(Entities::CuratedPost)
         end
       end
     end

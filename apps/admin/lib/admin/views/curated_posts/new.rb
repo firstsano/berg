@@ -3,12 +3,12 @@ require "admin/view"
 
 module Admin
   module Views
-    module ExternalPosts
+    module CuratedPosts
       class New < Admin::View
-        include Admin::Import("admin.external_posts.forms.form")
+        include Admin::Import("admin.curated_posts.forms.form")
 
         configure do |config|
-          config.template = "external_posts/new"
+          config.template = "curated_posts/new"
         end
 
         def locals(options = {})

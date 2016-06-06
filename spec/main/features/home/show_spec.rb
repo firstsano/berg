@@ -3,7 +3,7 @@ require "main_app_helper"
 RSpec.feature "Main / Home / Show", js: false do
   include_context 'main people'
   include_context 'main posts'
-  include_context 'main external_posts'
+  include_context 'main curated_posts'
   include_context 'main categories'
 
   before do
@@ -12,7 +12,7 @@ RSpec.feature "Main / Home / Show", js: false do
       create_post("foo #{i+1}", "teaser-foo-#{i+1}", "foo-#{i+1}", @author)
     end
     7.times do |i|
-      create_external_post("cool image #{i}")
+      create_curated_post("cool image #{i}")
     end
   end
 

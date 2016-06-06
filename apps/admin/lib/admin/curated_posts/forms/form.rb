@@ -1,14 +1,14 @@
 require "berg/form"
 
 module Admin
-  module ExternalPosts
+  module CuratedPosts
     module Forms
       class Form < Berg::Form
 
-        prefix :external_post
+        prefix :curated_post
 
         define do
-          section :external_post do
+          section :curated_post do
             group do
               text_field :title, label: "Title"
               text_field :website_url, label: "Website URL"

@@ -17,24 +17,37 @@ module Admin
               action_label: "Add a featured item",
               placeholder: "No featured items added yet." do
                 text_field :title,
-                  label: "Title"
+                  label: "Title",
+                  validation: {
+                    filled: true
+                  }
 
                 text_field :description,
-                  label: "Description"
+                  label: "Description",
+                  validation: {
+                    filled: true
+                  }
 
                 text_field :url,
-                  label: "URL"
+                  label: "URL",
+                  validation: {
+                    filled: true
+                  }
 
                 text_field :highlight_color,
                   label: "Highlight Colour",
                   placeholder: "Six-digit hexadecimal code, without the leading #",
                   validation: {
+                    filled: true,
                     format: "/^([a-fA-F0-9]{3}|[a-fA-F0-9]{6})$/"
                   }
 
                 upload_field :cover_image,
                   label: "Cover Image",
-                  presign_url: "/admin/uploads/presign"
+                  presign_url: "/admin/uploads/presign",
+                  validation: {
+                    filled: true
+                  }
               end
           end
         end

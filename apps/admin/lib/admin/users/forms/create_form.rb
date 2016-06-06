@@ -13,7 +13,11 @@ module Admin
               filled: true,
               format: EMAIL_VALIDATION_REGEX
             }
-          text_field :name, label: "Name"
+          text_field :name,
+            label: "Name",
+            validation: {
+              filled: true
+            }
           check_box :active, label: "Status", question_text: "Mark as active?"
         end
       end

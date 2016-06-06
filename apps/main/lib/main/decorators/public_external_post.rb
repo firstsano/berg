@@ -1,15 +1,12 @@
-require "berg/decorator"
-
 module Main
   module Decorators
-    class HomePagePost < Berg::Decorator
-
+    class PublicExternalPost < Berg::Decorator
       def image_url(size="original")
-        __getobj__.image_url(size)
-      end
-
-      def teaser
-        __getobj__.teaser if __getobj__.respond_to? :teaser
+        if image_upload && !__getobj__.image_url
+          attache_url_for(image_upload["path"], size.to_s)
+        else
+          __getobj__.image_url
+        end
       end
 
       private

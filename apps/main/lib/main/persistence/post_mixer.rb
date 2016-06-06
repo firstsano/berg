@@ -9,15 +9,14 @@ module Main
       end
 
       def mix_posts(sources)
-        a1 = sources[0]
-        a2 = sources[1..sources.length]
+        primary_posts, *secondary_posts = sources
 
         determenistic_random = Random.new(133146)
-        rands = a1.length.times.map{|d| determenistic_random.rand(0..a1.length) }
-        a2.flatten.each_with_index do |p,i|
-          a1.insert(rands[i], p)
+        rands = primary_posts.length.times.map{|d| determenistic_random.rand(0..primary_posts.length) }
+        secondary_posts.flatten.each_with_index do |p,i|
+          primary_posts.insert(rands[i], p)
         end
-        return a1
+        return primary_posts
       end
     end
   end

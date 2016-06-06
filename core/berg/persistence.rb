@@ -23,6 +23,10 @@ Berg::Container.namespace "persistence" do |container|
     container["persistence.rom"].command(:categories)[:create]
   end
 
+  container.register "commands.create_external_post" do
+    container["persistence.rom"].command(:external_posts)[:create]
+  end
+
   container.register "commands.create_categorisations" do
     container["persistence.rom"].command(:categorisations)[:create]
   end

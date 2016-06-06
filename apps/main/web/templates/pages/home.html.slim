@@ -17,11 +17,12 @@ ul
 
 ul
   - posts.each do |post|
-    - if post.type == "public_external_post"
-      li
-        img src="#{post.image_url(100)}" title="#{post.title}"
-    - else
-      li class="post-color-#{post.color}"
-        h3= post.title
-        p = post.teaser
+    a href="#{post.url}"
+      - if post.type == "public_external_post"
+        li
+          img src="#{post.image_url(100)}" title="#{post.title}"
+      - else
+        li data-test-color="post-color-#{post.color}"
+          h3= post.title
+          p = post.teaser
 

@@ -21,6 +21,10 @@ module Main
         # attache_url_for(cover_image["path"], size.to_s) if cover_image
       end
 
+      def url
+        "/notes/#{slug}"
+      end
+
       private
 
       def to_html(input)

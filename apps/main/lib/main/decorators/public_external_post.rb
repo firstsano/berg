@@ -8,6 +8,10 @@ module Main
           __getobj__.image_url
         end
       end
+
+      def url
+        website_url
+      end
     end
   end
 end

@@ -14,30 +14,36 @@ module Admin
         define do
           section :post do
             group do
-              text_field :title, label: "Title",
-              validation: {
-                filled: true
-              }
-              text_field :slug, label: "Slug",
-              validation: {
-                filled: true
-              }
+              text_field :title,
+                label: "Title",
+                validation: {
+                  filled: true
+                }
+              text_field :slug,
+                label: "Slug",
+                validation: {
+                  filled: true
+                }
             end
             group do
-              text_area :teaser, label: "Teaser",
-              validation: {
-                filled: true
-              }
-              selection_field :person_id, label: "Author", options: dep(:author_list),
-              validation: {
-                filled: true
-              }
+              text_area :teaser,
+                label: "Teaser",
+                validation: {
+                  filled: true
+                }
+              selection_field :person_id,
+                label: "Author",
+                options: dep(:author_list),
+                validation: {
+                  filled: true
+                }
             end
 
-            text_area :body, label: "Body",
-            validation: {
-              filled: true
-            }
+            text_area :body,
+              label: "Body",
+              validation: {
+                filled: true
+              }
 
             group do
               select_box :status, label: "Status", options: dep(:status_list)

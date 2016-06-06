@@ -9,14 +9,16 @@ module Admin
         prefix :category
 
         define do
-          text_field :name, label: "Name",
-          validation: {
-            filled: true
-          }
-          text_field :slug, label: "Slug",
-          validation: {
-            filled: true
-          }
+          text_field :name,
+            label: "Name",
+            validation: {
+              filled: true
+            }
+          text_field :slug,
+            label: "Slug",
+            validation: {
+              filled: true
+            }
         end
       end
     end

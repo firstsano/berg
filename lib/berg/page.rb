@@ -4,13 +4,15 @@ module Berg
 
     def initialize(options = {})
       @options = options
+      @content = {}
     end
 
     def view_locals
       {
         csrf_tag: csrf_tag,
         csrf_token: csrf_token,
-        current_path: current_path
+        current_path: current_path,
+        page: self
       }
     end
 

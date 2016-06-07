@@ -1,0 +1,11 @@
+meta charset="utf-8"
+== metaquery_breakpoints
+script
+  == assets.read("main__inline-header.js")
+title
+  - if page.content_for(:title).to_s != ""
+    = "#{content_for(:title)} – Icelab"
+  - else
+    | Icelab
+link rel="stylesheet" type="text/css" href=assets["main__public.css"]
+script type="text/javascript" src=assets["main__public.js"] async="async"

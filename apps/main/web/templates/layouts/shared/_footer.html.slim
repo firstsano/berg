@@ -28,10 +28,10 @@
           span @icelab
     ul.nav-footer.fl-right.clearfix role="navigation"
       li.nav-footer__item
-        a.nav-footer__anchor.nav-footer__anchor--active href="/work" Work
+        == nav_link_for("Work", "/work", class: "nav-footer__anchor")
       li.nav-footer__item
-        a.nav-footer__anchor href="/about" About
+        == nav_link_for("About", "/about", class: "nav-footer__anchor")
       li.nav-footer__item
-        a.nav-footer__anchor href="/notes" Notes
+        == nav_link_for("Notes", "/notes", class: "nav-footer__anchor")
       li.nav-footer__item
-        a.nav-footer__anchor href="/contact" Contact
+        == nav_link_for("Contact", "/contact", class: "nav-footer__anchor")

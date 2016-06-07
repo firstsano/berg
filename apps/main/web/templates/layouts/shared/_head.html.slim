@@ -9,3 +9,17 @@ title
     | Icelab
 link rel="stylesheet" type="text/css" href=assets["main__public.css"]
 script type="text/javascript" src=assets["main__public.js"] async="async"
+
+- if content_store[:title].to_s != ""
+  meta property="og:title" content="#{content_store[:title]} – Icelab"
+- if content_store[:body].to_s != ""
+  / strip html tags and truncate body to 400 chars
+  meta property="og:description" content=content_store[:body].gsub(/<\/?[^>]*>/,"").gsub(/^(.{400,}?).*$/m,'\1...')
+- else
+  meta property="og:description" content="Icelab &middot; an Australian design studio"
+- if content_store[:categories].to_s != ""
+  meta name="twitter:label1" value="Tagged with"
+  meta name="twitter:data1" value=content_store[:categories]
+- if content_store[:author].to_s != ""
+  meta name="twitter:label2" value="Author"
+  meta name="twitter:data2" value=content_store[:author]

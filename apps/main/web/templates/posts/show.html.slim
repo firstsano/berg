@@ -1,4 +1,7 @@
 - content_store.capture(:title, "#{post.title} — Notes")
+- content_store.capture(:body, post.teaser)
+- content_store.capture(:categories, post.categories.map(&:name).join(" "))
+- content_store.capture(:author, post.author.name)
 
 h1== post.title
 p== "By #{post.author.name} &middot; #{post.published_date}"

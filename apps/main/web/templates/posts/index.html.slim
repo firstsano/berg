@@ -15,8 +15,7 @@
 - if posts
   ul.notes-index.grid.grid--mid.mx-auto
     - posts.each do |post|
-      li.notes-index__item.notes-index__item--red data-test-color="#{post.color}"
-        == post.snippet
+      == post.snippet
 
 p
   == paginator.pager_numbers

@@ -34,6 +34,7 @@ gem "dry-validation", git: "https://github.com/dryrb/dry-validation", branch: "m
 gem "formalist", git: "https://github.com/icelab/formalist", branch: "master"
 gem "i18n"
 gem "redcarpet"
+gem "sitemap_generator"
 gem "slim"
 gem "transproc", git: "https://github.com/solnic/transproc"
 

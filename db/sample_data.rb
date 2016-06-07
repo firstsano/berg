@@ -67,7 +67,8 @@ author = admin["admin.persistence.repositories.people"].by_email("person@icelab.
     body: Faker::Hipster.paragraph,
     status: "published",
     person_id: author.id,
-    published_at: Time.now
+    published_at: Time.now,
+    post_categories: [1]
   )
 end
 

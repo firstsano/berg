@@ -246,6 +246,8 @@ GEM
     que (0.11.5)
     rack (1.6.4)
     rack-rewrite (1.5.1)
+    rack-ssl (1.4.1)
+      rack
     rack-test (0.6.3)
       rack (>= 1.0)
     rack_csrf (2.5.0)
@@ -330,6 +332,7 @@ DEPENDENCIES
   puma
   que
   rack-rewrite
+  rack-ssl
   rack_csrf
   rake
   redcarpet

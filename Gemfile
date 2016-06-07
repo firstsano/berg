@@ -10,6 +10,7 @@ gem "dry-component", git: "https://github.com/timriley/dry-component", branch: "
 gem "dry-web", git: "https://github.com/dry-rb/dry-web", branch: "master"
 gem "rack_csrf"
 gem "rack-rewrite"
+gem "rack-ssl"
 gem "shotgun"
 
 # Database persistence

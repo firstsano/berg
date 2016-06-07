@@ -20,16 +20,16 @@ SitemapGenerator::Sitemap.adapter       = SitemapGenerator::S3Adapter.new(:aws_a
 SitemapGenerator::Sitemap.create do
 
   # Pages
-  # pages = sitemaps.all_pages
-  # pages.to_a.each { |p| add "/#{p.slug}" }
+  add "/about"
+  add "/contact"
+  add "/notes"
+  add "/work"
 
   # Posts
-  add "/notes"
   posts = sitemaps.all_posts
   posts.to_a.each { |p| add "/notes/#{p.slug}" }
 
   # Projects
-  add "/work"
   projects = sitemaps.all_projects
   projects.to_a.each { |p| add "/work/#{p.slug}" }
 end

@@ -10,7 +10,7 @@ SitemapGenerator::Sitemap.default_host = config.canonical_domain
 # Store the sitemap on s3
 SitemapGenerator::Sitemap.sitemaps_host = "http://#{config.aws_bucket}.s3.amazonaws.com/"
 SitemapGenerator::Sitemap.public_path   = 'tmp/'
-SitemapGenerator::Sitemap.sitemaps_path = 'sitemaps/'
+SitemapGenerator::Sitemap.sitemaps_path = 'sitemap/'
 SitemapGenerator::Sitemap.adapter       = SitemapGenerator::S3Adapter.new(:aws_access_key_id => config.aws_access_key_id,
                                                                           :aws_secret_access_key => config.aws_secret_access_key,
                                                                           :fog_provider => config.fog_provider,

@@ -28,6 +28,12 @@ module Berg
     attribute :attache_downloads_base_url, Types::String
     attribute :attache_secret_key, Types::String
 
+    attribute :aws_access_key_id, Types::String
+    attribute :aws_secret_access_key, Types::String
+    attribute :aws_bucket, Types::String
+    attribute :aws_region, Types::String
+    attribute :fog_provider, Types::String
+
     def self.load(root, name, env)
       path = root.join("config").join("#{name}.yml")
       yaml = File.exist?(path) ? YAML.load_file(path) : {}

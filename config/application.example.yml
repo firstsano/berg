@@ -15,6 +15,11 @@ development: &base
   attache_uploads_base_url: "http://berg.attache.icelab.com.au"
   attache_downloads_base_url: "http://berg.attache.icelab.com.au"
   attache_secret_key: "xxx"
+  aws_access_key_id:
+  aws_secret_access_key:
+  aws_bucket: "icelab-site-production"
+  aws_region: "ap-southeast-2"
+  fog_provider: "AWS"
 test:
   <<: *base
   database_url: "postgres://localhost/berg_test"

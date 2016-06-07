@@ -1,4 +1,15 @@
 GIT
+  remote: https://github.com/dry-rb/dry-view
+  revision: 825a0226862d821528eb6dde8cfe83f87648604e
+  branch: master
+  specs:
+    dry-view (0.1.0)
+      dry-configurable (~> 0.1)
+      dry-equalizer (~> 0.2)
+      inflecto (~> 0)
+      tilt (~> 2.0)
+
+GIT
   remote: https://github.com/dry-rb/dry-web
   revision: e561c5f80634deee446ddd1b8b4140e93b5a1ca3
   branch: master
@@ -174,11 +185,6 @@ GEM
       dry-container (>= 0.2.8)
       kleisli
       wisper (>= 1.6.0)
-    dry-view (0.1.0)
-      dry-configurable (~> 0.1)
-      dry-equalizer (~> 0.2)
-      inflecto (~> 0)
-      tilt (~> 2.0)
     equalizer (0.0.11)
     faker (1.6.3)
       i18n (~> 0.5)
@@ -289,7 +295,7 @@ GEM
     temple (0.7.6)
     thor (0.19.1)
     thread_safe (0.3.5)
-    tilt (2.0.4)
+    tilt (2.0.5)
     websocket-driver (0.6.3)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
@@ -315,6 +321,7 @@ DEPENDENCIES
   dry-transaction
   dry-types!
   dry-validation!
+  dry-view!
   dry-web!
   faker
   foreman

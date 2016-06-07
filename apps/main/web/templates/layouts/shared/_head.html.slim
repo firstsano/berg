@@ -3,8 +3,8 @@ meta charset="utf-8"
 script
   == assets.read("main__inline-header.js")
 title
-  - if content_for[:title].to_s != ""
-    = "#{content_for[:title]} – Icelab"
+  - if content_store[:title].to_s != ""
+    = "#{content_store[:title]} – Icelab"
   - else
     | Icelab
 link rel="stylesheet" type="text/css" href=assets["main__public.css"]

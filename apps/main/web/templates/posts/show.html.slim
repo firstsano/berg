@@ -1,4 +1,4 @@
-- content_for.call(:title, "#{post.title} — Notes")
+- content_store.capture(:title, "#{post.title} — Notes")
 
 h1== post.title
 p== "By #{post.author.name} &middot; #{post.published_date}"

@@ -1,12 +1,12 @@
-require "content_capturer"
+require "content_store"
 
 module Berg
   class Page
-    attr_reader :options, :content_for
+    attr_reader :options, :content_store
 
     def initialize(options = {})
       @options = options
-      @content_for = ContentCapturer.new
+      @content_store = ContentStore.new
     end
 
     def view_locals
@@ -14,7 +14,7 @@ module Berg
         csrf_tag: csrf_tag,
         csrf_token: csrf_token,
         current_path: current_path,
-        content_for: content_for,
+        content_store: content_store,
       }
     end
 

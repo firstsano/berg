@@ -4,10 +4,10 @@ button.nav-main-mobile-toggle data-view-nav-toggle={targetActiveClassName: "nav-
   span.hide-visually Toggle mobile navigation
 ul.nav-main.fl-right#main-navigation role="navigation"
   li.nav-main__item
-    a.nav-main__anchor.nav-main__anchor--active href="/work" Work
+    == nav_link_for("Work", "/work")
   li.nav-main__item
-    a.nav-main__anchor href="/about" About
+    == nav_link_for("About", "/about")
   li.nav-main__item
-    a.nav-main__anchor href="/notes" Notes
+    == nav_link_for("Notes", "/notes")
   li.nav-main__item
-    a.nav-main__anchor href="/contact" Contact
+    == nav_link_for("Contact", "/contact")

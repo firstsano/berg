@@ -17,6 +17,10 @@ Berg::Container.boot! :bugsnag
 require "bugsnag/rake"
 require "bugsnag/tasks"
 
+# Include the sitemap generator rake tasks
+require "sitemap_generator"
+require "sitemap_generator/tasks"
+
 require "rom/sql/rake_task"
 require "sequel"
 

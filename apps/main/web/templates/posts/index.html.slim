@@ -1,8 +1,22 @@
-== paginator.pager_links
+/ Notes
+.notes
+  .pulled-heading.pulled-heading--no-underline.pulled-heading--mid.pulled-heading--color-blue.pulled-heading--border-blue.mx-auto
+    h3.pulled-heading__heading
+      | Things we&rsquo;ve written down
+    .notes__older-newer.fl-right
+      /== paginator.pager_links
+      span.notes-newer
+        i.fa.fa-long-arrow-left
+        em Newer
+      a.notes-older href="#"
+        em Older
+        i.fa.fa-long-arrow-right
 
-ul
-- posts.each do |post|
-  li == post.snippet
+- if posts
+  ul.notes-index.grid.grid--mid.mx-auto
+    - posts.each do |post|
+      li.notes-index__item.notes-index__item--red
+        == post.snippet
 
 p
   == paginator.pager_numbers

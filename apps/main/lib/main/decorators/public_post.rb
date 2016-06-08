@@ -16,8 +16,8 @@ module Main
         to_html(body)
       end
 
-      def cover_image_url(size="original")
-        attache_url_for(cover_image["path"], size.to_s) if cover_image
+      def cover_image_url
+        attache_url_for(cover_image["path"], 128) if cover_image
       end
 
       private

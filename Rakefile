@@ -51,6 +51,16 @@ namespace :db do
         file.write dump
       end
     end
+
+    task :load do
+      fail if ENV["RACK_ENV"] == "production"
+      require "uri"
+      uri = URI(DB.url)
+      db_name = uri.path.tr("/", "")
+      system "dropdb #{db_name}"
+      system "createdb #{db_name}"
+      system "psql -d #{db_name} -h localhost < db/structure.sql"
+    end
   end
 
   task :check_migrations_exist do

@@ -11,11 +11,20 @@ module Admin
           define do
             many :office_locations do
               text_field :name,
-                label: "Location Name"
+                label: "Location Name",
+                validation: {
+                  filled: true
+                }
               text_field :address,
-                label: "Address"
+                label: "Address",
+                validation: {
+                  filled: true
+                }
               text_field :phone_number,
-                label: "Phone Number"
+                label: "Phone Number",
+                validation: {
+                  filled: true
+                }
             end
           end
         end

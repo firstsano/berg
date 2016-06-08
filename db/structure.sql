@@ -2,12 +2,16 @@
 -- PostgreSQL database dump
 --
 
+-- Dumped from database version 9.5.2
+-- Dumped by pg_dump version 9.5.2
+
 SET statement_timeout = 0;
 SET lock_timeout = 0;
 SET client_encoding = 'UTF8';
 SET standard_conforming_strings = on;
 SET check_function_bodies = false;
 SET client_min_messages = warning;
+SET row_security = off;
 
 --
 -- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: -
@@ -33,7 +37,7 @@ CREATE FUNCTION set_updated_at_column() RETURNS trigger
     LANGUAGE plpgsql
     AS $$
       BEGIN
-        NEW.updated_at = CURRENT_TIMESTAMP;
+        NEW.updated_at = (now() at time zone 'utc');
         RETURN NEW;
       END;
       $$;
@@ -44,7 +48,7 @@ SET default_tablespace = '';
 SET default_with_oids = false;
 
 --
--- Name: about_page_people; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+-- Name: about_page_people; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE about_page_people (
@@ -54,7 +58,7 @@ CREATE TABLE about_page_people (
 
 
 --
--- Name: categories; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+-- Name: categories; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE categories (
@@ -84,7 +88,7 @@ ALTER SEQUENCE categories_id_seq OWNED BY categories.id;
 
 
 --
--- Name: categorisations; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+-- Name: categorisations; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE categorisations (
@@ -114,7 +118,7 @@ ALTER SEQUENCE categorisations_id_seq OWNED BY categorisations.id;
 
 
 --
--- Name: home_page_featured_items; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+-- Name: home_page_featured_items; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE home_page_featured_items (
@@ -123,7 +127,8 @@ CREATE TABLE home_page_featured_items (
     title text NOT NULL,
     description text NOT NULL,
     url text NOT NULL,
-    cover_image json DEFAULT '{}'::json NOT NULL
+    cover_image json DEFAULT '{}'::json NOT NULL,
+    highlight_color text DEFAULT ''::text NOT NULL
 );
 
 
@@ -147,7 +152,7 @@ ALTER SEQUENCE home_page_featured_items_id_seq OWNED BY home_page_featured_items
 
 
 --
--- Name: office_contact_details; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+-- Name: office_contact_details; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE office_contact_details (
@@ -179,7 +184,7 @@ ALTER SEQUENCE office_contact_details_id_seq OWNED BY office_contact_details.id;
 
 
 --
--- Name: people; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+-- Name: people; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE people (
@@ -190,8 +195,8 @@ CREATE TABLE people (
     website_url text,
     avatar_image json,
     job_title text,
-    created_at timestamp without time zone DEFAULT now() NOT NULL,
-    updated_at timestamp without time zone DEFAULT now() NOT NULL,
+    created_at timestamp without time zone DEFAULT timezone('utc'::text, now()) NOT NULL,
+    updated_at timestamp without time zone DEFAULT timezone('utc'::text, now()) NOT NULL,
     short_bio text DEFAULT ''::text NOT NULL,
     name text DEFAULT ''::text NOT NULL
 );
@@ -217,7 +222,7 @@ ALTER SEQUENCE people_id_seq OWNED BY people.id;
 
 
 --
--- Name: posts; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+-- Name: posts; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE posts (
@@ -228,8 +233,8 @@ CREATE TABLE posts (
     status text DEFAULT 'draft'::text,
     person_id integer NOT NULL,
     published_at timestamp without time zone,
-    created_at timestamp without time zone DEFAULT now() NOT NULL,
-    updated_at timestamp without time zone DEFAULT now() NOT NULL,
+    created_at timestamp without time zone DEFAULT timezone('utc'::text, now()) NOT NULL,
+    updated_at timestamp without time zone DEFAULT timezone('utc'::text, now()) NOT NULL,
     teaser text DEFAULT ''::text NOT NULL,
     color text DEFAULT ''::text NOT NULL,
     cover_image json
@@ -256,7 +261,7 @@ ALTER SEQUENCE posts_id_seq OWNED BY posts.id;
 
 
 --
--- Name: projects; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+-- Name: projects; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE projects (
@@ -270,8 +275,8 @@ CREATE TABLE projects (
     slug text NOT NULL,
     status text DEFAULT 'draft'::text,
     published_at timestamp without time zone,
-    created_at timestamp without time zone DEFAULT now() NOT NULL,
-    updated_at timestamp without time zone DEFAULT now() NOT NULL,
+    created_at timestamp without time zone DEFAULT timezone('utc'::text, now()) NOT NULL,
+    updated_at timestamp without time zone DEFAULT timezone('utc'::text, now()) NOT NULL,
     case_study boolean DEFAULT false NOT NULL
 );
 
@@ -296,7 +301,7 @@ ALTER SEQUENCE projects_id_seq OWNED BY projects.id;
 
 
 --
--- Name: que_jobs; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+-- Name: que_jobs; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE que_jobs (
@@ -338,7 +343,7 @@ ALTER SEQUENCE que_jobs_job_id_seq OWNED BY que_jobs.job_id;
 
 
 --
--- Name: schema_migrations; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+-- Name: schema_migrations; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE schema_migrations (
@@ -347,7 +352,7 @@ CREATE TABLE schema_migrations (
 
 
 --
--- Name: users; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+-- Name: users; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE users (
@@ -357,8 +362,8 @@ CREATE TABLE users (
     access_token text NOT NULL,
     access_token_expiration timestamp without time zone NOT NULL,
     active boolean DEFAULT true NOT NULL,
-    created_at timestamp without time zone DEFAULT now() NOT NULL,
-    updated_at timestamp without time zone DEFAULT now() NOT NULL,
+    created_at timestamp without time zone DEFAULT timezone('utc'::text, now()) NOT NULL,
+    updated_at timestamp without time zone DEFAULT timezone('utc'::text, now()) NOT NULL,
     name text DEFAULT ''::text NOT NULL
 );
 
@@ -383,7 +388,7 @@ ALTER SEQUENCE users_id_seq OWNED BY users.id;
 
 
 --
--- Name: work_page_featured_items; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+-- Name: work_page_featured_items; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE work_page_featured_items (
@@ -486,7 +491,7 @@ ALTER TABLE ONLY work_page_featured_items ALTER COLUMN id SET DEFAULT nextval('w
 
 
 --
--- Name: categories_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+-- Name: categories_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY categories
@@ -494,7 +499,7 @@ ALTER TABLE ONLY categories
 
 
 --
--- Name: categorisations_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+-- Name: categorisations_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY categorisations
@@ -502,7 +507,7 @@ ALTER TABLE ONLY categorisations
 
 
 --
--- Name: home_page_featured_items_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+-- Name: home_page_featured_items_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY home_page_featured_items
@@ -510,7 +515,7 @@ ALTER TABLE ONLY home_page_featured_items
 
 
 --
--- Name: office_contact_details_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+-- Name: office_contact_details_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY office_contact_details
@@ -518,7 +523,7 @@ ALTER TABLE ONLY office_contact_details
 
 
 --
--- Name: people_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+-- Name: people_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY people
@@ -526,7 +531,7 @@ ALTER TABLE ONLY people
 
 
 --
--- Name: posts_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+-- Name: posts_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY posts
@@ -534,7 +539,7 @@ ALTER TABLE ONLY posts
 
 
 --
--- Name: posts_slug_key; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+-- Name: posts_slug_key; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY posts
@@ -542,7 +547,7 @@ ALTER TABLE ONLY posts
 
 
 --
--- Name: projects_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+-- Name: projects_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY projects
@@ -550,7 +555,7 @@ ALTER TABLE ONLY projects
 
 
 --
--- Name: projects_slug_key; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+-- Name: projects_slug_key; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY projects
@@ -558,7 +563,7 @@ ALTER TABLE ONLY projects
 
 
 --
--- Name: que_jobs_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+-- Name: que_jobs_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY que_jobs
@@ -566,7 +571,7 @@ ALTER TABLE ONLY que_jobs
 
 
 --
--- Name: schema_migrations_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+-- Name: schema_migrations_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY schema_migrations
@@ -574,7 +579,7 @@ ALTER TABLE ONLY schema_migrations
 
 
 --
--- Name: users_email_key; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+-- Name: users_email_key; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY users
@@ -582,7 +587,7 @@ ALTER TABLE ONLY users
 
 
 --
--- Name: users_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+-- Name: users_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY users
@@ -590,7 +595,7 @@ ALTER TABLE ONLY users
 
 
 --
--- Name: work_page_featured_items_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+-- Name: work_page_featured_items_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY work_page_featured_items

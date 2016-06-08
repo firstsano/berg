@@ -13,10 +13,10 @@ RSpec.feature "Main / Posts / Show", js: false do
   end
 
   scenario "I can view a post's detail page" do
-    visit "/posts"
+    visit "/notes"
     click_link "foo 1"
 
-    expect(page.current_path).to eq "/posts/foo-1"
+    expect(page.current_path).to eq "/notes/foo-1"
     expect(page).to have_content "test"
   end
 
@@ -24,9 +24,9 @@ RSpec.feature "Main / Posts / Show", js: false do
     author = create_person("Jane Doe", "person@example.com", "bio")
     create_post("Secret post", "teaser", "secret-post", author, "draft")
 
-    visit "/posts/secret-post"
+    visit "/notes/secret-post"
 
-    expect(page.current_path).to eq "/posts/secret-post"
+    expect(page.current_path).to eq "/notes/secret-post"
     expect(page).to have_content "Oops! We couldn’t find this page."
   end
 end

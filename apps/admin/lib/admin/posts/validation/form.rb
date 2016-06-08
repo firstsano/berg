@@ -32,7 +32,7 @@ module Admin
         optional(:previous_slug).maybe
         optional(:person_id).filled(:int?)
         optional(:post_categories).each(:int?)
-        optional(:status).filled(included_in?: Entities::Post::Status.values)
+        optional(:status).filled(included_in?: Types::PostStatus.values)
         optional(:published_at).maybe(:time?)
 
         rule(slug: [:slug, :previous_slug]) do |slug, previous_slug|
@@ -41,6 +41,10 @@ module Admin
 
         rule(published_at: [:status, :published_at]) do |status, published_at|
           status.eql?("published").then(published_at.filled?)
+        end
+
+        rule(post_categories: [:status, :post_categories]) do |status, post_categories|
+          status.eql?("published").then(post_categories.filled?)
         end
       end
     end

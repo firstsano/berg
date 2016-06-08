@@ -2,11 +2,11 @@ require "rack/rewrite"
 require "rack/ssl"
 
 use Rack::Rewrite do
-  if ENV["RACK_ENV"] == "production"
-    r301 %r{.*}, "https://icelab.com.au$&", if: -> rack_env {
-      rack_env["SERVER_NAME"] != "icelab.com.au"
-    }
-  end
+  # if ENV["RACK_ENV"] == "production"
+  #   r301 %r{.*}, "https://icelab.com.au$&", if: -> rack_env {
+  #     rack_env["SERVER_NAME"] != "icelab.com.au"
+  #   }
+  # end
 
   # add additional rewrite rules here
   r301 %r{/articles(.*)}, "/notes$1"

@@ -11,6 +11,8 @@
       - posts.each do |post|
         == post.snippet
 
-  .notes__older-newer.notes__older-newer--footer
-    == paginator.pager_links
-  == paginator.pager_numbers
+  .notes__pagination-and-older-newer.grid.grid--mid.mx-auto.clearfix
+    .notes__pagination.fl-left
+      == paginator.pager_numbers
+    .notes__older-newer.notes__older-newer--footer.fl-right
+      == paginator.pager_links

@@ -4,7 +4,7 @@ require "main/entities/home_page_featured_item"
 require "main/decorators/home_page_post"
 require "main/decorators/public_post"
 require "main/decorators/public_curated_post"
-require "main/persistence/post_mixer"
+require "main/views/post_mixer"
 
 module Main
   module Views
@@ -21,7 +21,7 @@ module Main
         end
 
         def locals(options = {})
-          combined_home_page_posts = Main::Persistence::PostMixer.new(
+          combined_home_page_posts = Main::Views::PostMixer.new(
             Decorators::PublicPost.decorate(posts.for_home_page),
             Decorators::PublicCuratedPost.decorate(curated_posts.for_home_page)
           ).posts

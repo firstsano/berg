@@ -1,5 +1,5 @@
 module Main
-  module Persistence
+  module Views
     class PostMixer
 
       attr_reader :posts

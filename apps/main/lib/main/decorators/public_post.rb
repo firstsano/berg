@@ -17,7 +17,7 @@ module Main
       end
 
       def cover_image_url
-        attache_url_for(cover_image["path"], 128) if cover_image
+        attache_url_for(cover_image["path"], "128") if cover_image
       end
 
       private

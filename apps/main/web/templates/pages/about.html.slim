@@ -3,12 +3,42 @@
   meta property="og:title" content="About — Icelab"
   meta property="og:description" content="Icelab &middot; an Australian design studio"
 
-ul
-  - people.each do |person|
-    li
-      img src= person.avatar_url(250)
-      p= person.name
-      p= person.job_title
-      p= person.bio
-      p= person.website_url
-      a href="http://twitter.com/#{person.twitter_handle}"
+.page-intro.grid.grid--narrow.mx-auto
+  h2.page-intro__heading
+    | We&rsquo;re an experienced team of designers and developers. We like solving hard problems and building systems to make the world smarter, kinder, and more beautiful.
+  p.page-intro__description
+    | Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.
+
+.about-sections.grid.grid--mid.mx-auto.clearfix
+  .about-section.fl-left
+    .about-section__heading Think
+    .about-section__text
+      p Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis.
+  .about-section.fl-left
+    .about-section__heading Design
+    .about-section__text
+      p Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis.
+  .about-section.fl-left
+    .about-section__heading Build
+    .about-section__text
+      p Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis.
+
+- if people
+  .person-grid.grid.grid--full.mx-auto
+    .person-grid__inner
+      - people.each do |person|
+        .person
+          img.person__image src= person.avatar_url(300) alt="Photograph of #{person.name}"
+          h1.person__name = person.name
+          h2.person__job-title = person.job_title
+          p.person__bio = person.bio
+          - if person.twitter_handle
+            a.person__link.person__twitter href="http://twitter.com/#{person.twitter_handle}"
+              span.hide-visually Follow #{person.name} on
+              | Twitter
+          - if person.twitter_handle && person.website_url
+            span.person__middot &middot;
+          - if person.website_url
+            a.person__link.person__website href="http://twitter.com/#{person.website_url}"
+              span.hide-visually Visit #{person.name}'s
+              | website

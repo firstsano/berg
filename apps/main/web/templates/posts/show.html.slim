@@ -18,12 +18,14 @@
         p.note__footer-author-bio
           == post.author.bio
         .note__footer-author-social-links
-          a.note__footer-author-twitter href="#"
-            i.fa.fa-twitter
-            span.hide-visually Follow #{post.author.name} on Twitter
-          a.note__footer-author-twitter href="#"
-            i.fa.fa-envelope
-            span.hide-visually Email #{post.author.name}
+          - if post.author.twitter_handle
+            a.note__footer-author-twitter href="http://twitter.com/#{post.author.twitter_handle}"
+              i.fa.fa-twitter
+              span.hide-visually Follow #{post.author.name} on Twitter
+          - if post.author.website_url
+            a.note__footer-author-website href="#{post.author.website_url}"
+              i.fa.fa-globe
+              span.hide-visually Visit #{post.author.name}'s website
       .note__footer-published-on.fl-left
         span.note__footer-heading Published on
         p == post.published_date

@@ -1,5 +1,4 @@
 require "berg/repository"
-require "main/entities/slug"
 
 module Main
   module Persistence
@@ -7,16 +6,18 @@ module Main
       class Sitemaps < Berg::Repository[:sitemaps]
         relations :posts, :projects
 
-        def all_posts
+        def post_slugs
           posts
             .published
-            .as(Entities::Slug)
+            .to_a
+            .map(&:slug)
         end
 
-        def all_projects
+        def project_slugs
           projects
             .published
-            .as(Entities::Slug)
+            .to_a
+            .map(&:slug)
         end
       end
     end

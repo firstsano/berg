@@ -27,10 +27,10 @@ SitemapGenerator::Sitemap.create do
   add "/work"
 
   # Posts
-  posts = sitemaps.all_posts
-  posts.to_a.each { |p| add "/notes/#{p.slug}" }
+  posts = sitemaps.post_slugs
+  posts.each { |p| add "/notes/#{p}" }
 
   # Projects
-  projects = sitemaps.all_projects
-  projects.to_a.each { |p| add "/work/#{p.slug}" }
+  projects = sitemaps.project_slugs
+  projects.each { |p| add "/work/#{p}" }
 end

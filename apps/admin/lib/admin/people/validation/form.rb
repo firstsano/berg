@@ -26,15 +26,7 @@ module Admin
 
         required(:job_title).maybe(:str?)
         optional(:previous_email).maybe
-        required(:avatar_image).maybe(:hash?).schema do
-          optional(:original_url).maybe(:str?)
-          optional(:file_name).maybe(:str?)
-          optional(:path).maybe(:str?)
-          optional(:uid).maybe(:str?)
-          optional(:geometry).maybe(:str?)
-          optional(:type).maybe(:str?)
-          optional(:uploadURL).maybe(:str?)
-        end
+        required(:avatar_image).maybe(:hash?)
         required(:twitter_handle).maybe(:str?)
         required(:website_url).maybe(:uri?)
 

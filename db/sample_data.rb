@@ -55,7 +55,7 @@ create_person(
   job_title: "Developer",
   website_url: nil,
   twitter_handle: "",
-  avatar_image: {}
+  avatar_image: nil
 )
 
 author = admin["admin.persistence.repositories.people"].by_email("person@icelab.com.au")
@@ -68,6 +68,7 @@ author = admin["admin.persistence.repositories.people"].by_email("person@icelab.
     status: "published",
     person_id: author.id,
     published_at: Time.now,
+    cover_image: nil,
     post_categories: [1]
   )
 end

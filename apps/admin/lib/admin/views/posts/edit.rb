@@ -23,7 +23,7 @@ module Admin
 
           super.merge(
             post: post,
-            post_form: post_form(post, validation)
+            form: post_form(post, validation)
           )
         end
 

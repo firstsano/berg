@@ -10,6 +10,6 @@ h1.h-1 Create post
   .panel__primary
     form action="/admin/posts" method="post"
       == csrf_tag
-      div data-view-formalist=post_form
+      div data-view-formalist=JSON.generate(form.to_h(csrfToken: csrf_token))
       p
         button.button.button--primary type="submit" Create post

@@ -236,7 +236,8 @@ CREATE TABLE posts (
     created_at timestamp without time zone DEFAULT timezone('utc'::text, now()) NOT NULL,
     updated_at timestamp without time zone DEFAULT timezone('utc'::text, now()) NOT NULL,
     teaser text DEFAULT ''::text NOT NULL,
-    color text DEFAULT ''::text NOT NULL
+    color text DEFAULT ''::text NOT NULL,
+    cover_image json
 );
 
 

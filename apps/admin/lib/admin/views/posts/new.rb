@@ -13,7 +13,7 @@ module Admin
         end
 
         def locals(options = {})
-          super.merge(post_form: form_data(options[:validation]))
+          super.merge(form: form_data(options[:validation]))
         end
 
         def form_data(validation)

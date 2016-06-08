@@ -1,5 +1,6 @@
 require "sitemap_generator"
-require "fog/core/services_mixin"
+require "fog/aws"
+
 require_relative "../core/boot"
 
 sitemaps = Main::Container["main.persistence.repositories.sitemaps"]

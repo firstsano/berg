@@ -15,12 +15,11 @@ SitemapGenerator::Sitemap.public_path   = 'tmp/'
 SitemapGenerator::Sitemap.sitemaps_path = 'sitemap/'
 SitemapGenerator::Sitemap.adapter       = SitemapGenerator::S3Adapter.new(:aws_access_key_id => config.aws_access_key_id,
                                                                           :aws_secret_access_key => config.aws_secret_access_key,
-                                                                          :fog_provider => config.fog_provider,
+                                                                          :fog_provider => :aws,
                                                                           :fog_directory => config.aws_bucket,
                                                                           :fog_region => config.aws_region)
 
 SitemapGenerator::Sitemap.create do
-
   # Pages
   add "/about"
   add "/contact"

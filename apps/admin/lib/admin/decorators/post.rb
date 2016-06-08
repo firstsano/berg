@@ -1,6 +1,8 @@
+require "berg/decorator"
+
 module Admin
   module Decorators
-    class Post < SimpleDelegator
+    class Post < Berg::Decorator
       def published_date
         published_at.strftime("%e %b %Y %H:%M:%S%p")
       end

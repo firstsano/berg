@@ -10,7 +10,7 @@ module Main
       end
 
       def url
-        website_url
+        link_url
       end
     end
   end

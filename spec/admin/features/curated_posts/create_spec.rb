@@ -13,14 +13,15 @@ RSpec.feature "Admin / Curated Posts / Create", js: true do
     find("a", text: "Add a curated post").trigger("click")
 
     find("#title").set("Cool image")
-    find("#website_url").set("http://foo.bar/")
+    find("#link_url").set("http://foo.bar/")
+    find("#link_title").set("foo bar")
     find("#image_url").set("http://foo.bar/image.png")
     select("Published", from: "Status")
     find("input[name='curated_post[published_at]']", visible: false).set(Time.now)
 
     find("button", text: "Create post").trigger("click")
 
-    expect(page).to have_content("Curated Post has been created")
+    expect(page).to have_content("Curated post has been created")
 
     expect(page).to have_content("Cool image")
   end
@@ -31,7 +32,8 @@ RSpec.feature "Admin / Curated Posts / Create", js: true do
     find("a", text: "Add a curated post").trigger("click")
 
     find("#title").set("Cool image")
-    find("#website_url").set("http://foo.bar/")
+    find("#link_url").set("http://foo.bar/")
+    find("#link_title").set("foo bar")
     select("Published", from: "Status")
     find("input[name='curated_post[published_at]']", visible: false).set(Time.now)
 

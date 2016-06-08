@@ -120,21 +120,23 @@ ALTER SEQUENCE categorisations_id_seq OWNED BY categorisations.id;
 CREATE TABLE curated_posts (
     id integer NOT NULL,
     title text NOT NULL,
-    website_url text,
+    link_url text,
     image_url text,
     image_upload json DEFAULT '{}'::json,
     status text DEFAULT 'draft'::text,
     published_at timestamp without time zone,
     created_at timestamp without time zone DEFAULT now() NOT NULL,
-    updated_at timestamp without time zone DEFAULT now() NOT NULL
+    updated_at timestamp without time zone DEFAULT now() NOT NULL,
+    link_title text DEFAULT ''::text NOT NULL,
+    body text
 );
 
 
 --
--- Name: external_posts_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+-- Name: curated_posts_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
-CREATE SEQUENCE external_posts_id_seq
+CREATE SEQUENCE curated_posts_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -143,10 +145,10 @@ CREATE SEQUENCE external_posts_id_seq
 
 
 --
--- Name: external_posts_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+-- Name: curated_posts_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
-ALTER SEQUENCE external_posts_id_seq OWNED BY curated_posts.id;
+ALTER SEQUENCE curated_posts_id_seq OWNED BY curated_posts.id;
 
 
 --
@@ -159,7 +161,8 @@ CREATE TABLE home_page_featured_items (
     title text NOT NULL,
     description text NOT NULL,
     url text NOT NULL,
-    cover_image json DEFAULT '{}'::json NOT NULL
+    cover_image json DEFAULT '{}'::json NOT NULL,
+    highlight_color text DEFAULT ''::text NOT NULL
 );
 
 
@@ -308,7 +311,8 @@ CREATE TABLE projects (
     published_at timestamp without time zone,
     created_at timestamp without time zone DEFAULT timezone('utc'::text, now()) NOT NULL,
     updated_at timestamp without time zone DEFAULT timezone('utc'::text, now()) NOT NULL,
-    case_study boolean DEFAULT false NOT NULL
+    case_study boolean DEFAULT false NOT NULL,
+    cover_image json
 );
 
 
@@ -469,7 +473,7 @@ ALTER TABLE ONLY categorisations ALTER COLUMN id SET DEFAULT nextval('categorisa
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY curated_posts ALTER COLUMN id SET DEFAULT nextval('external_posts_id_seq'::regclass);
+ALTER TABLE ONLY curated_posts ALTER COLUMN id SET DEFAULT nextval('curated_posts_id_seq'::regclass);
 
 
 --
@@ -545,11 +549,11 @@ ALTER TABLE ONLY categorisations
 
 
 --
--- Name: external_posts_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+-- Name: curated_posts_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
 --
 
 ALTER TABLE ONLY curated_posts
-    ADD CONSTRAINT external_posts_pkey PRIMARY KEY (id);
+    ADD CONSTRAINT curated_posts_pkey PRIMARY KEY (id);
 
 
 --
@@ -649,10 +653,10 @@ ALTER TABLE ONLY work_page_featured_items
 
 
 --
--- Name: set_updated_at_on_external_posts; Type: TRIGGER; Schema: public; Owner: -
+-- Name: set_updated_at_on_curated_posts; Type: TRIGGER; Schema: public; Owner: -
 --
 
-CREATE TRIGGER set_updated_at_on_external_posts BEFORE UPDATE ON curated_posts FOR EACH ROW EXECUTE PROCEDURE set_updated_at_column();
+CREATE TRIGGER set_updated_at_on_curated_posts BEFORE UPDATE ON curated_posts FOR EACH ROW EXECUTE PROCEDURE set_updated_at_column();
 
 
 --

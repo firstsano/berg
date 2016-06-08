@@ -10,11 +10,11 @@ module Admin
         alias_method :update, :update_by_id
 
         def [](id)
-          projects.by_id(id).as(Entities::Project).one
+          projects.by_id(id).as(Entities::Project).one!
         end
 
-        def by_slug(slug)
-          projects.by_slug(slug).as(Entities::Project).one
+        def by_slug!(slug)
+          projects.by_slug(slug).as(Entities::Project).one!
         end
 
         def slug_exists?(slug)

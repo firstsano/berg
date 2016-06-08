@@ -19,7 +19,7 @@ module Admin
 
           if validation.success?
             projects.update_by_slug(slug, validation.output)
-            Right(projects.by_slug(validation.output.fetch(:slug) { slug }))
+            Right(projects.by_slug!(validation.output.fetch(:slug) { slug }))
           else
             Left(validation)
           end

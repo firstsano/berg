@@ -17,7 +17,7 @@ module Admin
           per_page  = options[:per_page] || 20
 
           all_posts = posts.listing(page: page, per_page: per_page)
-          admin_posts = all_posts.to_a.map { |a| Decorators::Post.new(a) }
+          admin_posts = Decorators::Post.decorate(all_posts)
 
           super.merge(
             posts: admin_posts,

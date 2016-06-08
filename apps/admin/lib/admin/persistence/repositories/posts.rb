@@ -11,14 +11,14 @@ module Admin
         alias_method :update, :update_by_id
 
         def [](id)
-          posts.by_id(id).as(Entities::Post).one
+          posts.by_id(id).as(Entities::Post).one!
         end
 
-        def by_slug(slug)
+        def by_slug!(slug)
           posts
             .by_slug(slug)
             .combine(many: { post_categories: [categories, id: :post_id] })
-            .as(Entities::PostWithCategories).one
+            .as(Entities::PostWithCategories).one!
         end
 
         def slug_exists?(slug)

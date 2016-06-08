@@ -17,7 +17,7 @@ module Admin
           per_page  = options[:per_page] || 20
 
           all_posts = curated_posts.listing(page: page, per_page: per_page)
-          admin_curated_posts = all_posts.to_a.map { |a| Decorators::CuratedPost.new(a) }
+          admin_curated_posts = Decorators::CuratedPost.decorate(all_posts)
 
           super.merge(
             curated_posts: admin_curated_posts,

@@ -1,6 +1,8 @@
+require "berg/decorator"
+
 module Admin
   module Decorators
-    class CuratedPost < SimpleDelegator
+    class CuratedPost < Berg::Decorator
       def published_date
         published_at.strftime("%e %b %Y %H:%M:%S%p")
       end
@@ -26,13 +28,6 @@ module Admin
 
       def status_label
         status.capitalize
-      end
-
-      private
-
-      def attache_url_for(file_path, geometry)
-        prefix, basename = File.split(file_path)
-        [Berg::Container["config"].attache_downloads_base_url, "view", prefix, CGI.escape(geometry), CGI.escape(basename)].join('/')
       end
     end
   end

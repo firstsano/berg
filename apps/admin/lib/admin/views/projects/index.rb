@@ -17,7 +17,7 @@ module Admin
           per_page  = options[:per_page] || 20
 
           all_projects = projects.listing(page: page, per_page: per_page)
-          admin_projects = all_projects.to_a.map { |a| Decorators::Project.new(a) }
+          admin_projects = Decorators::Project.decorate(all_projects)
 
           super.merge(
             projects: admin_projects,

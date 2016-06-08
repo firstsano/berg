@@ -14,7 +14,7 @@ module Admin
         include Dry::ResultMatcher.for(:call)
 
         def call(email)
-          return Left(:email_not_found) unless users.by_email(email)
+          return Left(:email_not_found) unless users.by_email!(email)
 
           attributes = users.update_by_email(email,
             access_token: access_token.value,

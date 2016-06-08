@@ -1,6 +1,8 @@
+require "berg/decorator"
+
 module Admin
   module Decorators
-    class Project < SimpleDelegator
+    class Project < Berg::Decorator
       def status_class
         case status
         when "draft"

@@ -6,7 +6,7 @@ module Main
     module Repositories
       class Users < Berg::Repository[:users]
         def [](id)
-          users.by_id(id).as(Entities::User).one
+          users.by_id(id).as(Entities::User).one!
         end
       end
     end

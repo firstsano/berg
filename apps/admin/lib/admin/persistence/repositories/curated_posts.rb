@@ -8,7 +8,7 @@ module Admin
         commands :create, update: [:by_id]
 
         def [](id)
-          curated_posts.by_id(id).as(Entities::CuratedPost).one
+          curated_posts.by_id(id).as(Entities::CuratedPost).one!
         end
 
         def listing(per_page: 20, page: 1)

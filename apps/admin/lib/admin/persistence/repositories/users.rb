@@ -10,11 +10,11 @@ module Admin
         alias_method :update, :update_by_id
 
         def [](id)
-          users.by_id(id).as(Entities::User).one
+          users.by_id(id).as(Entities::User).one!
         end
 
-        def by_email(email)
-          users.by_email(email).as(Entities::User).one
+        def by_email!(email)
+          users.by_email(email).as(Entities::User).one!
         end
 
         def by_email_for_authentication(email)

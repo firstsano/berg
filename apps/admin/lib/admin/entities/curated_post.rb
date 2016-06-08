@@ -4,12 +4,14 @@ module Admin
   module Entities
     class CuratedPost < Dry::Types::Value
       attribute :id, Types::Strict::Int
-      attribute :title, Types::Strict::String
-      attribute :website_url, Types::Strict::String.optional
+      attribute :title, Types::Strict::String.optional
+      attribute :body, Types::Strict::String.optional
+      attribute :link_url, Types::Strict::String
+      attribute :link_title, Types::Strict::String
       attribute :image_url, Types::Strict::String.optional
+      attribute :image_upload, Types::Coercible::Hash.optional
       attribute :status, Types::PostStatus
-      attribute :image_upload, Types::Form::Hash
-      attribute :published_at, Types::Time
+      attribute :published_at, Types::Strict::Time.optional
 
       def deleted?
         status == "deleted"

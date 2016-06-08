@@ -20,7 +20,7 @@ module Admin
 
           if validation.success?
             update_post.by_slug(slug).(validation.output)
-            Right(posts.by_slug(validation.output.fetch(:slug) { slug }))
+            Right(posts.by_slug!(validation.output.fetch(:slug) { slug }))
           else
             Left(validation)
           end

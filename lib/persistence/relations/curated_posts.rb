@@ -4,7 +4,9 @@ module Persistence
       schema(:curated_posts) do
         attribute :id, Types::Serial
         attribute :title, Types::String
-        attribute :website_url, Types::String
+        attribute :body, Types::String
+        attribute :link_title, Types::String
+        attribute :link_url, Types::String
         attribute :image_url, Types::String
         attribute :image_upload, Types::JSON
         attribute :status, Types::String

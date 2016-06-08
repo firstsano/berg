@@ -59,7 +59,7 @@ class Admin::Application < Dry::Web::Application
                 end
 
                 m.failure do |validation|
-                  r.view "users.password", pass_validation: validation
+                  r.view "users.password", id: id, pass_validation: validation
                 end
               end
             end

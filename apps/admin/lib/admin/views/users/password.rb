@@ -16,7 +16,7 @@ module Admin
         end
 
         def locals(options = {})
-          user = users[options[:id]]
+          user = users[options.fetch(:id)]
 
           pass_validation = options[:pass_validation]
 

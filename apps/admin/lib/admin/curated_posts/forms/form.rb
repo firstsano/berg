@@ -8,9 +8,12 @@ module Admin
         prefix :curated_post
 
         define do
+          text_field :title, label: "Title", hint: "(optional)"
+          text_field :body, label: "Body", hint: "(optional)"
+
           group do
-            text_field :title, label: "Title"
-            text_field :website_url, label: "Website URL"
+            text_field :link_title, label: "Link title"
+            text_field :link_url, label: "Link URL"
           end
           group do
             text_field :image_url, label: "Image URL"

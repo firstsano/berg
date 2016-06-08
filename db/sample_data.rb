@@ -14,13 +14,13 @@ def admin
 end
 
 def create_user(attrs)
-  if !admin["admin.persistence.repositories.users"].by_email(attrs[:email])
+  if !admin["admin.persistence.repositories.users"].by_email!(attrs[:email])
     admin["admin.users.operations.create"].call(attrs).value
   end
 end
 
 def create_person(attrs)
-  if !admin["admin.persistence.repositories.people"].by_email(attrs[:email])
+  if !admin["admin.persistence.repositories.people"].by_email!(attrs[:email])
     admin["admin.people.operations.create"].call(attrs).value
   end
 end
@@ -58,7 +58,7 @@ create_person(
   avatar_image: {}
 )
 
-author = admin["admin.persistence.repositories.people"].by_email("person@icelab.com.au")
+author = admin["admin.persistence.repositories.people"].by_email!("person@icelab.com.au")
 
 20.times do |n|
   create_post(

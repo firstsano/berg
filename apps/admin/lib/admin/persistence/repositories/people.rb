@@ -9,11 +9,11 @@ module Admin
         commands :create, update: [:by_id]
 
         def [](id)
-          people.by_id(id).as(Entities::Person).one
+          people.by_id(id).as(Entities::Person).one!
         end
 
-        def by_email(email)
-          people.by_email(email).as(Entities::Person).one
+        def by_email!(email)
+          people.by_email(email).as(Entities::Person).one!
         end
 
         def listing(per_page: 20, page: 1)

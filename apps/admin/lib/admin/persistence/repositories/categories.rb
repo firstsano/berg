@@ -8,7 +8,7 @@ module Admin
         commands :create, delete: [:by_slug],  update: [:by_slug]
 
         def [](id)
-          categories.by_id(id).as(Entities::Category).one
+          categories.by_id(id).as(Entities::Category).one!
         end
 
         def by_slug(slug)

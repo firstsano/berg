@@ -17,7 +17,7 @@ module Admin
         end
 
         def locals(options = {})
-          post = posts.by_slug(options.fetch(:slug))
+          post = posts.by_slug!(options.fetch(:slug))
 
           validation = options[:validation]
 

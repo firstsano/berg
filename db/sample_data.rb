@@ -82,7 +82,8 @@ end
     body: Faker::Hipster.paragraph,
     tags: Faker::Hipster.word,
     status: "draft",
-    case_study: false
+    case_study: false,
+    cover_image: nil
   )
 end
 

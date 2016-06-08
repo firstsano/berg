@@ -1,6 +1,7 @@
 require "admin/import"
 require "admin/entities/user"
 require "admin/users/validation/form"
+require "dry-result_matcher"
 require "kleisli"
 require "types"
 

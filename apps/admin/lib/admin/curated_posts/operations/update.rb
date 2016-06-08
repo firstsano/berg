@@ -1,6 +1,7 @@
 require "admin/import"
 require "admin/entities/curated_post"
 require "admin/curated_posts/validation/form"
+require "dry-result_matcher"
 require "kleisli"
 
 module Admin

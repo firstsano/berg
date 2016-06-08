@@ -1,6 +1,7 @@
 require "admin/import"
 require "admin/entities/post"
 require "admin/posts/validation/form"
+require "dry-result_matcher"
 require "kleisli"
 
 module Admin

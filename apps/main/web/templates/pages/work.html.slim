@@ -4,7 +4,7 @@ ul
     li
       p = featured_item.title
       p = featured_item.description
-      p = featured_item.cover_image_url(512)
+      p = featured_item.cover_image_url
 
 h2 Projects
 ul
@@ -12,4 +12,4 @@ ul
     li
       a href="/work/#{project.slug}" = project.title
       p = project.intro
-      p = project.cover_image_url(512)
+      p = project.cover_image_url

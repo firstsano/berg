@@ -7,12 +7,13 @@ module Persistence
         attribute :client, Types::String
         attribute :url, Types::String
         attribute :intro, Types::String
-        attribute :body, Types::String
+        attribute :body, Types::String.optional
         attribute :tags, Types::String
         attribute :slug, Types::String
         attribute :status, Types::String
-        attribute :published_at, Types::DateTime
+        attribute :published_at, Types::Time.optional
         attribute :case_study, Types::Bool
+        attribute :cover_image, Types::JSON
       end
 
       use :pagination

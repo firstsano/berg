@@ -44,10 +44,15 @@ module Admin
             validation: {
               filled: true
             }
+
+          upload_field :cover_image,
+            label: "Cover Image",
+            presign_url: "/admin/uploads/presign"
+
           select_box :status,
             label: "Status", options: [
               ["draft", "Draft"], ["published", "Published"], ["deleted", "Deleted"]
-          ]
+            ]
           date_time_field :published_at, label: "Published at"
           check_box :case_study, label: "Case Study", question_text: "Mark as a Case Study?"
         end

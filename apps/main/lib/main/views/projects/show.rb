@@ -1,5 +1,6 @@
 require "main/import"
 require "main/view"
+require "main/decorators/public_project"
 
 module Main
   module Views
@@ -13,7 +14,7 @@ module Main
 
         def locals(options = {})
           super.merge(
-            project: projects.by_slug(options[:slug])
+            project: Decorators::PublicProject.decorate(projects.by_slug(options[:slug]))
           )
         end
       end

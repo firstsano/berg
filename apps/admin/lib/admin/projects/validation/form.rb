@@ -30,9 +30,10 @@ module Admin
 
         # Required in only the edit form
         optional(:slug).filled
-        optional(:previous_slug).maybe
+        optional(:previous_slug).filled
         optional(:status).filled(included_in?: Types::ProjectStatus.values)
         optional(:published_at).maybe(:time?)
+        required(:cover_image).maybe(:hash?)
 
         rule(body: [:body, :case_study]) do |body, case_study|
           case_study.eql?(true).then(body.filled?)
@@ -44,6 +45,10 @@ module Admin
 
         rule(published_at: [:status, :published_at]) do |status, published_at|
           status.eql?("published").then(published_at.filled?)
+        end
+
+        rule(cover_image: [:status, :cover_image]) do |status, cover_image|
+          status.eql?("published").then(cover_image.filled?)
         end
       end
     end

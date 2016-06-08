@@ -24,6 +24,7 @@ module Admin
         required(:teaser).filled
         required(:body).filled
         required(:person_id).filled(:int?)
+        required(:cover_image).maybe(:hash?)
 
         # Required in only the edit form
         optional(:slug).filled

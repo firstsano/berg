@@ -9,8 +9,13 @@ module Berg
     def view_locals
       {
         csrf_tag: csrf_tag,
-        csrf_token: csrf_token
+        csrf_token: csrf_token,
+        current_path: current_path
       }
+    end
+
+    def current_path
+      self[:current_path].()
     end
 
     def csrf_metatag

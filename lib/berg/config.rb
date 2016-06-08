@@ -32,7 +32,6 @@ module Berg
     attribute :aws_secret_access_key, Types::String
     attribute :aws_bucket, Types::String
     attribute :aws_region, Types::String
-    attribute :fog_provider, Types::String
 
     def self.load(root, name, env)
       path = root.join("config").join("#{name}.yml")

@@ -58,6 +58,7 @@ create_person(
   avatar_image: nil
 )
 
+admin["admin.users.operations.change_password"].(1, { password: "changeme" })
 author = admin["admin.persistence.repositories.people"].by_email("person@icelab.com.au")
 
 20.times do |n|

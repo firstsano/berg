@@ -8,7 +8,8 @@ RSpec.shared_context "admin posts" do
       "teaser" => "A teaser for this sample post",
       "body" => "Some sample content for this post",
       "person_id" => Admin::Container["admin.persistence.repositories.people"].by_email("person@example.com").id,
-      "slug" => title.to_slug.normalize.to_s
+      "slug" => title.to_slug.normalize.to_s,
+      "cover_image" => nil
     }.merge(attrs)).value
   end
 

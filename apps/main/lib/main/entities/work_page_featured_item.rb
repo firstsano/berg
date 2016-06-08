@@ -10,8 +10,8 @@ module Main
       attribute :url, Types::Strict::String
       attribute :cover_image, Types::Hash
 
-      def cover_image_url(size = "original")
-        attache_url_for(cover_image["path"], size.to_s) if cover_image
+      def cover_image_url
+        attache_url_for(cover_image["path"], "128") if cover_image
       end
 
       def attache_url_for(file_path, geometry)

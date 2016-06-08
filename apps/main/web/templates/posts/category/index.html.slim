@@ -2,16 +2,21 @@
 == content_store.capture :og_meta_tags do
   meta property="og:title" content="Notes tagged #{category.name} — Icelab"
   meta property="og:description" content="Icelab &middot; an Australian design studio"
+/ Notes by category
+.notes
+  .pulled-heading.pulled-heading--no-underline.pulled-heading--mid.pulled-heading--color-blue.pulled-heading--border-blue.mx-auto
+    h3.pulled-heading__heading
+      | Notes tagged &ldquo;#{category.name}&rdquo;
+    .notes__older-newer.fl-right
+      == paginator.pager_links
 
-== paginator.pager_links
+  - if posts
+    ul.notes-index.grid.grid--mid.mx-auto
+      - posts.each do |post|
+        == post.snippet
 
-h3
-  == "Viewing posts in '#{category.name}'"
-
-ul
-- posts.each do |post|
-  li == post.snippet
-
-p
-  == paginator.pager_numbers
-  == paginator.pager_links
+  .notes__pagination-and-older-newer.grid.grid--mid.mx-auto.clearfix
+    .notes__pagination.fl-left
+      == paginator.pager_numbers
+    .notes__older-newer.notes__older-newer--footer.fl-right
+      == paginator.pager_links

@@ -27,7 +27,7 @@ module Admin
           upload_field :avatar_image,
             label: "Avatar",
             hint: "An image of this person",
-            presign_url: "#{Berg::Container["config"].canonical_domain}/admin/uploads/presign"
+            presign_url: "/admin/uploads/presign"
 
           group label: "Social" do
             text_field :website_url, label: "Website URL", placeholder: "http://icelab.com.au", hint: "(optional)"

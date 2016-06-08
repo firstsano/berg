@@ -37,7 +37,7 @@ module Admin
           posts
             .select(:color)
             .order(Sequel.desc(:created_at))
-            .limit(5)
+            .limit((Types::PostHighlightColor.values.count / 2).floor)
             .map{ |p| p[:color] }
         end
       end

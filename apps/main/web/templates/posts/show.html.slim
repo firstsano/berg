@@ -7,27 +7,41 @@
   meta name="twitter:label2" value="Author"
   meta name="twitter:data2" value=post.author.name
 
-h1== post.title
-p== "By #{post.author.name} &middot; #{post.published_date}"
-
-div.post
-  == post.body_html
-
-div.author-details
-  h3 Author
-  == post.author.name
-  img src= post.author.avatar_url(100)
-  == post.author.bio
-
-div.meta
-  h3 Published on
-  == post.published_date
-
-- unless post.categories.empty?
-  div.categories
-    h3 Categories
-    ul
-      - post.categories.each do |category|
-        li
-          a href="/notes/category/#{category.slug}"
-            = category.name
+.note
+  .pulled-heading.pulled-heading--serif.pulled-heading--narrow.pulled-heading--color-blue.pulled-heading--border-blue.mx-auto
+    h3.pulled-heading__heading
+      span == post.title
+  .note__body.grid.grid--narrow.mx-auto
+    .note__meta
+      span.note__author By #{post.author.name}
+      span.note__date == post.published_date
+    .note__copy.copy
+      == post.body_html
+  .note__footer
+    .note__footer-inner.clearfix
+      .note__footer-author.fl-left
+        span.note__footer-heading Author
+        img.fl-left.note__footer-author-avatar src="#{post.author.avatar_url(160)}" width="80" height="80"
+        span.note__footer-author-title
+          == post.author.name
+        p.note__footer-author-bio
+          == post.author.bio
+        .note__footer-author-social-links
+          - if post.author.twitter_handle
+            a.note__footer-author-twitter href="http://twitter.com/#{post.author.twitter_handle}"
+              i.fa.fa-twitter
+              span.hide-visually Follow #{post.author.name} on Twitter
+          - if post.author.website_url
+            a.note__footer-author-website href="#{post.author.website_url}"
+              i.fa.fa-globe
+              span.hide-visually Visit #{post.author.name}'s website
+      .note__footer-published-on.fl-left
+        span.note__footer-heading Published on
+        p == post.published_date
+      - unless post.categories.empty?
+        .note__footer-tags.fl-left
+          span.note__footer-heading Tags
+          ul.note__footer-tags-list
+            - post.categories.each do |category|
+              li.note__footer-tags-item
+                a href="/notes/category/#{category.slug}" == category.name

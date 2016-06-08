@@ -11,6 +11,7 @@ module Persistence
         attribute :website_url, Types::Strict::String.optional
         attribute :avatar_image, Types::JSON
         attribute :job_title, Types::Strict::String.optional
+        attribute :city, Types::Strict::String
       end
 
       use :pagination

@@ -12,6 +12,7 @@ module Admin
       attribute :job_title, Types::Strict::String.optional
       attribute :twitter_handle, Types::Strict::String.optional
       attribute :website_url, Types::Strict::String.optional
+      attribute :city, Types::Strict::String
     end
   end
 end

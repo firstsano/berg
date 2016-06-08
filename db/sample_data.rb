@@ -55,7 +55,8 @@ create_person(
   job_title: "Developer",
   website_url: nil,
   twitter_handle: "",
-  avatar_image: nil
+  avatar_image: nil,
+  city: "Melbourne"
 )
 
 admin["admin.users.operations.change_password"].(1, { password: "changeme" })

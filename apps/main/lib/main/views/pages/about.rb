@@ -15,8 +15,11 @@ module Main
         end
 
         def locals(options = {})
+          about_page_people = people.for_about_page
+
           super.merge(
-            people: Decorators::PublicPerson.decorate(people.for_about_page),
+            people: Decorators::PublicPerson.decorate(about_page_people),
+            number_of_cities: about_page_people.map { |p| p[:city] }.uniq.length
           )
         end
       end

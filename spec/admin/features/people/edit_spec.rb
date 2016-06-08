@@ -22,6 +22,7 @@ RSpec.feature "Admin / People / Edit", js: true do
     find("#name").set("Ben Kenobi")
     find("#bio").set("Jedi Master")
     find("#short_bio").set("Jedi")
+    find("#city").set("Canberra")
 
     find("button", text: "Save changes").trigger("click")
 

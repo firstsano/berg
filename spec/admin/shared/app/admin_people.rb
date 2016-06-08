@@ -9,7 +9,8 @@ RSpec.shared_context "admin people" do
       "avatar_image" => {},
       "twitter_handle" => "",
       "website_url" => "",
-      "job_title" => "Developer"
+      "job_title" => "Developer",
+      "city" => "Melbourne"
     }.merge(attrs)).value
   end
 

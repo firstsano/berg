@@ -8,21 +8,37 @@ module Admin
 
         define do
           group do
-            text_field :name, label: "Name"
-          end
-
-          group do
+            text_field :name, label: "Name",
+              validation: {
+                filled: true
+              }
             text_field :email,
               label: "Email",
               validation: {
                 filled: true,
                 format: EMAIL_VALIDATION_REGEX
               }
-            text_field :job_title, label: "Job Title"
           end
 
-          text_area :bio, label: "Bio"
-          text_area :short_bio, label: "Short Bio"
+          group do
+            text_field :job_title, label: "Job Title",
+              validation: {
+                filled: true
+              }
+            text_field :city, label: "City",
+              validation: {
+                filled: true
+              }
+          end
+
+          text_area :bio, label: "Bio",
+            validation: {
+              filled: true
+            }
+          text_area :short_bio, label: "Short Bio",
+            validation: {
+              filled: true
+            }
 
           upload_field :avatar_image,
             label: "Avatar",

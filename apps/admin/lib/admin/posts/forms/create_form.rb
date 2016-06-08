@@ -31,7 +31,7 @@ module Admin
             upload_field :cover_image,
               label: "Cover Image",
               hint: "Will be displayed on the notes index page",
-              presign_url: "#{Berg::Container["config"].canonical_domain}/admin/uploads/presign"
+              presign_url: "/admin/uploads/presign"
 
           end
         end

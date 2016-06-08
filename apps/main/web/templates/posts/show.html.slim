@@ -24,7 +24,7 @@
         img.fl-left.note__footer-author-avatar src="#{post.author.avatar_url(160)}" width="80" height="80"
         span.note__footer-author-title
           == post.author.name
-        p.note__footer-author-bio
+        .note__footer-author-bio
           == post.author.short_bio_html
         .note__footer-author-social-links
           - if post.author.twitter_handle

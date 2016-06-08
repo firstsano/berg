@@ -5,7 +5,8 @@ RSpec.shared_context "main people" do
       email: email,
       bio: bio,
       short_bio: bio,
-      active: true
+      active: true,
+      city: "Melbourne"
     })
   end
 

@@ -7,6 +7,7 @@ module Main
       attribute :name, Types::Strict::String
       attribute :email, Types::Strict::String
       attribute :bio, Types::Strict::String
+      attribute :short_bio, Types::Strict::String
       attribute :avatar_image, Types::Hash
       attribute :job_title, Types::Strict::String.optional
       attribute :twitter_handle, Types::Strict::String.optional

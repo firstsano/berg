@@ -31,7 +31,7 @@
           img.person__image src= person.avatar_url(300) alt="Photograph of #{person.name}"
           h1.person__name = person.name
           h2.person__job-title = person.job_title
-          p.person__bio = person.bio
+          p.person__bio == person.bio_html
           - if person.twitter_handle
             a.person__link.person__twitter href="http://twitter.com/#{person.twitter_handle}"
               span.hide-visually Follow #{person.name} on

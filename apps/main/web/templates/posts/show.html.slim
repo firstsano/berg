@@ -25,7 +25,7 @@
         span.note__footer-author-title
           == post.author.name
         p.note__footer-author-bio
-          == post.author.bio
+          == post.author.short_bio_html
         .note__footer-author-social-links
           - if post.author.twitter_handle
             a.note__footer-author-twitter href="http://twitter.com/#{post.author.twitter_handle}"

@@ -1,7 +1,11 @@
-- content_store.capture(:title, "#{post.title} — Notes")
-- content_store.capture(:body, post.teaser)
-- content_store.capture(:categories, post.categories.map(&:name).join(" "))
-- content_store.capture(:author, post.author.name)
+- content_store.capture :title, "#{post.title} — Notes – Icelab"
+== content_store.capture :og_meta_tags do
+  meta property="og:title" content="#{post.title} — Notes – Icelab"
+  meta property="og:description" content=post.teaser.gsub(/<\/?[^>]*>/,"").gsub(/^(.{400,}?).*$/m,'\1...')
+  meta name="twitter:label1" value="Tagged with"
+  meta name="twitter:data1" value=post.categories.map(&:name).join(" ")
+  meta name="twitter:label2" value="Author"
+  meta name="twitter:data2" value=post.author.name
 
 h1== post.title
 p== "By #{post.author.name} &middot; #{post.published_date}"

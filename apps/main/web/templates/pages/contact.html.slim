@@ -1,4 +1,7 @@
 - content_store.capture(:title, "Contact")
+== content_store.capture :og_meta_tags do
+  meta property="og:title" content="Contact — Icelab"
+  meta property="og:description" content="Icelab &middot; an Australian design studio"
 
 ul
   - contact_details.each do |contact_detail|

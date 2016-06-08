@@ -1,3 +1,8 @@
+- content_store.capture(:title, "Notes tagged #{category.name}")
+== content_store.capture :og_meta_tags do
+  meta property="og:title" content="Notes tagged #{category.name} — Icelab"
+  meta property="og:description" content="Icelab &middot; an Australian design studio"
+
 == paginator.pager_links
 
 h3

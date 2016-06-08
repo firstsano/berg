@@ -15,6 +15,7 @@ module Admin
             required(:description).filled
             required(:url).filled
             required(:cover_image).filled
+            required(:highlight_color).filled
           end
         end
       end

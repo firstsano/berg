@@ -1,4 +1,5 @@
-li.notes-index__item class="notes-index__item--#{post.color}" data-test-color=post.color
+- has_image_class = (post.cover_image_url ? 'notes-index__item--has-image' : '')
+li.notes-index__item.d-flex class="notes-index__item--#{post.color} #{has_image_class}"
   a.notes-index__anchor.clearfix href="/notes/#{post.slug}"
     .notes-index__text-container
       .notes-index__text-container-inner
@@ -9,5 +10,4 @@ li.notes-index__item class="notes-index__item--#{post.color}" data-test-color=po
         p.notes-index__note-meta
           span.notes-index__note-author = post.author.name
           span.notes-index__note-date = post.published_date
-    / TODO: Hook up image conditional
-    / img.notes-index__image src=post.cover_image_url
+    img.notes-index__image src= post.cover_image_url

@@ -12,6 +12,14 @@ module Main
             .for_about_page
             .as(Entities::Person)
         end
+
+        def number_of_cities
+          people
+            .select(:city)
+            .map { |p| p[:city] }
+            .uniq
+            .length
+        end
       end
     end
   end

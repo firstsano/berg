@@ -17,6 +17,7 @@ module Main
         def locals(options = {})
           super.merge(
             people: Decorators::PublicPerson.decorate(people.for_about_page),
+            number_of_cities: people.number_of_cities
           )
         end
       end

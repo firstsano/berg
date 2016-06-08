@@ -1,16 +1,20 @@
+require "content_store"
+
 module Berg
   class Page
-    attr_reader :options
+    attr_reader :options, :content_store
 
     def initialize(options = {})
       @options = options
+      @content_store = ContentStore.new
     end
 
     def view_locals
       {
         csrf_tag: csrf_tag,
         csrf_token: csrf_token,
-        current_path: current_path
+        current_path: current_path,
+        content_store: content_store,
       }
     end
 

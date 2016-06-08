@@ -1,3 +1,7 @@
+- content_store.capture(:title, "Notes tagged #{category.name}")
+== content_store.capture :og_meta_tags do
+  meta property="og:title" content="Notes tagged #{category.name} — Icelab"
+  meta property="og:description" content="Icelab &middot; an Australian design studio"
 / Notes by category
 .notes
   .pulled-heading.pulled-heading--no-underline.pulled-heading--mid.pulled-heading--color-blue.pulled-heading--border-blue.mx-auto

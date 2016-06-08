@@ -9,15 +9,15 @@ module Main
         def post_slugs
           posts
             .published
-            .to_a
-            .map(&:slug)
+            .select(:slug)
+            .map { |p| p[:slug] }
         end
 
         def project_slugs
           projects
             .published
-            .to_a
-            .map(&:slug)
+            .select(:slug)
+            .map { |p| p[:slug] }
         end
       end
     end

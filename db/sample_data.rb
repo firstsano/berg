@@ -55,7 +55,8 @@ create_person(
   job_title: "Developer",
   website_url: nil,
   twitter_handle: "",
-  avatar_image: nil
+  avatar_image: nil,
+  city: "Melbourne"
 )
 
 author = admin["admin.persistence.repositories.people"].by_email("person@icelab.com.au")

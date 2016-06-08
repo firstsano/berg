@@ -29,3 +29,13 @@ foreman start -f Procfile.dev
 ### Assets
 
 The design-specifics for this site are contained in a separate Icelab-specific `berg-assets` private repo.
+
+### Sitemaps
+
+The [sitemap_generator gem](https://github.com/kjvarga/sitemap_generator) is used to generate sitemaps.
+
+To create the sitemap and upload it to S3:
+`rake sitemap:create`
+
+To refresh the sitemap and ping search engines:
+`rake sitemap:refresh`

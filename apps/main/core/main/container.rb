@@ -8,6 +8,7 @@ module Main
 
       config.auto_register = %w[
         lib/main/operations
+        lib/main/persistence
         lib/main/validation
         lib/main/views
       ]

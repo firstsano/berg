@@ -23,6 +23,7 @@ module Admin
         required(:bio).filled
         required(:short_bio).filled
         required(:name).filled
+        required(:city).filled
 
         required(:job_title).maybe(:str?)
         optional(:previous_email).maybe

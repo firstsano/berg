@@ -1,7 +1,7 @@
 - has_image_class = (post.cover_image_url ? 'notes-index__item--has-image' : '')
 li.notes-index__item.d-flex class="notes-index__item--#{post.color} #{has_image_class}" data-test-color=post.color
   a.notes-index__anchor.clearfix href="/notes/#{post.slug}"
-    .notes-index__text-container class="a-delay-#{index * 50}"
+    .notes-index__text-container class="a-delay-#{index * 150}"
       .notes-index__text-container-inner
         h2.notes-index__note-title
           = post.title

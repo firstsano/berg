@@ -14,6 +14,7 @@ module Main
       attribute :status, Types::PostStatus
       attribute :person_id, Types::Strict::Int
       attribute :published_at, Types::Strict::Time
+      attribute :updated_at, Types::Strict::Time
       attribute :color, Types::PostHighlightColor
 
       class WithAuthor < Post

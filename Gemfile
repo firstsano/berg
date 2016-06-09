@@ -38,6 +38,7 @@ gem "formalist", git: "https://github.com/icelab/formalist", branch: "master"
 gem "i18n"
 gem "redcarpet"
 gem "slim"
+gem "builder"
 gem "transproc", git: "https://github.com/solnic/transproc"
 
 # 3rd party services

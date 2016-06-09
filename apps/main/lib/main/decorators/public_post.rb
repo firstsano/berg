@@ -25,6 +25,9 @@ module Main
         "/notes/#{slug}"
       end
 
+      def link_url;end
+      def link_title;end
+
       private
 
       def to_html(input)

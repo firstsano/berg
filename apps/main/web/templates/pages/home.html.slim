@@ -17,12 +17,11 @@ ul
 
 ul
   - posts.each do |post|
-    a href="#{post.url}"
-      - if post.type == "public_curated_post"
-        li
-          img src="#{post.image_url(100)}" title="#{post.title}"
-      - else
-        li data-test-color="post-color-#{post.color}"
+      li data-test-color="#{post.color}"
+        a href="#{post.url}"
+          -if post.image_url
+            img src="#{post.image_url(100)}" title="#{post.title}"
           h3= post.title
           p = post.teaser
+          p == post.body_html
 

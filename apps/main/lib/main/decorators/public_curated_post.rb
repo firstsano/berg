@@ -1,3 +1,6 @@
+require "berg/decorator"
+require "redcarpet"
+
 module Main
   module Decorators
     class PublicCuratedPost < Berg::Decorator
@@ -11,6 +14,20 @@ module Main
 
       def url
         link_url
+      end
+
+      def body_html
+        to_html(body)
+      end
+
+      def color;end
+      def teaser;end
+
+      private
+
+      def to_html(input)
+        markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, hard_wrap: true)
+        markdown.render(input)
       end
     end
   end

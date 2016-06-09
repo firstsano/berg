@@ -1,7 +1,6 @@
 require "main/import"
 require "main/view"
 require "main/entities/home_page_featured_item"
-require "main/decorators/home_page_post"
 require "main/decorators/public_post"
 require "main/decorators/public_curated_post"
 require "main/views/post_mixer"
@@ -27,7 +26,7 @@ module Main
           ).posts
 
           super.merge(
-            posts: Decorators::HomePagePost.decorate(combined_home_page_posts),
+            posts: combined_home_page_posts,
             featured_items: home_page_featured_items.listing
           )
         end

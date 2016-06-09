@@ -20,7 +20,7 @@ RSpec.feature "Main / Home / Show", js: false do
     visit "/"
 
     expect(page.all(:css, "img[title^='cool image']").length).to eq 6
-    expect(page.all(:css, "li[data-test-color]").length).to eq 10
+    expect(page.all(:css, "li[data-test-color]:not([data-test-color=''])").length).to eq 10
   end
 
 end

@@ -9,7 +9,7 @@ module Admin
 
         define do
           text_field :title, label: "Title", hint: "(optional)"
-          text_field :body, label: "Body", hint: "(optional)"
+          text_area :body, label: "Body", hint: "(optional, markdown supported)"
 
           group do
             text_field :link_title, label: "Link title"

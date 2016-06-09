@@ -13,7 +13,7 @@ module Admin
           required(:work_page_featured_items).each do
             required(:title).filled
             required(:url).filled
-            required(:cover_image).filled
+            required(:cover_image).filled(:hash?)
           end
         end
       end

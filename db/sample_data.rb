@@ -14,27 +14,19 @@ def admin
 end
 
 def create_user(attrs)
-  if !admin["admin.persistence.repositories.users"].by_email!(attrs[:email])
-    admin["admin.users.operations.create"].call(attrs).value
-  end
+  admin["admin.users.operations.create"].call(attrs).value
 end
 
 def create_person(attrs)
-  if !admin["admin.persistence.repositories.people"].by_email!(attrs[:email])
-    admin["admin.people.operations.create"].call(attrs).value
-  end
+  admin["admin.people.operations.create"].call(attrs).value
 end
 
 def create_post(attrs)
-  if !admin["admin.persistence.repositories.posts"].by_slug(attrs[:slug])
-    admin["admin.posts.operations.create"].call(attrs).value
-  end
+  admin["admin.posts.operations.create"].call(attrs).value
 end
 
 def create_project(attrs)
-  if !admin["admin.persistence.repositories.projects"].by_slug(attrs[:slug])
-    admin["admin.projects.operations.create"].call(attrs).value
-  end
+  admin["admin.projects.operations.create"].call(attrs).value
 end
 
 def create_category(attrs)

@@ -2,7 +2,7 @@ ROM::SQL.migration do
   up do
     create_table :curated_posts do
       primary_key :id
-      String  :title, null: false
+      String  :title, null: true
       String  :website_url, null: true
       String  :image_url, null: true
       column :image_upload, :json, null: true, default: "{}"

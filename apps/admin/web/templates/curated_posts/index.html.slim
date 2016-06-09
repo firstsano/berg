@@ -1,6 +1,6 @@
 == actions
 
-h1.h-1 External Posts
+h1.h-1 Curated Posts
 
 .panel
   .panel__primary
@@ -12,6 +12,7 @@ h1.h-1 External Posts
             th Title
             th Status
             th Published at
+            th
         tbody
           - curated_posts.each do |curated_post|
             tr id="external-post-#{curated_post.id}"
@@ -19,7 +20,7 @@ h1.h-1 External Posts
                 a href="/admin/curated_posts/#{curated_post.id}/edit"
                   img src= curated_post.thumbnail_image_url style="width: 64px"
               td.vertical-align--middle
-                a href="/admin/curated_posts/#{curated_post.id}/edit" = curated_post.title
+                a href="/admin/curated_posts/#{curated_post.id}/edit" = curated_post.title || curated_post.link_title
               td.vertical-align--middle
                 .label class="label--#{curated_post.status_class}"
                   = curated_post.status_label
@@ -27,5 +28,7 @@ h1.h-1 External Posts
                 td.vertical-align--middle.f-mono = curated_post.published_date
               - else
                 td
+              td.horizontal-align--center.vertical-align--middle
+                a href="/admin/curated_posts/#{curated_post.id}/edit" Edit
 p
   == paginator.pagination

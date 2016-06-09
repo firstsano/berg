@@ -91,7 +91,7 @@ module Admin
                     m.success do
                       flash[:notice] = t["admin.auth.password_set"]
                       session[:user_id] = user.id
-                      r.redirect "/admin"
+                      r.redirect "/admin/posts"
                     end
 
                     m.failure do |validation|
@@ -107,12 +107,6 @@ module Admin
               r.redirect "/admin/sign-in"
             end
           end
-        end
-      end
-
-      r.is do
-        r.authorize do
-          r.view("home")
         end
       end
     end

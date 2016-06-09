@@ -5,7 +5,6 @@ module Persistence
         attribute :id, Types::Serial
         attribute :position, Types::Strict::Int
         attribute :title, Types::Strict::String
-        attribute :description, Types::Strict::String
         attribute :url, Types::Strict::String
         attribute :cover_image, Types::Strict::Hash
         attribute :highlight_color, Types::Strict::String

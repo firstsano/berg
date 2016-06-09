@@ -28,13 +28,13 @@ module Admin
       end
     end
 
+    plugin :all_verbs
+    plugin :auth
     plugin :error_handler
     plugin :flash
-    plugin :view
-    plugin :page
-    plugin :auth
     plugin :json
-    plugin :all_verbs
+    plugin :page
+    plugin :view
 
     def name
       :admin

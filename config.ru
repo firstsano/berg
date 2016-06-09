@@ -9,8 +9,9 @@ use Rack::Rewrite do
   # end
 
   # add additional rewrite rules here
-  r301 %r{/articles(.*)}, "/notes$1"
+  r301 "/admin", "/admin/posts"
   r301 "/services", "/work"
+  r301 %r{/articles(.*)}, "/notes$1"
 end
 
 use Rack::SSL if ENV["RACK_ENV"] == "production"

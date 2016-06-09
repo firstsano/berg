@@ -10,4 +10,5 @@ li.notes-index__item.d-flex class="notes-index__item--#{post.color} #{has_image_
         p.notes-index__note-meta
           span.notes-index__note-author = post.author.name
           span.notes-index__note-date = post.published_date
-    img.notes-index__image src= post.cover_image_url
+    - if post.cover_image_url
+      img.notes-index__image src= post.cover_image_url

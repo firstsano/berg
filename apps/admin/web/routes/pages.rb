@@ -12,7 +12,7 @@ class Admin::Application < Dry::Web::Application
               update_about_page.(r[:page]) do |m|
                 m.success do
                   flash[:notice] = t["admin.pages.page_updated"]
-                  r.redirect "/admin"
+                  r.redirect "/admin/posts"
                 end
 
                 m.failure do |validation|
@@ -35,7 +35,7 @@ class Admin::Application < Dry::Web::Application
               update_contact_page.(r[:page]) do |m|
                 m.success do
                   flash[:notice] = t["admin.pages.page_updated"]
-                  r.redirect "/admin"
+                  r.redirect "/admin/posts"
                 end
 
                 m.failure do |validation|
@@ -58,7 +58,7 @@ class Admin::Application < Dry::Web::Application
               update_home_page.(r[:page]) do |m|
                 m.success do
                   flash[:notice] = t["admin.pages.page_updated"]
-                  r.redirect "/admin"
+                  r.redirect "/admin/posts"
                 end
 
                 m.failure do |validation|
@@ -81,7 +81,7 @@ class Admin::Application < Dry::Web::Application
               update_work_page.(r[:page]) do |m|
                 m.success do
                   flash[:notice] = t["admin.pages.page_updated"]
-                  r.redirect "/admin"
+                  r.redirect "/admin/posts"
                 end
 
                 m.failure do |validation|

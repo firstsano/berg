@@ -1,3 +1,4 @@
+require "ostruct"
 require "main/import"
 require "main/view"
 require "main/decorators/public_post"
@@ -15,10 +16,12 @@ module Main
         def locals(options = {})
           options = {per_page: 20, page: 1}.merge(options)
           all_posts = posts.listing(page: options[:page], per_page: options[:per_page])
+          posts = Decorators::PublicPost.decorate(all_posts)
 
           super.merge(
-            posts: Decorators::PublicPost.decorate(all_posts),
-            paginator: all_posts.pager
+            posts: posts,
+            indexed_posts: posts.map.with_index { |post, i| OpenStruct.new({index: i, post: post}) },
+            paginator: all_posts.pager,
           )
         end
       end

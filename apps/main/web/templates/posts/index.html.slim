@@ -11,10 +11,10 @@
     .notes__older-newer.fl-right
       == paginator.pager_links
 
-  - if posts
+  - if indexed_posts.any?
     ul.notes-index.grid.grid--mid.mx-auto
-      - posts.each do |post|
-        == post.snippet
+      - indexed_posts.each do |indexed_post|
+        == indexed_post.snippet
 
   .notes__pagination-and-older-newer.grid.grid--mid.mx-auto.clearfix
     .notes__pagination.fl-left

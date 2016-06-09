@@ -25,9 +25,9 @@ module Main
 
     plugin :error_handler
     plugin :flash
-
-    plugin :view
+    plugin :not_found
     plugin :page
+    plugin :view
 
     def name
       :main
@@ -39,6 +39,10 @@ module Main
       end
 
       r.multi_route
+    end
+
+    not_found do
+      self.class["main.views.errors.error_404"].(scope: current_page)
     end
 
     error do |e|

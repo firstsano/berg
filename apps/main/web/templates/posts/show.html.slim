@@ -21,7 +21,8 @@
     .note__footer-inner.clearfix
       .note__footer-author.fl-left
         span.note__footer-heading Author
-        img.fl-left.note__footer-author-avatar src="#{post.author.avatar_url(160)}" width="80" height="80"
+        - if post.author.avatar_url
+          img.fl-left.note__footer-author-avatar src="#{post.author.avatar_url(160)}" width="80" height="80"
         span.note__footer-author-title
           == post.author.name
         .note__footer-author-bio

@@ -6,7 +6,7 @@ module Persistence
         attribute :position, Types::Strict::Int
         attribute :title, Types::Strict::String
         attribute :url, Types::Strict::String
-        attribute :cover_image, Types::Strict::Hash
+        attribute :cover_image, Types::JSON
         attribute :highlight_color, Types::Strict::String
       end
     end

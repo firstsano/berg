@@ -335,6 +335,7 @@ DEPENDENCIES
   babosa
   bcrypt
   bugsnag
+  builder
   capybara
   capybara-screenshot
   codeclimate-test-reporter

@@ -25,5 +25,10 @@ module Main
       end
       r.view "pages.work"
     end
+
+    route "feed" do |r|
+      response['Content-Type'] = 'application/xml'
+      r.view "pages.feed", format: :xml, engine: :builder
+    end
   end
 end

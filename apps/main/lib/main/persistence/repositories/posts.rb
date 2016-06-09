@@ -25,6 +25,15 @@ module Main
             .as(Entities::Post::WithAuthor)
         end
 
+        def for_rss_feed
+          posts
+            .published
+            .order(Sequel.desc(:published_at))
+            .combine(one: { author: [people, person_id: :id] })
+            .limit(20)
+            .as(Entities::Post::WithAuthor)
+        end
+
         def for_category(category_id, page: 1, per_page: 20)
           posts
             .published

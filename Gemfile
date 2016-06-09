@@ -40,6 +40,7 @@ gem "i18n"
 gem "redcarpet"
 gem "sitemap_generator"
 gem "slim"
+gem "builder"
 gem "transproc", git: "https://github.com/solnic/transproc"
 
 # 3rd party services

@@ -33,12 +33,12 @@ RSpec.feature "Admin / Curated Posts / Create", js: true do
 
     find("#title").set("Cool image")
     find("#link_url").set("http://foo.bar/")
-    find("#link_title").set("foo bar")
+    find("#image_url").set("http://foo.bar/image.png")
     select("Published", from: "Status")
     find("input[name='curated_post[published_at]']", visible: false).set(Time.now)
 
     find("button", text: "Create post").trigger("click")
 
-    expect(page).to have_content("You must fill in 'Image URL' or 'Image Upload'")
+    expect(page).to have_content("must be filled")
   end
 end

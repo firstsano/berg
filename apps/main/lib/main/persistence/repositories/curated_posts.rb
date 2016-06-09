@@ -12,6 +12,15 @@ module Main
             .order(Sequel.desc(:published_at))
             .as(Entities::CuratedPost)
         end
+
+        def listing(page: 1, per_page: 20)
+          curated_posts
+            .published
+            .per_page(per_page)
+            .page(page)
+            .order(Sequel.desc(:published_at))
+            .as(Entities::CuratedPost)
+        end
       end
     end
   end

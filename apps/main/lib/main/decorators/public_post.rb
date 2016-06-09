@@ -25,6 +25,20 @@ module Main
         "/notes/#{slug}"
       end
 
+      def content
+        content = ""
+        content += "<li data-test-color='#{color}'>"
+        content += "<a href='#{url}'>"
+        content += "<h3>#{title}</h3>"
+        content += "</a>"
+
+        content += "<p>#{teaser}</p>"
+        if image_url
+          content += "<img src='#{image_url(100)}' title='#{title}'/>"
+        end
+        content += "</li>"
+      end
+
       def link_url;end
       def link_title;end
 

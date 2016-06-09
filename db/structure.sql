@@ -232,7 +232,8 @@ CREATE TABLE people (
     created_at timestamp without time zone DEFAULT timezone('utc'::text, now()) NOT NULL,
     updated_at timestamp without time zone DEFAULT timezone('utc'::text, now()) NOT NULL,
     short_bio text DEFAULT ''::text NOT NULL,
-    name text DEFAULT ''::text NOT NULL
+    name text DEFAULT ''::text NOT NULL,
+    city text DEFAULT ''::text NOT NULL
 );
 
 

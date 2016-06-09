@@ -20,6 +20,21 @@ module Main
         to_html(body)
       end
 
+      def content
+        content = ""
+        content += "<li>"
+        content += "<a href='#{url}'>"
+        content += "<h3>#{title}</h3>"
+        content += "</a>"
+
+        if image_url
+          content += "<img src='#{image_url(100)}' title='#{title}'/>"
+        end
+
+        content += body_html
+        content += "</li>"
+      end
+
       def color;end
       def teaser;end
 

@@ -1,4 +1,4 @@
-class Admin::Application < Dry::Web::Application
+class Admin::Application
   route "sign-in" do |r|
     r.get do
       r.view "sign_in"

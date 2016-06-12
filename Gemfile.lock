@@ -10,21 +10,6 @@ GIT
       tilt (~> 2.0)
 
 GIT
-  remote: https://github.com/dry-rb/dry-web
-  revision: e561c5f80634deee446ddd1b8b4140e93b5a1ca3
-  branch: master
-  specs:
-    dry-web (0.1.0)
-      dry-component (~> 0)
-      dry-configurable (~> 0.1)
-      dry-equalizer (~> 0.2)
-      dry-transaction (~> 0.5)
-      dry-view (~> 0.1)
-      inflecto (~> 0)
-      roda (~> 2.7)
-      tilt (~> 2.0)
-
-GIT
   remote: https://github.com/dryrb/dry-logic
   revision: 201de80e6a3f359f9836a86fc56be6cb65ddae16
   branch: master
@@ -126,17 +111,6 @@ GIT
   specs:
     transproc (0.4.0)
 
-GIT
-  remote: https://github.com/timriley/dry-component
-  revision: a7bb18a0d89f87b0d5ddb1a7dd40f126d777c614
-  branch: import-containers-for-import-module
-  specs:
-    dry-component (0.0.2)
-      dry-auto_inject (~> 0.1)
-      dry-configurable (~> 0.1)
-      dry-container (~> 0.2, >= 0.2.7)
-      inflecto (>= 0.0.2)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -173,6 +147,12 @@ GEM
     diff-lcs (1.2.5)
     docile (1.1.5)
     dry-auto_inject (0.2.0)
+    dry-component (0.0.1)
+      dry-auto_inject (~> 0.1)
+      dry-configurable (~> 0.1)
+      dry-container (~> 0.2, >= 0.2.7)
+      inflecto (>= 0.0.2)
+      memoizable (~> 0.4)
     dry-configurable (0.1.6)
       concurrent-ruby (~> 1.0)
     dry-container (0.3.3)
@@ -186,6 +166,12 @@ GEM
       dry-container (>= 0.2.8)
       kleisli
       wisper (>= 1.6.0)
+    dry-web (0.2.0)
+      dry-component (~> 0)
+    dry-web-roda (0.1.0)
+      dry-configurable (~> 0.1)
+      roda (~> 2.14)
+      roda-flow (~> 0.3)
     equalizer (0.0.11)
     excon (0.49.0)
     faker (1.6.3)
@@ -285,6 +271,7 @@ GEM
     redcarpet (3.3.2)
     roda (2.14.0)
       rack
+    roda-flow (0.3.0)
     rspec (3.4.0)
       rspec-core (~> 3.4.0)
       rspec-expectations (~> 3.4.0)
@@ -340,7 +327,6 @@ DEPENDENCIES
   capybara-screenshot
   codeclimate-test-reporter
   database_cleaner
-  dry-component!
   dry-equalizer
   dry-logic!
   dry-result_matcher
@@ -348,7 +334,8 @@ DEPENDENCIES
   dry-types!
   dry-validation!
   dry-view!
-  dry-web!
+  dry-web (~> 0.2)
+  dry-web-roda (~> 0.1)
   faker
   fog-aws
   foreman
@@ -378,6 +365,9 @@ DEPENDENCIES
   sitemap_generator
   slim
   transproc!
+
+RUBY VERSION
+   ruby 2.3.0p0
 
 BUNDLED WITH
    1.12.3

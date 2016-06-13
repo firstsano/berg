@@ -22,12 +22,6 @@ module Admin
                     filled: true
                   }
 
-                text_field :description,
-                  label: "Description",
-                  validation: {
-                    filled: true
-                  }
-
                 text_field :url,
                   label: "URL",
                   validation: {

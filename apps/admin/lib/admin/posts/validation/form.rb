@@ -24,7 +24,6 @@ module Admin
         required(:teaser).filled
         required(:body).filled
         required(:person_id).filled(:int?)
-        required(:cover_image).maybe(:hash?)
 
         # Required in only the edit form
         optional(:slug).filled
@@ -34,6 +33,7 @@ module Admin
         optional(:post_categories).each(:int?)
         optional(:status).filled(included_in?: Types::PostStatus.values)
         optional(:published_at).maybe(:time?)
+        required(:cover_image).maybe(:hash?)
 
         rule(slug: [:slug, :previous_slug]) do |slug, previous_slug|
           slug.not_eql?(previous_slug).then(slug.slug_unique?)

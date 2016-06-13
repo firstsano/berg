@@ -12,9 +12,8 @@ module Admin
 
           required(:home_page_featured_items).each do
             required(:title).filled
-            required(:description).filled
             required(:url).filled
-            required(:cover_image).filled
+            required(:cover_image).filled(:hash?)
             required(:highlight_color).filled
           end
         end

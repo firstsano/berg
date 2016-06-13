@@ -46,10 +46,6 @@ module Admin
         rule(published_at: [:status, :published_at]) do |status, published_at|
           status.eql?("published").then(published_at.filled?)
         end
-
-        rule(cover_image: [:status, :cover_image]) do |status, cover_image|
-          status.eql?("published").then(cover_image.filled?)
-        end
       end
     end
   end

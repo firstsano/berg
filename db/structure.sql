@@ -125,7 +125,6 @@ CREATE TABLE home_page_featured_items (
     id integer NOT NULL,
     "position" integer NOT NULL,
     title text NOT NULL,
-    description text NOT NULL,
     url text NOT NULL,
     cover_image json DEFAULT '{}'::json NOT NULL,
     highlight_color text DEFAULT ''::text NOT NULL
@@ -397,7 +396,6 @@ CREATE TABLE work_page_featured_items (
     id integer NOT NULL,
     "position" integer NOT NULL,
     title text NOT NULL,
-    description text NOT NULL,
     url text NOT NULL,
     cover_image json DEFAULT '{}'::json NOT NULL
 );

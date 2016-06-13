@@ -1,4 +1,4 @@
-class Admin::Application < Dry::Web::Application
+class Admin::Application
   route "categories" do |r|
     r.authorize do
       r.is do

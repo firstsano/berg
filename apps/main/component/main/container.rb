@@ -1,6 +1,6 @@
 module Main
   class Container < Dry::Web::Container
-    require root.join("core/berg/container")
+    require root.join("component/berg/container")
     import Berg::Container
 
     configure do |config|

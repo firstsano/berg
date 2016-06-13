@@ -10,7 +10,7 @@ begin
 rescue LoadError
 end
 
-require_relative "core/berg/container"
+require_relative "component/berg/container"
 Berg::Container.boot! :config
 
 Berg::Container.boot! :bugsnag

@@ -10,14 +10,14 @@ SPEC_ROOT = Pathname(__FILE__).dirname
 Dir[SPEC_ROOT.join("support/*.rb").to_s].each(&method(:require))
 Dir[SPEC_ROOT.join("shared/*.rb").to_s].each(&method(:require))
 
-require SPEC_ROOT.join("../core/berg/container")
+require SPEC_ROOT.join("../component/berg/container")
 
 Berg::Container.boot!(:i18n)
 
 # Load each app's container
 app_names = Dir[SPEC_ROOT.join("../apps/*")].map(&File.method(:basename))
 app_names.each do |app|
-  require SPEC_ROOT.join("../apps/#{app}/core/#{app}/container")
+  require SPEC_ROOT.join("../apps/#{app}/component/#{app}/container")
 end
 
 RSpec.configure do |config|

@@ -46,10 +46,6 @@ module Admin
         rule(post_categories: [:status, :post_categories]) do |status, post_categories|
           status.eql?("published").then(post_categories.filled?)
         end
-
-        rule(cover_image: [:status, :cover_image]) do |status, cover_image|
-          status.eql?("published").then(cover_image.filled?)
-        end
       end
     end
   end

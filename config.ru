@@ -17,5 +17,5 @@ end
 use Rack::SSL if ENV["RACK_ENV"] == "production"
 use Rack::Deflater
 
-require_relative "core/boot"
+require_relative "component/boot"
 run Berg::Application.freeze.app

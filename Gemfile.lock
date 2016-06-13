@@ -148,7 +148,7 @@ GEM
     docile (1.1.5)
     dry-auto_inject (0.3.0)
       dry-container (~> 0.3.4)
-    dry-component (0.1.0)
+    dry-component (0.2.0)
       dry-auto_inject (~> 0.3)
       dry-configurable (~> 0.1)
       dry-container (~> 0.3, >= 0.3.4)

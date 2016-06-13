@@ -1,7 +1,7 @@
 require_relative "container"
 
-module Admin
-  Import = Admin::Container.injector.args
+module Main
+  Import = Main::Container::Inject.args
 
   def self.Import(*args)
     Import[*args]

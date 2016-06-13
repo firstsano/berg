@@ -1,7 +1,7 @@
 require_relative "container"
 
 module Berg
-  Import = Berg::Container.injector.args
+  Import = Berg::Container::Inject.args
 
   auto_inject = Dry::AutoInject(Berg::Container)
 

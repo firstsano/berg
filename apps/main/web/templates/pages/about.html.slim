@@ -45,6 +45,6 @@
           - if person.twitter_handle && person.website_url
             span.person__middot &middot;
           - if person.website_url
-            a.person__link.person__website href="http://twitter.com/#{person.website_url}"
+            a.person__link.person__website href=person.website_url
               span.hide-visually Visit #{person.name}'s
               | website

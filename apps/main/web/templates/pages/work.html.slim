@@ -8,6 +8,7 @@ ul
   - featured_items.each do |featured_item|
     li
       == featured_item.title_html
+      p = featured_item.highlight_color
       p = featured_item.cover_image_url
 
 h2 Projects

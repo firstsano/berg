@@ -24,9 +24,7 @@ module Admin
 
                 text_field :teaser,
                   label: "Teaser",
-                  validation: {
-                    filled: true
-                  }
+                  hint: "(optional)"
 
                 text_field :url,
                   label: "URL",

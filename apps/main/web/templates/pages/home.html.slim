@@ -17,8 +17,8 @@
   - featured_items.each do |featured_item|
     a.project-feature-tile href=featured_item.url style="background-color:##{featured_item.highlight_color;}"
       .project-feature-tile__image-container
-        img.project-feature-tile__image src=featured_item.cover_image_url alt=featured_item.description
+        img.project-feature-tile__image src=featured_item.cover_image_url alt=featured_item.title
       .project-feature-tile__overlay
         .project-feature-tile__overlay-gradient style="background-image: linear-gradient(to top, ##{featured_item.highlight_color} 5%, transparent 80%);"
         h1.project-feature-tile__label
-          = featured_item.description
+          = featured_item.title

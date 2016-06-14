@@ -14,3 +14,6 @@
 
 # byebug history
 /.byebug_history
+
+# Private embedded repo
+/apps/main/assets

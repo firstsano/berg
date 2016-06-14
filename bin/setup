@@ -37,6 +37,9 @@ Dir.chdir(APP_ROOT) do
   if options[:private_assets]
     puts "== Cloning private assets repository =="
     system "git clone https://github.com/icelab/berg-assets.git apps/main/assets"
+
+    puts "== Adding Heroku remote =="
+    system "git remote add staging https://git.heroku.com/berg-staging.git"
   else
     puts "== Creating asset stubs =="
     system "mkdir -p apps/main/assets/inline-header/"

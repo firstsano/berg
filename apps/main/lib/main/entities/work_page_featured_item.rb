@@ -9,6 +9,7 @@ module Main
       attribute :title, Types::Strict::String
       attribute :url, Types::Strict::String
       attribute :cover_image, Types::Hash
+      attribute :highlight_color, Types::Strict::String
 
       def cover_image_url
         attache_url_for(cover_image["path"], "128") if cover_image

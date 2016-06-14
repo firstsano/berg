@@ -7,7 +7,7 @@ h1 Featured Items
 ul
   - featured_items.each do |featured_item|
     li
-      p = featured_item.title
+      == featured_item.title_html
       p = featured_item.cover_image_url
 
 h2 Projects

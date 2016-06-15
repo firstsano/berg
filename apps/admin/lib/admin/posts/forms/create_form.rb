@@ -50,6 +50,10 @@ module Admin
               hint: "Will be displayed on the notes index page",
               presign_url: "/admin/uploads/presign"
 
+            multi_upload_field :assets,
+              label: "Additional Images",
+              hint: "Images to display inline",
+              presign_url: "/admin/uploads/presign"
           end
         end
 

@@ -190,7 +190,6 @@ ALTER SEQUENCE office_contact_details_id_seq OWNED BY office_contact_details.id;
 CREATE TABLE people (
     id integer NOT NULL,
     twitter_handle text,
-    email text NOT NULL,
     bio text NOT NULL,
     website_url text,
     avatar_image json,

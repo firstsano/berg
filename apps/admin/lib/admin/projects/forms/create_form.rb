@@ -1,3 +1,4 @@
+require "admin/import"
 require "berg/form"
 
 module Admin

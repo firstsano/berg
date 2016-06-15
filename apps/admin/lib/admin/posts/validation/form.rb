@@ -34,9 +34,8 @@ module Admin
         optional(:status).filled(included_in?: Types::PostStatus.values)
         optional(:published_at).maybe(:time?)
 
-        # Optional
-        optional(:cover_image).maybe(:hash?)
-        optional(:assets).maybe(:hash?)
+        required(:cover_image).maybe(:hash?)
+        required(:assets).maybe(:hash?)
 
         rule(slug: [:slug, :previous_slug]) do |slug, previous_slug|
           slug.not_eql?(previous_slug).then(slug.slug_unique?)

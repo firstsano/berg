@@ -35,7 +35,7 @@ module Admin
         optional(:published_at).maybe(:time?)
 
         required(:cover_image).maybe(:hash?)
-        required(:assets).maybe(:hash?)
+        required(:assets).each(:hash?)
 
         rule(slug: [:slug, :previous_slug]) do |slug, previous_slug|
           slug.not_eql?(previous_slug).then(slug.slug_unique?)

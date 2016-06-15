@@ -20,6 +20,10 @@ module Persistence
         where(id: id)
       end
 
+      def by_name(name)
+        where(name: name)
+      end
+
       def for_about_page
         select
           .inner_join(

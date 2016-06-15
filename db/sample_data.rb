@@ -20,7 +20,7 @@ def create_user(attrs)
 end
 
 def create_person(attrs)
-  if !admin["admin.persistence.repositories.people"][attrs[:id]]
+  if !admin["admin.persistence.repositories.people"].by_name(attrs[:name])
     admin["admin.people.operations.create"].call(attrs).value
   end
 end
@@ -59,7 +59,7 @@ create_person(
 )
 
 admin["admin.users.operations.change_password"].(1, { password: "changeme" })
-author = admin["admin.persistence.repositories.people"][1]
+author = admin["admin.persistence.repositories.people"].by_name("Icelab Person")
 
 20.times do |n|
   create_post(

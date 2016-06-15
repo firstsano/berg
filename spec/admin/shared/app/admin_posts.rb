@@ -9,7 +9,8 @@ RSpec.shared_context "admin posts" do
       "body" => "Some sample content for this post",
       "person_id" => Admin::Container["admin.persistence.repositories.people"].by_name("Jane").id,
       "slug" => title.to_slug.normalize.to_s,
-      "cover_image" => nil
+      "cover_image" => nil,
+      "assets" => nil,
     }.merge(attrs)).value
   end
 

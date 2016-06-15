@@ -1,5 +1,6 @@
 require "types"
 require "admin/entities/category"
+require "admin/entities/asset"
 
 module Admin
   module Entities

@@ -4,7 +4,6 @@ module Persistence
       schema(:people) do
         attribute :id, Types::Serial
         attribute :name, Types::Strict::String
-        attribute :email, Types::Strict::String
         attribute :bio, Types::Strict::String
         attribute :short_bio, Types::Strict::String
         attribute :twitter_handle, Types::Strict::String.optional
@@ -21,8 +20,8 @@ module Persistence
         where(id: id)
       end
 
-      def by_email(email)
-        where(email: email)
+      def by_name(name)
+        where(name: name)
       end
 
       def for_about_page

@@ -6,14 +6,14 @@ module Admin
     module Repositories
       class People < Berg::Repository[:people]
         relations :people
-        commands :create, update: [:by_id]
+        commands :create, update: [:by_id, :by_name]
 
         def [](id)
           people.by_id(id).as(Entities::Person).one
         end
 
-        def by_email(email)
-          people.by_email(email).as(Entities::Person).one
+        def by_name(name)
+          people.by_name(name).as(Entities::Person).one
         end
 
         def listing(per_page: 20, page: 1)

@@ -15,7 +15,7 @@ module Admin
         def call(id, attributes)
           validation = Validation::Form.(prepare_attributes(attributes))
           if validation.success?
-            people.update(id, validation.to_h)
+            people.update_by_id(id, validation.to_h)
             Right(people[id])
           else
             Left(validation)
@@ -26,7 +26,6 @@ module Admin
 
         def prepare_attributes(attributes)
           attributes.merge(
-            previous_email: attributes["email"],
             avatar_image: attributes["avatar_image"]
           )
         end

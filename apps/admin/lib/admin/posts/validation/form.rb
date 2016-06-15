@@ -42,10 +42,6 @@ module Admin
         rule(published_at: [:status, :published_at]) do |status, published_at|
           status.eql?("published").then(published_at.filled?)
         end
-
-        rule(post_categories: [:status, :post_categories]) do |status, post_categories|
-          status.eql?("published").then(post_categories.filled?)
-        end
       end
     end
   end

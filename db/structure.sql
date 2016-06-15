@@ -128,7 +128,7 @@ CREATE TABLE home_page_featured_items (
     url text NOT NULL,
     cover_image json DEFAULT '{}'::json NOT NULL,
     highlight_color text DEFAULT ''::text NOT NULL,
-    teaser text NOT NULL
+    teaser text
 );
 
 
@@ -400,7 +400,7 @@ CREATE TABLE work_page_featured_items (
     url text NOT NULL,
     cover_image json DEFAULT '{}'::json NOT NULL,
     highlight_color text DEFAULT ''::text NOT NULL,
-    teaser text NOT NULL
+    teaser text
 );
 
 

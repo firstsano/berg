@@ -8,7 +8,8 @@ ul
   - featured_items.each do |featured_item|
     li
       == featured_item.title_html
-      == featured_item.teaser_html
+      - if featured_item.teaser
+        == featured_item.teaser_html
       p = featured_item.highlight_color
       p = featured_item.cover_image_url
 

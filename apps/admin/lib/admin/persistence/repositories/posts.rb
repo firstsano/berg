@@ -19,7 +19,7 @@ module Admin
           posts
             .by_slug(slug)
             .combine(many: { post_categories: [categories, id: :post_id] })
-            .as(Entities::PostWithCategoriesAssets).one
+            .as(Entities::PostWithCategories).one
         end
 
         def slug_exists?(slug)

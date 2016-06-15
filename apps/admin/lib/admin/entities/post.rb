@@ -15,6 +15,7 @@ module Admin
       attribute :person_id, Types::Strict::Int
       attribute :published_at, Types::Strict::Time.optional
       attribute :color, Types::PostHighlightColor
+      attribute :assets, Types::Coercible::Array.member(Admin::Entities::Asset).optional
 
       def deleted?
         status == "deleted"
@@ -25,9 +26,8 @@ module Admin
       end
     end
 
-    class PostWithCategoriesAssets < Post
+    class PostWithCategories < Post
       attribute :post_categories, Types::Strict::Array.member(Admin::Entities::Category)
-      attribute :assets, Types::Strict::Array.member(Admin::Entities::Asset).optional
     end
   end
 end

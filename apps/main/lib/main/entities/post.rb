@@ -16,6 +16,7 @@ module Main
       attribute :published_at, Types::Strict::Time
       attribute :updated_at, Types::Strict::Time
       attribute :color, Types::PostHighlightColor
+      attribute :assets, Types::Hash
 
       class WithAuthor < Post
         attribute :author, Entities::Person

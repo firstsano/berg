@@ -12,6 +12,7 @@ module Persistence
         attribute :status, Types::String
         attribute :person_id, Types::ForeignKey(:people)
         attribute :published_at, Types::Time
+        attribute :assets, Types::JSON
 
         associate do
           belongs :author, relation: :people

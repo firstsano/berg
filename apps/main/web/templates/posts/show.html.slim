@@ -30,11 +30,11 @@
         .note__footer-author-social-links
           - if post.author.twitter_handle
             a.note__footer-author-twitter href="http://twitter.com/#{post.author.twitter_handle}"
-              i.fa.fa-twitter
+              i.icon-twitter
               span.hide-visually Follow #{post.author.name} on Twitter
           - if post.author.website_url
             a.note__footer-author-website href="#{post.author.website_url}"
-              i.fa.fa-globe
+              i.icon-globe
               span.hide-visually Visit #{post.author.name}'s website
       .note__footer-published-on.fl-left
         span.note__footer-heading Published on

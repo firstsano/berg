@@ -1,7 +1,7 @@
 / Newer
 - if current_page == 1
   span.notes-newer
-    i.fa.fa-long-arrow-left
+    i.icon-long-arrow-left
     em Newer
 - else
   a.notes-newer href="/notes?page=#{prev_page}" rel="prev"
@@ -12,8 +12,8 @@
 - if current_page == total_pages
   span.notes-older
     em Older
-    i.fa.fa-long-arrow-right
+    i.icon-long-arrow-right
 - else
   a.notes-older href="/notes?page=#{next_page}" rel="next"
     em Older
-    i.fa.fa-long-arrow-right
+    i.icon-long-arrow-right

@@ -5,7 +5,6 @@ module Main
     class Person < Dry::Types::Value
       attribute :id, Types::Strict::Int
       attribute :name, Types::Strict::String
-      attribute :email, Types::Strict::String
       attribute :bio, Types::Strict::String
       attribute :short_bio, Types::Strict::String
       attribute :avatar_image, Types::Hash

@@ -26,7 +26,6 @@ module Admin
 
         def prepare_attributes(attributes)
           attributes.merge(
-            previous_email: attributes["email"],
             avatar_image: attributes["avatar_image"]
           )
         end

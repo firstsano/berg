@@ -12,12 +12,6 @@ module Admin
               validation: {
                 filled: true
               }
-            text_field :email,
-              label: "Email",
-              validation: {
-                filled: true,
-                format: EMAIL_VALIDATION_REGEX
-              }
           end
 
           group do

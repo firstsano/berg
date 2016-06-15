@@ -8,13 +8,12 @@ module Admin
       attribute :title, Types::Strict::String
       attribute :teaser, Types::Strict::String
       attribute :body, Types::Strict::String
-      attribute :cover_image, Types::Hash
+      attribute :cover_image, Types::Coercible::Hash.optional
       attribute :slug, Types::Strict::String
       attribute :status, Types::PostStatus
       attribute :person_id, Types::Strict::Int
-      attribute :published_at, Types::Time
+      attribute :published_at, Types::Strict::Time.optional
       attribute :color, Types::PostHighlightColor
-      attribute :assets, Types::Hash
 
       def deleted?
         status == "deleted"
@@ -27,6 +26,10 @@ module Admin
 
     class PostWithCategories < Post
       attribute :post_categories, Types::Strict::Array.member(Admin::Entities::Category)
+    end
+
+    class PostWithAssets < Post
+      attribute :assets, Types::Strict::Array.member(Admin::Entities::Asset).optional
     end
   end
 end

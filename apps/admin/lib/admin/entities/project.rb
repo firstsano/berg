@@ -14,7 +14,7 @@ module Admin
       attribute :status, Types::ProjectStatus
       attribute :published_at, Types::Strict::Time.optional
       attribute :case_study, Types::Strict::Bool
-      attribute :cover_image, Types::Hash
+      attribute :cover_image, Types::Coercible::Hash.optional
 
       def deleted?
         status == "deleted"

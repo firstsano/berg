@@ -25,11 +25,8 @@ module Admin
       end
     end
 
-    class PostWithCategories < Post
+    class PostWithCategoriesAssets < Post
       attribute :post_categories, Types::Strict::Array.member(Admin::Entities::Category)
-    end
-
-    class PostWithAssets < Post
       attribute :assets, Types::Strict::Array.member(Admin::Entities::Asset).optional
     end
   end

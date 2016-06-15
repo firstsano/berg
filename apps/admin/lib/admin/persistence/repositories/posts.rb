@@ -1,5 +1,6 @@
 require "berg/repository"
 require "admin/entities/post"
+require "admin/entities/asset"
 
 module Admin
   module Persistence
@@ -18,7 +19,7 @@ module Admin
           posts
             .by_slug(slug)
             .combine(many: { post_categories: [categories, id: :post_id] })
-            .as(Entities::PostWithCategories).one
+            .as(Entities::PostWithCategoriesAssets).one
         end
 
         def slug_exists?(slug)

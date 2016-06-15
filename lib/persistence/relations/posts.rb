@@ -3,15 +3,15 @@ module Persistence
     class Posts < ROM::Relation[:sql]
       schema(:posts) do
         attribute :id, Types::Serial
-        attribute :title, Types::String
-        attribute :teaser, Types::String
-        attribute :body, Types::String
+        attribute :title, Types::Strict::String
+        attribute :teaser, Types::Strict::String
+        attribute :body, Types::Strict::String
         attribute :cover_image, Types::JSON
-        attribute :slug, Types::String
-        attribute :color, Types::String
-        attribute :status, Types::String
+        attribute :slug, Types::Strict::String
+        attribute :color, Types::Strict::String
+        attribute :status, Types::Strict::String
         attribute :person_id, Types::ForeignKey(:people)
-        attribute :published_at, Types::Time
+        attribute :published_at, Types::Strict::Time.optional
         attribute :assets, Types::JSON
 
         associate do

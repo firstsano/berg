@@ -22,6 +22,10 @@ module Admin
                     filled: true
                   }
 
+                text_field :teaser,
+                  label: "Teaser",
+                  hint: "(optional)"
+
                 text_field :url,
                   label: "URL",
                   validation: {

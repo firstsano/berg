@@ -7,6 +7,7 @@ module Main
       attribute :id, Types::Strict::Int
       attribute :position, Types::Strict::Int
       attribute :title, Types::Strict::String
+      attribute :teaser, Types::String
       attribute :url, Types::Strict::String
       attribute :cover_image, Types::Hash
       attribute :highlight_color, Types::Strict::String
@@ -17,6 +18,10 @@ module Main
 
       def title_html
         to_html(title)
+      end
+
+      def teaser_html
+        to_html(teaser)
       end
 
       def attache_url_for(file_path, geometry)

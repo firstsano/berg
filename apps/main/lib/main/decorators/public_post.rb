@@ -28,7 +28,7 @@ module Main
       end
 
       def to_html(input)
-        markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, footnotes: true, hard_wrap: true, fenced_code_blocks: true, tables: true, underline:true, no_intra_emphasis: true)
+        markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, footnotes: true, hard_wrap: true, fenced_code_blocks: true, tables: true, no_intra_emphasis: true)
         markdown.render(input)
       end
     end

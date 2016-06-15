@@ -40,11 +40,9 @@
             == person.bio_html
           - if person.twitter_handle
             a.person__link.person__twitter href="http://twitter.com/#{person.twitter_handle}"
-              span.hide-visually Follow #{person.name} on
-              | Twitter
-          - if person.twitter_handle && person.website_url
-            span.person__middot &middot;
+              span.hide-visually Follow #{person.name} on Twitter
+              i.fa.fa-twitter
           - if person.website_url
             a.person__link.person__website href=person.website_url
-              span.hide-visually Visit #{person.name}'s
-              | website
+              span.hide-visually Visit #{person.name}'s website
+              i.fa.fa-globe

@@ -11,7 +11,8 @@ RSpec.shared_context "admin projects" do
       "tags" => "examplepost",
       "slug" => title.to_slug.normalize.to_s,
       "case_study" => false,
-      "cover_image" => nil
+      "cover_image" => nil,
+      "assets" => []
     }.merge(attrs)).value
   end
 

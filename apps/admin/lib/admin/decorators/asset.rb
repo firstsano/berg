@@ -5,7 +5,7 @@ module Admin
   module Decorators
     class Asset < SimpleDelegator
       def file_name
-        Pathname.new(path).basename
+        File.basename(path)
       end
 
       def thumbnail_url

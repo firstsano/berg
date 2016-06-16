@@ -14,6 +14,7 @@ module Persistence
         attribute :published_at, Types::Time.optional
         attribute :case_study, Types::Strict::Bool
         attribute :cover_image, Types::JSON
+        attribute :assets, Types::JSON
       end
 
       use :pagination

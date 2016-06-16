@@ -1,4 +1,5 @@
 require "types"
+require "admin/entities/asset"
 
 module Admin
   module Entities
@@ -15,6 +16,7 @@ module Admin
       attribute :published_at, Types::Strict::Time.optional
       attribute :case_study, Types::Strict::Bool
       attribute :cover_image, Types::Coercible::Hash.optional
+      attribute :assets, Types::Coercible::Array.member(Admin::Entities::Asset).optional
 
       def deleted?
         status == "deleted"

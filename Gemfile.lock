@@ -272,6 +272,7 @@ GEM
     roda (2.14.0)
       rack
     roda-flow (0.3.0)
+    rouge (2.0.1)
     rspec (3.4.0)
       rspec-core (~> 3.4.0)
       rspec-expectations (~> 3.4.0)
@@ -359,6 +360,7 @@ DEPENDENCIES
   rom-repository!
   rom-sql!
   rom-support!
+  rouge
   rspec
   shotgun
   site_prism
@@ -370,4 +372,4 @@ RUBY VERSION
    ruby 2.3.0p0
 
 BUNDLED WITH
-   1.12.3
+   1.12.5

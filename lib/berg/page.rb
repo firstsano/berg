@@ -11,6 +11,7 @@ module Berg
 
     def view_locals
       {
+        assets: assets,
         csrf_tag: csrf_tag,
         csrf_token: csrf_token,
         current_path: current_path,

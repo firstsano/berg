@@ -1,6 +1,7 @@
 require "admin/import"
 require "admin/view"
 require "admin/projects/forms/edit_form"
+require "admin/decorators/asset"
 
 module Admin
   module Views
@@ -32,8 +33,16 @@ module Admin
           if validation
             edit_form.build(validation, validation.messages)
           else
-            edit_form.build(project)
+            edit_form.build(form_input(project))
           end
+        end
+
+        def form_input(project)
+          assets = Decorators::Asset.decorate(project.assets).map(&:to_input_h)
+
+          project.to_h.merge(
+            assets: assets
+          )
         end
       end
     end

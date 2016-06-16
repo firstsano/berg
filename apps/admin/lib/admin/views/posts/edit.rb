@@ -1,6 +1,7 @@
 require "admin/import"
 require "admin/view"
 require "admin/posts/forms/edit_form"
+require "admin/decorators/asset"
 
 module Admin
   module Views
@@ -9,7 +10,7 @@ module Admin
         include Admin::Import(
           "admin.persistence.repositories.posts",
           "admin.persistence.repositories.categories",
-          "admin.posts.forms.edit_form",
+          "admin.posts.forms.edit_form"
         )
 
         configure do |config|
@@ -39,8 +40,14 @@ module Admin
 
         def form_input(post)
           categories = post.post_categories
+
+          assets = post.assets.map { |a|
+            Decorators::Asset.new(a).to_input_h
+          }
+
           post.to_h.merge(
-            post_categories: categories.map(&:id)
+            post_categories: categories.map(&:id),
+            assets: assets
           )
         end
       end

@@ -50,6 +50,11 @@ module Admin
             label: "Cover Image",
             presign_url: "/admin/uploads/presign"
 
+          multi_upload_field :assets,
+            label: "Additional Images",
+            hint: "Images to display inline",
+            presign_url: "/admin/uploads/presign"
+
           select_box :status,
             label: "Status", options: [
               ["draft", "Draft"], ["published", "Published"], ["deleted", "Deleted"]

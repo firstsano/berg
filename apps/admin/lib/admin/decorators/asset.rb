@@ -1,9 +1,10 @@
+require "berg/decorator"
 require "pathname"
 require "cgi"
 
 module Admin
   module Decorators
-    class Asset < SimpleDelegator
+    class Asset < Berg::Decorator
       def file_name
         File.basename(path)
       end

@@ -40,10 +40,7 @@ module Admin
 
         def form_input(post)
           categories = post.post_categories
-
-          assets = post.assets.map { |a|
-            Decorators::Asset.new(a).to_input_h
-          }
+          assets = Decorators::Asset.decorate(post.assets).map(&:to_input_h)
 
           post.to_h.merge(
             post_categories: categories.map(&:id),

@@ -10,7 +10,7 @@ module Admin
         include Admin::Import(
           "admin.persistence.repositories.posts",
           "admin.persistence.repositories.categories",
-          "admin.posts.forms.edit_form"
+          "admin.posts.forms.edit_form",
         )
 
         configure do |config|

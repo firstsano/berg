@@ -12,6 +12,7 @@ module Admin
       attribute :slug, Types::Strict::String
       attribute :status, Types::PostStatus
       attribute :person_id, Types::Strict::Int
+      attribute :created_at, Types::Time
       attribute :published_at, Types::Time
       attribute :color, Types::PostHighlightColor
 

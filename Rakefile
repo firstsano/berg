@@ -11,7 +11,6 @@ rescue LoadError
 end
 
 require_relative "component/berg/container"
-Berg::Container.boot! :config
 
 Berg::Container.boot! :bugsnag
 require "bugsnag/rake"
@@ -33,7 +32,7 @@ namespace :db do
 
   # The following migration tasks are adapted from https://gist.github.com/kalmbach/4471560
   Sequel.extension :migration
-  DB = Sequel.connect(Berg::Container["config"].database_url)
+  DB = Sequel.connect(Berg::Container.settings.database_url)
 
   desc "Prints current schema version"
   task :version do

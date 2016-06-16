@@ -16,7 +16,7 @@ module Berg
     end
 
     def options
-      Container["config"]
+      Container.settings
     end
   end
 end

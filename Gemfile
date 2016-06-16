@@ -6,7 +6,8 @@ gem "rake"
 
 # Web framework
 gem "puma"
-gem "dry-web", "~> 0.2"
+gem "dry-component", github: "dry-rb/dry-component"
+gem "dry-web", github: "dry-rb/dry-web", branch: "simpler-config"
 gem "dry-web-roda", "~> 0.1"
 gem "rack_csrf"
 gem "rack-rewrite"

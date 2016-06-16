@@ -1,4 +1,22 @@
 GIT
+  remote: git://github.com/dry-rb/dry-component.git
+  revision: 04299bd81d54670ddcd902d80aea7f5ca201e395
+  specs:
+    dry-component (0.2.0)
+      dry-auto_inject (~> 0.3)
+      dry-configurable (~> 0.1)
+      dry-container (~> 0.3, >= 0.3.4)
+      inflecto (>= 0.0.2)
+
+GIT
+  remote: git://github.com/dry-rb/dry-web.git
+  revision: 3247bd0b5371744474110ff49753b1201680182d
+  branch: simpler-config
+  specs:
+    dry-web (0.2.0)
+      dry-component (~> 0)
+
+GIT
   remote: https://github.com/dry-rb/dry-view
   revision: 825a0226862d821528eb6dde8cfe83f87648604e
   branch: master
@@ -148,11 +166,6 @@ GEM
     docile (1.1.5)
     dry-auto_inject (0.3.0)
       dry-container (~> 0.3.4)
-    dry-component (0.2.0)
-      dry-auto_inject (~> 0.3)
-      dry-configurable (~> 0.1)
-      dry-container (~> 0.3, >= 0.3.4)
-      inflecto (>= 0.0.2)
     dry-configurable (0.1.6)
       concurrent-ruby (~> 1.0)
     dry-container (0.3.4)
@@ -166,8 +179,6 @@ GEM
       dry-container (>= 0.2.8)
       kleisli
       wisper (>= 1.6.0)
-    dry-web (0.2.0)
-      dry-component (~> 0)
     dry-web-roda (0.1.0)
       dry-configurable (~> 0.1)
       roda (~> 2.14)
@@ -327,6 +338,7 @@ DEPENDENCIES
   capybara-screenshot
   codeclimate-test-reporter
   database_cleaner
+  dry-component!
   dry-equalizer
   dry-logic!
   dry-result_matcher
@@ -334,7 +346,7 @@ DEPENDENCIES
   dry-types!
   dry-validation!
   dry-view!
-  dry-web (~> 0.2)
+  dry-web!
   dry-web-roda (~> 0.1)
   faker
   fog-aws

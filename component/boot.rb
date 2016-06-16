@@ -3,10 +3,7 @@ require "pry" if ENV["RACK_ENV"] == "development"
 
 require_relative "berg/container"
 
-Berg::Container.finalize! do |container|
-  # Boot the app config before everything else
-  container.boot! :config
-end
+Berg::Container.finalize!
 
 require_relative "berg/persistence"
 

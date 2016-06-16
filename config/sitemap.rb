@@ -4,7 +4,7 @@ require "fog/aws"
 require_relative "../component/boot"
 
 sitemaps = Main::Container["main.persistence.repositories.sitemaps"]
-config = Berg::Container["config"]
+config = Berg::Container.settings
 
 # Set the host name for URL creation
 SitemapGenerator::Sitemap.default_host = config.canonical_domain

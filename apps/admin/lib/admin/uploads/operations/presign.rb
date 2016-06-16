@@ -23,11 +23,11 @@ module Admin
         private
 
         def attache_host
-          Berg::Container["config"].attache_uploads_base_url
+          Berg::Container.settings.attache_uploads_base_url
         end
 
         def attache_secret_key
-          Berg::Container["config"].attache_secret_key
+          Berg::Container.settings.attache_secret_key
         end
       end
     end

@@ -1,6 +1,10 @@
 module Admin
   module Decorators
     class Post < SimpleDelegator
+      def created_date
+        created_at.strftime("%e %b %Y %H:%M:%S%p")
+      end
+
       def published_date
         published_at.strftime("%e %b %Y %H:%M:%S%p")
       end

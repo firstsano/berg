@@ -20,7 +20,11 @@ module Admin
         {
           file_name: file_name,
           thumbnail_url: thumbnail_url,
-          original_url: original_url
+          original_url: original_url,
+          path: path,
+          content_type: content_type,
+          geometry: geometry,
+          bytes: bytes
         }
       end
 

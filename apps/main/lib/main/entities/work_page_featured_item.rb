@@ -3,7 +3,7 @@ require "redcarpet"
 
 module Main
   module Entities
-    class WorkPageFeaturedItem < Dry::Types::Value
+    class WorkPageFeaturedItem < Dry::Types::Struct
       attribute :id, Types::Strict::Int
       attribute :position, Types::Strict::Int
       attribute :title, Types::Strict::String

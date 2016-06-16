@@ -4,7 +4,7 @@ require "main/entities/category"
 
 module Main
   module Entities
-    class Post < Dry::Types::Value
+    class Post < Dry::Types::Struct
       attribute :id, Types::Strict::Int
       attribute :title, Types::Strict::String
       attribute :body, Types::Strict::String

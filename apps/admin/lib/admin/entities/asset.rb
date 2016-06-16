@@ -8,6 +8,8 @@ module Admin
       # we can find the keys we need to initialize a valid object.
       constructor_type :symbolized
 
+      attribute :file_name, Types::Strict::String
+      attribute :thumbnail_url, Types::Strict::String
       attribute :path, Types::Strict::String
       attribute :content_type, Types::Strict::String
       attribute :geometry, Types::Strict::String

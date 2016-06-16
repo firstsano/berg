@@ -1,6 +1,7 @@
 require "admin/import"
 require "admin/view"
 require "admin/posts/forms/edit_form"
+require "admin/decorators/asset"
 
 module Admin
   module Views
@@ -39,8 +40,11 @@ module Admin
 
         def form_input(post)
           categories = post.post_categories
+          assets = Decorators::Asset.decorate(post.assets).map(&:to_input_h)
+
           post.to_h.merge(
-            post_categories: categories.map(&:id)
+            post_categories: categories.map(&:id),
+            assets: assets
           )
         end
       end

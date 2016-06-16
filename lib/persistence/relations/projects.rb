@@ -3,17 +3,18 @@ module Persistence
     class Projects < ROM::Relation[:sql]
       schema(:projects) do
         attribute :id, Types::Serial
-        attribute :title, Types::String
-        attribute :client, Types::String
-        attribute :url, Types::String
-        attribute :intro, Types::String
+        attribute :title, Types::Strict::String
+        attribute :client, Types::Strict::String
+        attribute :url, Types::Strict::String
+        attribute :intro, Types::Strict::String
         attribute :body, Types::String.optional
-        attribute :tags, Types::String
-        attribute :slug, Types::String
-        attribute :status, Types::String
+        attribute :tags, Types::Strict::String
+        attribute :slug, Types::Strict::String
+        attribute :status, Types::Strict::String
         attribute :published_at, Types::Time.optional
-        attribute :case_study, Types::Bool
+        attribute :case_study, Types::Strict::Bool
         attribute :cover_image, Types::JSON
+        attribute :assets, Types::JSON
       end
 
       use :pagination

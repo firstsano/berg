@@ -49,5 +49,9 @@ Dir.chdir(APP_ROOT) do
     system "mkdir -p apps/main/assets/inline-footer/"
     system "touch apps/main/assets/inline-footer/index.js"
     system "touch apps/main/assets/inline-footer/target.js"
+
+    system "mkdir -p apps/main/assets/public/glyphs/"
+    system "touch apps/main/assets/public/glyphs/bars.svg"
+    system "touch apps/main/assets/public/glyphs/close.svg"
   end
 end

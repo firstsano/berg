@@ -2,7 +2,7 @@ require "types"
 
 module Main
   module Entities
-    class Project < Dry::Types::Value
+    class Project < Dry::Types::Struct
       attribute :id, Types::Strict::Int
       attribute :title, Types::Strict::String
       attribute :client, Types::Strict::String
@@ -15,6 +15,7 @@ module Main
       attribute :published_at, Types::Strict::Time
       attribute :case_study, Types::Strict::Bool
       attribute :cover_image, Types::Hash
+      attribute :assets, Types::Hash
     end
   end
 end

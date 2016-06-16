@@ -3,12 +3,12 @@ module Persistence
     class Users < ROM::Relation[:sql]
       schema(:users) do
         attribute :id, Types::Serial
-        attribute :email, Types::String
-        attribute :name, Types::String
-        attribute :encrypted_password, Types::String
-        attribute :active, Types::Bool
-        attribute :access_token, Types::String
-        attribute :access_token_expiration, Types::Time
+        attribute :email, Types::Strict::String
+        attribute :name, Types::Strict::String
+        attribute :encrypted_password, Types::Strict::String.optional
+        attribute :active, Types::Strict::Bool
+        attribute :access_token, Types::Strict::String
+        attribute :access_token_expiration, Types::Strict::Time
       end
 
       def by_id(id)

@@ -4,7 +4,7 @@ require "main/entities/category"
 
 module Main
   module Entities
-    class Post < Dry::Types::Value
+    class Post < Dry::Types::Struct
       attribute :id, Types::Strict::Int
       attribute :title, Types::Strict::String
       attribute :body, Types::Strict::String
@@ -16,6 +16,7 @@ module Main
       attribute :published_at, Types::Strict::Time
       attribute :updated_at, Types::Strict::Time
       attribute :color, Types::PostHighlightColor
+      attribute :assets, Types::Hash
 
       class WithAuthor < Post
         attribute :author, Entities::Person

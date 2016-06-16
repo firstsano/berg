@@ -237,7 +237,8 @@ CREATE TABLE posts (
     updated_at timestamp without time zone DEFAULT timezone('utc'::text, now()) NOT NULL,
     teaser text DEFAULT ''::text NOT NULL,
     color text DEFAULT ''::text NOT NULL,
-    cover_image json
+    cover_image json,
+    assets json
 );
 
 
@@ -278,7 +279,8 @@ CREATE TABLE projects (
     created_at timestamp without time zone DEFAULT timezone('utc'::text, now()) NOT NULL,
     updated_at timestamp without time zone DEFAULT timezone('utc'::text, now()) NOT NULL,
     case_study boolean DEFAULT false NOT NULL,
-    cover_image json
+    cover_image json,
+    assets json
 );
 
 

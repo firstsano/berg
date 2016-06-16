@@ -1,5 +1,6 @@
 require "berg/repository"
 require "admin/entities/project"
+require "admin/entities/asset"
 
 module Admin
   module Persistence

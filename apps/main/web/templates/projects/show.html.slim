@@ -10,10 +10,10 @@
   .project__body.grid.grid--mid.mx-auto
     .project__intro
       == project.intro_html
+    .project__client-and-website
+      span.project__client-heading Client:
+      span.project__client = project.client
+      - if project.url
+        a.project__website href= project.url Visit the website
 
-    = project.client
-    = project.url
-
-  div.project
-    h3 Project
-    == project.body_html
+  == project.body_html

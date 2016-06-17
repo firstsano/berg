@@ -9,6 +9,10 @@ module Main
         attache_url_for(cover_image["path"], "128") if cover_image
       end
 
+      def intro_html
+        to_html(intro)
+      end
+
       def body_html
         to_html(body)
       end

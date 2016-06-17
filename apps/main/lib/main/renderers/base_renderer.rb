@@ -6,6 +6,9 @@ class BaseRenderer < Redcarpet::Render::HTML
   include Redcarpet::Render::SmartyPants
   include Rouge::Plugins::Redcarpet
 
+  # Input syntax:
+  # ![](http://example.com/image.jpg|this is some alt text|this-is-the-class|this is the caption)
+
   def image(link, title = nil, alt_text = nil)
     parse_image_link(link)
 

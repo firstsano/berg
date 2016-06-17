@@ -8,11 +8,12 @@
     h3.pulled-heading__heading
       span == project.title
   .project__body.grid.grid--mid.mx-auto
-    div.client-details
-      h3 Client
-      = project.client
-      = project.url
+    .project__intro
+      == project.intro_html
 
-    div.project
-      h3 Project
-      == project.body_html
+    = project.client
+    = project.url
+
+  div.project
+    h3 Project
+    == project.body_html

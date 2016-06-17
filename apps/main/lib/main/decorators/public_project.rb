@@ -30,13 +30,13 @@ module Main
       end
 
       def to_html(input)
-        markdown = Redcarpet::Markdown.new(BaseRenderer, footnotes: true, hard_wrap: true, tables: true, no_intra_emphasis: true)
-        markdown.render(input)
+        renderer = Redcarpet::Markdown.new(BaseRenderer, footnotes: true, hard_wrap: true, tables: true, no_intra_emphasis: true)
+        renderer.render(input)
       end
 
       def single_line_markdown(input)
-        markdown = Redcarpet::Markdown.new(HTMLWithoutBlockElements, hard_wrap: false)
-        markdown.render(input)
+        renderer = Redcarpet::Markdown.new(HTMLWithoutBlockElements, hard_wrap: false)
+        renderer.render(input)
       end
     end
   end

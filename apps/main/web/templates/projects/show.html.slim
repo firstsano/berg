@@ -3,13 +3,16 @@
   meta property="og:title" content="#{project.title} — Notes – Icelab"
   meta property="og:description" content=project.body.gsub(/<\/?[^>]*>/,"").gsub(/^(.{400,}?).*$/m,'\1...')
 
-h1 = project.title
+.project
+  .pulled-heading.pulled-heading--serif.pulled-heading--mid.pulled-heading--color-green.pulled-heading--border-red.mx-auto
+    h3.pulled-heading__heading
+      span == project.title
+  .project__body.grid.grid--mid.mx-auto
+    div.client-details
+      h3 Client
+      = project.client
+      = project.url
 
-div.client-details
-  h3 Client
-  = project.client
-  = project.url
-
-div.project
-  h3 Project
-  == project.body_html
+    div.project
+      h3 Project
+      == project.body_html

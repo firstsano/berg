@@ -1,5 +1,6 @@
 require "types"
 require "redcarpet"
+require "main/renderers/html_without_block_elements"
 
 module Main
   module Entities
@@ -30,7 +31,7 @@ module Main
       end
 
       def to_html(input)
-        markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, no_intra_emphasis: true)
+        markdown = Redcarpet::Markdown.new(HTMLWithoutBlockElements)
         markdown.render(input)
       end
     end

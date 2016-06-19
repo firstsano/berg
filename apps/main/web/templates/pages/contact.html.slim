@@ -3,9 +3,15 @@
   meta property="og:title" content="Contact — Icelab"
   meta property="og:description" content="Icelab &middot; an Australian design studio"
 
-ul
-  - contact_details.each do |contact_detail|
-    li
-      p= contact_detail.name
-      p= contact_detail.address
-      p= contact_detail.phone_number
+.contact
+  .pulled-heading.pulled-heading--narrow.pulled-heading--color-red.pulled-heading--border-blue.mx-auto
+    h3.pulled-heading__heading
+     span Get in touch
+
+  .grid.grid--mid
+  ul
+    - contact_details.each do |contact_detail|
+      li
+        p= contact_detail.name
+        p= contact_detail.address
+        p= contact_detail.phone_number

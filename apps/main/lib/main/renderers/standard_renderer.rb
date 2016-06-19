@@ -16,7 +16,7 @@ class StandardRenderer < Redcarpet::Render::HTML
       if @class == "left"
         'class=figure-align-left'
       elsif @class == "right"
-        'class=figure-align-left'
+        'class=figure-align-right'
       end
 
     "<figure #{@translated_class}>

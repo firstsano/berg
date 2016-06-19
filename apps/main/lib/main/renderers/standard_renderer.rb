@@ -7,7 +7,7 @@ class StandardRenderer < Redcarpet::Render::HTML
   include Rouge::Plugins::Redcarpet
 
   # Input syntax:
-  # ![](http://example.com/image.jpg|this is some alt text|left|this is the caption)
+  # ![](http://example.com/image.jpg|left|this is some alt text|this is the caption)
 
   def image(link, title = nil, alt_text = nil)
     parse_image_link(link)
@@ -29,8 +29,8 @@ class StandardRenderer < Redcarpet::Render::HTML
     matches = link.match(/^(.*?)\|(.*?)\|(.*?)\|(.*)/)
 
     @url = matches[1]
-    @alt_text = matches[2]
-    @class = matches[3]
+    @class = matches[2]
+    @alt_text = matches[3]
     @caption = matches[4]
   end
 end

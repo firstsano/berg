@@ -21,7 +21,7 @@ class StandardRenderer < Redcarpet::Render::HTML
 
     "<figure #{@translated_class}>
       <img src=\"#{@url}\" alt=\"#{@alt_text}\">
-      <figurecaption>#{@caption}</figurecaption>
+      <figcaption>#{@caption}</figcaption>
     </figure>"
   end
 

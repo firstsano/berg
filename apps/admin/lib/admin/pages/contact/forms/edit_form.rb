@@ -15,7 +15,7 @@ module Admin
                 validation: {
                   filled: true
                 }
-              text_field :address,
+              text_area :address,
                 label: "Address",
                 validation: {
                   filled: true

@@ -160,7 +160,9 @@ CREATE TABLE office_contact_details (
     "position" integer NOT NULL,
     name text NOT NULL,
     address text NOT NULL,
-    phone_number text NOT NULL
+    phone_number text NOT NULL,
+    latitude text DEFAULT ''::text NOT NULL,
+    longitude text DEFAULT ''::text NOT NULL
 );
 
 
@@ -637,3 +639,4 @@ CREATE TRIGGER set_updated_at_on_users BEFORE UPDATE ON users FOR EACH ROW EXECU
 --
 -- PostgreSQL database dump complete
 --
+

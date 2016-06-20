@@ -271,7 +271,7 @@ CREATE TABLE projects (
     id integer NOT NULL,
     title text NOT NULL,
     client text NOT NULL,
-    url text NOT NULL,
+    url text,
     intro text NOT NULL,
     body text,
     slug text NOT NULL,

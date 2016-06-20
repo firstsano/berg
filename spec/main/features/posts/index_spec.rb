@@ -43,7 +43,7 @@ RSpec.feature "Main / Posts / Index", js: false do
   scenario "I see the 404 page if I try view a category that doesn't exist" do
     visit "/notes/category/rb"
 
-    expect(page).to have_content "Oops! We couldn’t find this page."
+    expect(page).to have_content "Oops! We couldn’t find this page"
   end
 
 end

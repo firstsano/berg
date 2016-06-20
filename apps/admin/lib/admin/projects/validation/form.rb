@@ -22,7 +22,7 @@ module Admin
         # Required in both the new and edit forms
         required(:title).filled
         required(:client).filled
-        required(:url).filled
+        required(:url).maybe
         required(:intro).filled
         required(:body).maybe
         required(:case_study).filled(:bool?)

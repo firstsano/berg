@@ -21,10 +21,7 @@ module Admin
               filled: true
             }
           text_field :url,
-            label: "URL",
-            validation: {
-              filled: true
-            }
+            label: "URL"
           text_area :intro,
             label: "Introduction",
             validation: {

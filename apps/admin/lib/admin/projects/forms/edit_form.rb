@@ -40,11 +40,6 @@ module Admin
             validation: {
               filled: true
             }
-          text_field :tags,
-            label: "Tags",
-            validation: {
-              filled: true
-            }
 
           upload_field :cover_image,
             label: "Cover Image",

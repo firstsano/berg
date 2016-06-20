@@ -14,7 +14,7 @@ module Main
       attribute :highlight_color, Types::Strict::String
 
       def cover_image_url
-        attache_url_for(cover_image["path"], "128") if cover_image
+        attache_url_for(cover_image["path"], "800") if cover_image
       end
 
       def title_html

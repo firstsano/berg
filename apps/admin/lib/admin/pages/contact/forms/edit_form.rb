@@ -25,6 +25,16 @@ module Admin
                 validation: {
                   filled: true
                 }
+              text_field :latitude,
+                label: "Latitude",
+                validation: {
+                  filled: true
+                }
+              text_field :longitude,
+                label: "Longitude",
+                validation: {
+                  filled: true
+                }
             end
           end
         end

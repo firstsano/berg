@@ -41,7 +41,9 @@ module Admin
                 {
                   name: location_details[:name],
                   address: location_details[:address],
-                  phone_number: location_details[:phone_number]
+                  phone_number: location_details[:phone_number],
+                  latitude: location_details[:latitude],
+                  longitude: location_details[:longitude]
                 }
               }
             }

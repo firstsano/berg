@@ -637,4 +637,3 @@ CREATE TRIGGER set_updated_at_on_users BEFORE UPDATE ON users FOR EACH ROW EXECU
 --
 -- PostgreSQL database dump complete
 --
-

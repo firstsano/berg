@@ -8,6 +8,8 @@ module Main
       attribute :name, Types::Strict::String
       attribute :address, Types::Strict::String
       attribute :phone_number, Types::Strict::String
+      attribute :latitude, Types::Strict::String
+      attribute :longitude, Types::Strict::String
 
       def name_html
         to_html(name)

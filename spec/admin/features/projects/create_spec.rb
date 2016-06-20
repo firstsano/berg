@@ -17,7 +17,6 @@ RSpec.feature "Admin / Projects / Create", js: true do
     find("#url").set("http://example.com")
     find("#intro").set("Intro text for this example project")
     find("#body").set("Body content for this example project")
-    find("#tags").set("examplepost")
 
     find("button", text: "Create project").trigger("click")
 
@@ -36,7 +35,6 @@ RSpec.feature "Admin / Projects / Create", js: true do
     find("#url").set("http://example.com")
     find("#intro").set("Intro text for this example project")
     find("#body").set("Body content for this example project")
-    find("#tags").set("examplepost")
 
     find("button", text: "Create project").trigger("click")
 

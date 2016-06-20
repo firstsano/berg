@@ -9,7 +9,6 @@ module Main
       attribute :url, Types::Strict::String
       attribute :intro, Types::Strict::String
       attribute :body, Types::Strict::String
-      attribute :tags, Types::Strict::String
       attribute :slug, Types::Strict::String
       attribute :status, Types::ProjectStatus
       attribute :published_at, Types::Strict::Time

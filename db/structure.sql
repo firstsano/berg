@@ -274,7 +274,6 @@ CREATE TABLE projects (
     url text NOT NULL,
     intro text NOT NULL,
     body text,
-    tags text NOT NULL,
     slug text NOT NULL,
     status text DEFAULT 'draft'::text,
     published_at timestamp without time zone,

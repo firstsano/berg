@@ -25,7 +25,6 @@ module Admin
         required(:url).filled
         required(:intro).filled
         required(:body).maybe
-        required(:tags).filled
         required(:case_study).filled(:bool?)
 
         # Required in only the edit form

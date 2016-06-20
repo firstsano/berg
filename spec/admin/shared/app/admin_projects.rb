@@ -8,7 +8,6 @@ RSpec.shared_context "admin projects" do
       "url" => "http://example.com",
       "intro" => "Intro text for this example project",
       "body" => "Body content for this example project",
-      "tags" => "examplepost",
       "slug" => title.to_slug.normalize.to_s,
       "case_study" => false,
       "cover_image" => nil,

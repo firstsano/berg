@@ -1,6 +1,8 @@
 require "redcarpet"
 
 class HTMLWithoutBlockElements < Redcarpet::Render::HTML
+  include Redcarpet::Render::SmartyPants
+
   def initialize(opts = {})
     opts[:tables] = false
     super(opts)

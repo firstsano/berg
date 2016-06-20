@@ -3,20 +3,29 @@
   meta property="og:title" content="Work — Icelab"
   meta property="og:description" content="Icelab &middot; an Australian design studio"
 
-h1 Featured Items
-ul
+.project-feature-tiles.grid.grid--full.mx-auto
   - featured_items.each do |featured_item|
-    li
-      == featured_item.title_html
-      - if featured_item.teaser
-        == featured_item.teaser_html
-      p = featured_item.highlight_color
-      p = featured_item.cover_image_url
+    a.project-feature-tile href=featured_item.url style="background-color:##{featured_item.highlight_color;}"
+      .project-feature-tile__image-container
+        img.project-feature-tile__image src=featured_item.cover_image_url alt=featured_item.title
+      .project-feature-tile__overlay
+        .project-feature-tile__overlay-gradient style="background-image: linear-gradient(to top, ##{featured_item.highlight_color} 5%, transparent 80%);"
+        .project-feature-tile__overlay-background style="background-color:##{featured_item.highlight_color;}"
+        .project-feature-tile__title.d-flex.flex-x-center.flex-y-center
+          h1.project-feature-tile__title-text
+            == featured_item.title_html
+          span.project-feature-tile__title-view-project
+            | Learn more
+        - if featured_item.teaser
+          h2.project-feature-tile__teaser
+            == featured_item.teaser_html
 
-h2 Projects
-ul
+.project-tiles.grid.grid--full.mx-auto
   - projects.each do |project|
-    li
-      a href="/work/#{project.slug}" == project.title_html
-      p == project.intro_html
-      p = project.cover_image_url
+    a.project-tile href="/work/#{project.slug}"
+      .project-tile__inner
+        / .project-tile__image
+        /   img src= project.cover_image_url alt=project.title
+        .project-tile__text-container
+          h2.project-tile__title== project.title_html
+          h3.project-tile__description== project.intro_html

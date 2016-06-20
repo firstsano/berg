@@ -7,7 +7,7 @@ module Admin
       attribute :id, Types::Strict::Int
       attribute :title, Types::Strict::String
       attribute :client, Types::Strict::String
-      attribute :url, Types::Strict::String
+      attribute :url, Types::Strict::String.optional
       attribute :intro, Types::Strict::String
       attribute :body, Types::Strict::String.optional
       attribute :slug, Types::Strict::String

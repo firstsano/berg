@@ -4,9 +4,9 @@ li.notes-index__item.d-flex class="notes-index__item--#{post.color} #{has_image_
     .notes-index__text-container class="a-delay-#{index * 150}"
       .notes-index__text-container-inner
         h2.notes-index__note-title
-          = post.title
+          == post.title_html
         h3.notes-index__note-description
-          = post.teaser
+          == post.teaser_html
         p.notes-index__note-meta
           span.notes-index__note-author = post.author.name
           span.notes-index__note-date = post.published_date

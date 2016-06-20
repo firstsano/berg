@@ -1,6 +1,7 @@
 require "berg/decorator"
 require "redcarpet"
-require "main/syntax_highlighter"
+require "main/renderers/standard_renderer"
+require "main/renderers/html_without_block_elements"
 
 module Main
   module Decorators
@@ -10,7 +11,15 @@ module Main
       end
 
       def author
-        @auhor ||= Decorators::PublicPerson.decorate(__getobj__.author)
+        @author ||= Decorators::PublicPerson.decorate(__getobj__.author)
+      end
+
+      def title_html
+        single_line_markdown(title)
+      end
+
+      def teaser_html
+        to_html(teaser)
       end
 
       def body_html
@@ -29,8 +38,13 @@ module Main
       end
 
       def to_html(input)
-        markdown = Redcarpet::Markdown.new(HTMLWithRouge, footnotes: true, hard_wrap: true, fenced_code_blocks: true, tables: true, no_intra_emphasis: true)
-        markdown.render(input)
+        renderer = Redcarpet::Markdown.new(StandardRenderer, footnotes: true, hard_wrap: true, fenced_code_blocks: true, tables: true, no_intra_emphasis: true)
+        renderer.render(input)
+      end
+
+      def single_line_markdown(input)
+        renderer = Redcarpet::Markdown.new(HTMLWithoutBlockElements, hard_wrap: false)
+        renderer.render(input)
       end
     end
   end

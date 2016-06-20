@@ -161,6 +161,8 @@ CREATE TABLE office_contact_details (
     name text NOT NULL,
     address text NOT NULL,
     phone_number text NOT NULL
+    latitude text NOT NULL
+    longitude text NOT NULL
 );
 
 

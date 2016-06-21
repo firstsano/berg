@@ -10,7 +10,6 @@ h1.h-1 Posts
           tr
             th Title
             th Status
-            th Created at
             th Published at
             th.horizontal-align--center Actions
         tbody
@@ -21,8 +20,6 @@ h1.h-1 Posts
               td.vertical-align--middle
                 .label class="label--#{post.status_class}"
                   = post.status_label
-              td.vertical-align--middle.f-mono
-                = post.created_date
               - if post.published?
                 td.vertical-align--middle.f-mono
                   = post.published_date

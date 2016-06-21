@@ -23,7 +23,7 @@
         span.note__footer-heading Author
         - if post.author.avatar_url
           img.fl-left.note__footer-author-avatar src="#{post.author.avatar_url(160)}" width="80" height="80"
-        span.note__footer-author-title
+        span.note__footer-author-title class="c-#{post.color}"
           == post.author.name
         .note__footer-author-bio
           == post.author.short_bio_html

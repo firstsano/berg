@@ -344,6 +344,7 @@ DEPENDENCIES
   guard-rspec
   i18n
   inflecto
+  mime-types
   pg
   poltergeist
   postmark

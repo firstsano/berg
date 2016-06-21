@@ -31,7 +31,9 @@ module Main
           content += "<img src='#{image_url(100)}' title='#{title}'/>"
         end
 
-        content += body_html
+        if body
+          content += body_html
+        end
         content += "</li>"
       end
 

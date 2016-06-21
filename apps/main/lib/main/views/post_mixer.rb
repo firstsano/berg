@@ -13,8 +13,9 @@ module Main
 
         determenistic_random = Random.new(133146)
         rands = primary_posts.length.times.map{|d| determenistic_random.rand(0..primary_posts.length) }
-        secondary_posts.flatten.each_with_index do |p,i|
-          primary_posts.insert(rands[i], p)
+        return primary_posts if (primary_posts.flatten.count < secondary_posts.flatten.count)
+        secondary_posts.flatten.each_with_index do |post,i|
+          primary_posts.insert(rands[i], post) if rands[i]
         end
         return primary_posts
       end

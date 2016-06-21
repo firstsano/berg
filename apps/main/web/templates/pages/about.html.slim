@@ -39,8 +39,12 @@
           - if person.twitter_handle
             a.person__link.person__twitter href="http://twitter.com/#{person.twitter_handle}"
               span.hide-visually Follow #{person.name} on Twitter
-              i.icon-twitter
+              span.glyph.glyph--twitter
+                / Inline SVG
+                == assets.read("main/assets/public/glyphs/twitter.svg")
           - if person.website_url
             a.person__link.person__website href=person.website_url
               span.hide-visually Visit #{person.name}'s website
-              i.icon-globe
+              span.glyph.glyph--globe
+                / Inline SVG
+                == assets.read("main/assets/public/glyphs/globe.svg")

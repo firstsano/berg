@@ -27,14 +27,18 @@
           == post.author.name
         .note__footer-author-bio
           == post.author.short_bio_html
-        .note__footer-author-social-links
+        .note__footer-author-social-links class="note__footer-author-social-links--color-#{post.color}"
           - if post.author.twitter_handle
             a.note__footer-author-twitter href="http://twitter.com/#{post.author.twitter_handle}"
-              i.icon-twitter
+              span.glyph.glyph--twitter
+                / Inline SVG
+                == assets.read("main/assets/public/glyphs/twitter.svg")
               span.hide-visually Follow #{post.author.name} on Twitter
           - if post.author.website_url
             a.note__footer-author-website href="#{post.author.website_url}"
-              i.icon-globe
+              span.glyph.glyph--globe
+                / Inline SVG
+                == assets.read("main/assets/public/glyphs/globe.svg")
               span.hide-visually Visit #{post.author.name}'s website
       .note__footer-published-on.fl-left
         span.note__footer-heading Published on

@@ -3,9 +3,9 @@ require "rack/ssl"
 require "rack/cors"
 
 use Rack::Cors do
-  if ENV["PRECOMPILED_ASSETS_HOST"]
+  if ENV["CANONICAL_DOMAIN"] && ENV["PRECOMPILED_ASSETS_HOST"]
     allow do
-      origins ENV["PRECOMPILED_ASSETS_HOST"]
+      origins ENV["CANONICAL_DOMAIN"]
       resource "/assets/*", :headers => :any, :methods => :get
     end
   end

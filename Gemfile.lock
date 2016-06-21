@@ -257,6 +257,7 @@ GEM
     puma (3.4.0)
     que (0.11.5)
     rack (1.6.4)
+    rack-cors (0.4.0)
     rack-rewrite (1.5.1)
     rack-ssl (1.4.1)
       rack
@@ -351,6 +352,7 @@ DEPENDENCIES
   pry-byebug
   puma
   que
+  rack-cors
   rack-rewrite
   rack-ssl
   rack_csrf
@@ -368,9 +370,6 @@ DEPENDENCIES
   sitemap_generator
   slim
   transproc!
-
-RUBY VERSION
-   ruby 2.3.0p0
 
 BUNDLED WITH
    1.12.5

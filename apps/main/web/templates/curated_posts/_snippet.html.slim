@@ -2,4 +2,5 @@ article data-test-color=curated_post.color
   a href=curated_post.link_url =curated_post.title
   img src=curated_post.image_url
   br
-  == curated_post.body_html
+  - if curated_post.body
+    == curated_post.body_html

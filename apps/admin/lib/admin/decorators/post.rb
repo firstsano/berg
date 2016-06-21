@@ -13,7 +13,7 @@ module Admin
         case status
         when "draft"
           "ghost"
-        when "deleted"
+        when "hidden"
           "warning"
         when "published"
           "success"

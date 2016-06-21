@@ -3,6 +3,12 @@
   meta property="og:title" content="Work — Icelab"
   meta property="og:description" content="Icelab &middot; an Australian design studio"
 
+.page-intro.grid.grid--narrow.mx-auto
+  h2.page-intro__heading
+    | If we can imagine it, we can build it.<br />And we can imagine a lot.
+  p.page-intro__description
+    | Over the last decade we&rsquo;ve built hundreds of projects of all sizes. Maybe we can build yours too. Have a look and see if there&rsquo;s anything you like.
+
 .project-feature-tiles.grid.grid--full.mx-auto
   - featured_items.each do |featured_item|
     a.project-feature-tile href=featured_item.url style="background-color:##{featured_item.highlight_color;}"

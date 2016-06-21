@@ -14,7 +14,8 @@ use Rack::Rewrite do
   r301 %r{/articles(.*)}, "/notes$1"
 end
 
-use Rack::SSL if ENV["RACK_ENV"] == "production"
+# Disable this until we setup SSL
+# use Rack::SSL if ENV["RACK_ENV"] == "production"
 use Rack::Deflater
 
 require_relative "component/boot"

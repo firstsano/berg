@@ -49,7 +49,8 @@
 
 .project-tiles.grid.grid--full.mx-auto
   - projects.each do |project|
-    a.project-tile.project-tile--with-text href="/work/#{project.slug}" class=("project-tile--with-background-image" if project.cover_image_url)
+    - background_image_classname = (project.cover_image_url ? 'project-tile--with-background-image' : '')
+    a.project-tile.project-tile--with-text href="/work/#{project.slug}" class=["project-tile--#{project.color}", background_image_classname]
       - if project.cover_image_url
         .project-tile__inner style="background-image:url('#{project.cover_image_url}');"
           .project-tile__text-container

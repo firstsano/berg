@@ -15,13 +15,15 @@ module Admin
             validation: {
               filled: true
             }
-          text_field :client,
-            label: "Client",
-            validation: {
-              filled: true
-            }
-          text_field :url,
-            label: "URL"
+          group :metadata do
+            text_field :client,
+              label: "Client",
+              validation: {
+                filled: true
+              }
+            text_field :url,
+              label: "URL"
+          end
           text_area :intro,
             label: "Introduction",
             validation: {

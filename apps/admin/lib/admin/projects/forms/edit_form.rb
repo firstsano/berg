@@ -10,18 +10,27 @@ module Admin
         prefix :project
 
         define do
-          text_field :title,
-            label: "Title",
-            validation: {
-              filled: true
-            }
-          text_field :client,
-            label: "Client",
-            validation: {
-              filled: true
-            }
-          text_field :url,
-            label: "URL"
+          group :title do
+            text_field :title,
+              label: "Title",
+              validation: {
+                filled: true
+              }
+            text_field :slug,
+              label: "Slug",
+              validation: {
+                filled: true
+              }
+          end
+          group :metadata do
+            text_field :client,
+              label: "Client",
+              validation: {
+                filled: true
+              }
+            text_field :url,
+              label: "URL"
+          end
           text_area :intro,
             label: "Introduction",
             validation: {
@@ -29,11 +38,6 @@ module Admin
             }
           text_area :body,
             label: "Body",
-            validation: {
-              filled: true
-            }
-          text_field :slug,
-            label: "Slug",
             validation: {
               filled: true
             }

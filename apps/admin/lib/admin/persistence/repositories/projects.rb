@@ -26,7 +26,7 @@ module Admin
           projects
             .per_page(per_page)
             .page(page)
-            .order(:client)
+            .order(Sequel.desc(:published_at))
             .as(Entities::Project)
         end
       end

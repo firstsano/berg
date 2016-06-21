@@ -12,9 +12,13 @@ development: &base
   postmark_api_key:
   basic_auth_user:
   basic_auth_password:
-  attache_uploads_base_url: "http://berg.attache.icelab.com.au"
-  attache_downloads_base_url: "http://berg.attache.icelab.com.au"
+  attache_uploads_base_url: "http://icelab-site.attache.me"
+  attache_downloads_base_url: "http://icelab-site.attache.me"
   attache_secret_key: "xxx"
+  aws_access_key_id:
+  aws_secret_access_key:
+  aws_bucket: "icelab-site-production"
+  aws_region: "ap-southeast-2"
 test:
   <<: *base
   database_url: "postgres://localhost/berg_test"

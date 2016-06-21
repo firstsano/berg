@@ -5,7 +5,7 @@ RSpec.feature "Admin / People / Edit", js: true do
   include_context "admin people"
 
   before(:each) do
-    @person = create_person("John Doe", "john.doe@example.com", "A bio for John Doe")
+    @person = create_person("John Doe", "A bio for John Doe")
   end
 
   background do
@@ -22,6 +22,7 @@ RSpec.feature "Admin / People / Edit", js: true do
     find("#name").set("Ben Kenobi")
     find("#bio").set("Jedi Master")
     find("#short_bio").set("Jedi")
+    find("#city").set("Canberra")
 
     find("button", text: "Save changes").trigger("click")
 

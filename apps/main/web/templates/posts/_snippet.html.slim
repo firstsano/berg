@@ -1,8 +1,14 @@
-article data-test-color=post.color
-  a href="/notes/#{post.slug}" =post.title
-  br
-  = post.author.name
-  br
-  = post.teaser
-  br
-  = post.published_date
+- has_image_class = (post.cover_image_url ? 'notes-index__item--has-image' : '')
+li.notes-index__item.d-flex class="notes-index__item--#{post.color} #{has_image_class}" data-test-color=post.color
+  a.notes-index__anchor.clearfix href="/notes/#{post.slug}"
+    .notes-index__text-container class="a-delay-#{index * 150}"
+      .notes-index__text-container-inner
+        h2.notes-index__note-title
+          = post.title
+        h3.notes-index__note-description
+          = post.teaser
+        p.notes-index__note-meta
+          span.notes-index__note-author = post.author.name
+          span.notes-index__note-date = post.published_date
+    - if post.cover_image_url
+      img.notes-index__image src= post.cover_image_url

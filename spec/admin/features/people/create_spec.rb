@@ -13,9 +13,9 @@ RSpec.feature "Admin / People / Create", js: true do
     find("a", text: "Add a person").trigger("click")
 
     find("#name").set("John Doe")
-    find("#email").set("john.doe@icelab.com.au")
     find("#bio").set("A simple bio")
     find("#short_bio").set("A Short bio")
+    find("#city").set("Melbourne")
 
     find("button", text: "Create person").trigger("click")
 

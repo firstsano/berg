@@ -22,10 +22,11 @@ module Main
             category_slug = options.fetch(:category)
             category      = categories.by_slug!(category_slug)
             all_posts     = posts.for_category(category.id, page: options[:page], per_page: options[:per_page])
+            posts         = Decorators::PublicPost.decorate(all_posts)
 
             super.merge(
               category: category,
-              posts: Decorators::PublicPost.decorate(all_posts),
+              indexed_posts: posts.map.with_index { |post, i| OpenStruct.new({index: i, post: post}) },
               paginator: all_posts.pager
             )
           end

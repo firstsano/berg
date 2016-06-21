@@ -1,13 +1,18 @@
 button.nav-main-mobile-toggle data-view-nav-toggle={targetActiveClassName: "nav-main-mobile-toggle--visible"}.to_json
-  .nav-main-mobile-toggle__icon-wrapper.br-circle.t-center
-    i.fa.fa-bars
-  span.hide-visually Toggle mobile navigation
+  .nav-main-mobile-toggle__icon-wrapper.br-circle
+    span.hide-visually Toggle mobile navigation
+    span.glyph.glyph--bars
+      / Inline SVG
+      == assets.read("main/assets/public/glyphs/bars.svg")
+    span.glyph.glyph--close
+      / Inline SVG
+      == assets.read("main/assets/public/glyphs/close.svg")
 ul.nav-main.fl-right#main-navigation role="navigation"
   li.nav-main__item
-    a.nav-main__anchor.nav-main__anchor--active href="/work" Work
+    == nav_link_for("Work", "/work", class: "nav-main__anchor")
   li.nav-main__item
-    a.nav-main__anchor href="/about" About
+    == nav_link_for("About", "/about", class: "nav-main__anchor")
   li.nav-main__item
-    a.nav-main__anchor href="/notes" Notes
+    == nav_link_for("Notes", "/notes", class: "nav-main__anchor")
   li.nav-main__item
-    a.nav-main__anchor href="/contact" Contact
+    == nav_link_for("Contact", "/contact", class: "nav-main__anchor")

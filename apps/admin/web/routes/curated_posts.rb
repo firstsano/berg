@@ -1,4 +1,4 @@
-class Admin::Application < Dry::Web::Application
+class Admin::Application
   route "curated_posts" do |r|
     r.authorize do
       r.is do

@@ -1,3 +1,4 @@
+require "admin/import"
 require "berg/form"
 
 module Admin
@@ -9,16 +10,55 @@ module Admin
         prefix :project
 
         define do
-          text_field :title, label: "Title"
-          text_field :client, label: "Client"
-          text_field :url, label: "URL"
-          text_area :intro, label: "Introduction"
-          text_area :body, label: "Body"
-          text_field :slug, label: "Slug"
-          text_field :tags, label: "Tags"
-          select_box :status, label: "Status", options: [
-            ["draft", "Draft"], ["published", "Published"], ["deleted", "Deleted"]
-          ]
+          text_field :title,
+            label: "Title",
+            validation: {
+              filled: true
+            }
+          text_field :client,
+            label: "Client",
+            validation: {
+              filled: true
+            }
+          text_field :url,
+            label: "URL",
+            validation: {
+              filled: true
+            }
+          text_area :intro,
+            label: "Introduction",
+            validation: {
+              filled: true
+            }
+          text_area :body,
+            label: "Body",
+            validation: {
+              filled: true
+            }
+          text_field :slug,
+            label: "Slug",
+            validation: {
+              filled: true
+            }
+          text_field :tags,
+            label: "Tags",
+            validation: {
+              filled: true
+            }
+
+          upload_field :cover_image,
+            label: "Cover Image",
+            presign_url: "/admin/uploads/presign"
+
+          multi_upload_field :assets,
+            label: "Additional Images",
+            hint: "Images to display inline",
+            presign_url: "/admin/uploads/presign"
+
+          select_box :status,
+            label: "Status", options: [
+              ["draft", "Draft"], ["published", "Published"], ["deleted", "Deleted"]
+            ]
           date_time_field :published_at, label: "Published at"
           check_box :case_study, label: "Case Study", question_text: "Mark as a Case Study?"
         end

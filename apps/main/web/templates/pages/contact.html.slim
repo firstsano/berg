@@ -1,6 +1,24 @@
-ul
-  - contact_details.each do |contact_detail|
-    li
-      p= contact_detail.name
-      p= contact_detail.address
-      p= contact_detail.phone_number
+- content_store.capture(:title, "Contact")
+== content_store.capture :og_meta_tags do
+  meta property="og:title" content="Contact — Icelab"
+  meta property="og:description" content="Icelab &middot; an Australian design studio"
+
+.contact
+  .pulled-heading.pulled-heading--narrow.pulled-heading--color-red.pulled-heading--border-blue.mx-auto
+    h3.pulled-heading__heading
+     span Get in touch
+  .contact__intro.grid.grid--narrow.mx-auto
+    / TODO: Fetch this from a field
+    p We&rsquo;re always up for a chat, so if you&rsquo;d like to get in touch, we can reached by telephone in Canberra on (02) 6162 0241, or in Melbourne on (03) 9416 3198. Otherwise you can send an email to <a href="mailto:hello@icelab.com.au">hello@icelab.com.au</a>.
+
+  .contact__locations.grid.grid--narrow.mx-auto
+    - contact_details.each do |contact_detail|
+      .contact__location.clearfix
+        .contact__location-heading-column.fl-left
+          h2.contact__location-heading== contact_detail.name_html
+        .contact__location-address-column.copy.fl-left
+          == contact_detail.address_html
+          == contact_detail.phone_number_html
+        .contact__location-map-column.fl-left
+          .contact-map-container
+            .contact-map-container__map

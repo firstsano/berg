@@ -1,4 +1,4 @@
-class Admin::Application < Dry::Web::Application
+class Admin::Application
   route "sign-in" do |r|
     r.get do
       r.view "sign_in"
@@ -10,7 +10,7 @@ class Admin::Application < Dry::Web::Application
           m.success do |user|
             flash[:notice] = t["admin.auth.signed_in"]
             session[:user_id] = user.id
-            r.redirect "/admin"
+            r.redirect "/admin/posts"
           end
 
           m.failure do |error|

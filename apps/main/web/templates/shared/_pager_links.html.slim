@@ -1,8 +1,19 @@
-span.prev
-  - disabled_class = (current_page == 1 ? 'disabled' : '')
-  a href="/notes?page=#{prev_page}" rel="prev" class=[disabled_class]
-    | &lsaquo; Newer
-span.next
-  - disabled_class = (current_page == total_pages ? 'disabled' : '')
-  a href="/notes?page=#{next_page}" rel="next" class=[disabled_class]
-    | Older &rsaquo;
+/ Newer
+- if current_page == 1
+  span.notes-newer
+    i.icon-long-arrow-left
+    em Newer
+- else
+  a.notes-newer href="/notes?page=#{prev_page}" rel="prev"
+    i.fa.fa-long-arrow-left
+    em Newer
+
+/ Older
+- if current_page == total_pages
+  span.notes-older
+    em Older
+    i.icon-long-arrow-right
+- else
+  a.notes-older href="/notes?page=#{next_page}" rel="next"
+    em Older
+    i.icon-long-arrow-right

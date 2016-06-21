@@ -8,26 +8,36 @@ module Admin
 
         define do
           group do
-            text_field :name, label: "Name"
+            text_field :name, label: "Name",
+              validation: {
+                filled: true
+              }
           end
 
           group do
-            text_field :email,
-              label: "Email",
+            text_field :job_title, label: "Job Title",
               validation: {
-                filled: true,
-                format: EMAIL_VALIDATION_REGEX
+                filled: true
               }
-            text_field :job_title, label: "Job Title"
+            text_field :city, label: "City",
+              validation: {
+                filled: true
+              }
           end
 
-          text_area :bio, label: "Bio"
-          text_area :short_bio, label: "Short Bio"
+          text_area :bio, label: "Bio",
+            validation: {
+              filled: true
+            }
+          text_area :short_bio, label: "Short Bio",
+            validation: {
+              filled: true
+            }
 
           upload_field :avatar_image,
             label: "Avatar",
             hint: "An image of this person",
-            presign_url: "#{Berg::Container["config"].canonical_domain}/admin/uploads/presign"
+            presign_url: "/admin/uploads/presign"
 
           group label: "Social" do
             text_field :website_url, label: "Website URL", placeholder: "http://icelab.com.au", hint: "(optional)"

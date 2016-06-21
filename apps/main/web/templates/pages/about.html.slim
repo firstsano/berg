@@ -1,9 +1,48 @@
-ul
-  - people.each do |person|
-    li
-      img src= person.avatar_url(250)
-      p= person.name
-      p= person.job_title
-      p= person.bio
-      p= person.website_url
-      a href="http://twitter.com/#{person.twitter_handle}"
+- content_store.capture(:title, "About")
+== content_store.capture :og_meta_tags do
+  meta property="og:title" content="About — Icelab"
+  meta property="og:description" content="Icelab &middot; an Australian design studio"
+
+.page-intro.grid.grid--narrow.mx-auto
+  h2.page-intro__heading
+    | We&rsquo;re an experienced team of designers and developers. We like solving hard problems to make the world smart, kinder and more beautiful.
+  p.page-intro__description
+    | Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.
+
+.about-sections.grid.grid--mid.mx-auto.clearfix
+  .about-section.fl-left
+    .about-section__heading Think
+    .about-section__text
+      p We start by understanding the problem and thinking deeply about ways to solve it.
+  .about-section.fl-left
+    .about-section__heading Design
+    .about-section__text
+      p We care about how it works, not just how it looks. Be we also care about how it looks.
+  .about-section.fl-left
+    .about-section__heading Build
+    .about-section__text
+      p We build our projects with attention and care, thinking about now and the future.
+
+- if people
+  .pulled-heading.pulled-heading--mid.pulled-heading--color-red.pulled-heading--border-green.mx-auto
+    h3.pulled-heading__heading
+     span We&rsquo;re #{people.count} humans, distributed across #{number_of_cities} cities
+
+  .person-grid.grid.grid--full.mx-auto
+    .person-grid__inner
+      - people.each do |person|
+        .person
+          - if person.avatar_url
+            img.person__image src= person.avatar_url(300) alt="Photograph of #{person.name}"
+          h1.person__name = person.name
+          h2.person__job-title = person.job_title
+          .person__bio
+            == person.bio_html
+          - if person.twitter_handle
+            a.person__link.person__twitter href="http://twitter.com/#{person.twitter_handle}"
+              span.hide-visually Follow #{person.name} on Twitter
+              i.icon-twitter
+          - if person.website_url
+            a.person__link.person__website href=person.website_url
+              span.hide-visually Visit #{person.name}'s website
+              i.icon-globe

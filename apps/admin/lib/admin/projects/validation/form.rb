@@ -30,9 +30,12 @@ module Admin
 
         # Required in only the edit form
         optional(:slug).filled
-        optional(:previous_slug).maybe
+        optional(:previous_slug).filled
         optional(:status).filled(included_in?: Types::ProjectStatus.values)
         optional(:published_at).maybe(:time?)
+
+        required(:cover_image).maybe(:hash?)
+        required(:assets).each(:hash?)
 
         rule(body: [:body, :case_study]) do |body, case_study|
           case_study.eql?(true).then(body.filled?)

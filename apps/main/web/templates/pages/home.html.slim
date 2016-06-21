@@ -1,24 +1,38 @@
-.home-page-intro.grid.grid--narrow.mx-auto
-  h2.home-page-intro__heading
+- content_store.capture(:title, "Home")
+== content_store.capture :og_meta_tags do
+  meta property="og:title" content="Home — Icelab"
+  meta property="og:description" content="Icelab &middot; an Australian design studio"
+
+.page-intro.grid.grid--narrow.mx-auto
+  h2.page-intro__heading
     | We love helping people build beautiful, working things. We’d love to help you too.
-  p.home-page-intro__description
+  p.page-intro__description
     | Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.
 
 .pulled-heading.pulled-heading--mid.pulled-heading--color-green.pulled-heading--border-red.mx-auto
   h3.pulled-heading__heading
-   | See how we
+   span See how we
 
 ul
+ - posts.each do |post|
+   == post.content
+
+ li
+   a href="/curated_posts" View all the nice things we have collected &rarr;
+
+.project-feature-tiles.grid.grid--full.mx-auto
   - featured_items.each do |featured_item|
-    li
-      p = featured_item.title
-      p = featured_item.description
-      p = featured_item.cover_image_url
-
-ul
-  - posts.each do |post|
-    == post.content
-
-  li
-    a href="/curated_posts" View all the nice things we have collected &rarr;
-
+    a.project-feature-tile href=featured_item.url style="background-color:##{featured_item.highlight_color;}"
+      .project-feature-tile__image-container
+        img.project-feature-tile__image src=featured_item.cover_image_url alt=featured_item.title
+      .project-feature-tile__overlay
+        .project-feature-tile__overlay-gradient style="background-image: linear-gradient(to top, ##{featured_item.highlight_color} 5%, transparent 80%);"
+        .project-feature-tile__overlay-background style="background-color:##{featured_item.highlight_color;}"
+        .project-feature-tile__title.d-flex.flex-x-center.flex-y-center
+          h1.project-feature-tile__title-text
+            == featured_item.title_html
+          span.project-feature-tile__title-view-project
+            | Learn more
+        - if featured_item.teaser
+          h2.project-feature-tile__teaser
+            == featured_item.teaser_html

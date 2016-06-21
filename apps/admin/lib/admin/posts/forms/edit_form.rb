@@ -1,3 +1,4 @@
+require "admin/import"
 require "berg/form"
 
 module Admin
@@ -14,15 +15,36 @@ module Admin
         define do
           section :post do
             group do
-              text_field :title, label: "Title"
-              text_field :slug, label: "Slug"
+              text_field :title,
+                label: "Title",
+                validation: {
+                  filled: true
+                }
+              text_field :slug,
+                label: "Slug",
+                validation: {
+                  filled: true
+                }
             end
             group do
-              text_area :teaser, label: "Teaser"
-              selection_field :person_id, label: "Author", options: dep(:author_list)
+              text_area :teaser,
+                label: "Teaser",
+                validation: {
+                  filled: true
+                }
+              selection_field :person_id,
+                label: "Author",
+                options: dep(:author_list),
+                validation: {
+                  filled: true
+                }
             end
 
-            text_area :body, label: "Body"
+            text_area :body,
+              label: "Body",
+              validation: {
+                filled: true
+              }
 
             group do
               select_box :status, label: "Status", options: dep(:status_list)
@@ -32,6 +54,16 @@ module Admin
               label: "Categories",
               selector_label: "Choose categories",
               options: dep(:categories_list)
+
+            upload_field :cover_image,
+              label: "Cover Image",
+              hint: "Will be displayed on the notes index page",
+              presign_url: "/admin/uploads/presign"
+
+            multi_upload_field :assets,
+              label: "Additional Images",
+              hint: "Images to display inline",
+              presign_url: "/admin/uploads/presign"
           end
         end
 

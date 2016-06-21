@@ -6,9 +6,11 @@ gem "rake"
 
 # Web framework
 gem "puma"
-gem "dry-component", git: "https://github.com/timriley/dry-component", branch: "import-containers-for-import-module" # temporary
-gem "dry-web", git: "https://github.com/dry-rb/dry-web", branch: "master"
+gem "dry-web", "~> 0.2"
+gem "dry-web-roda", "~> 0.1"
 gem "rack_csrf"
+gem "rack-rewrite"
+gem "rack-ssl"
 gem "shotgun"
 
 # Database persistence
@@ -31,10 +33,15 @@ gem "dry-transaction"
 gem "dry-types", git: "https://github.com/dryrb/dry-types", branch: "master"
 gem "dry-logic", git: "https://github.com/dryrb/dry-logic", branch: "master"
 gem "dry-validation", git: "https://github.com/dryrb/dry-validation", branch: "master"
+gem "dry-view", git: "https://github.com/dry-rb/dry-view", branch: "master"
+gem "fog-aws"
 gem "formalist", git: "https://github.com/icelab/formalist", branch: "master"
 gem "i18n"
 gem "redcarpet"
+gem "rouge"
+gem "sitemap_generator"
 gem "slim"
+gem "builder"
 gem "transproc", git: "https://github.com/solnic/transproc"
 
 # 3rd party services

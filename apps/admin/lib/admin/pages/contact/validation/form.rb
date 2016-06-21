@@ -15,6 +15,8 @@ module Admin
               required(:name).filled
               required(:address).filled
               required(:phone_number).filled
+              required(:latitude).filled
+              required(:longitude).filled
             end
           end
         end

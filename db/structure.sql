@@ -119,7 +119,7 @@ ALTER SEQUENCE categorisations_id_seq OWNED BY categorisations.id;
 
 CREATE TABLE curated_posts (
     id integer NOT NULL,
-    title text NOT NULL,
+    title text,
     link_url text,
     image_url text,
     image_upload json DEFAULT '{}'::json,
@@ -159,10 +159,10 @@ CREATE TABLE home_page_featured_items (
     id integer NOT NULL,
     "position" integer NOT NULL,
     title text NOT NULL,
-    description text NOT NULL,
     url text NOT NULL,
     cover_image json DEFAULT '{}'::json NOT NULL,
-    highlight_color text DEFAULT ''::text NOT NULL
+    highlight_color text DEFAULT ''::text NOT NULL,
+    teaser text
 );
 
 
@@ -194,7 +194,9 @@ CREATE TABLE office_contact_details (
     "position" integer NOT NULL,
     name text NOT NULL,
     address text NOT NULL,
-    phone_number text NOT NULL
+    phone_number text NOT NULL,
+    latitude text DEFAULT ''::text NOT NULL,
+    longitude text DEFAULT ''::text NOT NULL
 );
 
 
@@ -224,7 +226,6 @@ ALTER SEQUENCE office_contact_details_id_seq OWNED BY office_contact_details.id;
 CREATE TABLE people (
     id integer NOT NULL,
     twitter_handle text,
-    email text NOT NULL,
     bio text NOT NULL,
     website_url text,
     avatar_image json,
@@ -233,7 +234,7 @@ CREATE TABLE people (
     updated_at timestamp without time zone DEFAULT timezone('utc'::text, now()) NOT NULL,
     short_bio text DEFAULT ''::text NOT NULL,
     name text DEFAULT ''::text NOT NULL,
-    city text DEFAULT ''::text NOT NULL
+    city text NOT NULL
 );
 
 
@@ -272,7 +273,8 @@ CREATE TABLE posts (
     updated_at timestamp without time zone DEFAULT timezone('utc'::text, now()) NOT NULL,
     teaser text DEFAULT ''::text NOT NULL,
     color text DEFAULT ''::text NOT NULL,
-    cover_image json
+    cover_image json,
+    assets json
 );
 
 
@@ -313,7 +315,8 @@ CREATE TABLE projects (
     created_at timestamp without time zone DEFAULT timezone('utc'::text, now()) NOT NULL,
     updated_at timestamp without time zone DEFAULT timezone('utc'::text, now()) NOT NULL,
     case_study boolean DEFAULT false NOT NULL,
-    cover_image json
+    cover_image json,
+    assets json
 );
 
 
@@ -431,9 +434,10 @@ CREATE TABLE work_page_featured_items (
     id integer NOT NULL,
     "position" integer NOT NULL,
     title text NOT NULL,
-    description text NOT NULL,
     url text NOT NULL,
-    cover_image json DEFAULT '{}'::json NOT NULL
+    cover_image json DEFAULT '{}'::json NOT NULL,
+    highlight_color text DEFAULT ''::text NOT NULL,
+    teaser text
 );
 
 

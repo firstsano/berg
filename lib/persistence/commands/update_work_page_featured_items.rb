@@ -13,9 +13,10 @@ module Persistence
             {
               position: position,
               title: item[:title],
-              description: item[:description],
+              teaser: item[:teaser],
               url: item[:url],
-              cover_image: item[:cover_image].to_json
+              cover_image: item[:cover_image].to_json,
+              highlight_color: item[:highlight_color]
             }
           end
 

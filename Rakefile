@@ -10,12 +10,16 @@ begin
 rescue LoadError
 end
 
-require_relative "core/berg/container"
+require_relative "component/berg/container"
 Berg::Container.boot! :config
 
 Berg::Container.boot! :bugsnag
 require "bugsnag/rake"
 require "bugsnag/tasks"
+
+# Include the sitemap generator rake tasks
+require "sitemap_generator"
+require "sitemap_generator/tasks"
 
 require "rom/sql/rake_task"
 require "sequel"
@@ -50,6 +54,16 @@ namespace :db do
       File.open "db/structure.sql", "w" do |file|
         file.write dump
       end
+    end
+
+    task :load do
+      fail if ENV["RACK_ENV"] == "production"
+      require "uri"
+      uri = URI(DB.url)
+      db_name = uri.path.tr("/", "")
+      system "dropdb #{db_name}"
+      system "createdb #{db_name}"
+      system "psql -d #{db_name} -h localhost < db/structure.sql"
     end
   end
 

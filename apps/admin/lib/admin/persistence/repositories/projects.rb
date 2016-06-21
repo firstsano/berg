@@ -1,5 +1,6 @@
 require "berg/repository"
 require "admin/entities/project"
+require "admin/entities/asset"
 
 module Admin
   module Persistence
@@ -25,8 +26,7 @@ module Admin
           projects
             .per_page(per_page)
             .page(page)
-            .order(:created_at)
-            .reverse
+            .order(:client)
             .as(Entities::Project)
         end
       end

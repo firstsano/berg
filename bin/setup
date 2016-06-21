@@ -7,12 +7,12 @@ options = {}
 OptionParser.new do |opts|
   opts.banner = "Usage: ./bin/setup [options]"
 
-  opts.on("-c", "--ci", "Run for CI") do |c|
-    options[:ci] = c
+  opts.on "--ci", "Run on CI" do |ci|
+    options[:ci] = ci
   end
 
-  opts.on("-w", "--with-private-submodules", "Install assets from private submodule") do |w|
-    options[:with_submodules] = w
+  opts.on "--with-private-assets", "Clone private assets repository" do |private_assets|
+    options[:private_assets] = private_assets
   end
 end.parse!
 
@@ -34,8 +34,12 @@ Dir.chdir(APP_ROOT) do
   system "RACK_ENV=development bundle exec rake db:migrate" unless options[:ci]
   system "RACK_ENV=test bundle exec rake db:migrate"
 
-  if options[:with_submodules]
-    system "git submodule update --init"
+  if options[:private_assets]
+    puts "== Cloning private assets repository =="
+    system "git clone https://github.com/icelab/berg-assets.git apps/main/assets"
+
+    puts "== Adding Heroku remote =="
+    system "git remote add staging https://git.heroku.com/berg-staging.git"
   else
     puts "== Creating asset stubs =="
     system "mkdir -p apps/main/assets/inline-header/"
@@ -45,6 +49,9 @@ Dir.chdir(APP_ROOT) do
     system "mkdir -p apps/main/assets/inline-footer/"
     system "touch apps/main/assets/inline-footer/index.js"
     system "touch apps/main/assets/inline-footer/target.js"
+
+    system "mkdir -p apps/main/assets/public/glyphs/"
+    system "touch apps/main/assets/public/glyphs/bars.svg"
+    system "touch apps/main/assets/public/glyphs/close.svg"
   end
 end
-

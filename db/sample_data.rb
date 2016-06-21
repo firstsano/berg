@@ -1,4 +1,4 @@
-require_relative "../core/boot"
+require_relative "../component/boot"
 require "faker"
 
 def core
@@ -40,17 +40,18 @@ create_user(
 )
 
 create_person(
-  email: "person@icelab.com.au",
   name: "Icelab Person",
   bio: "An icelab person",
   short_bio: "An icelab person",
   job_title: "Developer",
   website_url: nil,
   twitter_handle: "",
-  avatar_image: {}
+  avatar_image: nil,
+  city: "Melbourne"
 )
 
 author = admin["admin.persistence.repositories.people"].by_email!("person@icelab.com.au")
+admin["admin.users.operations.change_password"].(1, { password: "changeme" })
 
 20.times do |n|
   create_post(
@@ -59,7 +60,9 @@ author = admin["admin.persistence.repositories.people"].by_email!("person@icelab
     body: Faker::Hipster.paragraph,
     status: "published",
     person_id: author.id,
-    published_at: Time.now
+    published_at: Time.now,
+    cover_image: nil,
+    post_categories: [1]
   )
 end
 
@@ -72,7 +75,8 @@ end
     body: Faker::Hipster.paragraph,
     tags: Faker::Hipster.word,
     status: "draft",
-    case_study: false
+    case_study: false,
+    cover_image: nil
   )
 end
 

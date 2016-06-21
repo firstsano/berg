@@ -82,6 +82,9 @@ RSpec.feature "Admin / Posts / Create", js: true do
     find(:xpath, "//button[contains(@class, 'selection-field')]", match: :first).trigger("click")
     find(:xpath, "//button[contains(@class, 'selection-field__optionButton')][div='#{jane.name}']").trigger("click")
 
+    find(:xpath, "//button[contains(@class, 'multi-selection-field')]").trigger("click")
+    find(:xpath, "//button[contains(@class, 'multi-selection-field__optionButton')][div='My Tag']").trigger("click")
+
     find("button", text: "Create post").trigger("click")
 
     expect(page).to have_content("Post has been created")

@@ -15,6 +15,8 @@ RSpec.feature "Admin / Pages / Contact / Edit", js: true do
     find("#name").set("Melbourne")
     find("#phone_number").set("03 9123 4567")
     find("#address").set("123 Fake Street")
+    find("#latitude").set("-35.279795")
+    find("#longitude").set("149.126166")
 
     find("button", text: "Save changes").trigger("click")
 
@@ -33,6 +35,8 @@ RSpec.feature "Admin / Pages / Contact / Edit", js: true do
 
     find("#name").set("Melbourne")
     find("#phone_number").set("03 9123 4567")
+    find("#latitude").set("-35.279795")
+    find("#longitude").set("149.126166")
 
     find("button", text: "Save changes").trigger("click")
 

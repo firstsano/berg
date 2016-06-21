@@ -12,9 +12,10 @@ module Admin
 
           required(:work_page_featured_items).each do
             required(:title).filled
-            required(:description).filled
+            required(:teaser).maybe(:str?)
             required(:url).filled
-            required(:cover_image).filled
+            required(:cover_image).filled(:hash?)
+            required(:highlight_color).filled
           end
         end
       end

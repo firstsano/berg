@@ -14,7 +14,9 @@ module Persistence
               position: position,
               name: location_details[:name],
               phone_number: location_details[:phone_number],
-              address: location_details[:address]
+              address: location_details[:address],
+              latitude: location_details[:latitude],
+              longitude: location_details[:longitude]
             }
           end
 

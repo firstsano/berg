@@ -3,35 +3,35 @@
     .footer__column.fl-left
       .footer__column-heading Canberra
       p
-        | Level 3<br />
-        | 8-10 Hobart Place<br />
-        | Canberra<br />
-        | ACT 2601<br />
+        | Level 3, 8-10 Hobart Place<br />
+        | Canberra ACT 2601<br />
         | Australia
       p + 61 2 6162 0241
     .footer__column.fl-left
       .footer__column-heading Melbourne
       p
         | 15-25 Keele St<br />
-        | Collingwood<br />
-        | VIC 3036<br />
+        | Collingwood VIC 3036<br />
         | Australia
       p + 61 3 9416 3198
     .footer__column.fl-left
       .footer__column-heading Get in touch
       p
         a.footer__column-contact-link href="mailto:hello@icelab.com.au"
-          i.fa.fa-envelope
+          i.icon-envelope
           span hello@icelab.com.au
         a.footer__column-contact-link href="http://twitter.com/icelab"
-          i.fa.fa-twitter
+          i.icon-twitter
           span @icelab
+      p
+        | GPO Box 1553<br />
+        | Canberra ACT 2601
     ul.nav-footer.fl-right.clearfix role="navigation"
       li.nav-footer__item
-        a.nav-footer__anchor.nav-footer__anchor--active href="#" Work
+        == nav_link_for("Work", "/work", class: "nav-footer__anchor")
       li.nav-footer__item
-        a.nav-footer__anchor href="#" About
+        == nav_link_for("About", "/about", class: "nav-footer__anchor")
       li.nav-footer__item
-        a.nav-footer__anchor href="#" Notes
+        == nav_link_for("Notes", "/notes", class: "nav-footer__anchor")
       li.nav-footer__item
-        a.nav-footer__anchor href="#" Contact
+        == nav_link_for("Contact", "/contact", class: "nav-footer__anchor")

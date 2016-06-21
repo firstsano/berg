@@ -11,6 +11,7 @@ module Admin
       )
 
       configure do |config|
+        config.name = "admin_minimal"
         config.template = "reset_password"
       end
 

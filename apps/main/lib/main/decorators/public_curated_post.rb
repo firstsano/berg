@@ -28,7 +28,7 @@ module Main
         content += "</a>"
 
         if image_url
-          content += "<img src='#{image_url(100)}' title='#{title}'/>"
+          content += "<img src='#{image_url(300)}' title='#{title}'/>"
         end
 
         if body
@@ -39,6 +39,10 @@ module Main
 
       def color;end
       def teaser;end
+
+      def type
+        "curated"
+      end
 
       private
 

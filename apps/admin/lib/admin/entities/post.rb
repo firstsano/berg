@@ -18,10 +18,6 @@ module Admin
       attribute :color, Types::PostHighlightColor
       attribute :assets, Types::Coercible::Array.member(Admin::Entities::Asset).optional
 
-      def deleted?
-        status == "deleted"
-      end
-
       def published?
         status == "published"
       end

@@ -18,14 +18,19 @@
       .footer__column-heading Get in touch
       p
         a.footer__column-contact-link href="mailto:hello@icelab.com.au"
-          i.icon-envelope
-          span hello@icelab.com.au
+          span.glyph.glyph--envelope
+            / Inline SVG
+            == assets.read("main/assets/public/glyphs/envelope.svg")
+          em hello@icelab.com.au
         a.footer__column-contact-link href="http://twitter.com/icelab"
-          i.icon-twitter
-          span @icelab
+          span.glyph.glyph--twitter
+            / Inline SVG
+            == assets.read("main/assets/public/glyphs/twitter.svg")
+          em @icelab
       p
         | GPO Box 1553<br />
         | Canberra ACT 2601
+      p.footer__abn ABN 42 118 292 354
     ul.nav-footer.fl-right.clearfix role="navigation"
       li.nav-footer__item
         == nav_link_for("Work", "/work", class: "nav-footer__anchor")

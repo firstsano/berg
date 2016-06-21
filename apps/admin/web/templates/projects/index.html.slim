@@ -11,6 +11,7 @@ h1.h-1 Projects
             th Title
             th Client
             th.horizontal-align--center Status
+            th Published at
             th.horizontal-align--center Actions
         tbody
           - projects.each do |project|
@@ -26,9 +27,12 @@ h1.h-1 Projects
                 .label class="label--#{project.status_class}"
                   = project.status_label
               - if project.published?
+                td.vertical-align--middle.f-mono
+                  = project.published_date
                 td.horizontal-align--center.vertical-align--middle
                   a href="/work/#{project.slug}" View
               - else
+                td
                 td
 
 p

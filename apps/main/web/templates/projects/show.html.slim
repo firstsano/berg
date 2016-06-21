@@ -4,7 +4,7 @@
   meta property="og:description" content=project.body.gsub(/<\/?[^>]*>/,"").gsub(/^(.{400,}?).*$/m,'\1...')
 
 .project
-  .pulled-heading.pulled-heading--serif.pulled-heading--mid.pulled-heading--color-green.pulled-heading--border-red.mx-auto
+  .pulled-heading.pulled-heading--serif.pulled-heading--mid.pulled-heading--border-red.mx-auto class="pulled-heading--color-#{project.color}"
     h3.pulled-heading__heading
       span == project.title_html
   .project__body.grid.grid--mid.mx-auto

@@ -1,5 +1,6 @@
 require "sitemap_generator"
 require "fog/aws"
+require "mime-types"
 
 require_relative "../component/boot"
 

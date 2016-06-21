@@ -53,5 +53,8 @@ Dir.chdir(APP_ROOT) do
     system "mkdir -p apps/main/assets/public/glyphs/"
     system "touch apps/main/assets/public/glyphs/bars.svg"
     system "touch apps/main/assets/public/glyphs/close.svg"
+    system "touch apps/main/assets/public/glyphs/envelope.svg"
+    system "touch apps/main/assets/public/glyphs/twitter.svg"
+    system "touch apps/main/assets/public/glyphs/globe.svg"
   end
 end

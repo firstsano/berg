@@ -7,20 +7,6 @@
   h2.page-intro__heading
     | We&rsquo;re an experienced team of designers and developers. We like solving hard problems to make the world smart, kinder and more beautiful.
 
-.about-sections.grid.grid--mid.mx-auto.clearfix
-  .about-section.fl-left
-    .about-section__heading Think
-    .about-section__text
-      p We start by understanding the problem and thinking deeply about ways to solve it.
-  .about-section.fl-left
-    .about-section__heading Design
-    .about-section__text
-      p We care about how it works, not just how it looks. Be we also care about how it looks.
-  .about-section.fl-left
-    .about-section__heading Build
-    .about-section__text
-      p We build our projects with attention and care, thinking about now and the future.
-
 - if people
   .pulled-heading.pulled-heading--mid.pulled-heading--color-red.pulled-heading--border-green.mx-auto
     h3.pulled-heading__heading
@@ -39,8 +25,12 @@
           - if person.twitter_handle
             a.person__link.person__twitter href="http://twitter.com/#{person.twitter_handle}"
               span.hide-visually Follow #{person.name} on Twitter
-              i.icon-twitter
+              span.glyph.glyph--twitter
+                / Inline SVG
+                == assets.read("main/assets/public/glyphs/twitter.svg")
           - if person.website_url
             a.person__link.person__website href=person.website_url
               span.hide-visually Visit #{person.name}'s website
-              i.icon-globe
+              span.glyph.glyph--globe
+                / Inline SVG
+                == assets.read("main/assets/public/glyphs/globe.svg")

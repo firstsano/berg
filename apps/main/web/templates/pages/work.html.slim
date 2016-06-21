@@ -7,9 +7,9 @@
   h2.page-intro__heading
     | If we can imagine it, we can build it.<br />And we can imagine a lot.
   p.page-intro__description
-    | Over the last decade we&rsquo;ve built hundreds of projects of all sizes. Maybe we can build yours too. Have a look and see if there&rsquo;s anything you like.
+    | Over the last decade we&rsquo;ve built hundreds of projects of all sizes.<br />Maybe we can build yours too. See if there&rsquo;s anything you like.
 
-.project-feature-tiles.grid.grid--full.mx-auto
+.project-feature-tiles.project-feature-tiles--row-of-3.grid.grid--full.mx-auto
   - featured_items.each do |featured_item|
     a.project-feature-tile href=featured_item.url style="background-color:##{featured_item.highlight_color;}"
       .project-feature-tile__image-container
@@ -26,12 +26,38 @@
           h2.project-feature-tile__teaser
             == featured_item.teaser_html
 
+.work-process-heading.grid.grid--mid.mx-auto
+  h2.work-process__heading.t-center Each project is different, we like to approach with an open mind. This is our process:
+.work-process-body.grid.grid--narrow.mx-auto
+  ul.work-process__list.mx-auto
+    li.work-process__list-item.clearfix
+      h3.work-process__label.c-red
+        span Think
+      p We start by understanding the problem and thinking deeply about ways to solve it.
+    li.work-process__list-item.clearfix
+      h3.work-process__label.c-blue
+        span Scope
+      p We talk to you about how we think we can help.
+    li.work-process__list-item.clearfix
+      h3.work-process__label.c-grey
+        span Design
+      p We design, caring about how it works, not just how it looks &mdash; but we also care about how it looks. A lot.
+    li.work-process__list-item.clearfix
+      h3.work-process__label.c-green
+        span Build
+      p Then we build it, using <del>magic</del> appropriate technologies, thinking about now and the future.
+
 .project-tiles.grid.grid--full.mx-auto
   - projects.each do |project|
-    a.project-tile href="/work/#{project.slug}"
-      .project-tile__inner
-        / .project-tile__image
-        /   img src= project.cover_image_url alt=project.title
-        .project-tile__text-container
-          h2.project-tile__title== project.title_html
-          h3.project-tile__description== project.intro_html
+    - background_image_classname = (project.cover_image_url ? 'project-tile--with-background-image' : '')
+    a.project-tile.project-tile--with-text href="/work/#{project.slug}" class=["project-tile--#{project.color}", background_image_classname]
+      - if project.cover_image_url
+        .project-tile__inner style="background-image:url('#{project.cover_image_url}');"
+          .project-tile__text-container
+            h2.project-tile__title== project.title_html
+            h3.project-tile__description== project.intro_html
+      - else
+        .project-tile__inner
+          .project-tile__text-container
+            h2.project-tile__title== project.title_html
+            h3.project-tile__description== project.intro_html

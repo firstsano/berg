@@ -315,7 +315,8 @@ CREATE TABLE projects (
     updated_at timestamp without time zone DEFAULT timezone('utc'::text, now()) NOT NULL,
     case_study boolean DEFAULT false NOT NULL,
     cover_image json,
-    assets json
+    assets json,
+    color text DEFAULT ''::text NOT NULL
 );
 
 

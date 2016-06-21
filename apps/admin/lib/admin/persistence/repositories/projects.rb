@@ -26,8 +26,16 @@ module Admin
           projects
             .per_page(per_page)
             .page(page)
-            .order(:client)
+            .order(Sequel.desc(:published_at))
             .as(Entities::Project)
+        end
+
+        def recent_colors
+          projects
+            .select(:color)
+            .order(Sequel.desc(:created_at))
+            .limit((Types::PostHighlightColor.values.count / 2).floor)
+            .map{ |p| p[:color] }
         end
       end
     end

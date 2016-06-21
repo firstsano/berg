@@ -7,7 +7,7 @@ module Main
   module Decorators
     class PublicProject < Berg::Decorator
       def cover_image_url
-        attache_url_for(cover_image["path"], "128") if cover_image
+        attache_url_for(cover_image["path"], "400") if cover_image
       end
 
       def title_html

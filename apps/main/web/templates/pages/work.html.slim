@@ -28,10 +28,14 @@
 
 .project-tiles.grid.grid--full.mx-auto
   - projects.each do |project|
-    a.project-tile href="/work/#{project.slug}"
-      .project-tile__inner
-        / .project-tile__image
-        /   img src= project.cover_image_url alt=project.title
-        .project-tile__text-container
-          h2.project-tile__title== project.title_html
-          h3.project-tile__description== project.intro_html
+    a.project-tile.project-tile--with-text href="/work/#{project.slug}" class=("project-tile--with-background-image" if project.cover_image_url)
+      - if project.cover_image_url
+        .project-tile__inner style="background-image:url('#{project.cover_image_url}');"
+          .project-tile__text-container
+            h2.project-tile__title== project.title_html
+            h3.project-tile__description== project.intro_html
+      - else
+        .project-tile__inner
+          .project-tile__text-container
+            h2.project-tile__title== project.title_html
+            h3.project-tile__description== project.intro_html

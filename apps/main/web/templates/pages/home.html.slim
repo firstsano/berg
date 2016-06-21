@@ -29,8 +29,9 @@
             == featured_item.teaser_html
 
 ul
- - posts.each do |post|
+ - combined_posts.each do |post|
    == post.content
 
- li
-   a href="/curated_posts" View all the nice things we have collected &rarr;
+ - if curated_posts_for_home_page.count > 0
+  li
+    a href="/curated_posts" View all the nice things we have collected &rarr;

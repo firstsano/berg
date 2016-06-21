@@ -9,7 +9,7 @@
   p.page-intro__description
     | Over the last decade we&rsquo;ve built hundreds of projects of all sizes.<br />Maybe we can build yours too. See if there&rsquo;s anything you like.
 
-.project-feature-tiles.grid.grid--full.mx-auto
+.project-feature-tiles.project-feature-tiles--3x3.grid.grid--full.mx-auto
   - featured_items.each do |featured_item|
     a.project-feature-tile href=featured_item.url style="background-color:##{featured_item.highlight_color;}"
       .project-feature-tile__image-container

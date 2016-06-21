@@ -51,6 +51,10 @@ module Main
         attache_url_for(cover_image["path"], "260") if cover_image
       end
 
+      def type
+        "note"
+      end
+
       private
 
       def attache_url_for(file_path, geometry)

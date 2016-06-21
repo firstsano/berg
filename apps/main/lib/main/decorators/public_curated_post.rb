@@ -40,6 +40,10 @@ module Main
       def color;end
       def teaser;end
 
+      def type
+        "curated"
+      end
+
       private
 
       def to_html(input)

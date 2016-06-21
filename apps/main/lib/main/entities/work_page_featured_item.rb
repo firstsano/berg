@@ -1,5 +1,6 @@
 require "types"
 require "redcarpet"
+require "main/renderers/html_without_block_elements"
 
 module Main
   module Entities
@@ -13,15 +14,15 @@ module Main
       attribute :highlight_color, Types::Strict::String
 
       def cover_image_url
-        attache_url_for(cover_image["path"], "128") if cover_image
+        attache_url_for(cover_image["path"], "800") if cover_image
       end
 
       def title_html
-        to_html(title)
+        single_line_markdown(title)
       end
 
       def teaser_html
-        to_html(teaser)
+        single_line_markdown(teaser)
       end
 
       def attache_url_for(file_path, geometry)
@@ -29,8 +30,8 @@ module Main
         [Berg::Container["config"].attache_downloads_base_url, "view", prefix, CGI.escape(geometry), CGI.escape(basename)].join('/')
       end
 
-      def to_html(input)
-        markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, no_intra_emphasis: true)
+      def single_line_markdown(input)
+        markdown = Redcarpet::Markdown.new(HTMLWithoutBlockElements, hard_wrap: false)
         markdown.render(input)
       end
     end

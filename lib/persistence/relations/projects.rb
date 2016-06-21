@@ -5,10 +5,9 @@ module Persistence
         attribute :id, Types::Serial
         attribute :title, Types::Strict::String
         attribute :client, Types::Strict::String
-        attribute :url, Types::Strict::String
+        attribute :url, Types::Strict::String.optional
         attribute :intro, Types::Strict::String
         attribute :body, Types::String.optional
-        attribute :tags, Types::Strict::String
         attribute :slug, Types::Strict::String
         attribute :status, Types::Strict::String
         attribute :published_at, Types::Time.optional

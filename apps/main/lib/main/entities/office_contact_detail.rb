@@ -1,5 +1,7 @@
 require "types"
 require "redcarpet"
+require "main/renderers/standard_renderer"
+require "main/renderers/html_without_block_elements"
 
 module Main
   module Entities
@@ -12,7 +14,7 @@ module Main
       attribute :longitude, Types::Strict::String
 
       def name_html
-        to_html(name)
+        single_line_markdown(name)
       end
 
       def address_html
@@ -20,11 +22,16 @@ module Main
       end
 
       def phone_number_html
-        to_html(phone_number)
+        single_line_markdown(phone_number)
       end
 
       def to_html(input)
-        markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, no_intra_emphasis: true)
+        renderer = Redcarpet::Markdown.new(StandardRenderer, footnotes: true, hard_wrap: true, fenced_code_blocks: true, tables: true, no_intra_emphasis: true)
+        renderer.render(input)
+      end
+
+      def single_line_markdown(input)
+        markdown = Redcarpet::Markdown.new(HTMLWithoutBlockElements, hard_wrap: false)
         markdown.render(input)
       end
     end

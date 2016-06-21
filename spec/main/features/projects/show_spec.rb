@@ -23,6 +23,6 @@ RSpec.feature "Main / Projects / Show", js: false do
     visit "/work/secret-project"
 
     expect(page.current_path).to eq "/work/secret-project"
-    expect(page).to have_content "Oops! We couldn’t find this page."
+    expect(page).to have_content "Oops! We couldn’t find this page"
   end
 end

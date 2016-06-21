@@ -27,6 +27,6 @@ RSpec.feature "Main / Posts / Show", js: false do
     visit "/notes/secret-post"
 
     expect(page.current_path).to eq "/notes/secret-post"
-    expect(page).to have_content "Oops! We couldn’t find this page."
+    expect(page).to have_content "Oops! We couldn’t find this page"
   end
 end

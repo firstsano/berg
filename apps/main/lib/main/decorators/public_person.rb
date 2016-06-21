@@ -1,5 +1,6 @@
 require "berg/decorator"
 require "redcarpet"
+require "main/renderers/standard_renderer"
 
 module Main
   module Decorators
@@ -24,8 +25,8 @@ module Main
       end
 
       def to_html(input)
-        markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, footnotes: true, hard_wrap: true, fenced_code_blocks: true, tables: true, no_intra_emphasis: true)
-        markdown.render(input)
+        renderer = Redcarpet::Markdown.new(StandardRenderer, footnotes: true, hard_wrap: true, fenced_code_blocks: true, tables: true, no_intra_emphasis: true)
+        renderer.render(input)
       end
     end
   end

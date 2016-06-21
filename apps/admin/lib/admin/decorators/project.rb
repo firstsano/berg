@@ -1,11 +1,15 @@
 module Admin
   module Decorators
     class Project < SimpleDelegator
+      def published_date
+        published_at.strftime("%e %b %Y %H:%M:%S%p")
+      end
+
       def status_class
         case status
         when "draft"
           "ghost"
-        when "deleted"
+        when "hidden"
           "warning"
         when "published"
           "success"
@@ -14,10 +18,6 @@ module Admin
 
       def status_label
         status.capitalize
-      end
-
-      def published_date
-        published_at.strftime("%e %b %Y %H:%M:%S%p")
       end
     end
   end

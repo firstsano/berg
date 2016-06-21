@@ -47,12 +47,16 @@ module Admin
             hint: "Images to display inline",
             presign_url: "/admin/uploads/presign"
 
-          select_box :status,
-            label: "Status", options: [
-              ["draft", "Draft"], ["published", "Published"], ["deleted", "Deleted"]
-            ]
-          date_time_field :published_at, label: "Published at"
+          group do
+            select_box :status, label: "Status", options: dep(:status_list)
+            date_time_field :published_at, label: "Published at"
+          end
+
           check_box :case_study, label: "Case Study", question_text: "Mark as a Case Study?"
+        end
+
+        def status_list
+          Types::ProjectStatus.values.map { |value| [value, value.capitalize] }
         end
       end
     end

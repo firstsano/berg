@@ -17,10 +17,6 @@ module Admin
       attribute :cover_image, Types::Coercible::Hash.optional
       attribute :assets, Types::Coercible::Array.member(Admin::Entities::Asset).optional
 
-      def deleted?
-        status == "deleted"
-      end
-
       def published?
         status == "published"
       end

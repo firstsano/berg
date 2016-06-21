@@ -8,11 +8,11 @@ button.nav-main-mobile-toggle data-view-nav-toggle={targetActiveClassName: "nav-
       / Inline SVG
       == assets.read("main/assets/public/glyphs/close.svg")
 ul.nav-main.fl-right#main-navigation role="navigation"
-  li.nav-main__item
+  li.nav-main__item.a-delay-250
     == nav_link_for("Work", "/work", class: "nav-main__anchor")
-  li.nav-main__item.a-delay-50
+  li.nav-main__item.a-delay-200
     == nav_link_for("About", "/about", class: "nav-main__anchor")
-  li.nav-main__item.a-delay-150
+  li.nav-main__item.a-delay-350
     == nav_link_for("Notes", "/notes", class: "nav-main__anchor")
-  li.nav-main__item.a-delay-300
+  li.nav-main__item.a-delay-400
     == nav_link_for("Contact", "/contact", class: "nav-main__anchor")

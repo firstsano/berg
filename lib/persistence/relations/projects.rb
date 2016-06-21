@@ -9,6 +9,7 @@ module Persistence
         attribute :intro, Types::Strict::String
         attribute :body, Types::String.optional
         attribute :slug, Types::Strict::String
+        attribute :color, Types::Strict::String
         attribute :status, Types::Strict::String
         attribute :published_at, Types::Time.optional
         attribute :case_study, Types::Strict::Bool

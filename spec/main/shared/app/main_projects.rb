@@ -11,7 +11,8 @@ RSpec.shared_context "main_projects" do
       tags: "tag",
       slug: title.to_slug.normalize.to_s,
       status: status,
-      published_at: Time.now
+      published_at: Time.now,
+      color: "blue"
     })
   end
 end

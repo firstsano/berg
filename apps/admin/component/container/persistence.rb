@@ -37,6 +37,13 @@ Admin::Container.namespace "admin.persistence" do |container|
     )
   end
 
+  container.register "project_color_picker" do
+    Admin::Persistence::PostColorPicker.new(
+      Types::PostHighlightColor,
+      container["admin.persistence.repositories.projects"].method(:recent_colors)
+    )
+  end
+
   container.register "project_slug_uniqueness_check" do
     Admin::Persistence::UniquenessCheck.new(
       container["core.persistence.rom"].relation(:projects),

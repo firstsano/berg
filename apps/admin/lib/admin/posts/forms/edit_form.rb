@@ -46,10 +46,6 @@ module Admin
                 filled: true
               }
 
-            group do
-              select_box :status, label: "Status", options: dep(:status_list)
-              date_time_field :published_at, label: "Published at"
-            end
             multi_selection_field :post_categories,
               label: "Categories",
               selector_label: "Choose categories",
@@ -64,6 +60,11 @@ module Admin
               label: "Additional Images",
               hint: "Images to display inline",
               presign_url: "/admin/uploads/presign"
+          end
+
+          group do
+            select_box :status, label: "Status", options: dep(:status_list)
+            date_time_field :published_at, label: "Published at"
           end
         end
 

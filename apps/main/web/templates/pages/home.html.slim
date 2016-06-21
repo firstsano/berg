@@ -7,18 +7,10 @@
   h2.page-intro__heading
     | We love helping people build beautiful, working things. We’d love to help you too.
   p.page-intro__description
-    | Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.
-
+    | We are intelligent, pragmatic humans who build machines made of logic, designed with feeling. We&rsquo;re good at understanding what you do and finding ways to help you do it better. <a href="/contact">Let&rsquo;s work together</a>.
 .pulled-heading.pulled-heading--mid.pulled-heading--color-green.pulled-heading--border-red.mx-auto
   h3.pulled-heading__heading
    span See how we
-
-ul
- - posts.each do |post|
-   == post.content
-
- li
-   a href="/curated_posts" View all the nice things we have collected &rarr;
 
 .project-feature-tiles.grid.grid--full.mx-auto
   - featured_items.each do |featured_item|
@@ -36,3 +28,10 @@ ul
         - if featured_item.teaser
           h2.project-feature-tile__teaser
             == featured_item.teaser_html
+
+ul
+ - posts.each do |post|
+   == post.content
+
+ li
+   a href="/curated_posts" View all the nice things we have collected &rarr;

@@ -49,7 +49,7 @@ module Admin
 
           select_box :status,
             label: "Status", options: [
-              ["draft", "Draft"], ["published", "Published"], ["deleted", "Deleted"]
+              ["draft", "Draft"], ["published", "Published"], ["hidden", "Hidden"]
             ]
           date_time_field :published_at, label: "Published at"
           check_box :case_study, label: "Case Study", question_text: "Mark as a Case Study?"

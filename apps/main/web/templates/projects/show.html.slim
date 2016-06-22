@@ -14,8 +14,6 @@
       span.project__client-heading Client:
       span.project__client = project.client
       - if project.url
-        a.project__website href= project.url
-          i.icon-globe
-          | Visit the website
+        a.project__website href= project.url Visit the website
     .project__copy.copy
       == project.body_html

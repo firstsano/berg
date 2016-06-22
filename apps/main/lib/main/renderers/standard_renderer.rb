@@ -126,7 +126,9 @@ class StandardRenderer < Redcarpet::Render::HTML
     output << "<figcaption>#{attributes["caption"]}</figcaption>" if attributes["caption"]
     output << "</div>"
     output << "<div class='figure-rich__image-column fl-left'>"
+    output << "<a href='#{link_with_precompiled_assets_host(resize_image(link, 1400))}'>"
     output << "<img src='#{link_with_precompiled_assets_host(resize_image(link, geometry))}' alt='#{alt_text}'>"
+    output << "</a>"
     output << "</div>"
     output << "</figure>"
     output.join("")

@@ -40,7 +40,7 @@
               span.project-tile__author= post.author.name
               span.project-tile__date= post.published_date
     - elsif post.type == 'curated'
-      a.project-tile.project-tile--with-image class="project-tile--#{post.color}" href=post.link_url
+      a.project-tile.project-tile--with-image href=post.link_url
         .project-tile__inner
           img.project-tile__image src=post.image_url alt=post.title
           .project-tile__image-overlay-container

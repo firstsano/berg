@@ -13,11 +13,11 @@ class StandardRenderer < Redcarpet::Render::HTML
       class_name: "",
     },
     left:  {
-      geometry: "400",
+      geometry: "500",
       class_name: "figure--align-left",
     },
     right: {
-      geometry: "400",
+      geometry: "500",
       class_name: "figure--align-right",
     }
   }

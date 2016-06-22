@@ -41,7 +41,6 @@ class StandardRenderer < Redcarpet::Render::HTML
 
   def image(link, title = nil, alt_text = nil)
     alt_text, attributes = parse_attributes_from(alt_text)
-    raise DEFAULT_ATTRS.merge(attributes).inspect
     if attributes['rich']
       render_rich_figure link, title, alt_text, DEFAULT_ATTRS.merge(attributes)
     else

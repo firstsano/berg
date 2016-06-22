@@ -9,7 +9,7 @@ class StandardRenderer < Redcarpet::Render::HTML
 
   ALIGN_MAP = {
     center:  {
-      geometry: "400",
+      geometry: "800",
       class_name: "",
     },
     left:  {

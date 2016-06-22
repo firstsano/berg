@@ -28,10 +28,26 @@
           h2.project-feature-tile__teaser
             == featured_item.teaser_html
 
-ul
- - combined_posts.each do |post|
-   == post.content
-
- - if curated_posts_for_home_page.count > 0
-  li
-    a href="/curated_posts" View all the nice things we have collected &rarr;
+.project-tiles.grid.grid--full.mx-auto
+  - combined_posts.each do |post|
+    - if post.type == 'note'
+      a.project-tile.project-tile--with-text class="project-tile--#{post.color}" href=post.url
+        .project-tile__inner
+          .project-tile__text-container
+            h2.project-tile__title== post.title_html
+            h3.project-tile__description== post.teaser_html
+            p.project-tile__meta
+              span.project-tile__author= post.author.name
+              span.project-tile__date= post.published_date
+    - elsif post.type == 'curated'
+      a.project-tile.project-tile--with-image class="project-tile--#{post.color}" href=post.link_url
+        .project-tile__inner
+          img.project-tile__image src=post.image_url alt=post.title
+          .project-tile__image-overlay-container
+            .project-tile__image-overlay
+              h2.project-tile__image-overlay-title.t-center
+                = post.title
+                span &rarr;
+- if curated_posts_for_home_page.count > 0
+  .grid.grid--full.t-center
+    a.curated-posts-link href="/curated_posts" View all the nice things we have collected &rarr;

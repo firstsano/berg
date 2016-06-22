@@ -41,7 +41,11 @@ class StandardRenderer < Redcarpet::Render::HTML
 
   def image(link, title = nil, alt_text = nil)
     alt_text, attributes = parse_attributes_from(alt_text)
-    render_figure link, title, alt_text, DEFAULT_ATTRS.merge(attributes)
+    if attributes['rich']
+      render_rich_figure link, title, alt_text, DEFAULT_ATTRS.merge(attributes)
+    else
+      render_figure link, title, alt_text, DEFAULT_ATTRS.merge(attributes)
+    end
   end
 
   private
@@ -54,20 +58,6 @@ class StandardRenderer < Redcarpet::Render::HTML
     else
       [alt_text, {}]
     end
-  end
-
-  def render_figure(link, title = nil, alt_text = nil, attributes = {})
-    alignment = ALIGN_MAP[attributes["align"].to_sym]
-    geometry = attributes["geometry"] || alignment[:geometry]
-    class_name = [attributes["geometry"], alignment[:class_name]]
-    output = []
-    output << "<figure class='#{class_name.join('')}'>"
-    output << "<img src='#{link_with_precompiled_assets_host(resize_image(link, geometry))}' alt='#{alt_text}'>"
-    if attributes["caption"]
-      output << "<figcaption>#{attributes['caption']}</figcaption>"
-    end
-    output << "</figure>"
-    output.join("")
   end
 
   def resize_image(link, geometry)
@@ -98,5 +88,38 @@ class StandardRenderer < Redcarpet::Render::HTML
       end
     end
     link
+  end
+
+  # Default renderer
+  def render_figure(link, title = nil, alt_text = nil, attributes = {})
+    alignment = ALIGN_MAP[attributes["align"].to_sym]
+    geometry = attributes["geometry"] || alignment[:geometry]
+    class_name = [attributes["class_name"], alignment[:class_name]]
+    output = []
+    output << "<figure class='#{class_name.join('')}'>"
+    output << "<img src='#{link_with_precompiled_assets_host(resize_image(link, geometry))}' alt='#{alt_text}'>"
+    if attributes["caption"]
+      output << "<figcaption>#{attributes['caption']}</figcaption>"
+    end
+    output << "</figure>"
+    output.join("")
+  end
+
+  # Rich renderer
+  def render_rich_figure(link, title = nil, alt_text = nil, attributes = {})
+    alignment = ALIGN_MAP[attributes["align"].to_sym]
+    geometry = attributes["geometry"] || 800
+    class_name = [attributes["class_name"]]
+    output = []
+    output << "<figure class='figure-rich clearfix #{class_name.join('')}'>"
+    output << "<div class='figure-rich__text-column fl-left'>"
+    output << "<h2 class='figure-rich__heading'>#{title}</h2>" if title
+    output << "<figcaption>caption</figcaption>" if attributes["caption"]
+    output << "</div>"
+    output << "<div class='figure-rich__image-column fl-left'>"
+    output << "<img src='#{link_with_precompiled_assets_host(resize_image(link, geometry))}' alt='#{alt_text}'>"
+    output << "</div>"
+    output << "</figure>"
+    output.join("")
   end
 end

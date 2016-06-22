@@ -29,6 +29,7 @@ module Main
           posts
             .published
             .limit(10)
+            .order(Sequel.desc(:published_at))
             .combine(one: { author: [people, person_id: :id] })
             .as(Entities::Post::WithAuthor)
         end

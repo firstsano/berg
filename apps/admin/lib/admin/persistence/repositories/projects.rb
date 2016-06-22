@@ -30,6 +30,12 @@ module Admin
             .as(Entities::Project)
         end
 
+        def all
+          projects
+            .order(Sequel.desc(:published_at))
+            .as(Entities::Project)
+        end
+
         def recent_colors
           projects
             .select(:color)

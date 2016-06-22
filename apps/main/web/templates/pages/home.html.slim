@@ -1,10 +1,10 @@
 == content_store.capture :og_meta_tags do
-  meta property="og:title" content="Home — Icelab"
-  meta property="og:description" content="Icelab &middot; an Australian design studio"
+  meta property="og:title" content="Icelab &middot; an Australian design studio"
+  meta property="og:description" content="We love helping people build beautiful, working things. We&rsquo;d love to help you too."
 
 .page-intro.grid.grid--narrow.mx-auto
   h2.page-intro__heading
-    | We love helping people build beautiful, working things. We’d love to help you too.
+    | We love helping people build beautiful, working things. We&rsquo;d love to help you too.
   p.page-intro__description
     | We are intelligent, pragmatic humans who build machines made of logic, designed with feeling. We&rsquo;re good at understanding what you do and finding ways to help you do it better. <a href="/contact">Let&rsquo;s work together &rarr;</a>
 .pulled-heading.pulled-heading--mid.pulled-heading--color-green.pulled-heading--border-red.mx-auto
@@ -40,7 +40,7 @@
               span.project-tile__author= post.author.name
               span.project-tile__date= post.published_date
     - elsif post.type == 'curated'
-      a.project-tile.project-tile--with-image class="project-tile--#{post.color}" href=post.link_url
+      a.project-tile.project-tile--with-image href=post.link_url
         .project-tile__inner
           img.project-tile__image src=post.image_url alt=post.title
           .project-tile__image-overlay-container
@@ -50,4 +50,6 @@
                 span &rarr;
 - if curated_posts_for_home_page.count > 0
   .grid.grid--full.t-center
-    a.curated-posts-link href="/curated_posts" View all the nice things we have collected &rarr;
+    a.view-notes-link href="/notes"
+     span.view-notes-link__larger We have lots of good ideas. Sometimes we write them down. &rarr;
+     span.view-notes-link__smaller View all notes &rarr;

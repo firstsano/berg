@@ -8,7 +8,7 @@ namespace :color_tasks do
     project_color_picker = Admin::Container["admin.persistence.post_color_picker"]
     projects = Admin::Container["admin.persistence.repositories.projects"]
 
-    projects.listing.each do |project|
+    projects.all.each do |project|
       projects.update(project[:id], color: project_color_picker.())
     end
   end

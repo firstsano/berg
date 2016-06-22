@@ -11,7 +11,7 @@ module Main
       def mix_posts(sources)
         primary_posts, *secondary_posts = sources
 
-        determenistic_random = Random.new(133146)
+        determenistic_random = Random.new(2468)
         rands = primary_posts.length.times.map{|d| determenistic_random.rand(0..primary_posts.length) }
         return primary_posts if (primary_posts.flatten.count < secondary_posts.flatten.count)
         secondary_posts.flatten.each_with_index do |post,i|

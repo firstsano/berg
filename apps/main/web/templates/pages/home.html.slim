@@ -48,5 +48,6 @@
               h2.project-tile__image-overlay-title.t-center
                 = post.title
                 span &rarr;
-  - if curated_posts_for_home_page.count > 0
-    a.curated-posts-link.mx-auto href="/curated_posts" View all the nice things we have collected &rarr;
+- if curated_posts_for_home_page.count > 0
+  .grid.grid--full.t-center
+    a.curated-posts-link href="/curated_posts" View all the nice things we have collected &rarr;

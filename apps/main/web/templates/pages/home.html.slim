@@ -28,6 +28,10 @@
           h2.project-feature-tile__teaser
             == featured_item.teaser_html
 
+.pulled-heading.pulled-heading--home-notes.pulled-heading--mid.pulled-heading--color-blue.pulled-heading--border-green.mx-auto
+  h3.pulled-heading__heading.a-delay-150
+   span Notes and ideas
+
 .project-tiles.grid.grid--full.mx-auto
   - combined_posts.each do |post|
     - if post.type == 'note'

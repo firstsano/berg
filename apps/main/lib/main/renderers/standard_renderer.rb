@@ -4,7 +4,6 @@ require "rouge"
 require "rouge/plugins/redcarpet"
 
 class StandardRenderer < Redcarpet::Render::HTML
-  include Redcarpet::Render::SmartyPants
   include Rouge::Plugins::Redcarpet
 
   ALIGN_MAP = {
@@ -48,7 +47,17 @@ class StandardRenderer < Redcarpet::Render::HTML
     end
   end
 
+  def postprocess(document)
+    Redcarpet::Render::SmartyPants.render(
+      strip_paragraphs_surrounding_images(document)
+    )
+  end
+
   private
+
+  def strip_paragraphs_surrounding_images(document)
+    document.gsub(/<p>(<figure.*<\/figure>)<\/p>/, '\1')
+  end
 
   def parse_attributes_from(alt_text)
     object_regex = /(.+)(\{.+\})/

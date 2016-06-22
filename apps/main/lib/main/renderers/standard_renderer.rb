@@ -22,9 +22,9 @@ class StandardRenderer < Redcarpet::Render::HTML
     }
   }
 
-  DEFAULT_ATTRS = {
-    align: "center"
-  }
+  DEFAULT_ATTRS = {}
+  # FIXME this is to make sure the accessor is consistently a string
+  DEFAULT_ATTRS["align"] = "center"
 
   # Input syntax:
   #
@@ -41,6 +41,7 @@ class StandardRenderer < Redcarpet::Render::HTML
 
   def image(link, title = nil, alt_text = nil)
     alt_text, attributes = parse_attributes_from(alt_text)
+    raise DEFAULT_ATTRS.merge(attributes).inspect
     if attributes['rich']
       render_rich_figure link, title, alt_text, DEFAULT_ATTRS.merge(attributes)
     else

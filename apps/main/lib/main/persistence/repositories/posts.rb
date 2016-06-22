@@ -29,6 +29,8 @@ module Main
           posts
             .published
             .limit(10)
+            .combine(one: { author: [people, person_id: :id] })
+            .as(Entities::Post::WithAuthor)
         end
 
         def for_rss_feed

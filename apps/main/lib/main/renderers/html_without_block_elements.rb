@@ -1,8 +1,6 @@
 require "redcarpet"
 
 class HTMLWithoutBlockElements < Redcarpet::Render::HTML
-  include Redcarpet::Render::SmartyPants
-
   def initialize(opts = {})
     opts[:tables] = false
     super(opts)
@@ -50,6 +48,6 @@ class HTMLWithoutBlockElements < Redcarpet::Render::HTML
   # Postprocessing: strip the newlines
 
   def postprocess(document)
-    document.gsub("\n", ' ').strip
+    Redcarpet::Render::SmartyPants.render(document.gsub("\n", ' ').strip)
   end
 end

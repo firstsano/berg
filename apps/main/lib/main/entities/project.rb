@@ -14,7 +14,7 @@ module Main
       attribute :published_at, Types::Strict::Time.optional
       attribute :case_study, Types::Strict::Bool
       attribute :cover_image, Types::Hash
-      attribute :color, Types::String
+      attribute :color, Types::PostHighlightColor
       attribute :assets, Types::Hash
     end
   end

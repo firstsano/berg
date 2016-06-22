@@ -15,7 +15,7 @@
     .note__meta
       span.note__author By #{post.author.name}
       span.note__date == post.published_date
-    .note__copy.copy
+    .note__copy.copy.clearfix
       == post.body_html
   .note__footer.a-delay-150
     .note__footer-inner.clearfix

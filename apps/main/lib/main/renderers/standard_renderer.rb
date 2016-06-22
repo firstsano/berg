@@ -117,7 +117,7 @@ class StandardRenderer < Redcarpet::Render::HTML
   # Rich renderer
   def render_rich_figure(link, title = nil, alt_text = nil, attributes = {})
     alignment = ALIGN_MAP[attributes["align"].to_sym]
-    geometry = attributes["geometry"] || 800
+    geometry = attributes["geometry"] || 1000
     class_name = [attributes["class_name"]]
     output = []
     output << "<figure class='figure-rich clearfix #{class_name.join('')}'>"

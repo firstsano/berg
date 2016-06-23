@@ -26,6 +26,11 @@ Otherwise:
 ./bin/setup
 ```
 
+### Adding sample data
+```sh
+rake db:sample_data
+```
+
 ### Running the app
 
 ```sh

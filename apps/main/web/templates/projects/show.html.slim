@@ -1,7 +1,7 @@
 - content_store.capture :title, "#{project.title} — Notes – Icelab"
 == content_store.capture :og_meta_tags do
   meta property="og:title" content="#{project.title} — Notes – Icelab"
-  meta property="og:description" content=project.body.gsub(/<\/?[^>]*>/,"").gsub(/^(.{400,}?).*$/m,'\1...')
+  meta property="og:description" content=project.summary_html.gsub(/<\/?[^>]*>/,"").gsub(/^(.{400,}?).*$/m,'\1...')
 
 .project
   .pulled-heading.pulled-heading--serif.pulled-heading--mid.pulled-heading--border-red.mx-auto class="pulled-heading--color-#{project.color}"

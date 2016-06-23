@@ -306,7 +306,7 @@ CREATE TABLE projects (
     title text NOT NULL,
     client text NOT NULL,
     url text,
-    intro text NOT NULL,
+    summary text NOT NULL,
     body text,
     slug text NOT NULL,
     status text DEFAULT 'draft'::text,
@@ -316,7 +316,8 @@ CREATE TABLE projects (
     case_study boolean DEFAULT false NOT NULL,
     cover_image json,
     assets json,
-    color text DEFAULT ''::text NOT NULL
+    color text DEFAULT ''::text NOT NULL,
+    intro text
 );
 
 

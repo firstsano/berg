@@ -22,6 +22,7 @@ module Admin
         required(:title).filled
         required(:client).filled
         required(:intro).filled
+        required(:summary).filled
         required(:case_study).filled(:bool?)
 
         required(:url).maybe(:uri?)

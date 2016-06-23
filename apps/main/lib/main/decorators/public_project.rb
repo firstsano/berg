@@ -15,7 +15,11 @@ module Main
       end
 
       def intro_html
-        to_html(intro)
+        to_html(intro) if intro
+      end
+
+      def summary_html
+        to_html(summary)
       end
 
       def body_html

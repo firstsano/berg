@@ -16,6 +16,7 @@ RSpec.feature "Admin / Projects / Create", js: true do
     find("#client").set("An example client")
     find("#url").set("http://example.com")
     find("#intro").set("Intro text for this example project")
+    find("#summary").set("Summary text for this example project")
     find("#body").set("Body content for this example project")
 
     find("button", text: "Create project").trigger("click")

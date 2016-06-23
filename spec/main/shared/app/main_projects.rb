@@ -7,6 +7,7 @@ RSpec.shared_context "main_projects" do
       client: "foo corp",
       url: "http://foo.com",
       intro: "the intro",
+      summary: "the summary",
       body: "the body",
       tags: "tag",
       slug: title.to_slug.normalize.to_s,

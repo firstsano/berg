@@ -7,6 +7,7 @@ module Persistence
         attribute :client, Types::Strict::String
         attribute :url, Types::Strict::String.optional
         attribute :intro, Types::Strict::String
+        attribute :summary, Types::Strict::String
         attribute :body, Types::String.optional
         attribute :slug, Types::Strict::String
         attribute :color, Types::Strict::String

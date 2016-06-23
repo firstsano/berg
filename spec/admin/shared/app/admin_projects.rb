@@ -7,6 +7,7 @@ RSpec.shared_context "admin projects" do
       "client" => "An example client",
       "url" => "http://example.com",
       "intro" => "Intro text for this example project",
+      "summary" => "Summary text for this example project",
       "body" => "Body content for this example project",
       "slug" => title.to_slug.normalize.to_s,
       "case_study" => false,

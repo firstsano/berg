@@ -36,6 +36,11 @@ module Admin
             validation: {
               filled: true
             }
+          text_area :summary,
+            label: "Summary",
+            validation: {
+              filled: true
+            }
           text_area :body,
             label: "Body",
             validation: {

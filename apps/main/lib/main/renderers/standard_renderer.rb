@@ -63,9 +63,17 @@ class StandardRenderer < Redcarpet::Render::HTML
     object_regex = /(.+)(\{.+\})/
     matches = alt_text.match(object_regex)
     if matches
-      [matches[1], JSON.parse(matches[2])]
+      [matches[1], safe_json_parse(matches[2])]
     else
       [alt_text, {}]
+    end
+  end
+
+  def safe_json_parse(json)
+    begin
+      JSON.parse(json)
+    rescue JSON::ParserError => e
+      return JSON.parse("{}")
     end
   end
 

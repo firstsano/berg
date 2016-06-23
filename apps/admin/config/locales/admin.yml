@@ -31,9 +31,9 @@ en:
     emails:
       users:
         account_activation:
-          subject: "Activate your Berg account"
+          subject: "Activate your icelab.com.au account"
         reset_password:
-          subject: "Berg password reset request"
+          subject: "icelab.com.au password reset request"
     categories:
       category_created: "Category has been created"
       category_updated: "Category has been updated"

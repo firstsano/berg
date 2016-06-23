@@ -29,4 +29,14 @@ class Main::Application
     response['Content-Type'] = 'application/xml'
     r.view "pages.feed", format: :xml, engine: :builder
   end
+
+  # http://icelab.com.au/.well-known/acme-challenge/
+
+  route ".well-known" do |r|
+    r.on "acme-challenge" do
+      r.on ":slug" do|slug|
+        "#{slug}.a7RDashodOksAjB4jMWZ0gQDCnsAcvC8md90q5LzjJY"
+      end
+    end
+  end
 end

@@ -32,24 +32,24 @@
   h3.pulled-heading__heading.a-delay-150
    span Notes and ideas
 
-.project-tiles.grid.grid--full.mx-auto
+.post-tiles.grid.grid--full.mx-auto
   - combined_posts.each do |post|
     - if post.type == 'note'
-      a.project-tile.project-tile--with-text class="project-tile--#{post.color}" href=post.url
-        .project-tile__inner
-          .project-tile__text-container
-            h2.project-tile__title== post.title_html
-            h3.project-tile__description== post.teaser_html
-            p.project-tile__meta
-              span.project-tile__author= post.author.name
-              span.project-tile__date= post.published_date
+      a.post-tile.post-tile--with-text class="post-tile--#{post.color}" href=post.url
+        .post-tile__inner
+          .post-tile__text-container
+            h2.post-tile__title== post.title_html
+            h3.post-tile__description== post.teaser_html
+            p.post-tile__meta
+              span.post-tile__author= post.author.name
+              span.post-tile__date= post.published_date
     - elsif post.type == 'curated'
-      a.project-tile.project-tile--with-image href=post.link_url
-        .project-tile__inner
-          img.project-tile__image src=post.image_url alt=post.title
-          .project-tile__image-overlay-container
-            .project-tile__image-overlay
-              h2.project-tile__image-overlay-title.t-center
+      a.post-tile.post-tile--with-image href=post.link_url
+        .post-tile__inner
+          img.post-tile__image src=post.image_url alt=post.title
+          .post-tile__image-overlay-container
+            .post-tile__image-overlay
+              h2.post-tile__image-overlay-title.t-center
                 = post.title
                 span &rarr;
 - if curated_posts_for_home_page.count > 0

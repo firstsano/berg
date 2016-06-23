@@ -2,19 +2,20 @@ doctype 5
 html lang="en-au"
   head
     == page.head
-  body
+  body data-view-boids=true
     == page.flash
     == page.skip_links
     .content.mx-auto
       .content__inner
-        .masthead.flex-y-center.mx-auto
-          h1.masthead__logo
-            a.masthead__logo-anchor.flex-y-center href="/"
-              span.masthead__logo-berg.mr-small
-              span.masthead__logo-text Icelab
-          == page.nav_main
-        .main-content.mx-auto#main-content role="main"
-          == yield
+        .content__lift
+          .masthead.flex-y-center.mx-auto
+            h1.masthead__logo
+              a.masthead__logo-anchor.flex-y-center href="/"
+                span.masthead__logo-berg.mr-small
+                span.masthead__logo-text Icelab
+            == page.nav_main
+          .main-content.mx-auto#main-content role="main"
+            == yield
       a.get-in-touch.t-center.clearfix.d-flex.flex-x-center href="/contact"
         span.get-in-touch__text Work with us, we&rsquo;re good people
         span.get-in-touch__button.button Get in touch

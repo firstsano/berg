@@ -33,6 +33,8 @@ module Berg
     attribute :aws_bucket, Types::String
     attribute :aws_region, Types::String
 
+    attribute :ga_tracking_id, Types::String
+
     def self.load(root, name, env)
       path = root.join("config").join("#{name}.yml")
       yaml = File.exist?(path) ? YAML.load_file(path) : {}

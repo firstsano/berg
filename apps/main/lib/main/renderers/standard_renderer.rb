@@ -47,6 +47,10 @@ class StandardRenderer < Redcarpet::Render::HTML
     end
   end
 
+  def link(link, title, content)
+    "<a href='#{link_with_canonical_domain(link)}' title='#{title}'>#{content}</a>"
+  end
+
   def postprocess(document)
     Redcarpet::Render::SmartyPants.render(
       strip_paragraphs_surrounding_images(document)
@@ -75,6 +79,14 @@ class StandardRenderer < Redcarpet::Render::HTML
     else
       link
     end
+  end
+
+  def link_with_canonical_domain(link)
+    canonical_domain = Berg::Container["config"].canonical_domain
+    if /^\//.match(link)
+      link = "#{canonical_domain}#{link}"
+    end
+    link
   end
 
   def link_with_precompiled_assets_host(link)

@@ -25,7 +25,7 @@ use Rack::Rewrite do
 end
 
 # Disable this until we setup SSL
-# use Rack::SSL if ENV["RACK_ENV"] == "production"
+use Rack::SSL if ENV["RACK_ENV"] == "production"
 use Rack::Deflater
 
 require_relative "component/boot"

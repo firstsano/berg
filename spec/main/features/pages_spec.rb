@@ -4,7 +4,7 @@ RSpec.feature "Main / Pages" do
   scenario "Visiting the Home page" do
     visit "/"
     expect(page.status_code).to eql 200
-    expect(page).to have_title "Icelab — an Australian design studio"
+    expect(page).to have_title "Icelab, an Australian design and development studio"
   end
 
   scenario "Visiting the Work page" do

@@ -1,9 +1,9 @@
-- content_store.capture :title, "#{post.title} — Notes"
+- content_store.capture :title, "Notes / #{post.title}"
 == content_store.capture :og_meta_tags do
-  meta property="og:title" content="#{post.title} — Notes – Icelab"
+  meta property="og:title" content="Notes / #{post.title}"
   meta property="og:description" content=post.teaser_html.gsub(/<\/?[^>]*>/,"").gsub(/^(.{400,}?).*$/m,'\1...')
   meta name="twitter:label1" value="Tagged with"
-  meta name="twitter:data1" value=post.categories.map(&:name).join(" ")
+  meta name="twitter:data1" value=post.categories.map(&:name).join(", ")
   meta name="twitter:label2" value="Author"
   meta name="twitter:data2" value=post.author.name
 

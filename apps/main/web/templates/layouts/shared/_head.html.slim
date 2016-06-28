@@ -1,5 +1,13 @@
 meta charset="utf-8"
 == metaquery_breakpoints
+
+/ Prefetch hints
+- if Berg::Container["config"].canonical_domain
+  link rel="dns-prefetch" href=Berg::Container["config"].canonical_domain
+link rel="dns-prefetch" href="https://fonts.googleapis.com"
+link rel="dns-prefetch" href="https://www.google-analytics.com"
+link href="https://fonts.gstatic.com" rel="preconnect" crossorigin=true
+
 script
   == assets.read("main__inline-header.js")
 title

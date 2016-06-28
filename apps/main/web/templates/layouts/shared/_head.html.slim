@@ -8,7 +8,14 @@ title
   - else
     | Icelab, an Australian design studio
 link rel="stylesheet" type="text/css" href=assets["main__public.css"]
-link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700:latin" rel="stylesheet" type="text/css"
+
+/ Defer loading of non-critical CSS (fonts)
+link rel="preload" href=page.assets["main__defer.css"] as="style" onload="this.rel='stylesheet'"
+link rel="preload" href="https://fonts.googleapis.com/css?family=Inconsolata:400,700:latin" as="style" onload="this.rel='stylesheet'"
+noscript
+  link rel="stylesheet" href=page.assets["main__defer.css"]
+  link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata:400,700:latin"
+
 link rel="icon" type="image/x-icon" href="/favicon.ico"
 link rel="apple-touch-icon" href="apple-touch-icon.png"
 script type="text/javascript" src=assets["main__public.js"] async="async"

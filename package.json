@@ -9,6 +9,7 @@
     "domready": "^1.0.8",
     "es5-shim": "4.5.2",
     "es6-shim": "^0.34.2",
+    "fg-loadcss": "1.2.0",
     "google-maps": "^2.1.1",
     "immutable": "^3.7.6",
     "metaquery": "^1.2.0",

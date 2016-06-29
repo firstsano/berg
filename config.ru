@@ -1,15 +1,5 @@
 require "rack/rewrite"
 require "rack/ssl"
-require "rack/cors"
-
-use Rack::Cors do
-  if ENV["CANONICAL_DOMAIN"] && ENV["PRECOMPILED_ASSETS_HOST"]
-    allow do
-      origins ENV["CANONICAL_DOMAIN"]
-      resource "/assets/*", :headers => :any, :methods => :get
-    end
-  end
-end
 
 use Rack::Rewrite do
   # if ENV["RACK_ENV"] == "production"

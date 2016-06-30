@@ -10,7 +10,6 @@ module Admin
       class Update
         include Admin::Import(
           "admin.persistence.repositories.users",
-          "core.authentication.encrypt_password"
         )
 
         include Dry::ResultMatcher.for(:call)

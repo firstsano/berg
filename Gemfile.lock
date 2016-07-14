@@ -22,17 +22,18 @@ GIT
 
 GIT
   remote: https://github.com/rom-rb/rom
-  revision: 61f3d47768a342ae696293793cd4863578b273f6
+  revision: 28bb5691c53532661ac8e571b9a91a7763d589ad
   specs:
     rom (2.0.0)
+      concurrent-ruby (~> 1.0)
       dry-equalizer (~> 0.2)
-      dry-types (~> 0.7)
+      dry-types (~> 0.8)
       rom-mapper (~> 0.3.0)
       rom-support (~> 1.0.0)
 
 GIT
   remote: https://github.com/rom-rb/rom-mapper
-  revision: 5fecb06bd0cdf227b9f0289c2870ebc4a88f0502
+  revision: 5cc3714c9c7a7e9bc676f5d0760f3e3de2e8bff9
   specs:
     rom-mapper (0.3.0)
       dry-equalizer (~> 0.2)
@@ -41,10 +42,9 @@ GIT
 
 GIT
   remote: https://github.com/rom-rb/rom-repository
-  revision: 4efc94795e882156e705700d3a46ced08c8e7e0d
+  revision: a41292342abf188135c97372c0143e7028363cfd
   specs:
     rom-repository (0.3.0)
-      anima (~> 0.2, >= 0.2)
       concurrent-ruby (~> 1.0)
       rom (~> 2.0)
       rom-mapper (~> 0.3.0)
@@ -52,17 +52,17 @@ GIT
 
 GIT
   remote: https://github.com/rom-rb/rom-sql
-  revision: ea8a01c6c33ff7a2ed94df0726e333536682ef59
+  revision: 7907fe2e9f073b5db4cfa3bc25e91a4cafeea8e9
   specs:
     rom-sql (0.8.0)
       dry-equalizer (~> 0.2)
-      dry-types (~> 0.7)
+      dry-types (~> 0.8)
       rom (~> 2.0)
       sequel (~> 4.18)
 
 GIT
   remote: https://github.com/rom-rb/rom-support
-  revision: 31085bb9a02a68455f2a66dce1fa08fcfd937430
+  revision: b7a55bbe2aa4e3a01efd559416426f35ab0e1533
   specs:
     rom-support (1.0.0)
       dry-equalizer (~> 0.2)
@@ -78,15 +78,7 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
-    abstract_type (0.0.7)
-    adamantium (0.2.0)
-      ice_nine (~> 0.11.0)
-      memoizable (~> 0.4.0)
     addressable (2.4.0)
-    anima (0.3.0)
-      abstract_type (~> 0.0.7)
-      adamantium (~> 0.2)
-      equalizer (~> 0.0.11)
     babosa (1.0.2)
     bcrypt (3.1.11)
     bugsnag (4.1.0)
@@ -133,7 +125,7 @@ GEM
       dry-container (>= 0.2.8)
       kleisli
       wisper (>= 1.6.0)
-    dry-types (0.8.0)
+    dry-types (0.8.1)
       concurrent-ruby (~> 1.0)
       dry-configurable (~> 0.1)
       dry-container (~> 0.3)
@@ -155,7 +147,6 @@ GEM
       dry-configurable (~> 0.1)
       roda (~> 2.14)
       roda-flow (~> 0.3)
-    equalizer (0.0.11)
     excon (0.49.0)
     faker (1.6.3)
       i18n (~> 0.5)
@@ -205,8 +196,6 @@ GEM
       rb-inotify (~> 0.9, >= 0.9.7)
       ruby_dep (~> 1.2)
     lumberjack (1.0.10)
-    memoizable (0.4.2)
-      thread_safe (~> 0.3, >= 0.3.1)
     method_source (0.8.2)
     mime-types (3.0)
       mime-types-data (~> 3.2015)
@@ -270,7 +259,7 @@ GEM
       rspec-support (~> 3.4.0)
     rspec-support (3.4.1)
     ruby_dep (1.3.1)
-    sequel (4.34.0)
+    sequel (4.36.0)
     shellany (0.0.1)
     shotgun (0.9.1)
       rack (>= 1.0)
@@ -290,7 +279,6 @@ GEM
     slop (3.6.0)
     temple (0.7.6)
     thor (0.19.1)
-    thread_safe (0.3.5)
     tilt (2.0.5)
     websocket-driver (0.6.3)
       websocket-extensions (>= 0.1.0)

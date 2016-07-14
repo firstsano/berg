@@ -3,7 +3,7 @@ require "berg/repository"
 module Main
   module Persistence
     module Repositories
-      class Sitemaps < Berg::Repository[:sitemaps]
+      class Sitemaps < Berg::Repository
         relations :posts, :projects
 
         def post_slugs

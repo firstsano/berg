@@ -1,7 +1,8 @@
 development: &base
   session_secret: xxx
   database_url: "postgres://localhost/berg_development"
-  assets_server_url: "http://localhost:8080"
+  assets_server_link_url: "http://localhost:8080"
+  assets_server_read_url: "http://localhost:8080"
   admin_url: "http://localhost:3000/admin"
   canonical_domain: "http://localhost:3000"
   precompiled_assets: false

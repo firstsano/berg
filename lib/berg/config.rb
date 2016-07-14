@@ -12,7 +12,8 @@ module Berg
     attribute :session_secret, RequiredString
 
     attribute :canonical_domain, Types::String
-    attribute :assets_server_url, Types::String
+    attribute :assets_server_link_url, Types::String
+    attribute :assets_server_read_url, Types::String
     attribute :precompiled_assets, Types::Form::Bool # TODO: add .default(false) when dry-types allows it
     attribute :precompiled_assets_host, Types::String
 

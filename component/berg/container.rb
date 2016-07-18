@@ -7,6 +7,6 @@ module Berg
       config.auto_register = %w[lib/authentication]
     end
 
-    load_paths! "lib", "core"
+    load_paths! "lib", "component"
   end
 end

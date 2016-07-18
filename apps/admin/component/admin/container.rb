@@ -13,6 +13,6 @@ module Admin
       ]
     end
 
-    load_paths! "lib", "core"
+    load_paths! "lib", "component"
   end
 end

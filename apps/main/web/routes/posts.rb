@@ -1,9 +1,11 @@
 class Main::Application
   route "notes" do |r|
-    r.on "category" do
-      r.on ":category" do |category|
-        r.view "posts.category.index", category: category, page: r[:page] || 1
-      end
+    r.is do
+      r.view "posts.index", page: r[:page] || 1
+    end
+
+    r.on "category/:category" do |category|
+      r.view "posts.category.index", category: category, page: r[:page] || 1
     end
 
     r.on ":slug" do |slug|
@@ -20,7 +22,5 @@ class Main::Application
         end
       end
     end
-
-    r.view "posts.index", page: r[:page] || 1
   end
 end

@@ -22,7 +22,7 @@ GIT
 
 GIT
   remote: https://github.com/rom-rb/rom
-  revision: 28bb5691c53532661ac8e571b9a91a7763d589ad
+  revision: 4b27d1d1194f507dae7c7d09426894e79c3291da
   specs:
     rom (2.0.0)
       concurrent-ruby (~> 1.0)
@@ -42,29 +42,30 @@ GIT
 
 GIT
   remote: https://github.com/rom-rb/rom-repository
-  revision: a41292342abf188135c97372c0143e7028363cfd
+  revision: 5e5886bad5b372279a32db10cf6746821a0161b6
   specs:
     rom-repository (0.3.0)
       concurrent-ruby (~> 1.0)
       rom (~> 2.0)
-      rom-mapper (~> 0.3.0)
-      rom-support (~> 1.0.0)
+      rom-mapper (~> 0.3)
+      rom-support (~> 1.0)
 
 GIT
   remote: https://github.com/rom-rb/rom-sql
-  revision: 7907fe2e9f073b5db4cfa3bc25e91a4cafeea8e9
+  revision: 73ac2073faaec17fce8ccb152cfadf3f6c6ef12d
   specs:
     rom-sql (0.8.0)
       dry-equalizer (~> 0.2)
       dry-types (~> 0.8)
       rom (~> 2.0)
-      sequel (~> 4.18)
+      sequel (~> 4.25)
 
 GIT
   remote: https://github.com/rom-rb/rom-support
-  revision: b7a55bbe2aa4e3a01efd559416426f35ab0e1533
+  revision: c70f8eb9e4cc43514cae4d7bc06d82ab16d76bd7
   specs:
     rom-support (1.0.0)
+      concurrent-ruby (~> 1.0)
       dry-equalizer (~> 0.2)
       transproc (~> 0.4.0)
       wisper (~> 1.6, >= 1.6.0)
@@ -109,7 +110,7 @@ GEM
       dry-configurable (~> 0.1)
       dry-container (~> 0.3, >= 0.3.4)
       inflecto (>= 0.0.2)
-    dry-configurable (0.1.6)
+    dry-configurable (0.1.7)
       concurrent-ruby (~> 1.0)
     dry-container (0.3.4)
       concurrent-ruby (~> 1.0)

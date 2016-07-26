@@ -28,7 +28,7 @@ Rake.add_rakelib "lib/tasks"
 
 namespace :db do
   task :setup do
-    Berg::Container.boot!(:rom)
+    Berg::Container.boot :rom
   end
 
   # The following migration tasks are adapted from https://gist.github.com/kalmbach/4471560

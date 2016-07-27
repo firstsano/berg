@@ -7,6 +7,7 @@ module Admin
     module Repositories
       class Posts < Berg::Repository[:posts]
         relations :categories
+
         commands :create, update: [:by_id, :by_slug]
 
         alias_method :update, :update_by_id
@@ -16,10 +17,10 @@ module Admin
         end
 
         def by_slug!(slug)
-          posts
+          aggregate(:categories)
             .by_slug(slug)
-            .combine(many: { post_categories: [categories, id: :post_id] })
-            .as(Entities::PostWithCategories).one!
+            .as(Entities::PostWithCategories)
+            .one!
         end
 
         def slug_exists?(slug)

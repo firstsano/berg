@@ -62,7 +62,7 @@ admin["admin.users.operations.change_password"].(1, { password: "changeme" })
     person_id: author.id,
     published_at: Time.now,
     cover_image: nil,
-    post_categories: [1],
+    categories: [1],
     assets: [{}]
   )
 end

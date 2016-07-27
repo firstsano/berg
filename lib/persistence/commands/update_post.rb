@@ -11,8 +11,8 @@ module Persistence
         post_id = result.first[:id]
         categorisations.where(post_id: post_id).delete
 
-        if tuple[:post_categories]
-          categories = tuple[:post_categories].product([post_id])
+        if tuple[:categories]
+          categories = tuple[:categories].product([post_id])
 
           post_tupples = categories.map do |category_id, post_id|
             {

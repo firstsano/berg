@@ -24,7 +24,7 @@ module Admin
     end
 
     class PostWithCategories < Post
-      attribute :post_categories, Types::Strict::Array.member(Admin::Entities::Category)
+      attribute :categories, Types::Strict::Array.member(Admin::Entities::Category)
     end
   end
 end

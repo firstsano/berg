@@ -6,9 +6,9 @@ module Persistence
         attribute :post_id, Types::ForeignKey(:posts)
         attribute :category_id, Types::ForeignKey(:categories)
 
-        associate do
-          belongs :categories
-          belongs :posts
+        associations do
+          belongs_to :category
+          belongs_to :post
         end
       end
 

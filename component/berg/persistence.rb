@@ -11,14 +11,6 @@ Berg::Container.namespace "persistence" do |container|
     container["persistence.rom"].command(:people)[:create]
   end
 
-  container.register "commands.update_post" do
-    container["persistence.rom"].command(:posts)[:update]
-  end
-
-  container.register "commands.update_home_page_featured_items" do
-    container["persistence.rom"].command(:home_page_featured_items)[:update]
-  end
-
   container.register "commands.create_category" do
     container["persistence.rom"].command(:categories)[:create]
   end
@@ -31,23 +23,7 @@ Berg::Container.namespace "persistence" do |container|
     container["persistence.rom"].command(:categorisations)[:create]
   end
 
-  container.register "commands.update_about_page_people" do
-    container["persistence.rom"].command(:about_page_people)[:update]
-  end
-
-  container.register "commands.update_work_page_featured_items" do
-    container["persistence.rom"].command(:work_page_featured_items)[:update]
-  end
-
-  container.register "commands.update_office_contact_details" do
-    container["persistence.rom"].command(:office_contact_details)[:update]
-  end
-
   container.register "commands.create_project" do
     container["persistence.rom"].command(:projects)[:create]
-  end
-
-  container.register "commands.update_project" do
-    container["persistence.rom"].command(:projects)[:update]
   end
 end

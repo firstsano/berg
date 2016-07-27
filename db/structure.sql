@@ -539,6 +539,14 @@ ALTER TABLE ONLY work_page_featured_items ALTER COLUMN id SET DEFAULT nextval('w
 
 
 --
+-- Name: about_page_people_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY about_page_people
+    ADD CONSTRAINT about_page_people_pkey PRIMARY KEY (person_id, "position");
+
+
+--
 -- Name: categories_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
 --
 

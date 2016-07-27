@@ -8,49 +8,42 @@ module Main
         relations :posts, :people, :categories
 
         def by_slug(slug)
-          posts
-          .by_slug(slug)
-          .combine(one: { author: [people, person_id: :id] })
-          .combine(many: { categories: [categories, id: :post_id] })
-          .as(Entities::Post::WithAuthorAndCategories).one
+          aggregate(:author, :categories)
+            .by_slug(slug)
+            .as(Entities::Post::WithAuthorAndCategories)
+            .one
         end
 
         def listing(page: 1, per_page: 20)
-          posts
+          aggregate(:author)
             .published
-            .per_page(per_page)
-            .page(page)
+            .per_page(per_page).page(page)
             .order(Sequel.desc(:published_at))
-            .combine(one: { author: [people, person_id: :id] })
             .as(Entities::Post::WithAuthor)
         end
 
         def for_home_page
-          posts
+          aggregate(:author)
             .published
             .limit(10)
             .order(Sequel.desc(:published_at))
-            .combine(one: { author: [people, person_id: :id] })
             .as(Entities::Post::WithAuthor)
         end
 
         def for_rss_feed
-          posts
+          aggregate(:author)
             .published
             .order(Sequel.desc(:published_at))
-            .combine(one: { author: [people, person_id: :id] })
             .limit(20)
             .as(Entities::Post::WithAuthor)
         end
 
         def for_category(category_id, page: 1, per_page: 20)
-          posts
+          aggregate(:author)
             .published
             .for_category(category_id)
-            .per_page(per_page)
-            .page(page)
+            .per_page(per_page).page(page)
             .order(Sequel.desc(:published_at))
-            .combine(one: { author: [people, person_id: :id] })
             .as(Entities::Post::WithAuthor)
         end
       end

@@ -6,8 +6,8 @@ module Persistence
         attribute :name, Types::Strict::String
         attribute :slug, Types::Strict::String
 
-        associate do
-          many :posts, through: :categorisations
+        associations do
+          has_many :posts, through: :categorisations
         end
       end
 

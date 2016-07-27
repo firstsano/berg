@@ -46,7 +46,7 @@ module Admin
                 filled: true
               }
 
-            multi_selection_field :post_categories,
+            multi_selection_field :categories,
               label: "Categories",
               selector_label: "Choose categories",
               options: dep(:categories_list)

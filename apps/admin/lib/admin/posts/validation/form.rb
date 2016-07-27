@@ -30,7 +30,7 @@ module Admin
         optional(:color).filled
         optional(:previous_slug).maybe
         optional(:person_id).filled(:int?)
-        optional(:post_categories).each(:int?)
+        optional(:categories).each(:int?)
         optional(:status).filled(included_in?: Types::PostStatus.values)
         optional(:published_at).maybe(:time?)
 

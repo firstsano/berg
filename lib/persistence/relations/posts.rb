@@ -14,9 +14,9 @@ module Persistence
         attribute :published_at, Types::Strict::Time.optional
         attribute :assets, Types::JSON
 
-        associate do
-          belongs :author, relation: :people
-          many :categories, through: :categorisations
+        associations do
+          belongs_to :person, as: :author
+          has_many :categories, through: :categorisations
         end
       end
 

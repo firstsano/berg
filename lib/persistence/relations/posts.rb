@@ -15,7 +15,7 @@ module Persistence
         attribute :assets, Types::JSON
 
         associations do
-          belongs_to :author, relation: :people
+          belongs_to :person, as: :author
           has_many :categories, through: :categorisations
         end
       end

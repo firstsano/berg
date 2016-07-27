@@ -4,7 +4,9 @@ module Admin
   module Persistence
     module Repositories
       class HomePageFeaturedItems < Berg::Repository[:home_page_featured_items]
-        relations :home_page_featured_items
+        def update(attrs)
+          command(:home_page_featured_items)[:update].(attrs)
+        end
 
         def listing
           home_page_featured_items

@@ -5,7 +5,9 @@ module Admin
   module Persistence
     module Repositories
       class OfficeContactDetails < Berg::Repository[:office_contact_details]
-        relations :office_contact_details
+        def update(attrs)
+          command(:office_contact_details)[:update].(attrs)
+        end
 
         def listing_by_position
           office_contact_details

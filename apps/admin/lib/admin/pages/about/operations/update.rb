@@ -9,7 +9,7 @@ module Admin
       module Operations
         class Update
           include Admin::Import(
-            "core.persistence.commands.update_about_page_people"
+            repo: "admin.persistence.repositories.about_page_people"
           )
 
           include Dry::ResultMatcher.for(:call)
@@ -18,7 +18,7 @@ module Admin
             validation = Validation::Form.(attributes)
 
             if validation.success?
-              about_page_people = update_about_page_people.(validation.output)
+              about_page_people = repo.update(validation.to_h)
               Right(about_page_people)
             else
               Left(validation)

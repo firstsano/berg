@@ -8,7 +8,7 @@ module Admin
       module Operations
         class Update
           include Admin::Import(
-            "core.persistence.commands.update_work_page_featured_items"
+            repo: "admin.persistence.repositories.work_page_featured_items"
           )
 
           include Dry::ResultMatcher.for(:call)
@@ -17,8 +17,7 @@ module Admin
             validation = Validation::Form.(attributes)
 
             if validation.success?
-              work_page_featured_items = update_work_page_featured_items.(validation.to_h)
-              Right(work_page_featured_items)
+              Right(repo.update(validation.to_h))
             else
               Left(validation)
             end

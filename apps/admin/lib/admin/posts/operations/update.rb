@@ -9,8 +9,7 @@ module Admin
     module Operations
       class Update
         include Admin::Import(
-          "admin.persistence.repositories.posts",
-          "core.persistence.commands.update_post"
+          repo: "admin.persistence.repositories.posts",
         )
 
         include Dry::ResultMatcher.for(:call)
@@ -19,8 +18,9 @@ module Admin
           validation = Validation::Form.(prepare_attributes(slug, attributes))
 
           if validation.success?
-            update_post.by_slug(slug).(validation.output)
-            Right(posts.by_slug!(validation.output.fetch(:slug) { slug }))
+            _result = repo.update_by_slug(slug, validation.to_h)
+
+            Right(repo.by_slug!(validation.to_h.fetch(:slug) { slug }))
           else
             Left(validation)
           end

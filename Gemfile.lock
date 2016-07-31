@@ -1,4 +1,13 @@
 GIT
+  remote: https://github.com/ashfurrow/danger-rubocop
+  revision: 87cbcaa882d63ea5d08febaf2ff864046bfe6d73
+  branch: markdown-fix
+  specs:
+    danger-rubocop (0.2.0)
+      danger
+      rubocop
+
+GIT
   remote: https://github.com/dry-rb/dry-view
   revision: 825a0226862d821528eb6dde8cfe83f87648604e
   branch: master
@@ -120,9 +129,6 @@ GEM
       octokit (~> 4.2)
       redcarpet (~> 3.3)
       terminal-table (~> 1)
-    danger-rubocop (0.2.0)
-      danger
-      rubocop
     database_cleaner (1.5.3)
     diff-lcs (1.2.5)
     docile (1.1.5)
@@ -349,7 +355,7 @@ DEPENDENCIES
   capybara-screenshot
   codeclimate-test-reporter
   danger
-  danger-rubocop
+  danger-rubocop!
   database_cleaner
   dry-equalizer
   dry-result_matcher

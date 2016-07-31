@@ -51,9 +51,9 @@ create_person(
 )
 
 author = admin["admin.persistence.repositories.people"][1]
-admin["admin.users.operations.change_password"].(1, { password: "changeme" })
+admin["admin.users.operations.change_password"].(1, password: "changeme")
 
-20.times do |n|
+20.times do
   create_post(
     title: Faker::Hipster.sentence,
     teaser: Faker::Hipster.sentence,
@@ -67,7 +67,7 @@ admin["admin.users.operations.change_password"].(1, { password: "changeme" })
   )
 end
 
-20.times do |n|
+20.times do
   create_project(
     title: Faker::Hipster.sentence,
     client: Faker::Company.name,
@@ -80,12 +80,14 @@ end
   )
 end
 
-{ ruby: "Ruby",
+{
+  ruby: "Ruby",
   dry_web: "dry-web",
   rails: "Rails",
   javascript: "Javascript",
   ios: "iOS",
   design: "Design",
-  react: "React" }.each do |slug, name|
-    create_category(name: name, slug: slug.to_s)
+  react: "React"
+}.each do |slug, name|
+  create_category(name: name, slug: slug.to_s)
 end

@@ -6,7 +6,7 @@ module Admin
     class Authorize
       include Admin::Import(
         "core.authentication.encrypt_password",
-        "admin.persistence.repositories.users"
+        "admin.persistence.repositories.users",
       )
 
       include Dry::ResultMatcher.for(:call)

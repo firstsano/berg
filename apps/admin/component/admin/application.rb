@@ -87,14 +87,14 @@ module Admin
 
               r.post do
                 r.resolve "admin.users.operations.change_password" do |change_password|
-                  change_password.(user.id, r[:user]) do |m|
-                    m.success do
+                  change_password.(user.id, r[:user]) do |n|
+                    n.success do
                       flash[:notice] = t["admin.auth.password_set"]
                       session[:user_id] = user.id
                       r.redirect "/admin/posts"
                     end
 
-                    m.failure do |validation|
+                    n.failure do |validation|
                       r.view "reset_password", id: user.id, pass_validation: validation
                     end
                   end

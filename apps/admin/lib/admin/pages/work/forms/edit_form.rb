@@ -47,7 +47,7 @@ module Admin
                   validation: {
                     filled: true
                   }
-                end
+            end
           end
         end
       end

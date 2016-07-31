@@ -47,7 +47,7 @@ create_person(
   website_url: nil,
   twitter_handle: "",
   avatar_image: nil,
-  city: "Melbourne"
+  city: "Melbourne",
 )
 
 author = admin["admin.persistence.repositories.people"][1]

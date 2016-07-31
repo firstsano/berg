@@ -8,7 +8,7 @@ module Admin
       class UpdateAccessToken
         include Admin::Import(
           "admin.persistence.repositories.users",
-          "admin.users.access_token"
+          "admin.users.access_token",
         )
 
         include Dry::ResultMatcher.for(:call)
@@ -16,9 +16,10 @@ module Admin
         def call(email)
           return Left(:email_not_found) unless users.by_email!(email)
 
-          attributes = users.update_by_email(email,
+          attributes = users.update_by_email(
+            email,
             access_token: access_token.value,
-            access_token_expiration: access_token.expires_at
+            access_token_expiration: access_token.expires_at,
           )
 
           Right(Entities::User.new(attributes))

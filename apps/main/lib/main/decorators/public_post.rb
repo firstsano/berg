@@ -7,7 +7,7 @@ module Main
   module Decorators
     class PublicPost < Berg::Decorator
       def published_date
-        published_at.strftime('%d %b %Y')
+        published_at.strftime("%d %b %Y")
       end
 
       def author
@@ -41,11 +41,13 @@ module Main
         if cover_image_url
           content += "<img src='#{cover_image_url}' title='#{title}'/>"
         end
-        content += "</li>"
+
+        content + "</li>"
       end
 
-      def link_url;end
-      def link_title;end
+      def link_url; end
+
+      def link_title; end
 
       def cover_image_url
         attache_url_for(cover_image["path"], "260") if cover_image
@@ -59,7 +61,7 @@ module Main
 
       def attache_url_for(file_path, geometry)
         prefix, basename = File.split(file_path)
-        [Berg::Container["config"].attache_downloads_base_url, "view", prefix, CGI.escape(geometry), CGI.escape(basename)].join('/')
+        [Berg::Container["config"].attache_downloads_base_url, "view", prefix, CGI.escape(geometry), CGI.escape(basename)].join("/")
       end
 
       def to_html(input)

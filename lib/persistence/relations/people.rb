@@ -28,7 +28,8 @@ module Persistence
         select
           .inner_join(
             :about_page_people,
-            person_id: :id)
+            person_id: :id
+          )
           .order(:position)
       end
     end

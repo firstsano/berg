@@ -16,7 +16,7 @@ OptionParser.new do |opts|
   end
 end.parse!
 
-APP_ROOT = File.expand_path("../../",  __FILE__)
+APP_ROOT = File.expand_path("../../", __FILE__)
 
 Dir.chdir(APP_ROOT) do
   puts "== Initializing config =="

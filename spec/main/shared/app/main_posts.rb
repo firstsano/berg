@@ -21,7 +21,7 @@ RSpec.shared_context 'main posts' do
       person_id: person[:id],
       status: status,
       published_at: Time.now,
-      color: "blue"
+      color: "blue",
     })
   end
 end

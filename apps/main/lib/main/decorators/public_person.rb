@@ -5,7 +5,7 @@ require "main/renderers/standard_renderer"
 module Main
   module Decorators
     class PublicPerson < Berg::Decorator
-      def avatar_url(size="original")
+      def avatar_url(size = "original")
         attache_url_for(avatar_image["path"], size.to_s) if avatar_image
       end
 
@@ -21,7 +21,7 @@ module Main
 
       def attache_url_for(file_path, geometry)
         prefix, basename = File.split(file_path)
-        [Berg::Container["config"].attache_downloads_base_url, "view", prefix, CGI.escape(geometry), CGI.escape(basename)].join('/')
+        [Berg::Container["config"].attache_downloads_base_url, "view", prefix, CGI.escape(geometry), CGI.escape(basename)].join("/")
       end
 
       def to_html(input)

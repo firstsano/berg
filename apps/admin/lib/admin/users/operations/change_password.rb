@@ -9,7 +9,7 @@ module Admin
       class ChangePassword
         include Admin::Import(
           "admin.persistence.repositories.users",
-          "core.authentication.encrypt_password"
+          "core.authentication.encrypt_password",
         )
 
         include Dry::ResultMatcher.for(:call)

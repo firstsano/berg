@@ -5,7 +5,6 @@ module Admin
     module Contact
       module Forms
         class EditForm < Berg::Form
-
           prefix :page
 
           define do

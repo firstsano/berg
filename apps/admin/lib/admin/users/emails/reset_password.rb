@@ -9,7 +9,7 @@ module Admin
         end
 
         def locals(*)
-          { user: user, reset_password_url: reset_password_url }
+          {user: user, reset_password_url: reset_password_url}
         end
 
         def to
@@ -21,7 +21,7 @@ module Admin
         end
 
         def reset_password_url
-          "#{Berg::Container["config"].admin_url}/reset-password/#{user.access_token}"
+          "#{Berg::Container['config'].admin_url}/reset-password/#{user.access_token}"
         end
 
         def user

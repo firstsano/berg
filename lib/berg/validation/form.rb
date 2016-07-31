@@ -4,18 +4,18 @@ require "uri"
 module Berg
   module Validation
     class Form < Dry::Validation::Schema::Form
-      EMAIL_REGEX = /\A[^@]+@([^@\.]+\.)+[^@\.]+\z/.freeze
+      EMAIL_REGEX = /\A[^@]+@([^@\.]+\.)+[^@\.]+\z/
 
       configure do |config|
         config.messages = :i18n
       end
 
       def email?(input)
-        ! EMAIL_REGEX.match(input).nil?
+        !EMAIL_REGEX.match(input).nil?
       end
 
       def uri?(input)
-        ! URI.regexp.match(input).nil?
+        !URI.regexp.match(input).nil?
       end
     end
 

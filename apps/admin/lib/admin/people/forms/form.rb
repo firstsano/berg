@@ -8,28 +8,33 @@ module Admin
 
         define do
           group do
-            text_field :name, label: "Name",
+            text_field :name,
+              label: "Name",
               validation: {
                 filled: true
               }
           end
 
           group do
-            text_field :job_title, label: "Job Title",
+            text_field :job_title,
+              label: "Job Title",
               validation: {
                 filled: true
               }
-            text_field :city, label: "City",
+            text_field :city,
+              label: "City",
               validation: {
                 filled: true
               }
           end
 
-          text_area :bio, label: "Bio",
+          text_area :bio,
+            label: "Bio",
             validation: {
               filled: true
             }
-          text_area :short_bio, label: "Short Bio",
+          text_area :short_bio,
+            label: "Short Bio",
             validation: {
               filled: true
             }

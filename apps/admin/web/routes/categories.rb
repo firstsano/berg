@@ -35,7 +35,7 @@ class Admin::Application
           r.resolve("admin.categories.operations.delete") do |delete_category|
             delete_category.(slug)
             flash[:notice] = t["admin.categories.category_deleted"]
-            r.redirect '/admin/categories'
+            r.redirect "/admin/categories"
           end
         end
 

@@ -7,7 +7,7 @@ module Admin
       class SendActivationEmail
         include Admin::Import(
           "admin.mailer",
-          "admin.persistence.repositories.users"
+          "admin.persistence.repositories.users",
         )
 
         def call(user)

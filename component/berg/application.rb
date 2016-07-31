@@ -5,8 +5,8 @@ module Berg
     use Bugsnag::Rack
 
     plugin :static, ["/assets", "/robots.txt", "/favicon.ico", "/apple-touch-icon.png"], header_rules: [
-       [:all, {'Cache-Control' => 'public, max-age=86400'}],
-       ['/assets', {'Cache-Control' => 'public, max-age=31536000'}]
+      [:all, {"Cache-Control" => "public, max-age=86400"}],
+      ["/assets", {"Cache-Control" => "public, max-age=31536000"}]
     ]
     plugin :error_handler
 

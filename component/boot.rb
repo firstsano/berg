@@ -11,6 +11,8 @@ end
 require_relative "berg/persistence"
 
 app_paths = Pathname(__FILE__).dirname.join("../apps").realpath.join("*")
-Dir[app_paths].each { |f| require "#{f}/component/boot" }
+Dir[app_paths].each do |f|
+  require "#{f}/component/boot"
+end
 
 require_relative "berg/application"

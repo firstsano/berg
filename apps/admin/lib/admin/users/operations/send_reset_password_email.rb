@@ -8,7 +8,7 @@ module Admin
       class SendResetPasswordEmail
         include Admin::Import(
           "admin.mailer",
-          "admin.persistence.repositories.users"
+          "admin.persistence.repositories.users",
         )
 
         def call(user)

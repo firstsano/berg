@@ -11,7 +11,7 @@ module Berg
 
     attr_reader :options
 
-    setting :formats, {html: :slim, txt: :erb}
+    setting :formats, html: :slim, txt: :erb
 
     def initialize(options)
       super

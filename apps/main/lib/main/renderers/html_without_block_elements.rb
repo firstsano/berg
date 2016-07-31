@@ -1,3 +1,5 @@
+# rubocop:disable all
+
 require "redcarpet"
 
 class HTMLWithoutBlockElements < Redcarpet::Render::HTML
@@ -51,3 +53,5 @@ class HTMLWithoutBlockElements < Redcarpet::Render::HTML
     Redcarpet::Render::SmartyPants.render(document.gsub("\n", ' ').strip)
   end
 end
+
+# rubocop:enable all

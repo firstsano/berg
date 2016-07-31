@@ -4,7 +4,7 @@ require "redcarpet"
 module Main
   module Decorators
     class PublicCuratedPost < Berg::Decorator
-      def image_url(size="original")
+      def image_url(size = "original")
         if image_upload && !__getobj__.image_url
           attache_url_for(image_upload["path"], size.to_s)
         else
@@ -34,11 +34,13 @@ module Main
         if body
           content += body_html
         end
-        content += "</li>"
+
+        content + "</li>"
       end
 
-      def color;end
-      def teaser;end
+      def color; end
+
+      def teaser; end
 
       def type
         "curated"

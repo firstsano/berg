@@ -1,0 +1,74 @@
+AllCops:
+  Exclude:
+    - 'db/**/*'
+    - 'spec/**/*'
+    - 'node_modules/**/*'
+
+Lint/ShadowingOuterLocalVariable:
+  Exclude:
+    - '**/routes/**/*'
+
+Metrics/AbcSize:
+  # Make it large for now
+  Max: 40
+Metrics/ClassLength:
+  Exclude:
+    - '**/application.rb'
+Metrics/LineLength:
+  Enabled: false
+Metrics/MethodLength:
+  # Make it large for now
+  Max: 20
+
+Style/Alias:
+  EnforcedStyle: prefer_alias_method
+Style/AlignParameters:
+  EnforcedStyle: with_fixed_indentation
+Style/BlockDelimiters:
+  EnforcedStyle: semantic
+  IgnoredMethods:
+    - lambda
+    - proc
+    - it
+    - Form
+    - Schema
+Style/ClassAndModuleChildren:
+  Exclude:
+    - '**/routes/**/*'
+Style/Documentation:
+  Enabled: false
+Style/DoubleNegation:
+  Enabled: false
+Style/FrozenStringLiteralComment:
+  Enabled: false
+Style/IfUnlessModifier:
+  Enabled: false
+Style/IndentationWidth:
+  Enabled: false
+Style/Lambda:
+  Enabled: false
+Style/LambdaCall:
+  Enabled: false
+Style/MethodName:
+  Enabled: false
+Style/PercentLiteralDelimiters:
+  Enabled: false
+Style/RegexpLiteral:
+  EnforcedStyle: mixed
+Style/SpaceInsideBlockBraces:
+  EnforcedStyle: space
+Style/SpaceInsideHashLiteralBraces:
+  EnforcedStyle: no_space
+Style/SpecialGlobalVars:
+  Enabled: false
+Style/StabbyLambdaParentheses:
+  EnforcedStyle: require_no_parentheses
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+Style/SymbolProc:
+  Exclude:
+    - '**/routes/**/*'
+Style/TrailingCommaInArguments:
+  Enabled: false
+Style/TrailingCommaInLiteral:
+  Enabled: false

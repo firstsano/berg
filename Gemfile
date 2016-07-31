@@ -49,9 +49,12 @@ gem "bugsnag"
 gem "postmark"
 
 group :development, :test do
+  gem "danger"
+  gem "danger-rubocop"
   gem "faker"
   gem "guard-rspec", require: false
   gem "pry-byebug"
+  gem "rubocop"
   gem "foreman"
 end
 

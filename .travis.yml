@@ -31,6 +31,7 @@ before_script:
 script:
 - bundle exec rake assets:precompile
 - bundle exec rake spec
+- bundle exec danger
 notifications:
   email: false
   slack:

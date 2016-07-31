@@ -5,6 +5,8 @@ require "dry-configurable"
 
 module Berg
   class Form < Formalist::Form
+    EMAIL_VALIDATION_REGEX_STRING = "/.+@.+\..+/i".freeze
+
     setting :prefix
 
     class Result

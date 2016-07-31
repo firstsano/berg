@@ -50,7 +50,7 @@ gem "postmark"
 
 group :development, :test do
   gem "danger"
-  gem "danger-rubocop", git: "https://github.com/ashfurrow/danger-rubocop", branch: "markdown-fix"
+  gem "danger-rubocop", git: "https://github.com/timriley/danger-rubocop", branch: "markdown-fix"
   gem "faker"
   gem "guard-rspec", require: false
   gem "pry-byebug"

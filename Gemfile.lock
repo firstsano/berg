@@ -1,13 +1,4 @@
 GIT
-  remote: https://github.com/ashfurrow/danger-rubocop
-  revision: 87cbcaa882d63ea5d08febaf2ff864046bfe6d73
-  branch: markdown-fix
-  specs:
-    danger-rubocop (0.2.0)
-      danger
-      rubocop
-
-GIT
   remote: https://github.com/dry-rb/dry-view
   revision: 825a0226862d821528eb6dde8cfe83f87648604e
   branch: master
@@ -84,6 +75,15 @@ GIT
   revision: ef7cbef5d22fffd53beadf5c28abdb4975a02c45
   specs:
     transproc (0.4.0)
+
+GIT
+  remote: https://github.com/timriley/danger-rubocop
+  revision: 6dae93c17beaaf88295a80e8a06eefba174a981c
+  branch: markdown-fix
+  specs:
+    danger-rubocop (0.2.0)
+      danger
+      rubocop
 
 GEM
   remote: https://rubygems.org/

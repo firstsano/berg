@@ -8,7 +8,7 @@ module Persistence
       def execute(tuple)
         result = super
 
-        catgeory_id = result.first[:id]
+        category_id = result.first[:id]
         categorisations.where(category_id: catgeory_id).delete
 
         result

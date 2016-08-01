@@ -9,7 +9,7 @@ module Persistence
         if tuple[:office_locations]
           relation.delete
 
-          office_contact_details_tuples = tuple[:office_locations].map.with_index do |location_details, position|
+          office_contact_details_tuples = tuple[:office_locations].map.with_index { |location_details, position|
             {
               position: position,
               name: location_details[:name],
@@ -18,7 +18,7 @@ module Persistence
               latitude: location_details[:latitude],
               longitude: location_details[:longitude]
             }
-          end
+          }
 
           relation.multi_insert(office_contact_details_tuples)
         end

@@ -59,7 +59,7 @@ module Admin
         end
 
         def author_list
-          people.all_people.to_a.map { |person| { id: person.id, label: person.name } }
+          people.all_people.to_a.map { |person| {id: person.id, label: person.name} }
         end
 
         def categories_list

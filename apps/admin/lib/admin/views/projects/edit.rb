@@ -9,7 +9,7 @@ module Admin
       class Edit < Admin::View
         include Admin::Import(
           "admin.persistence.repositories.projects",
-          "admin.projects.forms.edit_form"
+          "admin.projects.forms.edit_form",
         )
 
         configure do |config|

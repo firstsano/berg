@@ -14,7 +14,7 @@ class Roda
             csrf_metatag: -> { Rack::Csrf.metatag(request.env) },
             csrf_tag: -> { Rack::Csrf.tag(request.env) },
             csrf_token: -> { Rack::Csrf.token(request.env) },
-            current_path: -> { self.request.path },
+            current_path: -> { request.path },
           )
         end
       end
@@ -56,7 +56,7 @@ class Roda
           scope.env["admin.current_user"]
         end
 
-        def set_current_user!(user)
+        def set_current_user!(user) # rubocop:disable Style/AccessorMethodName
           scope.env["admin.current_user"] = user
         end
       end

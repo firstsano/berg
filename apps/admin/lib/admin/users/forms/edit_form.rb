@@ -11,7 +11,7 @@ module Admin
             label: "Email",
             validation: {
               filled: true,
-              format: EMAIL_VALIDATION_REGEX
+              format: EMAIL_VALIDATION_REGEX_STRING
             }
           text_field :name,
             label: "Name",

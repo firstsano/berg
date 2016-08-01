@@ -7,8 +7,7 @@ begin
   require "rspec/core/rake_task"
   RSpec::Core::RakeTask.new :spec
   task default: [:spec]
-rescue LoadError
-end
+rescue LoadError; end # rubocop:disable Lint/HandleExceptions
 
 require_relative "component/berg/container"
 Berg::Container.boot! :config
@@ -37,9 +36,12 @@ namespace :db do
 
   desc "Prints current schema version"
   task :version do
-    version = if DB.tables.include?(:schema_migrations)
-      DB[:schema_migrations].order(:filename).last[:filename]
-    end || "not available"
+    version =
+      if DB.tables.include?(:schema_migrations)
+        DB[:schema_migrations].order(:filename).last[:filename]
+      else
+        "not available"
+      end
 
     puts "Current schema version: #{version}"
   end
@@ -47,7 +49,7 @@ namespace :db do
   namespace :structure do
     desc "Dump database structure to db/structure.sql"
     task :dump do
-      if `which pg_dump` && $?.success?
+      if `which pg_dump` && $?.success? # rubocop:disable Lint/LiteralInCondition
         require "uri"
         uri = URI(DB.url)
 
@@ -59,7 +61,7 @@ namespace :db do
     end
 
     task :load do
-      fail if ENV["RACK_ENV"] == "production"
+      raise if ENV["RACK_ENV"] == "production"
       require "uri"
       uri = URI(DB.url)
       db_name = uri.path.tr("/", "")
@@ -78,7 +80,7 @@ namespace :db do
 
   # Enhance the migration task provided by ROM
   desc "Perform migration up to latest migration available"
-  task :migrate => [:check_migrations_exist] do
+  task migrate: [:check_migrations_exist] do
     # Once db:migrate finishes, dump the db structure:
     if ENV["RACK_ENV"] != "production"
       Rake::Task["db:structure:dump"].execute
@@ -89,8 +91,8 @@ namespace :db do
   end
 
   desc "Perform rollback to specified target"
-  task :rollback, :target do |t, args|
-    Sequel::Migrator.run(DB, "db/migrate", :target => args[:target].to_i)
+  task :rollback, :target do |_task, args|
+    Sequel::Migrator.run(DB, "db/migrate", target: args[:target].to_i)
     Rake::Task["db:version"].execute
   end
 

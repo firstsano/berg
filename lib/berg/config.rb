@@ -40,14 +40,13 @@ module Berg
       path = root.join("config").join("#{name}.yml")
       yaml = File.exist?(path) ? YAML.load_file(path) : {}
 
-      config = schema.keys.inject({}) { |memo, key|
+      config = schema.keys.each_with_object({}) { |key, memo|
         value = ENV.fetch(
           key.to_s.upcase,
           yaml.fetch(env.to_s, {})[key.to_s]
         )
 
         memo[key] = value
-        memo
       }
 
       new(config)

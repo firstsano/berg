@@ -16,7 +16,7 @@ module Admin
 
           def call(attributes)
             validation = Validation::Form.(attributes)
-            
+
             if validation.success?
               contact_details = repo.update(validation.to_h)
               Right(contact_details)

@@ -47,7 +47,7 @@ module Admin
             .select(:color)
             .order(Sequel.desc(:created_at))
             .limit((Types::PostHighlightColor.values.count / 2).floor)
-            .map{ |p| p[:color] }
+            .map { |p| p[:color] }
         end
       end
     end

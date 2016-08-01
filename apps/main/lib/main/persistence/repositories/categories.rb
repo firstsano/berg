@@ -9,8 +9,9 @@ module Main
 
         def by_slug!(slug)
           categories
-          .by_slug(slug)
-          .as(Entities::Category).one!
+            .by_slug(slug)
+            .as(Entities::Category)
+            .one!
         end
       end
     end

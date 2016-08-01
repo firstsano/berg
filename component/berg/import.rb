@@ -7,9 +7,7 @@ module Berg
 
   HashImport = -> *keys do
     keys.each do |key|
-      unless Berg::Container.key?(key)
-        Berg::Container.load_component(key)
-      end
+      Berg::Container.load_component(key) unless Berg::Container.key?(key)
     end
 
     auto_inject.hash[*keys]

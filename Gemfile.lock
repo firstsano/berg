@@ -1,4 +1,12 @@
 GIT
+  remote: https://github.com/ashfurrow/danger-rubocop
+  revision: 7b9956bd93f6192e03e7ffd269fd10b5983d5a2f
+  specs:
+    danger-rubocop (0.2.0)
+      danger
+      rubocop
+
+GIT
   remote: https://github.com/dry-rb/dry-view
   revision: 825a0226862d821528eb6dde8cfe83f87648604e
   branch: master
@@ -109,7 +117,7 @@ GEM
     concurrent-ruby (1.0.2)
     cork (0.1.0)
       colored (~> 1.2)
-    danger (2.1.0)
+    danger (2.1.1)
       claide (~> 1.0)
       claide-plugins (> 0.9.0)
       colored (~> 1.2)
@@ -117,12 +125,9 @@ GEM
       faraday (~> 0)
       faraday-http-cache (~> 1.0)
       git (~> 1)
+      kramdown (~> 1.5)
       octokit (~> 4.2)
-      redcarpet (~> 3.3)
       terminal-table (~> 1)
-    danger-rubocop (0.2.0)
-      danger
-      rubocop
     database_cleaner (1.5.3)
     diff-lcs (1.2.5)
     docile (1.1.5)
@@ -218,6 +223,7 @@ GEM
     ipaddress (0.8.3)
     json (1.8.3)
     kleisli (0.2.7)
+    kramdown (1.11.1)
     launchy (2.4.3)
       addressable (~> 2.3)
     listen (3.1.4)
@@ -278,7 +284,7 @@ GEM
     rb-fsevent (0.9.7)
     rb-inotify (0.9.7)
       ffi (>= 0.5.0)
-    redcarpet (3.3.2)
+    redcarpet (3.3.4)
     roda (2.14.0)
       rack
     roda-flow (0.3.0)
@@ -349,7 +355,7 @@ DEPENDENCIES
   capybara-screenshot
   codeclimate-test-reporter
   danger
-  danger-rubocop
+  danger-rubocop!
   database_cleaner
   dry-equalizer
   dry-result_matcher

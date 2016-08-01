@@ -10,7 +10,7 @@ module Main
 
         def call(options = {})
           template_path = "#{config.root}/pages/feed.#{options[:format]}.#{options[:engine]}"
-          Tilt::BuilderTemplate.new(template_path).render( posts: Decorators::PublicPost.decorate(posts.for_rss_feed) )
+          Tilt::BuilderTemplate.new(template_path).render(posts: Decorators::PublicPost.decorate(posts.for_rss_feed))
         end
       end
     end

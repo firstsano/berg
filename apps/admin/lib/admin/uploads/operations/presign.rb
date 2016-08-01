@@ -6,9 +6,9 @@ module Admin
   module Uploads
     module Operations
       class Presign
-        def call()
+        def call
           uuid = SecureRandom.uuid
-          expiration = (Time.now + 60*60*3).to_i
+          expiration = (Time.now + 60 * 60 * 3).to_i
 
           payload = {
             url: "#{attache_host}/upload",

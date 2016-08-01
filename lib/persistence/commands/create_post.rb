@@ -13,14 +13,14 @@ module Persistence
         if tuple[:categories]
           categories = tuple[:categories].product([post_id])
 
-          post_tupples = categories.map do |category_id, post_id|
+          post_tuples = categories.map { |new_category_id, new_post_id|
             {
-              category_id: category_id,
-              post_id: post_id
+              category_id: new_category_id,
+              post_id: new_post_id
             }
-          end
+          }
 
-          categorisations.multi_insert(post_tupples)
+          categorisations.multi_insert(post_tuples)
         end
 
         result

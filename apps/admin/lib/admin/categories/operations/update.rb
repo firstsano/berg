@@ -9,7 +9,7 @@ module Admin
     module Operations
       class Update
         include Admin::Import(
-          "admin.persistence.repositories.categories"
+          "admin.persistence.repositories.categories",
         )
 
         include Dry::ResultMatcher.for(:call)
@@ -29,7 +29,7 @@ module Admin
 
         def prepare_attributes(slug, attributes)
           attributes.merge(
-            previous_slug: slug
+            previous_slug: slug,
           )
         end
       end

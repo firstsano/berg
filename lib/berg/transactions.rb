@@ -10,8 +10,8 @@ module Berg
     setting :container
     setting :options, {}
 
-    def self.define(&block)
-      yield(new(options))
+    def self.define
+      yield(new(options)) if block_given?
     end
 
     def self.options

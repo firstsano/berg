@@ -1,7 +1,6 @@
 module Main
   module Views
     class PostMixer
-
       attr_reader :posts
 
       def initialize(*sources)
@@ -12,12 +11,14 @@ module Main
         primary_posts, *secondary_posts = sources
 
         determenistic_random = Random.new(2468)
-        rands = primary_posts.length.times.map{|d| determenistic_random.rand(0..primary_posts.length) }
-        return primary_posts if (primary_posts.flatten.count < secondary_posts.flatten.count)
-        secondary_posts.flatten.each_with_index do |post,i|
+        rands = Array.new(primary_posts.length) { determenistic_random.rand(0..primary_posts.length) }
+
+        return primary_posts if primary_posts.flatten.count < secondary_posts.flatten.count
+
+        secondary_posts.flatten.each_with_index do |post, i|
           primary_posts.insert(rands[i], post) if rands[i]
         end
-        return primary_posts
+        primary_posts
       end
     end
   end

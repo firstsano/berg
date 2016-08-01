@@ -26,7 +26,7 @@ module Main
 
             super.merge(
               category: category,
-              indexed_posts: posts.map.with_index { |post, i| OpenStruct.new({index: i, post: post}) },
+              indexed_posts: posts.map.with_index { |post, i| OpenStruct.new(index: i, post: post) },
               paginator: all_posts.pager
             )
           end

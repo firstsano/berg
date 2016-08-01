@@ -10,7 +10,7 @@ module Admin
       class Create
         include Admin::Import(
           "admin.persistence.repositories.categories",
-          "admin.slugify"
+          "admin.slugify",
         )
 
         include Dry::ResultMatcher.for(:call)
@@ -30,7 +30,7 @@ module Admin
 
         def prepare_attributes(attributes)
           attributes.merge(
-            slug: slugify.(attributes[:name], categories.method(:slug_exists?))
+            slug: slugify.(attributes[:name], categories.method(:slug_exists?)),
           )
         end
       end

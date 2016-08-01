@@ -5,7 +5,7 @@ module Admin
   module Authentication
     class AccessToken
       include Admin::Import(
-        "admin.persistence.repositories.users"
+        "admin.persistence.repositories.users",
       )
 
       include Dry::ResultMatcher.for(:call)

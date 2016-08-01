@@ -15,7 +15,7 @@ module Authentication
       end
     end
 
-    def fetch(email)
+    def fetch(_email)
       raise NotImplementedError
     end
   end

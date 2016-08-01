@@ -9,7 +9,7 @@ module Persistence
         if tuple[:work_page_featured_items]
           relation.delete
 
-          work_page_featured_items_tuples = tuple[:work_page_featured_items].each_with_index.map do |item, position|
+          work_page_featured_items_tuples = tuple[:work_page_featured_items].each_with_index.map { |item, position|
             {
               position: position,
               title: item[:title],
@@ -18,7 +18,7 @@ module Persistence
               cover_image: item[:cover_image].to_json,
               highlight_color: item[:highlight_color]
             }
-          end
+          }
 
           relation.multi_insert(work_page_featured_items_tuples)
         end

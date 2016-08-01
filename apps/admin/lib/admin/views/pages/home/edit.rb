@@ -9,7 +9,7 @@ module Admin
         class Edit < Admin::View
           include Admin::Import(
             "admin.persistence.repositories.home_page_featured_items",
-            "admin.pages.home.forms.edit_form"
+            "admin.pages.home.forms.edit_form",
           )
 
           configure do |config|

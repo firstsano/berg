@@ -12,7 +12,7 @@ module Admin
         include Admin::Import(
           "admin.persistence.repositories.users",
           "admin.users.access_token",
-          "core.authentication.encrypt_password"
+          "core.authentication.encrypt_password",
         )
 
         include Dry::ResultMatcher.for(:call)

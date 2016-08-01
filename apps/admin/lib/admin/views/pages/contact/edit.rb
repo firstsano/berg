@@ -37,7 +37,8 @@ module Admin
           end
 
           def form_input(office_locations)
-            { office_locations: office_locations.map { |location_details|
+            {
+              office_locations: office_locations.map { |location_details|
                 {
                   name: location_details[:name],
                   address: location_details[:address],

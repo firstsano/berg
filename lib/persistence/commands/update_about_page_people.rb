@@ -9,12 +9,12 @@ module Persistence
         if tuple[:about_page_people]
           relation.delete
 
-          about_page_people_tuples = tuple[:about_page_people].map.with_index do |person_id, position|
+          about_page_people_tuples = tuple[:about_page_people].map.with_index { |person_id, position|
             {
               person_id: person_id,
               position: position
             }
-          end
+          }
 
           relation.multi_insert(about_page_people_tuples)
         end

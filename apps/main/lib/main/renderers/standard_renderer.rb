@@ -1,3 +1,5 @@
+# rubocop:disable all
+
 require "json"
 require "redcarpet"
 require "rouge"
@@ -154,3 +156,5 @@ class StandardRenderer < Redcarpet::Render::HTML
     output.join("")
   end
 end
+
+# rubocop:enable all

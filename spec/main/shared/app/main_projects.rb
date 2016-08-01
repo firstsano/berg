@@ -1,8 +1,8 @@
 require "babosa"
 
 RSpec.shared_context "main_projects" do
-  def create_project(title, status="published")
-    Berg::Container["persistence.commands.create_project"].({
+  def create_project(title, status = "published")
+    Berg::Container["persistence.commands.create_project"].(
       title: title,
       client: "foo corp",
       url: "http://foo.com",
@@ -14,6 +14,6 @@ RSpec.shared_context "main_projects" do
       status: status,
       published_at: Time.now,
       color: "blue",
-    })
+    )
   end
 end

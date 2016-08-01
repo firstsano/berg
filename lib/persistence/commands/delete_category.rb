@@ -9,7 +9,7 @@ module Persistence
         result = super
 
         catgeory_id = result.first[:id]
-        categorisations.where(catgeory_id: catgeory_id).delete
+        categorisations.where(category_id: catgeory_id).delete
 
         result
       end

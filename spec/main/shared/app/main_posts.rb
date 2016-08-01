@@ -1,5 +1,3 @@
-require "babosa"
-
 RSpec.shared_context "main posts" do
   def create_user(name: "Jane")
     Berg::Container["persistence.commands.create_user"].(
@@ -16,7 +14,7 @@ RSpec.shared_context "main posts" do
       title: title,
       body: "test",
       teaser: teaser,
-      slug: title.to_slug.normalize.to_s,
+      slug: slug,
       person_id: person[:id],
       status: status,
       published_at: Time.now,

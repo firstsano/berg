@@ -44,7 +44,7 @@ module Berg
     end
 
     def flash?
-      %i(notice alert).any? { |type| flash[type] }
+      %i(notice alert system).any? { |type| flash[type] }
     end
 
     def with_flash(flash)

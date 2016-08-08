@@ -10,7 +10,7 @@ module Admin
   Container.register "page", Page.new(assets: Berg::Assets.new)
 
   class View < Dry::View::Layout
-    setting :root, Container.root.join("web/templates")
+    setting :paths, [Container.root.join("web/templates")]
     setting :scope, Container["page"]
     setting :formats, html: :slim
     setting :name, "admin"

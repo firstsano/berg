@@ -1,8 +1,8 @@
 - if page.flash?
   .flash.c-white.nav-aware
-    - if page.flash[:system]
+    - if page.flash[:alert]
       .flash__message.flash__message--hidden.flash__message--alert.bgc-warning.clearfix.px-large.py-medium.br-medium
-        p.fl-left = page.flash[:system]
+        p.fl-left = page.flash[:alert]
         button.flash__dismiss.fl-right data-view-toggle-class=JSON.generate({ \
           event: "click", \
           triggerAfter: 8000, \

@@ -1,5 +1,5 @@
 require "bugsnag"
-require "rack/methodoverride"
+require "rack/method_override"
 require "rack/csrf"
 require "dry-web-roda"
 require "admin/container"

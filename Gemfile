@@ -6,8 +6,8 @@ gem "rake"
 
 # Web framework
 gem "puma"
-gem "dry-web", "~> 0.2"
-gem "dry-web-roda", "~> 0.1"
+gem "dry-web", git: 'https://github.com/dry-rb/dry-web', branch: 'master'
+gem "dry-web-roda", git: 'https://github.com/dry-rb/dry-web-roda', branch: 'master'
 gem "rack_csrf"
 gem "rack-rewrite"
 gem "rack-ssl"
@@ -15,11 +15,10 @@ gem "shotgun"
 
 # Database persistence
 gem "pg"
-gem "rom", git: "https://github.com/rom-rb/rom"
-gem "rom-mapper", git: "https://github.com/rom-rb/rom-mapper"
-gem "rom-repository", git: "https://github.com/rom-rb/rom-repository"
-gem "rom-sql", git: "https://github.com/rom-rb/rom-sql"
-gem "rom-support", git: "https://github.com/rom-rb/rom-support"
+gem "rom"
+gem "rom-mapper"
+gem "rom-repository"
+gem "rom-sql"
 
 # Background jobs
 gem "que"
@@ -33,6 +32,7 @@ gem "dry-transaction"
 gem "dry-types", "~> 0.8"
 gem "dry-validation", "~> 0.8"
 gem "dry-view", git: "https://github.com/dry-rb/dry-view", branch: "master"
+gem "dry-system", git: "https://github.com/dry-rb/dry-system", branch: "lazy-boot-external-deps"
 gem "fog-aws"
 gem "formalist", git: "https://github.com/icelab/formalist", branch: "master"
 gem "i18n"
@@ -43,6 +43,7 @@ gem "sitemap_generator"
 gem "slim"
 gem "builder"
 gem "transproc", git: "https://github.com/solnic/transproc"
+gem "kleisli"
 
 # 3rd party services
 gem "bugsnag"

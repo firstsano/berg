@@ -14,7 +14,7 @@ module Berg
     setting :formats, html: :slim, txt: :erb
 
     def initialize(options)
-      super
+      super(t: options[:t])
       @options = options
     end
 

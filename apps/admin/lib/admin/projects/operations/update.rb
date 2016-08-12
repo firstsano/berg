@@ -1,8 +1,7 @@
 require "admin/import"
 require "admin/entities/project"
 require "admin/projects/validation/form"
-require "dry-result_matcher"
-require "kleisli"
+require "berg/matcher"
 
 module Admin
   module Projects
@@ -12,16 +11,16 @@ module Admin
           "admin.persistence.repositories.projects"
         )
 
-        include Dry::ResultMatcher.for(:call)
+        include Berg::Matcher
 
         def call(slug, attributes)
           validation = Validation::Form.(prepare_attributes(slug, attributes))
 
           if validation.success?
             projects.update_by_slug(slug, validation.output)
-            Right(projects.by_slug!(validation.output.fetch(:slug) { slug }))
+            Dry::Monads::Right(projects.by_slug!(validation.output.fetch(:slug) { slug }))
           else
-            Left(validation)
+            Dry::Monads::Left(validation)
           end
         end
 

@@ -1,8 +1,7 @@
 require "admin/import"
 require "admin/entities/curated_post"
 require "admin/curated_posts/validation/form"
-require "dry-result_matcher"
-require "kleisli"
+require "berg/matcher"
 
 module Admin
   module CuratedPosts
@@ -10,16 +9,16 @@ module Admin
       class Update
         include Admin::Import("admin.persistence.repositories.curated_posts")
 
-        include Dry::ResultMatcher.for(:call)
+        include Berg::Matcher
 
         def call(id, attributes)
           validation = Validation::Form.(attributes)
 
           if validation.success?
             curated_posts.update(id, validation.to_h)
-            Right(curated_posts[id])
+            Dry::Monads::Right(curated_posts[id])
           else
-            Left(validation)
+            Dry::Monads::Left(validation)
           end
         end
       end

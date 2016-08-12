@@ -1,10 +1,12 @@
-require "db_helper"
+require "spec_helper"
 require "admin/authentication/authenticate"
 require "admin/entities/user"
 
 RSpec.describe Admin::Authentication::Authenticate do
   subject(:authenticate) do
-    Admin::Authentication::Authenticate.new(encrypt_password, users_repo)
+    Admin::Authentication::Authenticate.new(
+      encrypt_password: encrypt_password, users: users_repo
+    )
   end
 
   let(:encrypt_password) { instance_double(Authentication::EncryptPassword) }

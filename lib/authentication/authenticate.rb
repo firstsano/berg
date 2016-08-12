@@ -1,17 +1,19 @@
-require "dry-result_matcher"
+require "dry/monads"
+require "dry/matcher"
+require "dry/matcher/either_matcher"
 
 module Authentication
   class Authenticate
-    include Dry::ResultMatcher.for(:call)
+    include Dry::Matcher.for(:call, with: Dry::Matcher::EitherMatcher)
 
     def call(attributes)
       email, password = attributes.values_at("email", "password")
       entity = fetch(email)
 
       if entity && encrypt_password.same?(entity.encrypted_password, password)
-        Right(entity)
+        Dry::Monads::Right(entity)
       else
-        Left(:user_not_found)
+        Dry::Monads::Left(:user_not_found)
       end
     end
 

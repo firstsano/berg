@@ -1,8 +1,7 @@
 require "admin/import"
 require "admin/entities/person"
 require "admin/people/validation/form"
-require "dry-result_matcher"
-require "kleisli"
+require "berg/matcher"
 require "types"
 
 module Admin
@@ -13,16 +12,16 @@ module Admin
           "admin.persistence.repositories.people",
         )
 
-        include Dry::ResultMatcher.for(:call)
+        include Berg::Matcher
 
         def call(attributes)
           validation = Validation::Form.(attributes)
 
           if validation.success?
             person = Entities::Person.new(people.create(validation.output))
-            Right(person)
+            Dry::Monads::Right(person)
           else
-            Left(validation)
+            Dry::Monads::Left(validation)
           end
         end
       end

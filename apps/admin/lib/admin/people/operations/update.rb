@@ -1,7 +1,6 @@
 require "admin/import"
 require "admin/people/validation/form"
-require "dry-result_matcher"
-require "kleisli"
+require "berg/matcher"
 
 module Admin
   module People
@@ -11,15 +10,15 @@ module Admin
           "admin.persistence.repositories.people"
         )
 
-        include Dry::ResultMatcher.for(:call)
+        include Berg::Matcher
 
         def call(id, attributes)
           validation = Validation::Form.(prepare_attributes(attributes))
           if validation.success?
             people.update_by_id(id, validation.to_h)
-            Right(people[id])
+            Dry::Monads::Right(people[id])
           else
-            Left(validation)
+            Dry::Monads::Left(validation)
           end
         end
 

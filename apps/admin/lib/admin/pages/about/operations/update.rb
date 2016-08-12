@@ -1,6 +1,5 @@
 require "admin/import"
-require "kleisli"
-require "dry-result_matcher"
+require "berg/matcher"
 require "types"
 
 module Admin
@@ -12,16 +11,16 @@ module Admin
             repo: "admin.persistence.repositories.about_page_people"
           )
 
-          include Dry::ResultMatcher.for(:call)
+          include Berg::Matcher
 
           def call(attributes)
             validation = Validation::Form.(attributes)
 
             if validation.success?
               about_page_people = repo.update(validation.to_h)
-              Right(about_page_people)
+              Dry::Monads::Right(about_page_people)
             else
-              Left(validation)
+              Dry::Monads::Left(validation)
             end
           end
         end

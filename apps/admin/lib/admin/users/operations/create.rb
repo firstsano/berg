@@ -1,8 +1,7 @@
 require "admin/import"
 require "admin/entities/user"
 require "admin/users/validation/form"
-require "dry-result_matcher"
-require "kleisli"
+require "berg/matcher"
 require "types"
 
 module Admin
@@ -15,16 +14,16 @@ module Admin
           "core.authentication.encrypt_password",
         )
 
-        include Dry::ResultMatcher.for(:call)
+        include Berg::Matcher
 
         def call(attributes)
           validation = Validation::Form.(attributes)
 
           if validation.success?
             user = Entities::User.new(users.create(prepare_attributes(validation.output)))
-            Right(user)
+            Dry::Monads::Right(user)
           else
-            Left(validation)
+            Dry::Monads::Left(validation)
           end
         end
 

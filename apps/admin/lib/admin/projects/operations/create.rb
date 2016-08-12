@@ -1,8 +1,7 @@
 require "admin/import"
 require "admin/entities/project"
 require "admin/projects/validation/form"
-require "dry-result_matcher"
-require "kleisli"
+require "berg/matcher"
 
 module Admin
   module Projects
@@ -14,16 +13,16 @@ module Admin
           "admin.persistence.project_color_picker",
         )
 
-        include Dry::ResultMatcher.for(:call)
+        include Berg::Matcher
 
         def call(attributes)
           validation = Validation::Form.(attributes)
 
           if validation.success?
             project = Entities::Project.new(projects.create(prepare_attributes(validation.output)))
-            Right(project)
+            Dry::Monads::Right(project)
           else
-            Left(validation)
+            Dry::Monads::Left(validation)
           end
         end
 

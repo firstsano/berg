@@ -1,8 +1,7 @@
 require "admin/import"
 require "admin/entities/category"
 require "admin/categories/validation/form"
-require "dry-result_matcher"
-require "kleisli"
+require "berg/matcher"
 
 module Admin
   module Categories
@@ -12,16 +11,16 @@ module Admin
           "admin.persistence.repositories.categories",
         )
 
-        include Dry::ResultMatcher.for(:call)
+        include Berg::Matcher
 
         def call(slug, attributes)
           validation = Validation::Form.(prepare_attributes(slug, attributes))
 
           if validation.success?
             categories.update(slug, validation.output)
-            Right(categories.by_slug(validation.output.fetch(:slug) { slug }))
+            Dry::Monads::Right(categories.by_slug(validation.output.fetch(:slug) { slug }))
           else
-            Left(validation)
+            Dry::Monads::Left(validation)
           end
         end
 

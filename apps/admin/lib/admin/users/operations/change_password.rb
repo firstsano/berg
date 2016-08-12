@@ -1,7 +1,7 @@
 require "admin/import"
 require "admin/entities/user"
 require "admin/users/validation/password_form"
-require "dry-result_matcher"
+require "berg/matcher"
 
 module Admin
   module Users
@@ -12,16 +12,16 @@ module Admin
           "core.authentication.encrypt_password",
         )
 
-        include Dry::ResultMatcher.for(:call)
+        include Berg::Matcher
 
         def call(id, attributes)
           validation = Validation::PasswordForm.(attributes)
 
           if validation.success?
             result = users.update(id, prepare_attributes(validation.output))
-            Right(result)
+            Dry::Monads::Right(result)
           else
-            Left(validation)
+            Dry::Monads::Left(validation)
           end
         end
 

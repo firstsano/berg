@@ -28,7 +28,7 @@ module Admin
         required(:url).maybe(:uri?)
         required(:body).maybe(:str?)
         required(:cover_image).maybe(:hash?)
-        required(:assets).each(:hash?)
+        optional(:assets).each(:hash?)
 
         # Required in only the edit form
         optional(:slug).filled

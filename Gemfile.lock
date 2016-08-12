@@ -31,7 +31,7 @@ GIT
 
 GIT
   remote: https://github.com/dry-rb/dry-web
-  revision: 8e545e629ecf0ddb96926c059ad52852f71656f7
+  revision: c4a2a0187e3801c93018198d0203d62ef45c46ba
   branch: master
   specs:
     dry-web (0.4.1)
@@ -39,7 +39,7 @@ GIT
 
 GIT
   remote: https://github.com/dry-rb/dry-web-roda
-  revision: 9b3928ca8ba66de90f922fd845f52c36eff2e7fd
+  revision: b2e732eccf2c4d17d44530b98296f993396ed59f
   branch: master
   specs:
     dry-web-roda (0.3.0)

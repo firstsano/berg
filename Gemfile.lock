@@ -8,7 +8,7 @@ GIT
 
 GIT
   remote: https://github.com/dry-rb/dry-system
-  revision: a99b6c91efbc8a56f60c1b7192c4c6a1e04d8a05
+  revision: 631c2add122fcfdd9476432a6392c9ff666d9c45
   branch: master
   specs:
     dry-system (0.4.3)

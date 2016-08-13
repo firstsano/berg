@@ -1,11 +1,13 @@
-require "bugsnag"
+Berg::Container.finalize(:bugsnag) do |container|
+  uses :config
 
-Berg::Container.boot! :config
+  require "bugsnag"
 
-Bugsnag.configure do |config|
-  config.project_root = Pathname(__FILE__).join("../..").realpath.dirname.freeze
-  config.release_stage = ENV.fetch("RACK_ENV", "development")
-  config.notify_release_stages = ["production"]
-  config.api_key = Berg::Container["config"].bugsnag_api_key
-  config.logger.level = Logger::INFO
+  Bugsnag.configure do |c|
+    c.project_root = Pathname(__FILE__).join("../..").realpath.dirname.freeze
+    c.release_stage = ENV.fetch("RACK_ENV", "development")
+    c.notify_release_stages = ["production"]
+    c.api_key = config.bugsnag_api_key
+    c.logger.level = Logger::INFO
+  end
 end

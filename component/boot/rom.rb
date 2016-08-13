@@ -1,13 +1,16 @@
-require "sequel"
-require "rom"
-
-Berg::Container.boot! :config
-
-Sequel.database_timezone = :utc
-Sequel.application_timezone = :local
-
 Berg::Container.namespace "persistence" do |container|
-  config = ROM::Configuration.new(:sql, container["config"].database_url, extensions: [:error_sql, :pg_array, :pg_json])
+  container.boot!(:config)
+
+  require "sequel"
+
+  Sequel.database_timezone = :utc
+  Sequel.application_timezone = :local
+
+  require "rom"
+
+  config = ROM::Configuration.new(
+    :sql, container["config"].database_url, extensions: [:error_sql, :pg_array, :pg_json]
+  )
 
   container.register("config", config)
 

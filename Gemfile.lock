@@ -8,7 +8,7 @@ GIT
 
 GIT
   remote: https://github.com/dry-rb/dry-system
-  revision: a3b137e77f7f0c9c6fd592f0b706b3d382f8fc1b
+  revision: a99b6c91efbc8a56f60c1b7192c4c6a1e04d8a05
   branch: master
   specs:
     dry-system (0.4.3)
@@ -39,7 +39,7 @@ GIT
 
 GIT
   remote: https://github.com/dry-rb/dry-web-roda
-  revision: a351212df90c2bb628ccbe599d742da931b9ec6b
+  revision: 0efe753b3f4d8b1f7193c1464ae045e8508567dd
   branch: master
   specs:
     dry-web-roda (0.3.0)

@@ -1,6 +1,12 @@
 #!/usr/bin/env ruby
 
+start = Time.now
+
 require "dry/web/console"
 require_relative "../component/boot"
+
+stop = Time.now
+
+puts "[berg system] booted in #{stop-start} seconds"
 
 Dry::Web::Console.start

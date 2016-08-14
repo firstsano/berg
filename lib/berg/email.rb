@@ -7,14 +7,14 @@ require "berg/import"
 module Berg
   class Email < Dry::View::Layout
     include Dry::Equalizer(:to_h)
-    include Berg::HashImport["i18n.t"]
+    include Berg::Import.kwargs["i18n.t"]
 
     attr_reader :options
 
     setting :formats, html: :slim, txt: :erb
 
     def initialize(options)
-      super
+      super(t: options[:t])
       @options = options
     end
 

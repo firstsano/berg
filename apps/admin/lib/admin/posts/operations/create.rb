@@ -1,8 +1,7 @@
 require "admin/import"
 require "admin/entities/post"
 require "admin/posts/validation/form"
-require "dry-result_matcher"
-require "kleisli"
+require "berg/matcher"
 
 module Admin
   module Posts
@@ -14,16 +13,16 @@ module Admin
           "admin.persistence.post_color_picker",
         )
 
-        include Dry::ResultMatcher.for(:call)
+        include Berg::Matcher
 
         def call(attributes)
           validation = Validation::Form.(attributes)
 
           if validation.success?
             post = Admin::Entities::Post.new(posts.create(prepare_attributes(validation.to_h)))
-            Right(post)
+            Dry::Monads::Right(post)
           else
-            Left(validation)
+            Dry::Monads::Left(validation)
           end
         end
 

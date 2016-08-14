@@ -1,4 +1,7 @@
-require "postmark"
+Berg::Container.finalize(:postmark) do |_container|
+  uses :config
 
-Berg::Container.boot! :config
-Berg::Container.register "postmark", Postmark::ApiClient.new(Berg::Container["config"].postmark_api_key)
+  require "postmark"
+
+  Berg::Container.register "postmark", Postmark::ApiClient.new(config.postmark_api_key)
+end

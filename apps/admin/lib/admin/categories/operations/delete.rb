@@ -1,8 +1,7 @@
 require "admin/import"
 require "admin/entities/category"
 require "admin/categories/validation/form"
-require "dry-result_matcher"
-require "kleisli"
+require "berg/matcher"
 
 module Admin
   module Categories
@@ -10,7 +9,7 @@ module Admin
       class Delete
         include Admin::Import("admin.persistence.repositories.categories")
 
-        include Dry::ResultMatcher.for(:call)
+        include Berg::Matcher
 
         def call(slug)
           categories.delete(slug)

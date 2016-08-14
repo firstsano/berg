@@ -1,6 +1,6 @@
 require "admin/import"
 require "admin/entities/user"
-require "dry-result_matcher"
+require "berg/matcher"
 
 module Admin
   module Users
@@ -11,10 +11,10 @@ module Admin
           "admin.users.access_token",
         )
 
-        include Dry::ResultMatcher.for(:call)
+        include Berg::Matcher
 
         def call(email)
-          return Left(:email_not_found) unless users.by_email!(email)
+          return Dry::Monads::Left(:email_not_found) unless users.by_email!(email)
 
           attributes = users.update_by_email(
             email,
@@ -22,7 +22,7 @@ module Admin
             access_token_expiration: access_token.expires_at,
           )
 
-          Right(Entities::User.new(attributes))
+          Dry::Monads::Right(Entities::User.new(attributes))
         end
       end
     end

@@ -1,6 +1,12 @@
 #!/usr/bin/env ruby
+require "bundler/setup"
 
-require "dry/web/cli"
+start = Time.now
+require "dry/web/console"
 require_relative "../component/boot"
 
-Dry::Web::Cli.start
+stop = Time.now
+
+puts "[berg system] booted in #{stop - start} seconds"
+
+Dry::Web::Console.start

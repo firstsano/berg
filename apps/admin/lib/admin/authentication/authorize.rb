@@ -1,5 +1,5 @@
 require "admin/import"
-require "dry-result_matcher"
+require "berg/matcher"
 
 module Admin
   module Authentication
@@ -9,16 +9,16 @@ module Admin
         "admin.persistence.repositories.users",
       )
 
-      include Dry::ResultMatcher.for(:call)
+      include Berg::Matcher
 
       def call(session)
         id = session[:user_id]
         user = id && users[id]
 
         if user && user.active?
-          Right(user)
+          Dry::Monads::Right(user)
         else
-          Left(:unauthorized)
+          Dry::Monads::Left(:unauthorized)
         end
       end
     end

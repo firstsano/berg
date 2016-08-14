@@ -1,6 +1,5 @@
 require "admin/import"
-require "dry-result_matcher"
-require "kleisli"
+require "berg/matcher"
 
 module Admin
   module Pages
@@ -11,16 +10,16 @@ module Admin
             repo: "admin.persistence.repositories.home_page_featured_items"
           )
 
-          include Dry::ResultMatcher.for(:call)
+          include Berg::Matcher
 
           def call(attributes)
             validation = Validation::Form.(attributes)
 
             if validation.success?
               home_page_featured_items = repo.update(validation.to_h)
-              Right(home_page_featured_items)
+              Dry::Monads::Right(home_page_featured_items)
             else
-              Left(validation)
+              Dry::Monads::Left(validation)
             end
           end
         end

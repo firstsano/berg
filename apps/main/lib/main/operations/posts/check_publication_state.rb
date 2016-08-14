@@ -1,20 +1,20 @@
 require "main/import"
-require "dry-result_matcher"
+require "berg/matcher"
 
 module Main
   module Operations
     module Posts
       class CheckPublicationState
         include Main::Import("main.persistence.repositories.posts")
-        include Dry::ResultMatcher.for(:call)
+        include Berg::Matcher
 
         def call(slug)
           post = posts.by_slug(slug)
 
           if post && post.status == "published"
-            Right(post)
+            Dry::Monads::Right(post)
           else
-            Left("This post has not yet been published.")
+            Dry::Monads::Left("This post has not yet been published.")
           end
         end
       end

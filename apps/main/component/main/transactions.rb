@@ -12,7 +12,7 @@ module Main
 
         def call(step, *args, input)
           enqueue.(step.operation_name, *args, input)
-          Right(input)
+          Dry::Monads::Right(input)
         end
       end
 

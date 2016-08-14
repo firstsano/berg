@@ -1,4 +1,4 @@
-Berg::Container.finalize(:bugsnag) do |container|
+Berg::Container.finalize(:bugsnag) do |_container|
   uses :config
 
   require "bugsnag"

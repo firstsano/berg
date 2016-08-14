@@ -6,8 +6,8 @@ gem "rake"
 
 # Web framework
 gem "puma"
-gem "dry-web", git: 'https://github.com/dry-rb/dry-web', branch: 'master'
-gem "dry-web-roda", git: 'https://github.com/dry-rb/dry-web-roda', branch: 'master'
+gem "dry-web", git: "https://github.com/dry-rb/dry-web", branch: "master"
+gem "dry-web-roda", git: "https://github.com/dry-rb/dry-web-roda", branch: "master"
 gem "rack_csrf"
 gem "rack-rewrite"
 gem "rack-ssl"

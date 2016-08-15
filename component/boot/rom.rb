@@ -1,6 +1,6 @@
 Berg::Container.namespace "persistence" do |persistence|
   persistence.finalize(:rom) do
-    start do
+    init do
       uses :config
 
       require "sequel"
@@ -16,7 +16,7 @@ Berg::Container.namespace "persistence" do |persistence|
       persistence.register("config", rom_config)
     end
 
-    runtime do
+    start do
       config = container["persistence.config"]
       config.auto_registration(container.root.join("lib/persistence"))
 

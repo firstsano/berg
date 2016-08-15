@@ -7,19 +7,6 @@ GIT
       rubocop
 
 GIT
-  remote: https://github.com/dry-rb/dry-system
-  revision: c8cd09369500abd067320eb5d6a6b7810d3c3c76
-  branch: master
-  specs:
-    dry-system (0.4.3)
-      concurrent-ruby (~> 1.0)
-      dry-auto_inject (>= 0.4.0)
-      dry-configurable (~> 0.1)
-      dry-container (~> 0.4)
-      dry-equalizer (~> 0.2)
-      inflecto (>= 0.0.2)
-
-GIT
   remote: https://github.com/dry-rb/dry-view
   revision: 05cb6565b2bf1acb8db4dd39d636d628a142aed0
   branch: master
@@ -29,26 +16,6 @@ GIT
       dry-equalizer (~> 0.2)
       inflecto (~> 0)
       tilt (~> 2.0)
-
-GIT
-  remote: https://github.com/dry-rb/dry-web
-  revision: c4a2a0187e3801c93018198d0203d62ef45c46ba
-  branch: master
-  specs:
-    dry-web (0.4.1)
-      dry-system (>= 0.4.1)
-
-GIT
-  remote: https://github.com/dry-rb/dry-web-roda
-  revision: 0efe753b3f4d8b1f7193c1464ae045e8508567dd
-  branch: master
-  specs:
-    dry-web-roda (0.3.0)
-      dry-configurable (~> 0.1)
-      inflecto (~> 0.0)
-      roda (~> 2.14)
-      roda-flow (~> 0.3)
-      thor (~> 0.19)
 
 GIT
   remote: https://github.com/icelab/formalist
@@ -127,6 +94,13 @@ GEM
       dry-equalizer (~> 0.2)
     dry-matcher (0.5.0)
     dry-monads (0.0.2)
+    dry-system (0.5.0)
+      concurrent-ruby (~> 1.0)
+      dry-auto_inject (>= 0.4.0)
+      dry-configurable (~> 0.1)
+      dry-container (~> 0.4)
+      dry-equalizer (~> 0.2)
+      inflecto (>= 0.0.2)
     dry-transaction (0.8.0)
       dry-container (>= 0.2.8)
       dry-matcher (>= 0.5.0)
@@ -148,6 +122,15 @@ GEM
       dry-equalizer (~> 0.2)
       dry-logic (~> 0.3, >= 0.3.0)
       dry-types (~> 0.8, >= 0.8.1)
+    dry-web (0.5.0)
+      dry-system (~> 0.5)
+    dry-web-roda (0.4.0)
+      dry-configurable (~> 0.1)
+      dry-web (~> 0.5)
+      inflecto (~> 0.0)
+      roda (~> 2.14)
+      roda-flow (~> 0.3)
+      thor (~> 0.19)
     excon (0.51.0)
     faker (1.6.6)
       i18n (~> 0.5)
@@ -257,7 +240,7 @@ GEM
     rb-inotify (0.9.7)
       ffi (>= 0.5.0)
     redcarpet (3.3.4)
-    roda (2.16.0)
+    roda (2.17.0)
       rack
     roda-flow (0.3.0)
     rom (2.0.0)
@@ -354,13 +337,13 @@ DEPENDENCIES
   database_cleaner
   dry-equalizer
   dry-matcher
-  dry-system!
+  dry-system
   dry-transaction
   dry-types (~> 0.8)
   dry-validation (~> 0.8)
   dry-view!
-  dry-web!
-  dry-web-roda!
+  dry-web
+  dry-web-roda
   faker
   fog-aws
   foreman

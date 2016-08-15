@@ -1,7 +1,7 @@
 Berg::Container.namespace "persistence" do |persistence|
   persistence.finalize(:rom) do
     init do
-      uses :config
+      use :config
 
       require "sequel"
       require "rom"

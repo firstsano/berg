@@ -8,11 +8,11 @@ module Admin
   module Users
     module Operations
       class Create
-        include Admin::Import(
+        include Admin::Import[
           "persistence.repositories.users",
           "users.access_token",
           "core.authentication.encrypt_password",
-        )
+        ]
 
         include Berg::Matcher
 

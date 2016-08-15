@@ -5,10 +5,10 @@ module Admin
   module Views
     module CuratedPosts
       class Edit < Admin::View
-        include Admin::Import(
+        include Admin::Import[
           "persistence.repositories.curated_posts",
           "curated_posts.forms.form",
-        )
+        ]
 
         configure do |config|
           config.template = "curated_posts/edit"

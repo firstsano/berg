@@ -6,10 +6,10 @@ module Main
   module Views
     module Pages
       class Work < Main::View
-        include Main::Import(
+        include Main::Import[
           "persistence.repositories.work_page_featured_items",
           "persistence.repositories.projects",
-        )
+        ]
 
         configure do |config|
           config.template = "pages/work"

@@ -6,7 +6,7 @@ module Main
   module Views
     module Pages
       class Contact < Main::View
-        include Main::Import("persistence.repositories.office_contact_details")
+        include Main::Import["persistence.repositories.office_contact_details"]
 
         configure do |config|
           config.template = "pages/contact"

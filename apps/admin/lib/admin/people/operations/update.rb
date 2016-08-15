@@ -6,7 +6,7 @@ module Admin
   module People
     module Operations
       class Update
-        include Admin::Import("persistence.repositories.people")
+        include Admin::Import["persistence.repositories.people"]
 
         include Berg::Matcher
 

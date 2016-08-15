@@ -5,7 +5,7 @@ module Admin
   module Views
     module CuratedPosts
       class New < Admin::View
-        include Admin::Import("curated_posts.forms.form")
+        include Admin::Import["curated_posts.forms.form"]
 
         configure do |config|
           config.template = "curated_posts/new"

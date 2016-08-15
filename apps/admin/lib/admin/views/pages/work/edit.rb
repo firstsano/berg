@@ -7,10 +7,10 @@ module Admin
     module Pages
       module Work
         class Edit < Admin::View
-          include Admin::Import(
+          include Admin::Import[
             "persistence.repositories.work_page_featured_items",
             "pages.work.forms.edit_form",
-          )
+          ]
 
           configure do |config|
             config.template = "pages/work/edit"

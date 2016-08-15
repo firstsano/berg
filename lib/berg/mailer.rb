@@ -2,7 +2,7 @@ require "berg/import"
 
 module Berg
   class Mailer
-    include Berg::Import("logger", "postmark")
+    include Berg::Import["logger", "postmark"]
 
     def deliver(mail)
       logger.debug("[Berg::Mailer] delivering: #{mail.inspect}")

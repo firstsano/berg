@@ -8,7 +8,7 @@ module Admin
   module People
     module Operations
       class Create
-        include Admin::Import("persistence.repositories.people")
+        include Admin::Import["persistence.repositories.people"]
 
         include Berg::Matcher
 

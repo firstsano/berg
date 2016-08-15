@@ -6,7 +6,7 @@ module Admin
     module Home
       module Forms
         class EditForm < Berg::Form
-          include Admin::Import("persistence.repositories.home_page_featured_items")
+          include Admin::Import["persistence.repositories.home_page_featured_items"]
 
           prefix :page
 

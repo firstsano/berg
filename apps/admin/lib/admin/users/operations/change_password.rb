@@ -7,10 +7,10 @@ module Admin
   module Users
     module Operations
       class ChangePassword
-        include Admin::Import(
+        include Admin::Import[
           "persistence.repositories.users",
           "core.authentication.encrypt_password",
-        )
+        ]
 
         include Berg::Matcher
 

@@ -6,7 +6,7 @@ module Main
   module Views
     module Projects
       class Show < Main::View
-        include Main::Import("persistence.repositories.projects")
+        include Main::Import["persistence.repositories.projects"]
 
         configure do |config|
           config.template = "projects/show"

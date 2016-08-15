@@ -7,11 +7,11 @@ module Admin
   module Views
     module Users
       class Edit < Admin::View
-        include Admin::Import(
+        include Admin::Import[
           "persistence.repositories.users",
           "users.forms.edit_form",
           "users.forms.password_form",
-        )
+        ]
 
         configure do |config|
           config.template = "users/edit"

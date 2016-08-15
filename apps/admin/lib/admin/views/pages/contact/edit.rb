@@ -7,10 +7,10 @@ module Admin
     module Pages
       module Contact
         class Edit < Admin::View
-          include Admin::Import(
+          include Admin::Import[
             "persistence.repositories.office_contact_details",
             "pages.contact.forms.edit_form",
-          )
+          ]
 
           configure do |config|
             config.template = "pages/contact/edit"

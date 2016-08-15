@@ -5,10 +5,10 @@ module Admin
   module Views
     module People
       class Edit < Admin::View
-        include Admin::Import(
+        include Admin::Import[
           "persistence.repositories.people",
           "people.forms.form",
-        )
+        ]
 
         configure do |config|
           config.template = "people/edit"

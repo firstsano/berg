@@ -8,7 +8,7 @@ module Admin
   class Transactions < Berg::Transactions
     class StepAdapters < Dry::Transaction::StepAdapters
       class Enqueue
-        include Admin::Import("enqueue")
+        include Admin::Import["enqueue"]
 
         def call(step, *args, input)
           enqueue.(step.operation_name, *args, input)

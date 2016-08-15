@@ -7,10 +7,10 @@ module Admin
     module Pages
       module Home
         class Edit < Admin::View
-          include Admin::Import(
+          include Admin::Import[
             "persistence.repositories.home_page_featured_items",
             "pages.home.forms.edit_form",
-          )
+          ]
 
           configure do |config|
             config.template = "pages/home/edit"

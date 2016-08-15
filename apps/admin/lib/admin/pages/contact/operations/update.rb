@@ -7,9 +7,7 @@ module Admin
     module Contact
       module Operations
         class Update
-          include Admin::Import(
-            repo: "persistence.repositories.office_contact_details"
-          )
+          include Admin::Import[repo: "persistence.repositories.office_contact_details"]
 
           include Berg::Matcher
 

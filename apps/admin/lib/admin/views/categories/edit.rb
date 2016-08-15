@@ -6,10 +6,10 @@ module Admin
   module Views
     module Categories
       class Edit < Admin::View
-        include Admin::Import(
+        include Admin::Import[
           "persistence.repositories.categories",
           "categories.forms.form",
-        )
+        ]
 
         configure do |config|
           config.template = "categories/edit"

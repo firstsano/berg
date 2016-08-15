@@ -5,10 +5,10 @@ require "admin/users/forms/password_form"
 module Admin
   module Views
     class ResetPassword < Admin::View
-      include Admin::Import(
+      include Admin::Import[
         "persistence.repositories.users",
         "users.forms.password_form",
-      )
+      ]
 
       configure do |config|
         config.name = "admin_minimal"

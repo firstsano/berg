@@ -7,10 +7,10 @@ module Admin
   module Views
     module Projects
       class Edit < Admin::View
-        include Admin::Import(
+        include Admin::Import[
           "persistence.repositories.projects",
           "projects.forms.edit_form",
-        )
+        ]
 
         configure do |config|
           config.template = "projects/edit"

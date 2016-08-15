@@ -6,7 +6,7 @@ module Main
   module Views
     module Pages
       class About < Main::View
-        include Main::Import("persistence.repositories.people")
+        include Main::Import["persistence.repositories.people"]
 
         configure do |config|
           config.template = "pages/about"

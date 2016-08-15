@@ -8,7 +8,7 @@ module Admin
     module Operations
       class Update
         include Admin::Import(
-          repo: "admin.persistence.repositories.posts",
+          repo: "persistence.repositories.posts",
         )
 
         include Berg::Matcher

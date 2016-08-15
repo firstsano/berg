@@ -4,9 +4,7 @@ require "berg/matcher"
 module Admin
   module Authentication
     class AccessToken
-      include Admin::Import(
-        "admin.persistence.repositories.users",
-      )
+      include Admin::Import("persistence.repositories.users")
 
       include Berg::Matcher
 

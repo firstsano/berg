@@ -9,7 +9,7 @@ class Main::Application
 
   route "work" do |r|
     r.on ":slug" do |slug|
-      r.resolve("main.operations.projects.check_publication_state") do |check_publication_state|
+      r.resolve("operations.projects.check_publication_state") do |check_publication_state|
         check_publication_state.(slug) do |m|
           m.failure do
             response.status = 404

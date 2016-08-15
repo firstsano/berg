@@ -8,7 +8,7 @@ module Admin
     module Operations
       class ChangePassword
         include Admin::Import(
-          "admin.persistence.repositories.users",
+          "persistence.repositories.users",
           "core.authentication.encrypt_password",
         )
 

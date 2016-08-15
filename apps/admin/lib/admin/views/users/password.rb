@@ -7,8 +7,8 @@ module Admin
     module Users
       class Password < Admin::View
         include Admin::Import(
-          "admin.persistence.repositories.users",
-          "admin.users.forms.password_form",
+          "persistence.repositories.users",
+          "users.forms.password_form",
         )
 
         configure do |config|

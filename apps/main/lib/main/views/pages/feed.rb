@@ -6,7 +6,7 @@ module Main
   module Views
     module Pages
       class Feed < Main::View
-        include Main::Import("main.persistence.repositories.posts")
+        include Main::Import("persistence.repositories.posts")
 
         def call(options = {})
           template_path = "#{config.root}/pages/feed.#{options[:format]}.#{options[:engine]}"

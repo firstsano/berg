@@ -8,7 +8,7 @@ module Admin
         configure do
           config.messages = :i18n
 
-          option :user_email_uniqueness_check, Admin::Container["admin.persistence.user_email_uniqueness_check"]
+          option :user_email_uniqueness_check, Admin::Container["persistence.user_email_uniqueness_check"]
 
           def email_unique?(value)
             user_email_uniqueness_check.(value)

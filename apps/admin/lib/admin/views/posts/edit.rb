@@ -8,9 +8,9 @@ module Admin
     module Posts
       class Edit < Admin::View
         include Admin::Import(
-          "admin.persistence.repositories.posts",
-          "admin.persistence.repositories.categories",
-          "admin.posts.forms.edit_form",
+          "persistence.repositories.posts",
+          "persistence.repositories.categories",
+          "posts.forms.edit_form",
         )
 
         configure do |config|

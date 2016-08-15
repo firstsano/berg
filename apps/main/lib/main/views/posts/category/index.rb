@@ -8,8 +8,8 @@ module Main
       module Category
         class Index < Main::View
           include Main::Import(
-            "main.persistence.repositories.posts",
-            "main.persistence.repositories.categories",
+            "persistence.repositories.posts",
+            "persistence.repositories.categories",
           )
 
           configure do |config|

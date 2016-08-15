@@ -7,7 +7,7 @@ class Admin::Application
         end
 
         r.post do
-          r.resolve "admin.categories.operations.create" do |create_category|
+          r.resolve "categories.operations.create" do |create_category|
             create_category.(r[:category]) do |m|
               m.success do
                 flash[:notice] = t["admin.categories.category_created"]
@@ -32,7 +32,7 @@ class Admin::Application
         end
 
         r.delete do
-          r.resolve("admin.categories.operations.delete") do |delete_category|
+          r.resolve("categories.operations.delete") do |delete_category|
             delete_category.(slug)
             flash[:notice] = t["admin.categories.category_deleted"]
             r.redirect "/admin/categories"
@@ -40,7 +40,7 @@ class Admin::Application
         end
 
         r.put do
-          r.resolve "admin.categories.operations.update" do |update_category|
+          r.resolve "categories.operations.update" do |update_category|
             update_category.(slug, r[:category]) do |m|
               m.success do
                 flash[:notice] = t["admin.categories.category_updated"]

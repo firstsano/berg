@@ -10,9 +10,9 @@ module Main
     module Pages
       class Home < Main::View
         include Main::Import(
-          "main.persistence.repositories.home_page_featured_items",
-          "main.persistence.repositories.posts",
-          "main.persistence.repositories.curated_posts",
+          "persistence.repositories.home_page_featured_items",
+          "persistence.repositories.posts",
+          "persistence.repositories.curated_posts",
         )
 
         configure do |config|

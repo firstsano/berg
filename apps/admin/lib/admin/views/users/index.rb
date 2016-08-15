@@ -5,7 +5,7 @@ module Admin
   module Views
     module Users
       class Index < Admin::View
-        include Admin::Import("admin.persistence.repositories.users")
+        include Admin::Import("persistence.repositories.users")
 
         configure do |config|
           config.template = "users/index"

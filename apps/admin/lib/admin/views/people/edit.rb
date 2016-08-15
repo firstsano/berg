@@ -6,8 +6,8 @@ module Admin
     module People
       class Edit < Admin::View
         include Admin::Import(
-          "admin.persistence.repositories.people",
-          "admin.people.forms.form",
+          "persistence.repositories.people",
+          "people.forms.form",
         )
 
         configure do |config|

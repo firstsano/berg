@@ -9,8 +9,8 @@ module Admin
     module Operations
       class Create
         include Admin::Import(
-          "admin.persistence.repositories.users",
-          "admin.users.access_token",
+          "persistence.repositories.users",
+          "users.access_token",
           "core.authentication.encrypt_password",
         )
 

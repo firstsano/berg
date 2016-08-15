@@ -7,7 +7,7 @@ module Admin
   module CuratedPosts
     module Operations
       class Update
-        include Admin::Import("admin.persistence.repositories.curated_posts")
+        include Admin::Import("persistence.repositories.curated_posts")
 
         include Berg::Matcher
 

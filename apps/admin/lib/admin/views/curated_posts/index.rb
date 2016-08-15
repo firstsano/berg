@@ -6,7 +6,7 @@ module Admin
   module Views
     module CuratedPosts
       class Index < Admin::View
-        include Admin::Import("admin.persistence.repositories.curated_posts")
+        include Admin::Import("persistence.repositories.curated_posts")
 
         configure do |config|
           config.template = "curated_posts/index"

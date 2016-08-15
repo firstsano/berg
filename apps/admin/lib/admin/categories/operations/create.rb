@@ -8,8 +8,8 @@ module Admin
     module Operations
       class Create
         include Admin::Import(
-          "admin.persistence.repositories.categories",
-          "admin.slugify",
+          "persistence.repositories.categories",
+          "slugify",
         )
 
         include Berg::Matcher

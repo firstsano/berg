@@ -8,8 +8,8 @@ module Admin
       module Work
         class Edit < Admin::View
           include Admin::Import(
-            "admin.persistence.repositories.work_page_featured_items",
-            "admin.pages.work.forms.edit_form",
+            "persistence.repositories.work_page_featured_items",
+            "pages.work.forms.edit_form",
           )
 
           configure do |config|

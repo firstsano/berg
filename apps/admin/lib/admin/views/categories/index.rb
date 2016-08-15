@@ -5,7 +5,7 @@ module Admin
   module Views
     module Categories
       class Index < Admin::View
-        include Admin::Import("admin.persistence.repositories.categories")
+        include Admin::Import("persistence.repositories.categories")
 
         configure do |config|
           config.template = "categories/index"

@@ -50,7 +50,7 @@ create_person(
   city: "Melbourne",
 )
 
-author = admin["admin.persistence.repositories.people"][1]
+author = admin["persistence.repositories.people"][1]
 admin["admin.users.operations.change_password"].(1, password: "changeme")
 
 20.times do

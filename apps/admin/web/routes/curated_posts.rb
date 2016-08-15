@@ -7,7 +7,7 @@ class Admin::Application
         end
 
         r.post do
-          r.resolve "admin.curated_posts.operations.create" do |create_curated_post|
+          r.resolve "curated_posts.operations.create" do |create_curated_post|
             create_curated_post.(r[:curated_post]) do |m|
               m.success do
                 flash[:notice] = t["admin.curated_posts.post_created"]
@@ -32,7 +32,7 @@ class Admin::Application
         end
 
         r.put do
-          r.resolve "admin.curated_posts.operations.update" do |update_curated_post|
+          r.resolve "curated_posts.operations.update" do |update_curated_post|
             update_curated_post.(id, r[:curated_post]) do |m|
               m.success do
                 flash[:notice] = t["admin.curated_posts.post_updated"]

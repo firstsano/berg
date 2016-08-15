@@ -3,7 +3,7 @@ class Admin::Application
     r.authorize do
       r.on "presign" do
         r.post do
-          r.resolve "admin.uploads.operations.presign" do |presign|
+          r.resolve "uploads.operations.presign" do |presign|
             presign.()
           end
         end

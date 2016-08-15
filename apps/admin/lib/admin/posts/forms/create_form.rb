@@ -6,8 +6,8 @@ module Admin
     module Forms
       class CreateForm < Berg::Form
         include Admin::Import[
-          "admin.persistence.repositories.people",
-          "admin.persistence.repositories.categories"
+          "persistence.repositories.people",
+          "persistence.repositories.categories"
         ]
 
         prefix :post

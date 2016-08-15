@@ -5,7 +5,7 @@ class Admin::Application
     end
 
     r.post do
-      r.resolve "admin.authentication.authenticate" do |authenticate|
+      r.resolve "authentication.authenticate" do |authenticate|
         authenticate.(r[:user]) do |m|
           m.success do |user|
             flash[:notice] = t["admin.auth.signed_in"]

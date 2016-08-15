@@ -2,7 +2,7 @@ require "babosa"
 
 RSpec.shared_context "admin projects" do
   def create_project(title, attrs = {})
-    Admin::Container["admin.projects.operations.create"].({
+    Admin::Container["projects.operations.create"].({
       "title" => title,
       "client" => "An example client",
       "url" => "http://example.com",

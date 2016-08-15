@@ -6,7 +6,7 @@ module Admin
     class Authorize
       include Admin::Import(
         "core.authentication.encrypt_password",
-        "admin.persistence.repositories.users",
+        "persistence.repositories.users",
       )
 
       include Berg::Matcher

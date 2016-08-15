@@ -7,8 +7,8 @@ module Main
     module Pages
       class Work < Main::View
         include Main::Import(
-          "main.persistence.repositories.work_page_featured_items",
-          "main.persistence.repositories.projects",
+          "persistence.repositories.work_page_featured_items",
+          "persistence.repositories.projects",
         )
 
         configure do |config|

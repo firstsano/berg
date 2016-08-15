@@ -8,7 +8,7 @@ module Admin
         configure do
           config.messages = :i18n
 
-          option :post_slug_uniqueness_check, Admin::Container["admin.persistence.post_slug_uniqueness_check"]
+          option :post_slug_uniqueness_check, Admin::Container["persistence.post_slug_uniqueness_check"]
 
           def slug_unique?(value)
             post_slug_uniqueness_check.(value)

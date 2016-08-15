@@ -6,7 +6,7 @@ module Admin
     class Authenticate < ::Authentication::Authenticate
       include Admin::Import(
         "core.authentication.encrypt_password",
-        "admin.persistence.repositories.users",
+        "persistence.repositories.users",
       )
 
       def fetch(email)

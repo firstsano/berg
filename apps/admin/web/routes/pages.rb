@@ -8,7 +8,7 @@ class Admin::Application
           end
 
           r.put do
-            r.resolve "admin.pages.about.operations.update" do |update_about_page|
+            r.resolve "pages.about.operations.update" do |update_about_page|
               update_about_page.(r[:page]) do |m|
                 m.success do
                   flash[:notice] = t["admin.pages.page_updated"]
@@ -31,7 +31,7 @@ class Admin::Application
           end
 
           r.put do
-            r.resolve "admin.pages.contact.operations.update" do |update_contact_page|
+            r.resolve "pages.contact.operations.update" do |update_contact_page|
               update_contact_page.(r[:page]) do |m|
                 m.success do
                   flash[:notice] = t["admin.pages.page_updated"]
@@ -54,7 +54,7 @@ class Admin::Application
           end
 
           r.put do
-            r.resolve "admin.pages.home.operations.update" do |update_home_page|
+            r.resolve "pages.home.operations.update" do |update_home_page|
               update_home_page.(r[:page]) do |m|
                 m.success do
                   flash[:notice] = t["admin.pages.page_updated"]
@@ -77,7 +77,7 @@ class Admin::Application
           end
 
           r.put do
-            r.resolve "admin.pages.work.operations.update" do |update_work_page|
+            r.resolve "pages.work.operations.update" do |update_work_page|
               update_work_page.(r[:page]) do |m|
                 m.success do
                   flash[:notice] = t["admin.pages.page_updated"]

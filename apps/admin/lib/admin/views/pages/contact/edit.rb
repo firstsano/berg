@@ -8,8 +8,8 @@ module Admin
       module Contact
         class Edit < Admin::View
           include Admin::Import(
-            "admin.persistence.repositories.office_contact_details",
-            "admin.pages.contact.forms.edit_form",
+            "persistence.repositories.office_contact_details",
+            "pages.contact.forms.edit_form",
           )
 
           configure do |config|

@@ -6,7 +6,7 @@ module Admin
   module Views
     module Projects
       class New < Admin::View
-        include Admin::Import("admin.projects.forms.create_form")
+        include Admin::Import("projects.forms.create_form")
 
         configure do |config|
           config.template = "projects/new"

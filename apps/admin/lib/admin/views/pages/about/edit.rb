@@ -7,11 +7,11 @@ module Admin
     module Pages
       module About
         class Edit < Admin::View
-          include Admin::Import(
-            "admin.persistence.repositories.about_page_people",
-            "admin.persistence.repositories.people",
-            "admin.pages.about.forms.edit_form",
-          )
+          include Admin::Import[
+            "persistence.repositories.about_page_people",
+            "persistence.repositories.people",
+            "pages.about.forms.edit_form",
+          ]
 
           configure do |config|
             config.template = "pages/about/edit"

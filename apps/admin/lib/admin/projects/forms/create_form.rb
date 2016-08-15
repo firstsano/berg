@@ -5,7 +5,7 @@ module Admin
   module Projects
     module Forms
       class CreateForm < Berg::Form
-        include Admin::Import["admin.persistence.repositories.projects"]
+        include Admin::Import["persistence.repositories.projects"]
 
         prefix :project
 

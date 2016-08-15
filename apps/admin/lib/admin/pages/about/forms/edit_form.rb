@@ -6,9 +6,7 @@ module Admin
     module About
       module Forms
         class EditForm < Berg::Form
-          include Admin::Import[
-            "admin.persistence.repositories.people"
-          ]
+          include Admin::Import["persistence.repositories.people"]
 
           prefix :page
 

@@ -8,7 +8,7 @@ module Main
   class Transactions < Berg::Transactions
     class StepAdapters < Dry::Transaction::StepAdapters
       class Enqueue
-        include Main::Import("enqueue")
+        include Main::Import["enqueue"]
 
         def call(step, *args, input)
           enqueue.(step.operation_name, *args, input)

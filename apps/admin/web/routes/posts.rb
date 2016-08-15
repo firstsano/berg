@@ -7,7 +7,7 @@ class Admin::Application
         end
 
         r.post do
-          r.resolve "admin.posts.operations.create" do |create_post|
+          r.resolve "posts.operations.create" do |create_post|
             create_post.(r[:post]) do |m|
               m.success do
                 flash[:notice] = t["admin.posts.post_created"]
@@ -32,7 +32,7 @@ class Admin::Application
         end
 
         r.put do
-          r.resolve "admin.posts.operations.update" do |update_post|
+          r.resolve "posts.operations.update" do |update_post|
             update_post.(slug, r[:post]) do |m|
               m.success do
                 flash[:notice] = t["admin.posts.post_updated"]

@@ -6,7 +6,7 @@ module Admin
   module Views
     module Posts
       class New < Admin::View
-        include Admin::Import("admin.posts.forms.create_form")
+        include Admin::Import["posts.forms.create_form"]
 
         configure do |config|
           config.template = "posts/new"

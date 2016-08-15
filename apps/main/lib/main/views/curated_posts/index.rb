@@ -6,7 +6,7 @@ module Main
   module Views
     module CuratedPosts
       class Index < Main::View
-        include Main::Import("main.persistence.repositories.curated_posts")
+        include Main::Import["persistence.repositories.curated_posts"]
 
         configure do |config|
           config.template = "curated_posts/index"

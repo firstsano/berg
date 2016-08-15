@@ -7,7 +7,7 @@ module Admin
   module Categories
     module Operations
       class Delete
-        include Admin::Import("admin.persistence.repositories.categories")
+        include Admin::Import["persistence.repositories.categories"]
 
         include Berg::Matcher
 

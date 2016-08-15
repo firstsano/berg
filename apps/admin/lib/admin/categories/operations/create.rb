@@ -7,10 +7,10 @@ module Admin
   module Categories
     module Operations
       class Create
-        include Admin::Import(
-          "admin.persistence.repositories.categories",
-          "admin.slugify",
-        )
+        include Admin::Import[
+          "persistence.repositories.categories",
+          "slugify",
+        ]
 
         include Berg::Matcher
 

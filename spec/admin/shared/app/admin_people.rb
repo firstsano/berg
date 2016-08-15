@@ -1,6 +1,6 @@
 RSpec.shared_context "admin people" do
   def create_person(name, bio, attrs = {})
-    Admin::Container["admin.people.operations.create"].({
+    Admin::Container["people.operations.create"].({
       "name" => name,
       "bio" => bio,
       "short_bio" => bio,

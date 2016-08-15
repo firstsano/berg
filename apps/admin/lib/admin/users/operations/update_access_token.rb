@@ -6,10 +6,10 @@ module Admin
   module Users
     module Operations
       class UpdateAccessToken
-        include Admin::Import(
-          "admin.persistence.repositories.users",
-          "admin.users.access_token",
-        )
+        include Admin::Import[
+          "persistence.repositories.users",
+          "users.access_token",
+        ]
 
         include Berg::Matcher
 

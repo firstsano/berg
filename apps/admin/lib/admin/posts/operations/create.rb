@@ -7,11 +7,11 @@ module Admin
   module Posts
     module Operations
       class Create
-        include Admin::Import(
-          "admin.persistence.repositories.posts",
-          "admin.slugify",
-          "admin.persistence.post_color_picker",
-        )
+        include Admin::Import[
+          "persistence.repositories.posts",
+          "slugify",
+          "persistence.post_color_picker",
+        ]
 
         include Berg::Matcher
 

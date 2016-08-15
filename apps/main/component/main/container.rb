@@ -6,6 +6,8 @@ module Main
     configure do |config|
       config.root = Pathname(__FILE__).join("../..").realpath.dirname.freeze
 
+      config.default_namespace = "main"
+
       config.auto_register = %w[
         lib/main/operations
         lib/main/persistence

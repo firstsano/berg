@@ -24,7 +24,7 @@ class Roda
       module RequestMethods
         def view(name, overrides = {})
           options = {scope: scope.current_page}.merge(overrides)
-          is(to: "#{scope.name}.views.#{name}", call_with: [options])
+          is(to: "views.#{name}", call_with: [options])
         end
       end
     end
@@ -32,7 +32,7 @@ class Roda
     module Auth
       module RequestMethods
         def authorize
-          resolve("admin.authentication.authorize") do |authorize|
+          resolve("authentication.authorize") do |authorize|
             authorize.(scope.session) do |m|
               m.success do |user|
                 set_current_user!(user)

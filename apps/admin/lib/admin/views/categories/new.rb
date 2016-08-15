@@ -6,7 +6,7 @@ module Admin
   module Views
     module Categories
       class New < Admin::View
-        include Admin::Import("admin.categories.forms.form")
+        include Admin::Import["categories.forms.form"]
 
         configure do |config|
           config.template = "categories/new"

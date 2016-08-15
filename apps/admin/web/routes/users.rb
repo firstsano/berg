@@ -7,7 +7,7 @@ class Admin::Application
         end
 
         r.post do
-          r.resolve "admin.transactions.create_user" do |create_user|
+          r.resolve "transactions.create_user" do |create_user|
             create_user.(r[:user]) do |m|
               m.success do
                 flash[:notice] = t["admin.users.user_created"]
@@ -32,7 +32,7 @@ class Admin::Application
         end
 
         r.is do
-          r.resolve "admin.users.operations.update" do |update_user|
+          r.resolve "users.operations.update" do |update_user|
             update_user.(id, r[:user]) do |m|
               m.success do
                 flash[:notice] = t["admin.users.user_updated"]
@@ -51,7 +51,7 @@ class Admin::Application
             r.view "users.password", id: id
           end
           r.put do
-            r.resolve "admin.users.operations.change_password" do |change_password|
+            r.resolve "users.operations.change_password" do |change_password|
               change_password.(id, r[:user]) do |m|
                 m.success do
                   flash[:notice] = t["admin.users.password_changed"]

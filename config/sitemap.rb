@@ -4,7 +4,7 @@ require "mime-types"
 
 require_relative "../component/boot"
 
-sitemaps = Main::Container["main.persistence.repositories.sitemaps"]
+sitemaps = Main::Container["persistence.repositories.sitemaps"]
 config = Berg::Container["config"]
 
 # Set the host name for URL creation

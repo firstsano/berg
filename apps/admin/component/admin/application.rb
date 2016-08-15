@@ -36,10 +36,6 @@ module Admin
     plugin :page
     plugin :view
 
-    def name
-      :admin
-    end
-
     def current_user
       env["admin.current_user"]
     end
@@ -61,7 +57,7 @@ module Admin
         end
 
         r.post do
-          r.resolve "admin.transactions.request_password_reset" do |request_password_reset|
+          r.resolve "transactions.request_password_reset" do |request_password_reset|
             request_password_reset.(r[:email]) do |m|
               m.success do
                 flash[:notice] = t["admin.auth.reset_password"]
@@ -78,7 +74,7 @@ module Admin
       end
 
       r.on "reset-password/:access_token" do |access_token|
-        r.resolve "admin.authentication.access_token" do |authenticate_access_token|
+        r.resolve "authentication.access_token" do |authenticate_access_token|
           authenticate_access_token.(access_token) do |m|
             m.success do |user|
               r.get do
@@ -86,7 +82,7 @@ module Admin
               end
 
               r.post do
-                r.resolve "admin.users.operations.change_password" do |change_password|
+                r.resolve "users.operations.change_password" do |change_password|
                   change_password.(user.id, r[:user]) do |n|
                     n.success do
                       flash[:notice] = t["admin.auth.password_set"]
@@ -117,10 +113,10 @@ module Admin
       if ENV["RACK_ENV"] == "production"
         if e.is_a?(ROM::TupleCountMismatchError)
           response.status = 404
-          self.class["main.views.errors.error_404"].(scope: current_page)
+          self.class["views.errors.error_404"].(scope: current_page)
         else
           Bugsnag.auto_notify e
-          self.class["main.views.errors.error_500"].(scope: current_page)
+          self.class["views.errors.error_500"].(scope: current_page)
         end
       else
         Bugsnag.auto_notify e

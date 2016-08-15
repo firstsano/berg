@@ -5,7 +5,7 @@ module Admin
   module Categories
     module Forms
       class Form < Berg::Form
-        include Admin::Import["admin.persistence.repositories.categories"]
+        include Admin::Import["persistence.repositories.categories"]
 
         prefix :category
 

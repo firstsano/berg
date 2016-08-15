@@ -6,7 +6,7 @@ module Admin
   module Views
     module Posts
       class Index < Admin::View
-        include Admin::Import("admin.persistence.repositories.posts")
+        include Admin::Import["persistence.repositories.posts"]
 
         configure do |config|
           config.template = "posts/index"

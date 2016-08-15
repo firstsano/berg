@@ -6,9 +6,9 @@ RSpec.shared_context "admin auth" do
   def create_user(attrs = {})
     name = attrs.fetch(:name)
 
-    access_token = Admin::Container["admin.users.access_token"]
+    access_token = Admin::Container["users.access_token"]
 
-    result = Admin::Container["admin.persistence.repositories.users"].create(
+    result = Admin::Container["persistence.repositories.users"].create(
       email: "#{name.downcase}@doe.org",
       name: name,
       active: attrs.fetch(:active) { true },

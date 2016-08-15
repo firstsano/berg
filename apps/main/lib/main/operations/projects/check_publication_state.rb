@@ -5,7 +5,7 @@ module Main
   module Operations
     module Projects
       class CheckPublicationState
-        include Main::Import("main.persistence.repositories.projects")
+        include Main::Import["persistence.repositories.projects"]
         include Berg::Matcher
 
         def call(slug)

@@ -4,10 +4,10 @@ require "berg/matcher"
 module Admin
   module Authentication
     class Authorize
-      include Admin::Import(
+      include Admin::Import[
         "core.authentication.encrypt_password",
-        "admin.persistence.repositories.users",
-      )
+        "persistence.repositories.users",
+      ]
 
       include Berg::Matcher
 

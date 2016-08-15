@@ -5,6 +5,7 @@ module Admin
 
     configure do |config|
       config.name = :admin
+      config.default_namespace = "admin"
 
       config.root = Pathname(__FILE__).join("../..").realpath.dirname.freeze
 

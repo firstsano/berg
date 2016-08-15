@@ -7,10 +7,10 @@ module Main
     module Posts
       module Category
         class Index < Main::View
-          include Main::Import(
-            "main.persistence.repositories.posts",
-            "main.persistence.repositories.categories",
-          )
+          include Main::Import[
+            "persistence.repositories.posts",
+            "persistence.repositories.categories",
+          ]
 
           configure do |config|
             config.template = "posts/category/index"

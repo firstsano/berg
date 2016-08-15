@@ -5,10 +5,10 @@ module Admin
   module Users
     module Operations
       class SendActivationEmail
-        include Admin::Import(
-          "admin.mailer",
-          "admin.persistence.repositories.users",
-        )
+        include Admin::Import[
+          "mailer",
+          "persistence.repositories.users",
+        ]
 
         def call(user)
           mail = Emails::AccountActivation.new(user: user)

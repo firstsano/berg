@@ -2,7 +2,7 @@ require "admin/import"
 
 module Admin
   class Mailer
-    include Admin::Import("core.logger", "core.postmark")
+    include Admin::Import["core.logger", "core.postmark"]
 
     def deliver(mail)
       logger.debug("[Admin::Mailer] delivering: #{mail.inspect}")

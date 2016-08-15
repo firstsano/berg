@@ -3,7 +3,7 @@ require "bundler/setup"
 
 start = Time.now
 require "dry/web/console"
-require_relative "../component/boot"
+require_relative "../system/boot"
 
 stop = Time.now
 

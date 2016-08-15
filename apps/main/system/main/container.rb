@@ -1,6 +1,6 @@
 module Main
   class Container < Dry::Web::Container
-    require root.join("component/berg/container")
+    require root.join("system/berg/container")
     import Berg::Container
 
     configure do |config|
@@ -16,6 +16,6 @@ module Main
       ]
     end
 
-    load_paths! "lib", "component"
+    load_paths! "lib", "system"
   end
 end

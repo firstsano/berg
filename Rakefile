@@ -9,7 +9,7 @@ begin
   task default: [:spec]
 rescue LoadError; end # rubocop:disable Lint/HandleExceptions
 
-require_relative "component/berg/container"
+require_relative "system/berg/container"
 Berg::Container.boot! :config
 
 Berg::Container.boot! :bugsnag

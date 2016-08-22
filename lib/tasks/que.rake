@@ -1,6 +1,6 @@
 namespace :que do
   task :environment do
-    require_relative "../../component/boot"
+    require_relative "../../system/boot"
   end
 
   desc "Process Que's jobs using a worker pool"

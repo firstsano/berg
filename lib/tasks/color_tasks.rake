@@ -1,6 +1,6 @@
 namespace :color_tasks do
   task :environment do
-    require_relative "../../component/boot"
+    require_relative "../../system/boot"
   end
 
   desc "Apply colors to existing projects"

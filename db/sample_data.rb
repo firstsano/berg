@@ -1,4 +1,4 @@
-require_relative "../component/boot"
+require_relative "../system/boot"
 require "faker"
 
 def core

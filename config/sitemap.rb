@@ -2,7 +2,7 @@ require "sitemap_generator"
 require "fog/aws"
 require "mime-types"
 
-require_relative "../component/boot"
+require_relative "../system/boot"
 
 sitemaps = Main::Container["persistence.repositories.sitemaps"]
 config = Berg::Container["config"]

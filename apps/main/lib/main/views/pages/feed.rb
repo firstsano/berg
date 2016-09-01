@@ -9,7 +9,7 @@ module Main
         include Main::Import["persistence.repositories.posts"]
 
         def call(options = {})
-          template_path = "#{config.root}/pages/feed.#{options[:format]}.#{options[:engine]}"
+          template_path = "#{config.paths.first}/pages/feed.#{options[:format]}.#{options[:engine]}"
           Tilt::BuilderTemplate.new(template_path).render(posts: Decorators::PublicPost.decorate(posts.for_rss_feed))
         end
       end

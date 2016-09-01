@@ -3,7 +3,7 @@ html lang="en-au"
   head
     == page.head
     == page.analytics
-  body data-view-boids=true
+  body data-view-boids=('true' if page.current_path == "/")
     == page.flash
     == page.skip_links
     .content.mx-auto

@@ -14,23 +14,23 @@ def admin
 end
 
 def create_user(attrs)
-  admin["admin.users.operations.create"].call(attrs).value
+  admin["users.operations.create"].call(attrs).value
 end
 
 def create_person(attrs)
-  admin["admin.people.operations.create"].call(attrs).value
+  admin["people.operations.create"].call(attrs).value
 end
 
 def create_post(attrs)
-  admin["admin.posts.operations.create"].call(attrs).value
+  admin["posts.operations.create"].call(attrs).value
 end
 
 def create_project(attrs)
-  admin["admin.projects.operations.create"].call(attrs).value
+  admin["projects.operations.create"].call(attrs).value
 end
 
 def create_category(attrs)
-  admin["admin.categories.operations.create"].call(attrs).value
+  admin["categories.operations.create"].call(attrs).value
 end
 
 create_user(
@@ -51,7 +51,7 @@ create_person(
 )
 
 author = admin["persistence.repositories.people"][1]
-admin["admin.users.operations.change_password"].(1, password: "changeme")
+admin["users.operations.change_password"].(1, password: "changeme")
 
 20.times do
   create_post(

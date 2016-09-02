@@ -76,7 +76,8 @@ end
     body: Faker::Hipster.paragraph,
     status: "draft",
     case_study: false,
-    cover_image: nil
+    cover_image: nil,
+    summary: Faker::Hipster.sentence
   )
 end
 

@@ -8,7 +8,7 @@
 [![Code Climate](https://codeclimate.com/github/icelab/berg/badges/gpa.svg)][code climate]
 [![Test Coverage](https://codeclimate.com/github/icelab/berg/badges/coverage.svg)][code climate coverage]
 
-The new [icelab.com.au](http://icelab.com.au), built with with [dry-web](https://github.com/dry-rb/dry-web), [ROM](http://rom-rb.org/) and [Roda](http://roda.jeremyevans.net).
+The new [icelab.com.au](http://icelab.com.au), built with with [dry-rb](http://dry-rb.org/), [rom-rb](http://rom-rb.org/) and [Roda](http://roda.jeremyevans.net).
 
 ## Development
 

@@ -3,6 +3,10 @@ require "admin_app_helper"
 RSpec.feature "Admin / Activation", js: true do
   include_context "admin users"
 
+  before do
+    Timecop.freeze(Time.now)
+  end
+
   scenario "I can activate my account by setting my password" do
     visit("/admin/reset-password/#{jane.access_token}")
 
@@ -25,6 +29,16 @@ RSpec.feature "Admin / Activation", js: true do
 
   scenario "I am redirected to sign-in page when token is not valid" do
     visit("/admin/reset-password/not-good")
+
+    expect(page).to have_content("Token is invalid or expired")
+    expect(page).to have_content("Sign in")
+  end
+
+  scenario "I am redirected to sign-in page when token has expired" do
+    # Tokens are valid for two days, so advance 3 days
+    Timecop.travel(Time.now + 3 * 24 * 60 * 60)
+
+    visit("/admin/reset-password/#{jane.access_token}")
 
     expect(page).to have_content("Token is invalid or expired")
     expect(page).to have_content("Sign in")

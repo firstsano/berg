@@ -7,8 +7,8 @@ module Admin
       attribute :name, Types::Strict::String
       attribute :email, Types::Strict::String
       attribute :encrypted_password, Types::Nil | Types::Strict::String
-      attribute :access_token, Types::Strict::String
-      attribute :access_token_expiration, Types::Strict::Time
+      attribute :access_token, Types::Nil | Types::Strict::String
+      attribute :access_token_expiration, Types::Nil | Types::Strict::Time
       attribute :active, Types::Strict::Bool
 
       alias_method :active?, :active

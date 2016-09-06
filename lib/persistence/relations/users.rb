@@ -7,8 +7,8 @@ module Persistence
         attribute :name, Types::Strict::String
         attribute :encrypted_password, Types::Strict::String.optional
         attribute :active, Types::Strict::Bool
-        attribute :access_token, Types::Strict::String
-        attribute :access_token_expiration, Types::Strict::Time
+        attribute :access_token, Types::Strict::String.optional
+        attribute :access_token_expiration, Types::Strict::Time.optional
       end
 
       def by_id(id)
@@ -20,7 +20,7 @@ module Persistence
       end
 
       def by_access_token(token)
-        where(access_token: token)
+        where("access_token = ? AND access_token_expiration > ?", token, Time.now)
       end
 
       def active

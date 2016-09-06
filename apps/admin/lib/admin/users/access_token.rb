@@ -8,7 +8,7 @@ module Admin
       end
 
       def expires_at
-        Time.now + 2
+        Time.now + 2.days
       end
     end
   end

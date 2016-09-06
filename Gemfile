@@ -67,4 +67,5 @@ group :test do
   gem "poltergeist"
   gem "rspec"
   gem "site_prism"
+  gem "timecop"
 end

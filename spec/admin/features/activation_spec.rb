@@ -1,6 +1,6 @@
 require "admin_app_helper"
 
-RSpec.feature "Admin / Users / Activation", js: true do
+RSpec.feature "Admin / Activation", js: true do
   include_context "admin users"
 
   scenario "I can activate my account by setting my password" do
@@ -28,5 +28,22 @@ RSpec.feature "Admin / Users / Activation", js: true do
 
     expect(page).to have_content("Token is invalid or expired")
     expect(page).to have_content("Sign in")
+  end
+
+  scenario "The access token is cleared when my password is set successfully" do
+    visit("/admin/reset-password/#{jane.access_token}")
+
+    find("#password").set("super-secret")
+    find("button", text: "Save").trigger("click")
+
+    expect(page).to have_content("Your password has been set")
+
+    find("nav a", text: "Log out").trigger("click")
+
+    expect(page).to have_content("You are now signed out")
+
+    visit("/admin/reset-password/#{jane.access_token}")
+
+    expect(page).to have_content("Token is invalid or expired")
   end
 end

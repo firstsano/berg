@@ -4,7 +4,7 @@ require "admin/entities/asset"
 
 module Admin
   module Entities
-    class Post < Dry::Types::Struct
+    class Post < Dry::Struct
       attribute :id, Types::Strict::Int
       attribute :title, Types::Strict::String
       attribute :teaser, Types::Strict::String

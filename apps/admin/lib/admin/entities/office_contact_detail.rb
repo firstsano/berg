@@ -2,7 +2,7 @@ require "types"
 
 module Admin
   module Entities
-    class OfficeContactDetail < Dry::Types::Struct
+    class OfficeContactDetail < Dry::Struct
       attribute :id, Types::Strict::Int
       attribute :name, Types::Strict::String
       attribute :address, Types::Strict::String

@@ -4,7 +4,7 @@ require "main/renderers/html_without_block_elements"
 
 module Main
   module Entities
-    class WorkPageFeaturedItem < Dry::Types::Struct
+    class WorkPageFeaturedItem < Dry::Struct
       attribute :id, Types::Strict::Int
       attribute :position, Types::Strict::Int
       attribute :title, Types::Strict::String

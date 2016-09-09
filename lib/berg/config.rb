@@ -2,7 +2,7 @@ require "types"
 require "yaml"
 
 module Berg
-  class Config < Dry::Types::Struct
+  class Config < Dry::Struct
     RequiredString = Types::Strict::String.constrained(min_size: 1)
 
     attribute :admin_url, RequiredString

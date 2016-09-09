@@ -29,8 +29,11 @@ gem "bcrypt"
 gem "dry-equalizer"
 gem "dry-matcher"
 gem "dry-transaction"
-gem "dry-types", "~> 0.8"
-gem "dry-validation", "~> 0.8"
+
+gem "dry-validation", "~> 0.10"
+gem "dry-types", "~> 0.9"
+gem "dry-struct", "~> 0.1"
+
 gem "dry-view", git: "https://github.com/dry-rb/dry-view", branch: "master"
 gem "dry-system"
 gem "fog-aws"

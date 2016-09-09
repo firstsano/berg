@@ -2,7 +2,7 @@ require "types"
 
 module Main
   module Entities
-    class Person < Dry::Types::Struct
+    class Person < Dry::Struct
       attribute :id, Types::Strict::Int
       attribute :name, Types::Strict::String
       attribute :slug, Types::Strict::String

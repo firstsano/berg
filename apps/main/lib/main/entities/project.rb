@@ -2,7 +2,7 @@ require "types"
 
 module Main
   module Entities
-    class Project < Dry::Types::Struct
+    class Project < Dry::Struct
       attribute :id, Types::Strict::Int
       attribute :title, Types::Strict::String
       attribute :client, Types::Strict::String

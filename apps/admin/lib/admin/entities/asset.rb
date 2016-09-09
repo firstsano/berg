@@ -2,7 +2,7 @@ require "types"
 
 module Admin
   module Entities
-    class Asset < Dry::Types::Struct
+    class Asset < Dry::Struct
       # Assets are often loaded from JSON columns in other tables, which means
       # their keys are strings. Use a symbolized constructor here to make sure
       # we can find the keys we need to initialize a valid object.

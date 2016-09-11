@@ -10,9 +10,9 @@ SPEC_ROOT = Pathname(__FILE__).dirname
 Dir[SPEC_ROOT.join("support/*.rb").to_s].each(&method(:require))
 Dir[SPEC_ROOT.join("shared/*.rb").to_s].each(&method(:require))
 
-require SPEC_ROOT.join("../system/berg/container")
+require SPEC_ROOT.join("../umbrella/system/umbrella/container")
 
-Berg::Container.boot!(:i18n)
+Umbrella::Container.boot!(:i18n)
 
 # Load each app's container
 app_names = Dir[SPEC_ROOT.join("../apps/*")].map(&File.method(:basename))

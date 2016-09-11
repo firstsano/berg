@@ -1,4 +1,4 @@
-Berg::Container.namespace "persistence" do |persistence|
+Umbrella::Container.namespace "persistence" do |persistence|
   persistence.finalize :rom do
     init do
       use :config
@@ -18,9 +18,9 @@ Berg::Container.namespace "persistence" do |persistence|
 
     start do
       config = container["persistence.config"]
-      config.auto_registration(container.root.join("lib/persistence"))
+      config.auto_registration container.root.join("persistence")
 
-      persistence.register("rom", ROM.container(config))
+      persistence.register "rom", ROM.container(config)
     end
   end
 end

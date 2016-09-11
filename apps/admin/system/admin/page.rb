@@ -1,7 +1,10 @@
 require "berg/page"
+require "admin/import"
 
 module Admin
   class Page < Berg::Page
+    include Admin::Import.hash[assets: "core.assets"]
+
     def authorized(current_user)
       Authorized.new(options.merge(current_user: current_user))
     end

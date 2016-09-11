@@ -1,7 +1,7 @@
 module Admin
   class Container < Dry::Web::Container
-    require root.join("system/berg/container")
-    import Berg::Container
+    require root.join("umbrella/system/umbrella/container")
+    import Umbrella::Container
 
     configure do |config|
       config.name = :admin

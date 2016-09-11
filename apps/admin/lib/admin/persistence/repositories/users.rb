@@ -1,10 +1,10 @@
-require "berg/repository"
+require "umbrella/repository"
 require "admin/entities/user"
 
 module Admin
   module Persistence
     module Repositories
-      class Users < Berg::Repository[:users]
+      class Users < Umbrella::Repository[:users]
         commands :create, update: [:by_id, :by_email]
 
         alias_method :update, :update_by_id

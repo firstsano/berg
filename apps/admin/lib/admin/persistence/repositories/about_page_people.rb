@@ -1,9 +1,9 @@
-require "berg/repository"
+require "umbrella/repository"
 
 module Admin
   module Persistence
     module Repositories
-      class AboutPagePeople < Berg::Repository[:about_page_people]
+      class AboutPagePeople < Umbrella::Repository[:about_page_people]
         def update(attrs)
           command(:about_page_people)[:update].(attrs)
         end

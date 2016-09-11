@@ -1,10 +1,10 @@
-require "berg/repository"
+require "umbrella/repository"
 require "main/entities/work_page_featured_item"
 
 module Main
   module Persistence
     module Repositories
-      class WorkPageFeaturedItems < Berg::Repository[:work_page_featured_items]
+      class WorkPageFeaturedItems < Umbrella::Repository[:work_page_featured_items]
         relations :work_page_featured_items
 
         def listing

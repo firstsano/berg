@@ -1,9 +1,9 @@
-require "berg/repository"
+require "umbrella/repository"
 
 module Main
   module Persistence
     module Repositories
-      class Sitemaps < Berg::Repository
+      class Sitemaps < Umbrella::Repository
         relations :posts, :projects
 
         def post_slugs

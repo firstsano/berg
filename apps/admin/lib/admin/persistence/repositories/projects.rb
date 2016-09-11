@@ -1,11 +1,11 @@
-require "berg/repository"
+require "umbrella/repository"
 require "admin/entities/project"
 require "admin/entities/asset"
 
 module Admin
   module Persistence
     module Repositories
-      class Projects < Berg::Repository[:projects]
+      class Projects < Umbrella::Repository[:projects]
         commands :create, update: [:by_id, :by_slug]
 
         alias_method :update, :update_by_id

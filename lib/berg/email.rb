@@ -2,20 +2,21 @@ require "dry-equalizer"
 require "dry-view"
 require "slim"
 require "tilt/erb"
-require "berg/import"
 
 module Berg
   class Email < Dry::View::Layout
     include Dry::Equalizer(:to_h)
-    include Berg::Import.kwargs["i18n.t"]
 
+    attr_reader :t
     attr_reader :options
 
     setting :formats, html: :slim, txt: :erb
 
-    def initialize(options)
-      super(t: options[:t])
+    def initialize(t:, **options)
+      @t = t
       @options = options
+
+      super()
     end
 
     def to_h

@@ -1,10 +1,10 @@
-require "berg/repository"
+require "umbrella/repository"
 require "admin/entities/category"
 
 module Admin
   module Persistence
     module Repositories
-      class Categories < Berg::Repository[:categories]
+      class Categories < Umbrella::Repository[:categories]
         commands :create, delete: [:by_slug], update: [:by_slug]
 
         def [](id)

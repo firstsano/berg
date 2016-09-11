@@ -21,7 +21,7 @@ module Admin
         end
 
         def reset_password_url
-          "#{Berg::Container['config'].admin_url}/reset-password/#{user.access_token}"
+          "#{Umbrella::Container['config'].admin_url}/reset-password/#{user.access_token}"
         end
 
         def user

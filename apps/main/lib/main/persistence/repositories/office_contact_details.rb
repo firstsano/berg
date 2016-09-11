@@ -1,10 +1,10 @@
-require "berg/repository"
+require "umbrella/repository"
 require "main/entities/office_contact_detail"
 
 module Main
   module Persistence
     module Repositories
-      class OfficeContactDetails < Berg::Repository[:office_contact_details]
+      class OfficeContactDetails < Umbrella::Repository[:office_contact_details]
         relations :office_contact_details
 
         def for_contact_page

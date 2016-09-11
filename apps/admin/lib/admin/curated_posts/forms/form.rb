@@ -18,7 +18,7 @@ module Admin
             text_field :image_url, label: "Image URL"
             upload_field :image_upload,
               label: "Image Upload",
-              presign_url: "#{Berg::Container['config'].canonical_domain}/admin/uploads/presign"
+              presign_url: "#{Umbrella::Container['config'].canonical_domain}/admin/uploads/presign"
           end
 
           group do

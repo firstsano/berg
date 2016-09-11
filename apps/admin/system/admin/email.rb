@@ -1,8 +1,8 @@
-require "berg/email"
+require "umbrella/email"
 require "admin/container"
 
 module Admin
-  class Email < Berg::Email
+  class Email < Umbrella::Email
     configure do |config|
       config.paths = [Container.root.join("emails")]
       config.name = "email"

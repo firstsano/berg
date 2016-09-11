@@ -3,6 +3,7 @@
 
 # Local config
 /config/application.yml
+/umbrella/config/application.html
 
 # Asset artifacts
 /assets/build

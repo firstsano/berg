@@ -1,9 +1,9 @@
-require "berg/repository"
+require "umbrella/repository"
 
 module Admin
   module Persistence
     module Repositories
-      class HomePageFeaturedItems < Berg::Repository[:home_page_featured_items]
+      class HomePageFeaturedItems < Umbrella::Repository[:home_page_featured_items]
         def update(attrs)
           command(:home_page_featured_items)[:update].(attrs)
         end

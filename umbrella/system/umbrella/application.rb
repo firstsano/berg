@@ -1,6 +1,6 @@
 require "bugsnag"
 
-module Berg
+module Umbrella
   class Application < Roda
     use Bugsnag::Rack
 

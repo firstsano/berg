@@ -2,11 +2,11 @@ module TestHelpers
   module_function
 
   def container
-    Berg::Container
+    Umbrella::Container
   end
 
   def app
-    Berg::Application.app
+    Umbrella::Application.app
   end
 
   def rom

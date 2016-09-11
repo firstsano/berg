@@ -7,7 +7,7 @@ require "main/page"
 require "berg/assets"
 
 module Main
-  Container.register "page", Page.new(assets: Berg::Assets.new)
+  Container.register "page", Page.new
 
   class View < Dry::View::Layout
     setting :paths, [Container.root.join("web/templates")]

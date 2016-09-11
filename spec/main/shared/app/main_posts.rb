@@ -1,6 +1,6 @@
 RSpec.shared_context "main posts" do
   def create_user(name: "Jane")
-    Berg::Container["persistence.commands.create_user"].(
+    Umbrella::Container["persistence.commands.create_user"].(
       name: name,
       email: "#{name}#{Random.new.rand(100)}@example.org",
       active: true,
@@ -10,7 +10,7 @@ RSpec.shared_context "main posts" do
   end
 
   def create_post(title, teaser, slug, person, status = "published")
-    Berg::Container["persistence.commands.create_post"].(
+    Umbrella::Container["persistence.commands.create_post"].(
       title: title,
       body: "test",
       teaser: teaser,

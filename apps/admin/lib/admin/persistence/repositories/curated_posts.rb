@@ -1,10 +1,10 @@
-require "berg/repository"
+require "umbrella/repository"
 require "admin/entities/curated_post"
 
 module Admin
   module Persistence
     module Repositories
-      class CuratedPosts < Berg::Repository[:curated_posts]
+      class CuratedPosts < Umbrella::Repository[:curated_posts]
         commands :create, update: [:by_id]
 
         def [](id)

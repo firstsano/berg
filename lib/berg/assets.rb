@@ -8,16 +8,6 @@ module Berg
     attr_reader :server_link_url
     attr_reader :server_read_url
 
-    def self.new(container = Berg::Container)
-      super(
-        root: container.config.root,
-        precompiled: container["config"].precompiled_assets,
-        precompiled_host: container["config"].precompiled_assets_host,
-        server_link_url: container["config"].assets_server_link_url,
-        server_read_url: container["config"].assets_server_read_url,
-      )
-    end
-
     def initialize(root:, precompiled:, precompiled_host: nil, server_link_url: nil, server_read_url: nil)
       @root = root
       @precompiled = precompiled

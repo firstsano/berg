@@ -1,10 +1,10 @@
-require "berg/repository"
+require "umbrella/repository"
 require "main/entities/person"
 
 module Main
   module Persistence
     module Repositories
-      class People < Berg::Repository[:people]
+      class People < Umbrella::Repository[:people]
         relations :people
 
         def for_about_page

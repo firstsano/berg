@@ -2,7 +2,7 @@ require_relative "../system/boot"
 require "faker"
 
 def core
-  Berg::Container
+  Umbrella::Container
 end
 
 def main

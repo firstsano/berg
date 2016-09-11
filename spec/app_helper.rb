@@ -8,9 +8,9 @@ require "capybara/poltergeist"
 Dir[SPEC_ROOT.join("support/app/*.rb").to_s].each(&method(:require))
 Dir[SPEC_ROOT.join("shared/app/*.rb").to_s].each(&method(:require))
 
-require SPEC_ROOT.join("../system/boot").realpath
+require SPEC_ROOT.join("../umbrella/system/boot").realpath
 
-Capybara.app = Berg::Application.app
+Capybara.app = Umbrella::Application.app
 Capybara.server_port = 3001
 Capybara.save_path = "#{File.dirname(__FILE__)}/../tmp/capybara-screenshot"
 Capybara.javascript_driver = :poltergeist
@@ -38,6 +38,6 @@ RSpec.configure do |config|
       puts "\e[31mWARN: Using phantomjs #{phantomjs_versions} which is < #{required_phantomjs_version}, please upgrade\e[0m"
       exit(status=false)
     end
-    Berg::Application.freeze
+    Umbrella::Application.freeze
   end
 end

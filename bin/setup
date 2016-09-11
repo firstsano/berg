@@ -20,7 +20,7 @@ APP_ROOT = File.expand_path("../../", __FILE__)
 
 Dir.chdir(APP_ROOT) do
   puts "== Initializing config =="
-  FileUtils.cp "config/application.example.yml", "config/application.yml" unless File.exist?("config/application.yml")
+  FileUtils.cp "umbrella/config/application.example.yml", "umbrella/config/application.yml" unless File.exist?("umbrella/config/application.yml")
 
   puts "== Installing dependencies =="
   system "bundle"

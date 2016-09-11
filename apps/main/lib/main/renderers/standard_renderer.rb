@@ -92,7 +92,7 @@ class StandardRenderer < Redcarpet::Render::HTML
   end
 
   def link_with_canonical_domain(link)
-    canonical_domain = Berg::Container["config"].canonical_domain
+    canonical_domain = Umbrella::Container["config"].canonical_domain
     if /^\//.match(link)
       link = "#{canonical_domain}#{link}"
     end
@@ -100,7 +100,7 @@ class StandardRenderer < Redcarpet::Render::HTML
   end
 
   def link_with_precompiled_assets_host(link)
-    precompiled_assets_host = Berg::Container["config"].precompiled_assets_host
+    precompiled_assets_host = Umbrella::Container["config"].precompiled_assets_host
     if precompiled_assets_host
       if link.match(/^\//)
         link = "#{precompiled_assets_host}#{link}"

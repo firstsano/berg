@@ -1,4 +1,4 @@
-Berg::Container.namespace :que do |container|
+Umbrella::Container.namespace :que do |container|
   container.finalize :que do
     require "que"
 

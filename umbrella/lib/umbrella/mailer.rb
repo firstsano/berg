@@ -1,11 +1,12 @@
-require "berg/import"
+require "umbrella/container"
+require "umbrella/import"
 
-module Berg
+module Umbrella
   class Mailer
-    include Berg::Import["logger", "postmark"]
+    include Umbrella::Import["logger", "postmark"]
 
     def deliver(mail)
-      logger.debug("[Berg::Mailer] delivering: #{mail.inspect}")
+      logger.debug("[Umbrella::Mailer] delivering: #{mail.inspect}")
       postmark.deliver(mail.to_h.merge(from: from))
     end
 

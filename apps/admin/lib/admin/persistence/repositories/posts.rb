@@ -1,11 +1,11 @@
-require "berg/repository"
+require "umbrella/repository"
 require "admin/entities/post"
 require "admin/entities/asset"
 
 module Admin
   module Persistence
     module Repositories
-      class Posts < Berg::Repository[:posts]
+      class Posts < Umbrella::Repository[:posts]
         relations :categories
 
         commands update: [:by_id, :by_slug]

@@ -1,10 +1,10 @@
-require "berg/repository"
+require "umbrella/repository"
 require "admin/entities/office_contact_detail"
 
 module Admin
   module Persistence
     module Repositories
-      class OfficeContactDetails < Berg::Repository[:office_contact_details]
+      class OfficeContactDetails < Umbrella::Repository[:office_contact_details]
         def update(attrs)
           command(:office_contact_details)[:update].(attrs)
         end

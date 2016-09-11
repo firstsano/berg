@@ -1,10 +1,10 @@
-require "berg/repository"
+require "umbrella/repository"
 require "main/entities/post"
 
 module Main
   module Persistence
     module Repositories
-      class Posts < Berg::Repository[:posts]
+      class Posts < Umbrella::Repository[:posts]
         relations :posts, :people, :categories
 
         def by_slug(slug)

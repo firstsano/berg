@@ -1,10 +1,10 @@
-require "berg/repository"
+require "umbrella/repository"
 require "main/entities/curated_post"
 
 module Main
   module Persistence
     module Repositories
-      class CuratedPosts < Berg::Repository[:curated_posts]
+      class CuratedPosts < Umbrella::Repository[:curated_posts]
         def for_home_page
           curated_posts
             .published

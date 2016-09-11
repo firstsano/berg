@@ -1,4 +1,4 @@
-canonical_domain = Berg::Container["config"].canonical_domain
+canonical_domain = Umbrella::Container["config"].canonical_domain
 xml.instruct!
 xml.feed "xmlns" => "http://www.w3.org/2005/Atom" do
   xml.title "Icelab"

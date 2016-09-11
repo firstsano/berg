@@ -1,10 +1,10 @@
-require "berg/email"
+require "umbrella/email"
 require "main/container"
 
 module Main
-  class Email < Berg::Email
+  class Email < Umbrella::Email
     configure do |config|
-      config.root = Container.root.join("emails")
+      config.paths = Container.root.join("emails")
       config.name = "email"
     end
   end

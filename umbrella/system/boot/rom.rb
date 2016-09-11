@@ -1,5 +1,5 @@
 Berg::Container.namespace "persistence" do |persistence|
-  persistence.finalize(:rom) do
+  persistence.finalize :rom do
     init do
       use :config
 

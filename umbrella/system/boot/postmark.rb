@@ -1,4 +1,4 @@
-Berg::Container.finalize(:postmark) do |_container|
+Berg::Container.finalize :postmark do |_container|
   uses :config
 
   require "postmark"

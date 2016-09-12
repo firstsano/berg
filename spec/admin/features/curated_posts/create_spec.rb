@@ -21,8 +21,7 @@ RSpec.feature "Admin / Curated Posts / Create", js: true do
 
     find("button", text: "Create post").trigger("click")
 
-    expect(page).to have_content("Curated post has been created")
-
+    expect(page).to have_selector(".flash__message", text: "Curated post has been created")
     expect(page).to have_content("Cool image")
   end
 

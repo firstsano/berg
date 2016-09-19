@@ -1,5 +1,4 @@
 require "admin/import"
-require "admin/pages/work/forms/edit_form"
 require "admin/view"
 
 module Admin

@@ -1,6 +1,5 @@
 require "admin/import"
 require "admin/view"
-require "admin/projects/forms/edit_form"
 require "admin/decorators/asset"
 
 module Admin

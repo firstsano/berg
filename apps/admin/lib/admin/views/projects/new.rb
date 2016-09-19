@@ -1,6 +1,5 @@
 require "admin/import"
 require "admin/view"
-require "admin/projects/forms/create_form"
 
 module Admin
   module Views

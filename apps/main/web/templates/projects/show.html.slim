@@ -2,6 +2,10 @@
 == content_store.capture :og_meta_tags do
   meta property="og:title" content="Work / #{project.title}"
   meta property="og:description" content=project.summary_html.gsub(/<\/?[^>]*>/,"").gsub(/^(.{400,}?).*$/m,'\1...')
+  - if project.cover_image_url
+    meta property="og:image" content=project.cover_image_url
+    meta property="og:image:width" content="400"
+    meta property="og:image:height" content="340"
 
 .project
   .pulled-heading.pulled-heading--serif.pulled-heading--mid.pulled-heading--border-red.mx-auto class="pulled-heading--color-#{project.color}"

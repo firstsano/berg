@@ -23,7 +23,7 @@ module Admin
 
         def by_access_token(token)
           users
-            .by_access_token(token) { access_token_expiration > Time.now }
+            .by_access_token(token)
             .as(Entities::User).one
         end
 

@@ -28,7 +28,11 @@ module Admin
         private
 
         def prepare_attributes(attributes)
-          {encrypted_password: encrypt_password.(attributes[:password])}
+          {
+            encrypted_password: encrypt_password.(attributes[:password]),
+            access_token: nil,
+            access_token_expiration: nil
+          }
         end
       end
     end

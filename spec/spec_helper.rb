@@ -2,6 +2,7 @@ require "codeclimate-test-reporter"
 CodeClimate::TestReporter.start
 
 require "byebug"
+require "timecop"
 
 ENV["RACK_ENV"] = "test"
 

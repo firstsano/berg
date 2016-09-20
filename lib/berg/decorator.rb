@@ -14,5 +14,9 @@ module Berg
       prefix, basename = File.split(file_path)
       [Berg::Container["config"].attache_downloads_base_url, "view", prefix, CGI.escape(geometry), CGI.escape(basename)].join("/")
     end
+
+    def replace_attache_urls(str)
+      str.gsub(/#{Berg::Container["config"].attache_uploads_base_url}/, Berg::Container["config"].attache_downloads_base_url)
+    end
   end
 end

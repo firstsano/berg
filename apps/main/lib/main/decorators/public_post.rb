@@ -66,7 +66,7 @@ module Main
 
       def to_html(input)
         renderer = Redcarpet::Markdown.new(StandardRenderer, footnotes: true, hard_wrap: true, fenced_code_blocks: true, tables: true, no_intra_emphasis: true)
-        renderer.render(input)
+        replace_attache_urls(renderer.render(input))
       end
 
       def single_line_markdown(input)

@@ -9,8 +9,7 @@ class Main::Application
     end
 
     r.on "author/:author" do |author|
-      #r.view "posts.author.index", author: author, page: r[:page] || 1
-      p author
+      r.view "posts.author.index", author: author, page: r[:page] || 1
     end
 
     r.on ":slug" do |slug|

@@ -44,6 +44,11 @@ module Persistence
           .inner_join(:categorisations, post_id: :posts__id)
           .where(category_id: category_id)
       end
+
+      def for_person(person_id)
+        select(*columns.map { |c| :"posts__#{c}" })
+          .where(person_id: person_id)
+      end
     end
   end
 end

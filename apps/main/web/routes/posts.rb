@@ -8,6 +8,11 @@ class Main::Application
       r.view "posts.category.index", category: category, page: r[:page] || 1
     end
 
+    r.on "author/:author" do |author|
+      #r.view "posts.author.index", author: author, page: r[:page] || 1
+      p author
+    end
+
     r.on ":slug" do |slug|
       r.resolve("operations.posts.check_publication_state") do |check_publication_state|
         check_publication_state.(slug) do |m|

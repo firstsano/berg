@@ -2,16 +2,12 @@
 -- PostgreSQL database dump
 --
 
--- Dumped from database version 9.5.2
--- Dumped by pg_dump version 9.5.2
-
 SET statement_timeout = 0;
 SET lock_timeout = 0;
 SET client_encoding = 'UTF8';
 SET standard_conforming_strings = on;
 SET check_function_bodies = false;
 SET client_min_messages = warning;
-SET row_security = off;
 
 --
 -- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: -
@@ -48,7 +44,7 @@ SET default_tablespace = '';
 SET default_with_oids = false;
 
 --
--- Name: about_page_people; Type: TABLE; Schema: public; Owner: -
+-- Name: about_page_people; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
 CREATE TABLE about_page_people (
@@ -58,7 +54,7 @@ CREATE TABLE about_page_people (
 
 
 --
--- Name: categories; Type: TABLE; Schema: public; Owner: -
+-- Name: categories; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
 CREATE TABLE categories (
@@ -88,7 +84,7 @@ ALTER SEQUENCE categories_id_seq OWNED BY categories.id;
 
 
 --
--- Name: categorisations; Type: TABLE; Schema: public; Owner: -
+-- Name: categorisations; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
 CREATE TABLE categorisations (
@@ -118,7 +114,7 @@ ALTER SEQUENCE categorisations_id_seq OWNED BY categorisations.id;
 
 
 --
--- Name: curated_posts; Type: TABLE; Schema: public; Owner: -
+-- Name: curated_posts; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
 CREATE TABLE curated_posts (
@@ -156,7 +152,7 @@ ALTER SEQUENCE curated_posts_id_seq OWNED BY curated_posts.id;
 
 
 --
--- Name: home_page_featured_items; Type: TABLE; Schema: public; Owner: -
+-- Name: home_page_featured_items; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
 CREATE TABLE home_page_featured_items (
@@ -190,7 +186,7 @@ ALTER SEQUENCE home_page_featured_items_id_seq OWNED BY home_page_featured_items
 
 
 --
--- Name: office_contact_details; Type: TABLE; Schema: public; Owner: -
+-- Name: office_contact_details; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
 CREATE TABLE office_contact_details (
@@ -224,7 +220,7 @@ ALTER SEQUENCE office_contact_details_id_seq OWNED BY office_contact_details.id;
 
 
 --
--- Name: people; Type: TABLE; Schema: public; Owner: -
+-- Name: people; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
 CREATE TABLE people (
@@ -262,7 +258,7 @@ ALTER SEQUENCE people_id_seq OWNED BY people.id;
 
 
 --
--- Name: posts; Type: TABLE; Schema: public; Owner: -
+-- Name: posts; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
 CREATE TABLE posts (
@@ -302,7 +298,7 @@ ALTER SEQUENCE posts_id_seq OWNED BY posts.id;
 
 
 --
--- Name: projects; Type: TABLE; Schema: public; Owner: -
+-- Name: projects; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
 CREATE TABLE projects (
@@ -345,7 +341,7 @@ ALTER SEQUENCE projects_id_seq OWNED BY projects.id;
 
 
 --
--- Name: que_jobs; Type: TABLE; Schema: public; Owner: -
+-- Name: que_jobs; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
 CREATE TABLE que_jobs (
@@ -387,7 +383,7 @@ ALTER SEQUENCE que_jobs_job_id_seq OWNED BY que_jobs.job_id;
 
 
 --
--- Name: schema_migrations; Type: TABLE; Schema: public; Owner: -
+-- Name: schema_migrations; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
 CREATE TABLE schema_migrations (
@@ -396,7 +392,7 @@ CREATE TABLE schema_migrations (
 
 
 --
--- Name: users; Type: TABLE; Schema: public; Owner: -
+-- Name: users; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
 CREATE TABLE users (
@@ -432,7 +428,7 @@ ALTER SEQUENCE users_id_seq OWNED BY users.id;
 
 
 --
--- Name: work_page_featured_items; Type: TABLE; Schema: public; Owner: -
+-- Name: work_page_featured_items; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
 CREATE TABLE work_page_featured_items (
@@ -543,7 +539,7 @@ ALTER TABLE ONLY work_page_featured_items ALTER COLUMN id SET DEFAULT nextval('w
 
 
 --
--- Name: about_page_people_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: about_page_people_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
 --
 
 ALTER TABLE ONLY about_page_people
@@ -551,7 +547,7 @@ ALTER TABLE ONLY about_page_people
 
 
 --
--- Name: categories_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: categories_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
 --
 
 ALTER TABLE ONLY categories
@@ -559,7 +555,7 @@ ALTER TABLE ONLY categories
 
 
 --
--- Name: categorisations_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: categorisations_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
 --
 
 ALTER TABLE ONLY categorisations
@@ -567,7 +563,7 @@ ALTER TABLE ONLY categorisations
 
 
 --
--- Name: curated_posts_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: curated_posts_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
 --
 
 ALTER TABLE ONLY curated_posts
@@ -575,7 +571,7 @@ ALTER TABLE ONLY curated_posts
 
 
 --
--- Name: home_page_featured_items_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: home_page_featured_items_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
 --
 
 ALTER TABLE ONLY home_page_featured_items
@@ -583,7 +579,7 @@ ALTER TABLE ONLY home_page_featured_items
 
 
 --
--- Name: office_contact_details_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: office_contact_details_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
 --
 
 ALTER TABLE ONLY office_contact_details
@@ -591,7 +587,7 @@ ALTER TABLE ONLY office_contact_details
 
 
 --
--- Name: people_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: people_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
 --
 
 ALTER TABLE ONLY people
@@ -599,7 +595,7 @@ ALTER TABLE ONLY people
 
 
 --
--- Name: posts_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: posts_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
 --
 
 ALTER TABLE ONLY posts
@@ -607,7 +603,7 @@ ALTER TABLE ONLY posts
 
 
 --
--- Name: posts_slug_key; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: posts_slug_key; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
 --
 
 ALTER TABLE ONLY posts
@@ -615,7 +611,7 @@ ALTER TABLE ONLY posts
 
 
 --
--- Name: projects_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: projects_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
 --
 
 ALTER TABLE ONLY projects
@@ -623,7 +619,7 @@ ALTER TABLE ONLY projects
 
 
 --
--- Name: projects_slug_key; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: projects_slug_key; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
 --
 
 ALTER TABLE ONLY projects
@@ -631,7 +627,7 @@ ALTER TABLE ONLY projects
 
 
 --
--- Name: que_jobs_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: que_jobs_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
 --
 
 ALTER TABLE ONLY que_jobs
@@ -639,7 +635,7 @@ ALTER TABLE ONLY que_jobs
 
 
 --
--- Name: schema_migrations_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: schema_migrations_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
 --
 
 ALTER TABLE ONLY schema_migrations
@@ -647,7 +643,7 @@ ALTER TABLE ONLY schema_migrations
 
 
 --
--- Name: users_email_key; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: users_email_key; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
 --
 
 ALTER TABLE ONLY users
@@ -655,7 +651,7 @@ ALTER TABLE ONLY users
 
 
 --
--- Name: users_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: users_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
 --
 
 ALTER TABLE ONLY users
@@ -663,7 +659,7 @@ ALTER TABLE ONLY users
 
 
 --
--- Name: work_page_featured_items_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: work_page_featured_items_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
 --
 
 ALTER TABLE ONLY work_page_featured_items

@@ -46,6 +46,15 @@ module Main
             .order(Sequel.desc(:published_at))
             .as(Entities::Post::WithAuthor)
         end
+
+        def for_person(person_id, page: 1, per_page: 20)
+          aggregate(:author)
+            .published
+            .for_person(person_id)
+            .per_page(per_page).page(page)
+            .order(Sequel.desc(:published_at))
+            .as(Entities::Post::WithAuthor)
+        end
       end
     end
   end

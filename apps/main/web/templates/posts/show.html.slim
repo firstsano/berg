@@ -17,7 +17,7 @@
       span == post.title_html
   .note__body.grid.grid--narrow.mx-auto
     .note__meta
-      span.note__author By #{post.author.name}
+      a.note__author href="/notes/author/#{post.author.id}" By #{post.author.name}
       span.note__date == post.published_date
     .note__copy.copy.clearfix
       == post.body_html
@@ -26,8 +26,9 @@
       .note__footer-author.fl-left
         span.note__footer-heading Author
         - if post.author.avatar_url
-          img.fl-left.note__footer-author-avatar src="#{post.author.avatar_url(160)}" width="80" height="80"
-        span.note__footer-author-title class="c-#{post.color}"
+          a href="/notes/author/#{post.author.id}"
+            img.fl-left.note__footer-author-avatar src="#{post.author.avatar_url(160)}" width="80" height="80"
+        a.note__footer-author-title href="/notes/author/#{post.author.id}" class="c-#{post.color}"
           == post.author.name
         .note__footer-author-bio
           == post.author.short_bio_html

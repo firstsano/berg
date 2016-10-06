@@ -1,0 +1,23 @@
+- content_store.capture(:title, "Notes by #{author.name}")
+== content_store.capture :og_meta_tags do
+  meta property="og:title" content="Notes by #{author.name}"
+  meta property="og:description" content="#{author.name} has lots of good ideas. Sometimes he writes them down..."
+
+/ Notes by author
+.notes
+  .pulled-heading.pulled-heading--smaller-serif.pulled-heading--no-underline.pulled-heading--mid.pulled-heading--color-blue.pulled-heading--border-blue.mx-auto
+    h3.pulled-heading__heading
+      | Notes by #{author.name}
+    .notes__older-newer.fl-right
+      == paginator.pager_links
+
+  - if indexed_posts.any?
+    ul.notes-index.grid.grid--mid.mx-auto
+      - indexed_posts.each do |indexed_post|
+        == indexed_post.snippet
+
+  .notes__pagination-and-older-newer.grid.grid--mid.mx-auto.clearfix
+    .notes__pagination.fl-left
+      == paginator.pager_numbers
+    .notes__older-newer.notes__older-newer--footer.fl-right
+      == paginator.pager_links

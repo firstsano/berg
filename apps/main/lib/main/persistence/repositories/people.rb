@@ -12,6 +12,13 @@ module Main
             .for_about_page
             .as(Entities::Person)
         end
+
+        def by_id!(id)
+          people
+            .by_id(id)
+            .as(Entities::Person)
+            .one!
+        end
       end
     end
   end

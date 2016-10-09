@@ -234,7 +234,8 @@ CREATE TABLE people (
     updated_at timestamp without time zone DEFAULT timezone('utc'::text, now()) NOT NULL,
     short_bio text DEFAULT ''::text NOT NULL,
     name text DEFAULT ''::text NOT NULL,
-    city text NOT NULL
+    city text NOT NULL,
+    slug text DEFAULT ''::text
 );
 
 
@@ -592,6 +593,14 @@ ALTER TABLE ONLY office_contact_details
 
 ALTER TABLE ONLY people
     ADD CONSTRAINT people_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: people_slug_key; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY people
+    ADD CONSTRAINT people_slug_key UNIQUE (slug);
 
 
 --

@@ -19,10 +19,10 @@ module Main
           def locals(options = {})
             options = {per_page: 20, page: 1}.merge(options)
 
-            author_id = options.fetch(:author)
-            author    = people.by_id!(author_id)
-            all_posts = posts.for_person(author.id, page: options[:page], per_page: options[:per_page])
-            posts     = Decorators::PublicPost.decorate(all_posts)
+            author_slug = options.fetch(:author)
+            author      = people.by_slug!(author_slug)
+            all_posts   = posts.for_person(author.id, page: options[:page], per_page: options[:per_page])
+            posts       = Decorators::PublicPost.decorate(all_posts)
 
             super.merge(
               author: author,

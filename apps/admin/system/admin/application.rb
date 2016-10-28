@@ -35,6 +35,7 @@ module Admin
     plugin :json
     plugin :page
     plugin :view
+    plugin :default_headers, "Cache-Control" => "private, no-cache"
 
     def current_user
       env["admin.current_user"]

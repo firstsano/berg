@@ -28,6 +28,7 @@ module Main
     plugin :not_found
     plugin :page
     plugin :view
+    plugin :default_headers, "Cache-Control" => "public, max-age=86400"
 
     route do |r|
       r.root do

@@ -28,6 +28,8 @@ module Main
     plugin :not_found
     plugin :page
     plugin :view
+    plugin :caching
+    plugin :default_headers, "Cache-Control" => "public, max-age=86400"
 
     route do |r|
       r.root do
@@ -45,9 +47,11 @@ module Main
       if ENV["RACK_ENV"] != "development"
         if e.is_a?(ROM::TupleCountMismatchError)
           response.status = 404
+          response.cache_control private: true, no_cache: true
           self.class["views.errors.error_404"].(scope: current_page)
         else
           Bugsnag.auto_notify e
+          response.cache_control private: true, no_cache: true
           self.class["views.errors.error_500"].(scope: current_page)
         end
       else

@@ -17,7 +17,8 @@
       span == post.title_html
   .note__body.grid.grid--narrow.mx-auto
     .note__meta
-      a.note__author href="/notes/author/#{post.author.slug}" By #{post.author.name}
+      a.note__author href="/notes/author/#{post.author.slug}"
+        span By #{post.author.name}
       span.note__date == post.published_date
     .note__copy.copy.clearfix
       == post.body_html

@@ -15,7 +15,7 @@ h1.h-1 People
             tr id="person-#{person.id}"
               td.f-mono = person.id
               td
-                a> href="/admin/people/#{person.id}/edit"
+                a> href="/admin/people/#{person.slug}/edit"
                   = person.name
 p
   == paginator.pagination

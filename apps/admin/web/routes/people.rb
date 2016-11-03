@@ -26,9 +26,9 @@ class Admin::Application
         r.view "people.new"
       end
 
-      r.on ":id" do |id|
+      r.on ":slug" do |slug|
         r.get "edit" do
-          r.view "people.edit", id: id
+          r.view "people.edit", slug: slug
         end
 
         r.put do

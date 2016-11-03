@@ -10,11 +10,11 @@ module Admin
 
         include Berg::Matcher
 
-        def call(id, attributes)
-          validation = Validation::Form.(prepare_attributes(attributes))
+        def call(slug, attributes)
+          validation = Validation::Form.(prepare_attributes(slug, attributes))
           if validation.success?
-            people.update_by_id(id, validation.to_h)
-            Dry::Monads::Right(people[id])
+            people.update(slug, validation.output)
+            Dry::Monads::Right(people.by_slug(validation.output.fetch(:slug) { slug }))
           else
             Dry::Monads::Left(validation)
           end
@@ -22,9 +22,10 @@ module Admin
 
         private
 
-        def prepare_attributes(attributes)
+        def prepare_attributes(slug, attributes)
           attributes.merge(
-            avatar_image: attributes["avatar_image"]
+            avatar_image: attributes["avatar_image"],
+            previous_slug: slug
           )
         end
       end

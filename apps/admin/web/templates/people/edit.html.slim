@@ -8,7 +8,7 @@ p.link-children
 
 .panel
   .panel__primary
-    form action="/admin/people/#{person.id}" method="post"
+    form action="/admin/people/#{person.slug}" method="post"
       == csrf_tag
       input type="hidden" name="_method" value="put"
       fieldset

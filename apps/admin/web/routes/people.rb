@@ -33,14 +33,14 @@ class Admin::Application
 
         r.put do
           r.resolve "people.operations.update" do |update_person|
-            update_person.(id, r[:person]) do |m|
+            update_person.(slug, r[:person]) do |m|
               m.success do
                 flash[:notice] = t["admin.people.person_updated"]
                 r.redirect "/admin/people"
               end
 
               m.failure do |validation|
-                r.view "people.edit", id: id, validation: validation
+                r.view "people.edit", slug: slug, validation: validation
               end
             end
           end

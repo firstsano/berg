@@ -15,7 +15,7 @@ module Admin
         end
 
         def locals(options = {})
-          person = people.by_slug!(options[:slug])
+          person = people.by_slug(options[:slug])
 
           validation = options[:validation]
 

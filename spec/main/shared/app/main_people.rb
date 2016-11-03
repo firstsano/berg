@@ -7,6 +7,7 @@ RSpec.shared_context "main people" do
       short_bio: bio,
       active: true,
       city: "Melbourne",
+      slug: name.downcase.gsub(" ", "-")
     )
   end
 end

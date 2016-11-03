@@ -13,6 +13,11 @@ module Admin
               validation: {
                 filled: true
               }
+            text_field :slug,
+              label: "Slug",
+              validation: {
+                filled: true
+              }
           end
 
           group do

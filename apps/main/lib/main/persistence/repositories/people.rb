@@ -19,6 +19,13 @@ module Main
             .as(Entities::Person)
             .one!
         end
+
+        def by_slug!(slug)
+          people
+            .by_slug(slug)
+            .as(Entities::Person)
+            .one!
+        end
       end
     end
   end

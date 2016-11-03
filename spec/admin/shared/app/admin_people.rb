@@ -10,6 +10,7 @@ RSpec.shared_context "admin people" do
       "website_url" => "",
       "job_title" => "Developer",
       "city" => "Melbourne",
+      "slug" => name.gsub(" ", "-").downcase
     }.merge(attrs)).value
   end
 

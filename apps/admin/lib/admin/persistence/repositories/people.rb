@@ -6,7 +6,7 @@ module Admin
     module Repositories
       class People < Berg::Repository[:people]
         relations :people
-        commands :create, update: [:by_slug, :by_name]
+        commands :create, update: :by_slug
 
         def [](id)
           people.by_id(id).as(Entities::Person).one!

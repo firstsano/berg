@@ -12,6 +12,7 @@ module Admin
 
         def call(slug, attributes)
           validation = Validation::Form.(prepare_attributes(slug, attributes))
+
           if validation.success?
             people.update(slug, validation.output)
             Dry::Monads::Right(people.by_slug(validation.output.fetch(:slug) { slug }))

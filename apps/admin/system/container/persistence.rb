@@ -16,6 +16,13 @@ Admin::Container.namespace "persistence" do |container|
     )
   end
 
+  container.register "person_slug_uniqueness_check" do
+    Admin::Persistence::UniquenessCheck.new(
+      container["core.persistence.rom"].relation(:people),
+      :slug,
+    )
+  end
+
   container.register "post_slug_uniqueness_check" do
     Admin::Persistence::UniquenessCheck.new(
       container["core.persistence.rom"].relation(:posts),

@@ -3,7 +3,7 @@ require "admin/entities/asset"
 
 module Admin
   module Entities
-    class Project < Dry::Struct
+    class Project < Types::Struct
       attribute :id, Types::Strict::Int
       attribute :title, Types::Strict::String
       attribute :client, Types::Strict::String

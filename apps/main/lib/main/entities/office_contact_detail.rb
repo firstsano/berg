@@ -5,7 +5,7 @@ require "main/renderers/html_without_block_elements"
 
 module Main
   module Entities
-    class OfficeContactDetail < Dry::Struct
+    class OfficeContactDetail < Types::Struct
       attribute :id, Types::Strict::Int
       attribute :name, Types::Strict::String
       attribute :address, Types::Strict::String

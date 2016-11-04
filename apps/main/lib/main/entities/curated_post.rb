@@ -2,7 +2,7 @@ require "types"
 
 module Main
   module Entities
-    class CuratedPost < Dry::Struct::Value
+    class CuratedPost < Types::Struct::Value
       constructor_type(:permissive)
 
       attribute :id, Types::Strict::Int

@@ -49,6 +49,35 @@ module Persistence
         select(*columns.map { |c| :"posts__#{c}" })
           .where(person_id: person_id)
       end
+
+      def search(q)
+        query = PG::Connection.escape_string(q)
+        sql = <<-SQL
+          SELECT id, title, teaser, body, cover_image, slug, color, status, person_id, published_at, assets, created_at, updated_at
+            FROM (SELECT posts.id as id,
+                   title,
+                   teaser,
+                   body,
+                   cover_image,
+                   posts.slug as slug,
+                   color,
+                   status,
+                   person_id,
+                   published_at,
+                   assets,
+                   posts.created_at as created_at,
+                   posts.updated_at as updated_at,
+                   setweight(to_tsvector(posts.title), 'A') ||
+                   setweight(to_tsvector(posts.body), 'B') ||
+                   setweight(to_tsvector('simple', people.name), 'C') as document
+                  FROM posts
+                  JOIN people ON people.id = posts.person_id
+                  GROUP BY posts.id, people.id) p_search
+            WHERE p_search.document @@ plainto_tsquery('english', '#{query}')
+            ORDER BY ts_rank(p_search.document, plainto_tsquery('english', '#{query}')) DESC
+        SQL
+        __new__(dataset.with_sql(sql))
+      end
     end
   end
 end

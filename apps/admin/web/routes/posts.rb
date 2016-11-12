@@ -22,6 +22,10 @@ class Admin::Application
         end
       end
 
+      r.get "search" do
+        r.view "posts.search", page: r[:page], query: r[:q]
+      end
+
       r.get "new" do
         r.view "posts.new"
       end

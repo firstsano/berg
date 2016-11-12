@@ -42,6 +42,15 @@ module Admin
             .as(Entities::Post)
         end
 
+        def search(query: nil, per_page: 20, page: 1)
+          posts
+            .search(query)
+            .per_page(per_page)
+            .page(page)
+            .order(Sequel.desc(:published_at))
+            .as(Entities::Post)
+        end
+
         def recent_colors
           posts
             .select(:color)

@@ -23,6 +23,7 @@ module Admin
 
           super.merge(
             post: post,
+            query: nil,
             form: post_form(post, validation)
           )
         end

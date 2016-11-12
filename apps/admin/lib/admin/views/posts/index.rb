@@ -21,6 +21,7 @@ module Admin
 
           super.merge(
             posts: admin_posts,
+            query: nil,
             paginator: Paginator.new(all_posts.pager, url_template: "/admin/posts?page=%")
           )
         end

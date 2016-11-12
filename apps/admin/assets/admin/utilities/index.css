@@ -25,3 +25,8 @@
 .vertical-align--bottom {
   vertical-align: bottom;
 }
+
+.form-fields input {
+  width: 25rem;
+  height: 3rem;
+}

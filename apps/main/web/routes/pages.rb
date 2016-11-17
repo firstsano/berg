@@ -25,6 +25,10 @@ class Main::Application
     r.view "pages.work"
   end
 
+  route "careers" do |r|
+    r.view "pages.careers"
+  end
+
   route "feed" do |r|
     response["Content-Type"] = "application/xml"
     r.view "pages.feed", format: :xml, engine: :builder

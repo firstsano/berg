@@ -25,6 +25,12 @@ RSpec.feature "Main / Pages" do
     expect(page).to have_title "Notes — Icelab"
   end
 
+  scenario "Visiting the Careers page" do
+    visit "/careers"
+    expect(page.status_code).to eql 200
+    expect(page).to have_title "Careers — Icelab"
+  end
+
   scenario "Visiting the Contact page" do
     visit "/contact"
     expect(page.status_code).to eql 200

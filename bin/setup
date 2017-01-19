@@ -24,7 +24,7 @@ Dir.chdir(APP_ROOT) do
 
   puts "== Installing dependencies =="
   system "bundle"
-  system "npm install"
+  # system "npm install"
 
   puts "== Creating databases =="
   system "createdb berg_development || true" unless options[:ci]
@@ -47,8 +47,9 @@ Dir.chdir(APP_ROOT) do
     system "touch apps/main/assets/inline-header/target.js"
 
     File.open("apps/main/assets/target.js", "w") do |file|
-      file << "__webpack_public_path__ = '/main/' // eslint-disable-line \n"
-      file << 'require.context(".", true, /^\.\/.*\.(jpe?g|png|gif|svg)$/)'
+      file << "__webpack_public_path__ = '/main/'\n"
+      file << 'require.context(\'.\', true, /^\.\/.*\.(jpe?g|png|gif|svg)$/)'
+      file << "\n"
     end
 
     system "mkdir -p apps/main/assets/inline-footer/"

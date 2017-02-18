@@ -1,0 +1,25 @@
+[data-view-expandable] {
+  position: relative;
+}
+
+[data-view-expandable] li ul {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 3rem;
+  background: #fff;
+  border: 0.1rem solid #eaeaea;
+  width: 15rem;
+  z-index: 2;
+}
+
+[data-view-expandable] li ul li {
+  padding: 1rem;
+  border-bottom: 0.1rem solid #eaeaea;
+}
+
+[data-view-expandable] li.expanded ul {
+  display: inline;
+}
+
+

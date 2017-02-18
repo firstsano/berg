@@ -20,6 +20,8 @@ en:
     posts:
       post_created: "Post has been created"
       post_updated: "Post has been updated"
+      post_shared: "Post has been shared"
+      post_share_failed: "Post share failed"
     projects:
       project_created: "Project has been created"
       project_updated: "Project has been updated"

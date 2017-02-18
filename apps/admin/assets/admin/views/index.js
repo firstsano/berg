@@ -1,4 +1,6 @@
 /**
  * Object for holding our `viewloader` views
  */
-export default {}
+import expandable from '../expandable'
+
+export default {expandable}

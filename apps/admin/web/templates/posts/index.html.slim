@@ -12,6 +12,7 @@ h1.h-1 Posts
             th Status
             th Published at
             th.horizontal-align--center Actions
+            th
         tbody
           - posts.each do |post|
             tr id="post-#{post.slug}"
@@ -25,6 +26,20 @@ h1.h-1 Posts
                   = post.published_date
                 td.horizontal-align--center.vertical-align--middle
                   a href="/notes/#{post.slug}" View
+                td.horizontal-align--center.vertical-align--middle
+                  ul data-view-expandable="true"
+                    li data-expandable="true"
+                      button.button.fl-right.button.button--ghost.button--xsmall Share&hellip;
+                      ul
+                        - if post.medium_url
+                          li
+                            a href=post.medium_url View on Medium
+                        - else
+                          li
+                            form method="POST" action="/admin/posts/#{post.slug}/share/medium"
+                              ==csrf_tag
+                              button Share on Medium
+
               - else
                 td
                 td

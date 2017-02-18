@@ -31,6 +31,24 @@ class Admin::Application
           r.view "posts.edit", slug: slug
         end
 
+        r.on "share" do
+          r.post "medium" do
+            r.resolve "posts.operations.share.medium" do |share|
+              share.(slug) do |m|
+                m.success do
+                  flash[:notice] = t["admin.posts.post_shared"]
+                  r.redirect "/admin/posts"
+                end
+
+                m.failure do
+                  flash[:notice] = t["admin.posts.post_share_failed"]
+                  r.redirect "/admin/posts"
+                end
+              end
+            end
+          end
+        end
+
         r.put do
           r.resolve "posts.operations.update" do |update_post|
             update_post.(slug, r[:post]) do |m|

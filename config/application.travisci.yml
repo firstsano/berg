@@ -13,6 +13,7 @@ development: &base
   postmark_api_key:
   basic_auth_user:
   basic_auth_password:
+  medium_integration_token: "xxx"
 test:
   <<: *base
   database_url: "postgres://localhost/berg_test"

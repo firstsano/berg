@@ -46,6 +46,7 @@ gem "transproc", git: "https://github.com/solnic/transproc"
 
 # 3rd party services
 gem "bugsnag"
+gem "medium-sdk-ruby"
 gem "postmark"
 
 group :development, :test do

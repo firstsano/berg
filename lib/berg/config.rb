@@ -35,6 +35,7 @@ module Berg
     attribute :aws_region, Types::String
 
     attribute :ga_tracking_id, Types::String
+    attribute :medium_integration_token, Types::String
 
     def self.load(root, name, env)
       path = root.join("config").join("#{name}.yml")

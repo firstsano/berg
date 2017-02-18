@@ -21,6 +21,7 @@ development: &base
   aws_bucket: "icelab-site-production"
   aws_region: "ap-southeast-2"
   ga_tracking_id:
+  medium_integration_token: "xxx"
 test:
   <<: *base
   database_url: "postgres://localhost/berg_test"

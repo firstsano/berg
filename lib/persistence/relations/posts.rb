@@ -13,6 +13,7 @@ module Persistence
         attribute :person_id, Types::ForeignKey(:people)
         attribute :published_at, Types::Strict::Time.optional
         attribute :assets, Types::JSON
+        attribute :medium_url, Types::Strict::String
 
         associations do
           belongs_to :person, as: :author

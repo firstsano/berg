@@ -17,6 +17,7 @@ module Admin
       attribute :published_at, Types::Strict::Time.optional
       attribute :color, Types::PostHighlightColor
       attribute :assets, Types::Coercible::Array.member(Admin::Entities::Asset).optional
+      attribute :medium_url, Types::Strict::String.optional
 
       def published?
         status == "published"

@@ -35,7 +35,7 @@ module Admin
               content_format: "html",
               content: post.body,
               tags: post.categories.map(&:name),
-              canonical_url: "#{Berg::Container["config"].canonical_domain}/notes/#{post.slug}",
+              canonical_url: "#{Berg::Container['config'].canonical_domain}/notes/#{post.slug}",
               publishStatus: "public"
             }
           end

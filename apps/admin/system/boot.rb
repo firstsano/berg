@@ -7,9 +7,6 @@ Admin::Container.require "system/container/persistence"
 Admin::Container.finalize! do |container|
   require "admin/enqueue"
   container.register :enqueue, Admin::Enqueue.new
-  container.register :medium_client, ::Medium::Client.new(
-    integration_token: Berg::Container["config"].medium_integration_token
-  )
 end
 
 require "admin/application"

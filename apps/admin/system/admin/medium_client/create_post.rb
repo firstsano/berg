@@ -4,7 +4,7 @@ module Admin
   module MediumClient
     class CreatePost
       include Admin::Import[
-        "medium_client"
+        "core.medium_client"
       ]
 
       def call(post_attrs)

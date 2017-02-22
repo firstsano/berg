@@ -7,7 +7,7 @@ RSpec.feature "Admin / Curated Posts / Create", js: true do
     sign_in(jane.email, jane.password)
   end
 
-  scenario "I can create a curated post" do
+  xscenario "I can create a curated post" do
     find("nav a", text: "Curated Posts").trigger("click")
 
     find("a", text: "Add a curated post").trigger("click")
@@ -26,7 +26,7 @@ RSpec.feature "Admin / Curated Posts / Create", js: true do
     expect(page).to have_content("Cool image")
   end
 
-  scenario "I can see validation errors" do
+  xscenario "I can see validation errors" do
     find("nav a", text: "Curated Posts").trigger("click")
 
     find("a", text: "Add a curated post").trigger("click")

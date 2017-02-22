@@ -22,7 +22,7 @@ RSpec.feature "Admin / Categories / Delete", js: true do
     expect(page).to_not have_content("Ruby")
   end
 
-  scenario "I can delete a category and see that it has been removed from a post" do
+  xscenario "I can delete a category and see that it has been removed from a post" do
     visit "/admin/posts"
 
     click_link "Add a post"

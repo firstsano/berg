@@ -45,7 +45,7 @@ RSpec.feature "Admin / Posts / Create", js: true do
     expect(page).to have_content("must be filled")
   end
 
-  scenario "I can add an existing category to a post" do
+  xscenario "I can add an existing category to a post" do
     find("nav a", text: "Posts", match: :prefer_exact).trigger("click")
 
     find("a", text: "Add a post").trigger("click")
@@ -70,7 +70,7 @@ RSpec.feature "Admin / Posts / Create", js: true do
     expect(page).to have_content("My Tag")
   end
 
-  scenario "A new post gets a color assigned" do
+  xscenario "A new post gets a color assigned" do
     find("nav a", text: "Posts", match: :prefer_exact).trigger("click")
 
     find("a", text: "Add a post").trigger("click")

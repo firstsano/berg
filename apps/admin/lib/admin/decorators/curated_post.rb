@@ -9,7 +9,7 @@ module Admin
 
       def thumbnail_image_url
         if image_upload && !image_url
-          attache_url_for(image_upload["path"], "64")
+          attache_url_builder.url(image_upload["path"], [:resize, "64x64"])
         else
           image_url
         end

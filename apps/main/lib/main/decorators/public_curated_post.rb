@@ -6,7 +6,11 @@ module Main
     class PublicCuratedPost < Berg::Decorator
       def image_url(size = "original")
         if image_upload && !__getobj__.image_url
-          attache_url_for(image_upload["path"], size.to_s)
+          if size == "original"
+            attache_url_builder.original_url(image_upload["path"])
+          else
+            attache_url_builder.url(image_upload["path"], [:resize, size.to_s])
+          end
         else
           __getobj__.image_url
         end

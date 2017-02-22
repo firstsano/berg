@@ -1,3 +1,5 @@
+require "berg/container"
+
 module Berg
   class Decorator < SimpleDelegator
     def self.decorate(object)
@@ -10,9 +12,8 @@ module Berg
 
     private
 
-    def attache_url_for(file_path, geometry)
-      prefix, basename = File.split(file_path)
-      [Berg::Container["config"].attache_downloads_base_url, "view", prefix, CGI.escape(geometry), CGI.escape(basename)].join("/")
+    def attache_url_builder
+      Berg::Container["attache.builder"]
     end
 
     def replace_attache_urls(str)

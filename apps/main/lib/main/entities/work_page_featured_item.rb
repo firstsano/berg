@@ -14,7 +14,7 @@ module Main
       attribute :highlight_color, Types::Strict::String
 
       def cover_image_url
-        attache_url_for(cover_image["path"], "800") if cover_image
+        attache_url_builder.url(cover_image["path"], [:resize, "800"]) if cover_image
       end
 
       def title_html
@@ -25,9 +25,10 @@ module Main
         single_line_markdown(teaser)
       end
 
-      def attache_url_for(file_path, geometry)
-        prefix, basename = File.split(file_path)
-        [Berg::Container["config"].attache_downloads_base_url, "view", prefix, CGI.escape(geometry), CGI.escape(basename)].join("/")
+      private
+
+      def attache_url_builder
+        Berg::Container["attache.builder"]
       end
 
       def single_line_markdown(input)

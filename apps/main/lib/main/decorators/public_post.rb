@@ -50,7 +50,7 @@ module Main
       def link_title; end
 
       def cover_image_url
-        attache_url_for(cover_image["path"], "260") if cover_image
+        attache_url_builder.url(cover_image["path"], [:resize, "260"]) if cover_image
       end
 
       def type
@@ -58,11 +58,6 @@ module Main
       end
 
       private
-
-      def attache_url_for(file_path, geometry)
-        prefix, basename = File.split(file_path)
-        [Berg::Container["config"].attache_downloads_base_url, "view", prefix, CGI.escape(geometry), CGI.escape(basename)].join("/")
-      end
 
       def to_html(input)
         renderer = Redcarpet::Markdown.new(StandardRenderer, footnotes: true, hard_wrap: true, fenced_code_blocks: true, tables: true, no_intra_emphasis: true)

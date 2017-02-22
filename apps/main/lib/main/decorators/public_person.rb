@@ -6,7 +6,13 @@ module Main
   module Decorators
     class PublicPerson < Berg::Decorator
       def avatar_url(size = "original")
-        attache_url_for(avatar_image["path"], size.to_s) if avatar_image
+        return if !avatar_image
+
+        if size == "original"
+          attache_url_builder.original_url(avatar_image["path"])
+        else
+          attache_url_builder.url(avatar_image["path"], [:resize, size.to_s])
+        end
       end
 
       def bio_html
@@ -18,11 +24,6 @@ module Main
       end
 
       private
-
-      def attache_url_for(file_path, geometry)
-        prefix, basename = File.split(file_path)
-        [Berg::Container["config"].attache_downloads_base_url, "view", prefix, CGI.escape(geometry), CGI.escape(basename)].join("/")
-      end
 
       def to_html(input)
         renderer = Redcarpet::Markdown.new(StandardRenderer, footnotes: true, hard_wrap: true, fenced_code_blocks: true, tables: true, no_intra_emphasis: true)

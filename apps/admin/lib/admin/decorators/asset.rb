@@ -10,11 +10,11 @@ module Admin
       end
 
       def thumbnail_url
-        attache_url_for(path, "75x75")
+        attache_url_builder.url(path, [:resize, "75x75"])
       end
 
       def original_url
-        attache_url_for(path, "original")
+        attache_url_builder.original_url(path)
       end
 
       def to_input_h
@@ -27,13 +27,6 @@ module Admin
           geometry: geometry,
           bytes: bytes
         }
-      end
-
-      private
-
-      def attache_url_for(file_path, geometry)
-        prefix, basename = File.split(file_path)
-        [Berg::Container["config"].attache_downloads_base_url, "view", prefix, CGI.escape(geometry), CGI.escape(basename)].join("/")
       end
     end
   end

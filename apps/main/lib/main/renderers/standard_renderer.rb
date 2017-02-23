@@ -84,10 +84,14 @@ class StandardRenderer < Redcarpet::Render::HTML
   end
 
   def resize_image(link, geometry)
+    link_url = URI(link)
+    path = link_url.path
+      .gsub(/\/view\//, "")
+      .gsub(/\/original/, "")
     if geometry
-      link.gsub(/\/original\//, "/#{geometry.to_s}/")
+      attache_url_builder.url(path, [:resize, geometry])
     else
-      link
+      attache_url_builder.original_url(path)
     end
   end
 
@@ -154,6 +158,12 @@ class StandardRenderer < Redcarpet::Render::HTML
     output << "</div>"
     output << "</figure>"
     output.join("")
+  end
+
+  private
+
+  def attache_url_builder
+    Berg::Container["attache.builder"]
   end
 end
 

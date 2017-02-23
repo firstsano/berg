@@ -91,7 +91,7 @@ class StandardRenderer < Redcarpet::Render::HTML
     if geometry
       attache_url_builder.url(path, [:resize, geometry])
     else
-      attache_url_builder.url(path)
+      attache_url_builder.original_url(path)
     end
   end
 

@@ -93,7 +93,7 @@ class StandardRenderer < Redcarpet::Render::HTML
     # HMAC strings in its URLs, or even better (b) move to our Formalist rich
     # text areas and use proper embedded image forms everywhere.
     path_segments = link_url.path.split("/")
-    path = path_segments.reject { |str| str.length > 2 } + [path_segments.last]
+    path = (path_segments.reject { |str| str.length > 2 } + [path_segments.last]).join("/")
 
     if geometry
       attache_url_builder.url(path, [:resize, geometry])

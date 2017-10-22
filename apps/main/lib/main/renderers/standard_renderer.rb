@@ -21,11 +21,11 @@ class StandardRenderer < Redcarpet::Render::HTML
       geometry: "500",
       class_name: "figure--align-right",
     }
-  }
+  }.freeze
 
-  DEFAULT_ATTRS = {}
-  # FIXME this is to make sure the accessor is consistently a string
-  DEFAULT_ATTRS["align"] = "center"
+  DEFAULT_ATTRS = {
+    "align" => "center", # FIXME this is to make sure the accessor is consistently a string
+  }.freeze
 
   # Input syntax:
   #
@@ -76,11 +76,9 @@ class StandardRenderer < Redcarpet::Render::HTML
   end
 
   def safe_json_parse(json)
-    begin
-      JSON.parse(json)
-    rescue JSON::ParserError => e
-      return JSON.parse("{}")
-    end
+    JSON.parse(json)
+  rescue JSON::ParserError
+    {}
   end
 
   def resize_image(link, geometry)

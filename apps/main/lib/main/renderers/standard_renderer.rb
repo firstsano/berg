@@ -83,9 +83,18 @@ class StandardRenderer < Redcarpet::Render::HTML
 
   def resize_image(link, geometry)
     link_url = URI(link)
-    path = link_url.path
-      .gsub(/\/view\//, "")
-      .gsub(/\/original/, "")
+
+    # Do a little trickery do get a path based on URLs that do or do not have
+    # HMAC strings. Rely on the fact that path segments are all 2-characters
+    # long.
+    #
+    # TODO: To be able to remove this, we need to (a) update all our the image
+    # URLs we've included in markdown text from before Attache was expecting
+    # HMAC strings in its URLs, or even better (b) move to our Formalist rich
+    # text areas and use proper embedded image forms everywhere.
+    path_segments = link_url.path.split("/")
+    path = path_segments.reject { |str| str.length > 2 } + [path_segments.last]
+
     if geometry
       attache_url_builder.url(path, [:resize, geometry])
     else

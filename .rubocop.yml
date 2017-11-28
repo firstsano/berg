@@ -3,6 +3,5 @@ inherit_gem:
     - default.yml
 AllCops:
   Exclude:
-    - bin/run
     - Rakefile
     - node_modules/**/*

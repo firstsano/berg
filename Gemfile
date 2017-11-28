@@ -49,6 +49,7 @@ gem "bugsnag"
 gem "postmark"
 
 group :development, :test do
+  gem "bundler-audit", require: false
   gem "danger"
   gem "danger-rubocop", git: "https://github.com/ashfurrow/danger-rubocop"
   gem "faker"

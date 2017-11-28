@@ -50,6 +50,9 @@ GEM
     bcrypt (3.1.11)
     bugsnag (4.2.1)
     builder (3.2.2)
+    bundler-audit (0.5.0)
+      bundler (~> 1.2)
+      thor (~> 0.18)
     byebug (9.0.5)
     capybara (2.7.1)
       addressable
@@ -340,6 +343,7 @@ DEPENDENCIES
   bcrypt
   bugsnag
   builder
+  bundler-audit
   capybara
   capybara-screenshot
   codeclimate-test-reporter

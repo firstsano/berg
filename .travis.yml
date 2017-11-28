@@ -29,6 +29,7 @@ before_script:
 - npm install -g npm
 - ./bin/setup --ci
 script:
+- bundle exec bundle-audit update && bundle exec bundle-audit check
 - bundle exec rake assets:precompile
 - bundle exec rake spec
 - bundle exec danger

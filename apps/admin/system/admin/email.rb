@@ -5,7 +5,7 @@ module Admin
   class Email < Berg::Email
     configure do |config|
       config.paths = [Container.root.join("emails")]
-      config.name = "email"
+      config.template = "email"
     end
   end
 end

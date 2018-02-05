@@ -12,4 +12,4 @@ require "admin/application"
 require "admin/view"
 require "admin/transactions"
 
-Admin::Container.require "transactions/**/*.rb"
+Admin::Container.require_from_root "transactions/**/*.rb"

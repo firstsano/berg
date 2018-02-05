@@ -9,4 +9,4 @@ require "main/application"
 require "main/view"
 require "main/transactions"
 
-Main::Container.require "transactions/**/*.rb"
+Main::Container.require_from_root "transactions/**/*.rb"

@@ -1,17 +1,10 @@
-require "types"
+require "berg/entity"
 
 module Main
   module Entities
-    class CuratedPost < Dry::Types::Value
-      attribute :id, Types::Strict::Int
-      attribute :title, Types::Strict::String.optional
-      attribute :body, Types::Strict::String.optional
-      attribute :link_title, Types::Strict::String
-      attribute :link_url, Types::Strict::String.optional
-      attribute :image_url, Types::Strict::String.optional
+    class CuratedPost < Berg::Entity
       attribute :status, Types::PostStatus
-      attribute :image_upload, Types::Form::Hash
-      attribute :published_at, Types::Time
+      attribute :image_upload, Types::Coercible::Hash
     end
   end
 end

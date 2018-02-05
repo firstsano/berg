@@ -1,17 +1,11 @@
 require "types"
+require "berg/entity"
 
 module Admin
   module Entities
-    class CuratedPost < Dry::Types::Value
-      attribute :id, Types::Strict::Int
-      attribute :title, Types::Strict::String.optional
-      attribute :body, Types::Strict::String.optional
-      attribute :link_url, Types::Strict::String
-      attribute :link_title, Types::Strict::String
-      attribute :image_url, Types::Strict::String.optional
+    class CuratedPost < Berg::Entity
       attribute :image_upload, Types::Coercible::Hash.optional
       attribute :status, Types::PostStatus
-      attribute :published_at, Types::Strict::Time.optional
 
       def deleted?
         status == "deleted"

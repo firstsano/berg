@@ -1,11 +1,8 @@
-require "types"
+require "berg/entity"
 
 module Admin
   module Entities
-    class Categorisation < Dry::Types::Struct
-      attribute :id, Types::Strict::Int
-      attribute :post_id, Types::Strict::Int
-      attribute :category_id, Types::Strict::Int
+    class Categorisation < Berg::Entity
     end
   end
 end

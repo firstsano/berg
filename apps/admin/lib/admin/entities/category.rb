@@ -1,11 +1,8 @@
-require "types"
+require "berg/entity"
 
 module Admin
   module Entities
-    class Category < Dry::Types::Struct
-      attribute :id, Types::Strict::Int
-      attribute :name, Types::Strict::String
-      attribute :slug, Types::Strict::String
+    class Category < Berg::Entity
     end
   end
 end

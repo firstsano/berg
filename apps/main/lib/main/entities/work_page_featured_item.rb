@@ -1,18 +1,10 @@
-require "types"
 require "redcarpet"
 require "main/renderers/html_without_block_elements"
+require "berg/entity"
 
 module Main
   module Entities
-    class WorkPageFeaturedItem < Dry::Types::Struct
-      attribute :id, Types::Strict::Int
-      attribute :position, Types::Strict::Int
-      attribute :title, Types::Strict::String
-      attribute :teaser, Types::String
-      attribute :url, Types::Strict::String
-      attribute :cover_image, Types::Hash
-      attribute :highlight_color, Types::Strict::String
-
+    class WorkPageFeaturedItem < Berg::Entity
       def cover_image_url
         attache_url_builder.url(cover_image["path"], [:resize, "800"]) if cover_image
       end

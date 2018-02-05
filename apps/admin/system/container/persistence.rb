@@ -4,35 +4,35 @@ require "admin/persistence/post_color_picker"
 Admin::Container.namespace "persistence" do |container|
   container.register "user_email_uniqueness_check" do
     Admin::Persistence::UniquenessCheck.new(
-      container["core.persistence.rom"].relation(:users),
+      container["core.persistence.rom"].relations[:users],
       :email,
     )
   end
 
   container.register "person_email_uniqueness_check" do
     Admin::Persistence::UniquenessCheck.new(
-      container["core.persistence.rom"].relation(:people),
+      container["core.persistence.rom"].relations[:people],
       :email,
     )
   end
 
   container.register "person_slug_uniqueness_check" do
     Admin::Persistence::UniquenessCheck.new(
-      container["core.persistence.rom"].relation(:people),
+      container["core.persistence.rom"].relations[:people],
       :slug,
     )
   end
 
   container.register "post_slug_uniqueness_check" do
     Admin::Persistence::UniquenessCheck.new(
-      container["core.persistence.rom"].relation(:posts),
+      container["core.persistence.rom"].relations[:posts],
       :slug,
     )
   end
 
   container.register "category_slug_uniqueness_check" do
     Admin::Persistence::UniquenessCheck.new(
-      container["core.persistence.rom"].relation(:categories),
+      container["core.persistence.rom"].relations[:categories],
       :slug,
     )
   end
@@ -53,7 +53,7 @@ Admin::Container.namespace "persistence" do |container|
 
   container.register "project_slug_uniqueness_check" do
     Admin::Persistence::UniquenessCheck.new(
-      container["core.persistence.rom"].relation(:projects),
+      container["core.persistence.rom"].relations[:projects],
       :slug,
     )
   end

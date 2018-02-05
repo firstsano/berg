@@ -10,9 +10,9 @@ begin
 rescue LoadError; end # rubocop:disable Lint/HandleExceptions
 
 require_relative "system/berg/container"
-Berg::Container.boot! :config
+Berg::Container.start :config
 
-Berg::Container.boot! :bugsnag
+Berg::Container.start :bugsnag
 require "bugsnag/rake"
 require "bugsnag/tasks"
 

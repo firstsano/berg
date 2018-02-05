@@ -13,7 +13,7 @@ Dir[SPEC_ROOT.join("shared/*.rb").to_s].each(&method(:require))
 
 require SPEC_ROOT.join("../system/berg/container")
 
-Berg::Container.boot!(:i18n)
+Berg::Container.start(:i18n)
 
 # Load each app's container
 app_names = Dir[SPEC_ROOT.join("../apps/*")].map(&File.method(:basename))

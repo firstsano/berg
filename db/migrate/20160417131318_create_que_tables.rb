@@ -1,6 +1,6 @@
 ROM::SQL.migration do
   change do
-    Berg::Container.boot! :que
+    Berg::Container.start :que
     Que.migrate!
   end
 end

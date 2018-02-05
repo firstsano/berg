@@ -5,7 +5,7 @@ require_relative "berg/container"
 
 Berg::Container.finalize! do |container|
   # Boot the app config before everything else
-  container.boot! :config
+  container.start :config
 end
 
 require_relative "berg/persistence"

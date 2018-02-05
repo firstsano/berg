@@ -7,6 +7,7 @@ gem "rake"
 # Web framework
 gem "dry-web", "~> 0.8"
 gem "dry-web-roda", "~> 0.9"
+gem "roda", "2.29"
 gem "notgun"
 gem "puma"
 gem "rack-rewrite"

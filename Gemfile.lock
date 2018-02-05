@@ -395,6 +395,7 @@ DEPENDENCIES
   rack_csrf
   rake
   redcarpet
+  roda (= 2.29)
   rom (~> 4.1)
   rom-sql (~> 2.1)
   rspec

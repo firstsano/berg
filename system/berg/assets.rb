@@ -10,11 +10,11 @@ module Berg
 
     def self.new(container = Berg::Container)
       super(
-        root: container.config.root,
-        precompiled: container["config"].precompiled_assets,
-        precompiled_host: container["config"].precompiled_assets_host,
-        server_link_url: container["config"].assets_server_link_url,
-        server_read_url: container["config"].assets_server_read_url,
+        root: container.root,
+        precompiled: container.settings.precompiled_assets,
+        precompiled_host: container.settings.precompiled_assets_host,
+        server_link_url: container.settings.assets_server_link_url,
+        server_read_url: container.settings.assets_server_read_url,
       )
     end
 

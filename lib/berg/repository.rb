@@ -2,7 +2,7 @@ require "rom-repository"
 require "berg/container"
 require "berg/import"
 
-Berg::Container.start(:rom)
+Berg::Container.start(:persistence)
 
 module Berg
   class Repository < ROM::Repository::Root

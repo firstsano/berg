@@ -2,12 +2,17 @@
 -- PostgreSQL database dump
 --
 
+-- Dumped from database version 9.6.6
+-- Dumped by pg_dump version 9.6.6
+
 SET statement_timeout = 0;
 SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
 SET client_encoding = 'UTF8';
 SET standard_conforming_strings = on;
 SET check_function_bodies = false;
 SET client_min_messages = warning;
+SET row_security = off;
 
 --
 -- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: -
@@ -44,7 +49,7 @@ SET default_tablespace = '';
 SET default_with_oids = false;
 
 --
--- Name: about_page_people; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+-- Name: about_page_people; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE about_page_people (
@@ -54,7 +59,7 @@ CREATE TABLE about_page_people (
 
 
 --
--- Name: categories; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+-- Name: categories; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE categories (
@@ -84,7 +89,7 @@ ALTER SEQUENCE categories_id_seq OWNED BY categories.id;
 
 
 --
--- Name: categorisations; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+-- Name: categorisations; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE categorisations (
@@ -114,7 +119,7 @@ ALTER SEQUENCE categorisations_id_seq OWNED BY categorisations.id;
 
 
 --
--- Name: curated_posts; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+-- Name: curated_posts; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE curated_posts (
@@ -152,7 +157,7 @@ ALTER SEQUENCE curated_posts_id_seq OWNED BY curated_posts.id;
 
 
 --
--- Name: home_page_featured_items; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+-- Name: home_page_featured_items; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE home_page_featured_items (
@@ -186,7 +191,7 @@ ALTER SEQUENCE home_page_featured_items_id_seq OWNED BY home_page_featured_items
 
 
 --
--- Name: office_contact_details; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+-- Name: office_contact_details; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE office_contact_details (
@@ -220,7 +225,7 @@ ALTER SEQUENCE office_contact_details_id_seq OWNED BY office_contact_details.id;
 
 
 --
--- Name: people; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+-- Name: people; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE people (
@@ -259,7 +264,7 @@ ALTER SEQUENCE people_id_seq OWNED BY people.id;
 
 
 --
--- Name: posts; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+-- Name: posts; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE posts (
@@ -299,7 +304,7 @@ ALTER SEQUENCE posts_id_seq OWNED BY posts.id;
 
 
 --
--- Name: projects; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+-- Name: projects; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE projects (
@@ -342,7 +347,7 @@ ALTER SEQUENCE projects_id_seq OWNED BY projects.id;
 
 
 --
--- Name: que_jobs; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+-- Name: que_jobs; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE que_jobs (
@@ -384,7 +389,7 @@ ALTER SEQUENCE que_jobs_job_id_seq OWNED BY que_jobs.job_id;
 
 
 --
--- Name: schema_migrations; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+-- Name: schema_migrations; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE schema_migrations (
@@ -393,7 +398,7 @@ CREATE TABLE schema_migrations (
 
 
 --
--- Name: users; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+-- Name: users; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE users (
@@ -429,7 +434,7 @@ ALTER SEQUENCE users_id_seq OWNED BY users.id;
 
 
 --
--- Name: work_page_featured_items; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+-- Name: work_page_featured_items; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE work_page_featured_items (
@@ -463,84 +468,84 @@ ALTER SEQUENCE work_page_featured_items_id_seq OWNED BY work_page_featured_items
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: -
+-- Name: categories id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY categories ALTER COLUMN id SET DEFAULT nextval('categories_id_seq'::regclass);
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: -
+-- Name: categorisations id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY categorisations ALTER COLUMN id SET DEFAULT nextval('categorisations_id_seq'::regclass);
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: -
+-- Name: curated_posts id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY curated_posts ALTER COLUMN id SET DEFAULT nextval('curated_posts_id_seq'::regclass);
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: -
+-- Name: home_page_featured_items id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY home_page_featured_items ALTER COLUMN id SET DEFAULT nextval('home_page_featured_items_id_seq'::regclass);
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: -
+-- Name: office_contact_details id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY office_contact_details ALTER COLUMN id SET DEFAULT nextval('office_contact_details_id_seq'::regclass);
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: -
+-- Name: people id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY people ALTER COLUMN id SET DEFAULT nextval('people_id_seq'::regclass);
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: -
+-- Name: posts id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY posts ALTER COLUMN id SET DEFAULT nextval('posts_id_seq'::regclass);
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: -
+-- Name: projects id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY projects ALTER COLUMN id SET DEFAULT nextval('projects_id_seq'::regclass);
 
 
 --
--- Name: job_id; Type: DEFAULT; Schema: public; Owner: -
+-- Name: que_jobs job_id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY que_jobs ALTER COLUMN job_id SET DEFAULT nextval('que_jobs_job_id_seq'::regclass);
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: -
+-- Name: users id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY users ALTER COLUMN id SET DEFAULT nextval('users_id_seq'::regclass);
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: -
+-- Name: work_page_featured_items id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY work_page_featured_items ALTER COLUMN id SET DEFAULT nextval('work_page_featured_items_id_seq'::regclass);
 
 
 --
--- Name: about_page_people_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+-- Name: about_page_people about_page_people_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY about_page_people
@@ -548,7 +553,7 @@ ALTER TABLE ONLY about_page_people
 
 
 --
--- Name: categories_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+-- Name: categories categories_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY categories
@@ -556,7 +561,7 @@ ALTER TABLE ONLY categories
 
 
 --
--- Name: categorisations_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+-- Name: categorisations categorisations_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY categorisations
@@ -564,7 +569,7 @@ ALTER TABLE ONLY categorisations
 
 
 --
--- Name: curated_posts_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+-- Name: curated_posts curated_posts_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY curated_posts
@@ -572,7 +577,7 @@ ALTER TABLE ONLY curated_posts
 
 
 --
--- Name: home_page_featured_items_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+-- Name: home_page_featured_items home_page_featured_items_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY home_page_featured_items
@@ -580,7 +585,7 @@ ALTER TABLE ONLY home_page_featured_items
 
 
 --
--- Name: office_contact_details_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+-- Name: office_contact_details office_contact_details_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY office_contact_details
@@ -588,7 +593,7 @@ ALTER TABLE ONLY office_contact_details
 
 
 --
--- Name: people_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+-- Name: people people_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY people
@@ -596,7 +601,7 @@ ALTER TABLE ONLY people
 
 
 --
--- Name: people_slug_key; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+-- Name: people people_slug_key; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY people
@@ -604,7 +609,7 @@ ALTER TABLE ONLY people
 
 
 --
--- Name: posts_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+-- Name: posts posts_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY posts
@@ -612,7 +617,7 @@ ALTER TABLE ONLY posts
 
 
 --
--- Name: posts_slug_key; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+-- Name: posts posts_slug_key; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY posts
@@ -620,7 +625,7 @@ ALTER TABLE ONLY posts
 
 
 --
--- Name: projects_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+-- Name: projects projects_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY projects
@@ -628,7 +633,7 @@ ALTER TABLE ONLY projects
 
 
 --
--- Name: projects_slug_key; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+-- Name: projects projects_slug_key; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY projects
@@ -636,7 +641,7 @@ ALTER TABLE ONLY projects
 
 
 --
--- Name: que_jobs_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+-- Name: que_jobs que_jobs_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY que_jobs
@@ -644,7 +649,7 @@ ALTER TABLE ONLY que_jobs
 
 
 --
--- Name: schema_migrations_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+-- Name: schema_migrations schema_migrations_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY schema_migrations
@@ -652,7 +657,7 @@ ALTER TABLE ONLY schema_migrations
 
 
 --
--- Name: users_email_key; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+-- Name: users users_email_key; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY users
@@ -660,7 +665,7 @@ ALTER TABLE ONLY users
 
 
 --
--- Name: users_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+-- Name: users users_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY users
@@ -668,7 +673,7 @@ ALTER TABLE ONLY users
 
 
 --
--- Name: work_page_featured_items_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+-- Name: work_page_featured_items work_page_featured_items_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY work_page_featured_items
@@ -676,35 +681,35 @@ ALTER TABLE ONLY work_page_featured_items
 
 
 --
--- Name: set_updated_at_on_curated_posts; Type: TRIGGER; Schema: public; Owner: -
+-- Name: curated_posts set_updated_at_on_curated_posts; Type: TRIGGER; Schema: public; Owner: -
 --
 
 CREATE TRIGGER set_updated_at_on_curated_posts BEFORE UPDATE ON curated_posts FOR EACH ROW EXECUTE PROCEDURE set_updated_at_column();
 
 
 --
--- Name: set_updated_at_on_people; Type: TRIGGER; Schema: public; Owner: -
+-- Name: people set_updated_at_on_people; Type: TRIGGER; Schema: public; Owner: -
 --
 
 CREATE TRIGGER set_updated_at_on_people BEFORE UPDATE ON people FOR EACH ROW EXECUTE PROCEDURE set_updated_at_column();
 
 
 --
--- Name: set_updated_at_on_posts; Type: TRIGGER; Schema: public; Owner: -
+-- Name: posts set_updated_at_on_posts; Type: TRIGGER; Schema: public; Owner: -
 --
 
 CREATE TRIGGER set_updated_at_on_posts BEFORE UPDATE ON posts FOR EACH ROW EXECUTE PROCEDURE set_updated_at_column();
 
 
 --
--- Name: set_updated_at_on_projects; Type: TRIGGER; Schema: public; Owner: -
+-- Name: projects set_updated_at_on_projects; Type: TRIGGER; Schema: public; Owner: -
 --
 
 CREATE TRIGGER set_updated_at_on_projects BEFORE UPDATE ON projects FOR EACH ROW EXECUTE PROCEDURE set_updated_at_column();
 
 
 --
--- Name: set_updated_at_on_users; Type: TRIGGER; Schema: public; Owner: -
+-- Name: users set_updated_at_on_users; Type: TRIGGER; Schema: public; Owner: -
 --
 
 CREATE TRIGGER set_updated_at_on_users BEFORE UPDATE ON users FOR EACH ROW EXECUTE PROCEDURE set_updated_at_column();

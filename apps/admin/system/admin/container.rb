@@ -1,7 +1,8 @@
 module Admin
   class Container < Dry::Web::Container
-    require root.join("system/berg/container")
-    import Berg::Container
+    require_from_root "system/berg/container"
+
+    import admin: Berg::Container
 
     configure do |config|
       config.name = :admin
@@ -9,9 +10,9 @@ module Admin
 
       config.root = Pathname(__FILE__).join("../..").realpath.dirname.freeze
 
-      config.auto_register = %w[
-        lib/admin
-      ]
+      config.auto_register = %w[lib/admin]
+
+      config.logger = Berg::Container[:logger]
     end
 
     load_paths! "lib", "system"

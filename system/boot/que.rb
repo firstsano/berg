@@ -1,14 +1,9 @@
-Berg::Container.namespace :que do |container|
-  container.finalize :que do
+Berg::Container.boot(:que) do |berg|
+  start do
     require "que"
 
-    uses :logger
-    container.boot :rom
-
-    container.register :connection, container["persistence.config"].gateways[:default].connection
-
-    Que.logger = logger
-    Que.mode = :sync if container.config.env == :test
-    Que.connection = container["que.connection"]
+    Que.logger = berg[:logger]
+    Que.mode = :sync if berg.env == :test
+    Que.connection = berg["persistence.db"]
   end
 end

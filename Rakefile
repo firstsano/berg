@@ -10,11 +10,6 @@ begin
 rescue LoadError; end # rubocop:disable Lint/HandleExceptions
 
 require_relative "system/berg/container"
-Berg::Container.start :config
-
-Berg::Container.start :bugsnag
-require "bugsnag/rake"
-require "bugsnag/tasks"
 
 # Include the sitemap generator rake tasks
 require "sitemap_generator"
@@ -27,18 +22,20 @@ Rake.add_rakelib "lib/tasks"
 
 namespace :db do
   task :setup do
-    Berg::Container.boot :rom
+    Berg::Container.init(:persistence)
   end
 
-  # The following migration tasks are adapted from https://gist.github.com/kalmbach/4471560
-  Sequel.extension :migration
-  DB = Sequel.connect(Berg::Container["config"].database_url)
-
   desc "Prints current schema version"
-  task :version do
+  task version: :setup do
+    # The following migration tasks are adapted from https://gist.github.com/kalmbach/4471560
+    require "sequel"
+    Sequel.extension :migration
+
+    db = Berg::Container["persistence.db"]
+
     version =
-      if DB.tables.include?(:schema_migrations)
-        DB[:schema_migrations].order(:filename).last[:filename]
+      if db.tables.include?(:schema_migrations)
+        db[:schema_migrations].order(:filename).last[:filename]
       else
         "not available"
       end
@@ -51,7 +48,7 @@ namespace :db do
     task :dump do
       if `which pg_dump` && $?.success? # rubocop:disable Lint/LiteralInCondition
         require "uri"
-        uri = URI(DB.url)
+        uri = URI(Berg::Container[:settings].database_url)
 
         dump = `pg_dump -h #{uri.hostname} -s -x -O #{uri.path.tr("/", "")}`
         File.open "db/structure.sql", "w" do |file|
@@ -63,7 +60,9 @@ namespace :db do
     task :load do
       raise if ENV["RACK_ENV"] == "production"
       require "uri"
-      uri = URI(DB.url)
+
+      uri = URI(Berg::Container[:settings].database_url)
+
       db_name = uri.path.tr("/", "")
       system "dropdb #{db_name}"
       system "createdb #{db_name}"

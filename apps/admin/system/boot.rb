@@ -1,7 +1,7 @@
 require_relative "admin/container"
 
 # Load manually registered dependencies
-Admin::Container.require "system/container/persistence"
+require_relative "./container/persistence"
 
 Admin::Container.finalize! do |container|
   require "admin/enqueue"

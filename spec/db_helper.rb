@@ -1,6 +1,6 @@
 require_relative "spec_helper"
 
-Berg::Container.start(:rom)
+Berg::Container.start(:persistence)
 
 Dir[SPEC_ROOT.join("support/db/*.rb").to_s].each(&method(:require))
 Dir[SPEC_ROOT.join("shared/db/*.rb").to_s].each(&method(:require))

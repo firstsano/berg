@@ -24,12 +24,6 @@ GIT
     icelab-style (0.1.0)
       rubocop (~> 0.49.1)
 
-GIT
-  remote: https://github.com/solnic/transproc
-  revision: 7e0cf9dd20eba78d0856b546ff387d24f5f2b6df
-  specs:
-    transproc (1.0.2)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -348,6 +342,7 @@ GEM
     thor (0.19.1)
     tilt (2.0.5)
     timecop (0.8.1)
+    transproc (1.0.2)
     unicode-display_width (1.3.0)
     websocket-driver (0.6.4)
       websocket-extensions (>= 0.1.0)
@@ -407,7 +402,6 @@ DEPENDENCIES
   sitemap_generator
   slim
   timecop
-  transproc!
 
 RUBY VERSION
    ruby 2.3.1p112

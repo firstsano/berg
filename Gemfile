@@ -38,7 +38,6 @@ gem "mime-types"
 gem "redcarpet"
 gem "sitemap_generator"
 gem "slim"
-gem "transproc", git: "https://github.com/solnic/transproc"
 
 # 3rd party services
 gem "bugsnag"

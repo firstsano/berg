@@ -1,20 +1,20 @@
 require "berg/repository"
-require "admin/entities/category"
+require "admin/entities"
 
 module Admin
   module Persistence
     module Repositories
       class Categories < Berg::Repository[:categories]
+        struct_namespace Admin::Entities
+
         commands :create, delete: [:by_slug], update: [:by_slug]
 
         def [](id)
-          categories.by_id(id).as(Entities::Category).one!
+          categories.by_id(id).one!
         end
 
         def by_slug(slug)
-          categories
-            .by_slug(slug)
-            .as(Entities::Category).one
+          categories.by_slug(slug).one
         end
 
         def slug_exists?(slug)
@@ -22,9 +22,7 @@ module Admin
         end
 
         def listing
-          categories
-            .order(:name)
-            .as(Entities::Category)
+          categories.order(:name)
         end
       end
     end

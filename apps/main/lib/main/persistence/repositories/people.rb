@@ -1,28 +1,22 @@
 require "berg/repository"
-require "main/entities/person"
+require "main/entities"
 
 module Main
   module Persistence
     module Repositories
       class People < Berg::Repository[:people]
+        struct_namespace Main::Entities
+
         def for_about_page
-          people
-            .for_about_page
-            .as(Entities::Person)
+          people.for_about_page
         end
 
         def by_id!(id)
-          people
-            .by_id(id)
-            .as(Entities::Person)
-            .one!
+          people.by_id(id).one!
         end
 
         def by_slug!(slug)
-          people
-            .by_slug(slug)
-            .as(Entities::Person)
-            .one!
+          people.by_slug(slug).one!
         end
       end
     end

@@ -19,13 +19,13 @@ GIT
 
 GIT
   remote: https://github.com/icelab/formalist
-  revision: 07507068f7b52d06354968c5cf914199f9902218
+  revision: 4054b047103fcdd983b7fd4c570ab05485e9fe26
   branch: master
   specs:
     formalist (0.3.0)
-      dry-configurable
-      dry-container
-      dry-types (>= 0.8)
+      dry-configurable (~> 0.7)
+      dry-container (~> 0.6)
+      dry-types (~> 0.12)
       inflecto
 
 GIT
@@ -37,9 +37,9 @@ GIT
 
 GIT
   remote: https://github.com/solnic/transproc
-  revision: ef7cbef5d22fffd53beadf5c28abdb4975a02c45
+  revision: 7e0cf9dd20eba78d0856b546ff387d24f5f2b6df
   specs:
-    transproc (0.4.0)
+    transproc (1.0.2)
 
 GEM
   remote: https://rubygems.org/
@@ -74,7 +74,7 @@ GEM
       simplecov (>= 0.7.1, < 1.0.0)
     coderay (1.1.1)
     colored (1.2)
-    concurrent-ruby (1.0.2)
+    concurrent-ruby (1.0.5)
     cork (0.1.0)
       colored (~> 1.2)
     danger (2.1.2)
@@ -93,17 +93,29 @@ GEM
     docile (1.1.5)
     dry-auto_inject (0.4.1)
       dry-container (>= 0.3.4)
-    dry-configurable (0.1.7)
+    dry-configurable (0.7.0)
       concurrent-ruby (~> 1.0)
-    dry-container (0.4.0)
+    dry-container (0.6.0)
       concurrent-ruby (~> 1.0)
       dry-configurable (~> 0.1, >= 0.1.3)
+    dry-core (0.4.3)
+      concurrent-ruby (~> 1.0)
     dry-equalizer (0.2.0)
-    dry-logic (0.3.0)
+    dry-inflector (0.1.1)
+    dry-initializer (2.4.0)
+    dry-logic (0.4.2)
       dry-container (~> 0.2, >= 0.2.6)
+      dry-core (~> 0.2)
       dry-equalizer (~> 0.2)
     dry-matcher (0.5.0)
-    dry-monads (0.0.2)
+    dry-monads (0.4.0)
+      dry-core (~> 0.3, >= 0.3.3)
+      dry-equalizer
+    dry-struct (0.4.0)
+      dry-core (~> 0.4, >= 0.4.1)
+      dry-equalizer (~> 0.2)
+      dry-types (~> 0.12, >= 0.12.2)
+      ice_nine (~> 0.11)
     dry-system (0.5.0)
       concurrent-ruby (~> 1.0)
       dry-auto_inject (>= 0.4.0)
@@ -116,14 +128,13 @@ GEM
       dry-matcher (>= 0.5.0)
       dry-monads (>= 0.0.1)
       wisper (>= 1.6.0)
-    dry-types (0.8.1)
+    dry-types (0.12.2)
       concurrent-ruby (~> 1.0)
       dry-configurable (~> 0.1)
       dry-container (~> 0.3)
+      dry-core (~> 0.2, >= 0.2.1)
       dry-equalizer (~> 0.2)
-      dry-logic (~> 0.3, >= 0.3.0)
-      dry-monads (>= 0.0.1)
-      ice_nine (~> 0.11)
+      dry-logic (~> 0.4, >= 0.4.2)
       inflecto (~> 0.0.0, >= 0.0.2)
     dry-validation (0.9.4)
       concurrent-ruby (~> 1.0)
@@ -217,7 +228,7 @@ GEM
     parallel (1.12.0)
     parser (2.4.0.2)
       ast (~> 2.3)
-    pg (0.18.4)
+    pg (1.0.0)
     poltergeist (1.10.0)
       capybara (~> 2.1)
       cliver (~> 0.3.1)
@@ -253,31 +264,38 @@ GEM
     roda (2.17.0)
       rack
     roda-flow (0.3.0)
-    rom (2.0.0)
+    rom (4.1.3)
+      rom-changeset (~> 1.0, >= 1.0.1)
+      rom-core (~> 4.1, >= 4.1.2)
+      rom-repository (~> 2.0, >= 2.0.2)
+    rom-changeset (1.0.1)
+      dry-core (~> 0.3, >= 0.3.1)
+      rom-core (~> 4.0)
+      transproc (~> 1.0)
+    rom-core (4.1.2)
       concurrent-ruby (~> 1.0)
+      dry-container (~> 0.6)
+      dry-core (~> 0.3)
       dry-equalizer (~> 0.2)
-      dry-types (~> 0.8)
-      rom-mapper (~> 0.4.0)
-      rom-support (~> 2.0)
-    rom-mapper (0.4.0)
+      dry-inflector (~> 0.1)
+      dry-initializer (~> 2.0)
+      dry-types (~> 0.12, >= 0.12.1)
+      rom-mapper (~> 1.1)
+    rom-mapper (1.1.0)
+      dry-core (~> 0.3, >= 0.3.1)
       dry-equalizer (~> 0.2)
-      rom-support (~> 2.0.0)
-      transproc (~> 0.4.0)
-    rom-repository (0.3.1)
-      rom (~> 2.0)
-      rom-mapper (~> 0.4)
-      rom-support (~> 2.0)
-    rom-sql (0.8.0)
+      dry-struct (~> 0.3)
+      transproc (~> 1.0)
+    rom-repository (2.0.2)
+      dry-core (~> 0.3)
+      dry-initializer (~> 2.0)
+      rom-core (~> 4.0)
+    rom-sql (2.3.0)
+      dry-core (~> 0.3)
       dry-equalizer (~> 0.2)
-      dry-types (~> 0.8)
-      rom (~> 2.0)
-      rom-support (~> 2.0)
-      sequel (~> 4.25)
-    rom-support (2.0.0)
-      concurrent-ruby (~> 1.0)
-      dry-equalizer (~> 0.2)
-      transproc (~> 0.4.0)
-      wisper (~> 1.6, >= 1.6.0)
+      dry-types (~> 0.12, >= 0.12.1)
+      rom-core (~> 4.1)
+      sequel (>= 4.49)
     rouge (2.0.5)
     rspec (3.5.0)
       rspec-core (~> 3.5.0)
@@ -304,7 +322,7 @@ GEM
     sawyer (0.7.0)
       addressable (>= 2.3.5, < 2.5)
       faraday (~> 0.8, < 0.10)
-    sequel (4.37.0)
+    sequel (5.5.0)
     shellany (0.0.1)
     simplecov (0.12.0)
       docile (~> 1.1.0)
@@ -329,7 +347,7 @@ GEM
     websocket-driver (0.6.4)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
-    wisper (1.6.1)
+    wisper (2.0.0)
     xpath (2.0.0)
       nokogiri (~> 1.3)
 
@@ -367,7 +385,7 @@ DEPENDENCIES
   inflecto
   mime-types
   notgun
-  pg
+  pg (~> 1.0)
   poltergeist
   postmark
   pry-byebug
@@ -378,10 +396,8 @@ DEPENDENCIES
   rack_csrf
   rake
   redcarpet
-  rom
-  rom-mapper
-  rom-repository
-  rom-sql
+  rom (~> 4.1)
+  rom-sql (~> 2.1)
   rouge
   rspec
   site_prism

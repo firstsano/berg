@@ -14,11 +14,9 @@ gem "rack-ssl"
 gem "rack_csrf"
 
 # Database persistence
-gem "pg"
-gem "rom"
-gem "rom-mapper"
-gem "rom-repository"
-gem "rom-sql"
+gem "pg", "~> 1.0"
+gem "rom", "~> 4.1"
+gem "rom-sql", "~> 2.1"
 
 # Background jobs
 gem "que"

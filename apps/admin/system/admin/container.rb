@@ -2,7 +2,7 @@ module Admin
   class Container < Dry::Web::Container
     require_from_root "system/berg/container"
 
-    import admin: Berg::Container
+    import core: Berg::Container
 
     configure do |config|
       config.name = :admin

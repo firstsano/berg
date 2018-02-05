@@ -5,7 +5,7 @@ require "mime-types"
 require_relative "../system/boot"
 
 sitemaps = Main::Container["persistence.repositories.sitemaps"]
-config = Berg::Container["config"]
+config = Berg::Container.settings
 
 # Set the host name for URL creation
 SitemapGenerator::Sitemap.default_host = config.canonical_domain

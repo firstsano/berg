@@ -17,7 +17,7 @@ module Berg
     end
 
     def replace_attache_urls(str)
-      str.gsub(/#{Berg::Container["config"].attache_uploads_base_url}/, Berg::Container["config"].attache_downloads_base_url)
+      str.gsub(/#{Berg::Container.settings.attache_uploads_base_url}/, Berg::Container.settings.attache_downloads_base_url)
     end
   end
 end

@@ -13,13 +13,13 @@ module Main
 
     opts[:root] = Pathname(__FILE__).join("../..").realpath.dirname
 
-    use Rack::Session::Cookie, key: "berg.session", secret: Berg::Container["config"].session_secret
+    use Rack::Session::Cookie, key: "berg.session", secret: Berg::Container.settings.session_secret
     use Rack::Csrf, raise: true
     use Bugsnag::Rack
 
-    if Berg::Container["config"].basic_auth_user && Berg::Container["config"].basic_auth_password
+    if Berg::Container.settings.basic_auth_user && Berg::Container.settings.basic_auth_password
       use Rack::Auth::Basic do |username, password|
-        username == Berg::Container["config"].basic_auth_user && password == Berg::Container["config"].basic_auth_password
+        username == Berg::Container.settings.basic_auth_user && password == Berg::Container.settings.basic_auth_password
       end
     end
 

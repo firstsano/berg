@@ -1,6 +1,6 @@
 require "rom/struct"
 
 module Berg
-  class Struct < ROM::Struct
+  class Entity < ROM::Struct
   end
 end

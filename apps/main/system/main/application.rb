@@ -30,6 +30,7 @@ module Main
     plugin :view
     plugin :caching
     plugin :default_headers, "Cache-Control" => "public, max-age=86400"
+    plugin :multi_route
 
     route do |r|
       r.root do

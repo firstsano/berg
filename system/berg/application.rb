@@ -1,7 +1,13 @@
 require "bugsnag"
+require_relative "container"
+require "dry/web/roda/application"
 
 module Berg
-  class Application < Roda
+  class Application < Dry::Web::Roda::Application
+    configure do |config|
+      config.container = Berg::Container
+    end
+
     use Bugsnag::Rack
 
     plugin :static, ["/assets", "/robots.txt", "/favicon.ico", "/apple-touch-icon.png"], header_rules: [

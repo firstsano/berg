@@ -36,6 +36,7 @@ module Admin
     plugin :page
     plugin :view
     plugin :default_headers, "Cache-Control" => "private, no-cache"
+    plugin :multi_route
 
     def current_user
       env["admin.current_user"]

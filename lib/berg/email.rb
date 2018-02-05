@@ -1,11 +1,12 @@
-require "dry-equalizer"
-require "dry-view"
+require "dry/equalizer"
+require "dry/view/controller"
+
 require "slim"
 require "tilt/erb"
 require "berg/import"
 
 module Berg
-  class Email < Dry::View::Layout
+  class Email < Dry::View::Controller
     include Dry::Equalizer(:to_h)
     include Berg::Import.kwargs["i18n.t"]
 

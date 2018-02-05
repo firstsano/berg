@@ -5,8 +5,6 @@ module Main
   module Persistence
     module Repositories
       class Posts < Berg::Repository[:posts]
-        relations :posts, :people, :categories
-
         def by_slug(slug)
           aggregate(:author, :categories)
             .by_slug(slug)

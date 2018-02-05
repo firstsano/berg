@@ -5,8 +5,6 @@ module Main
   module Persistence
     module Repositories
       class Categories < Berg::Repository[:categories]
-        relations :categories, :posts, :users
-
         def by_slug!(slug)
           categories
             .by_slug(slug)

@@ -5,8 +5,6 @@ module Main
   module Persistence
     module Repositories
       class People < Berg::Repository[:people]
-        relations :people
-
         def for_about_page
           people
             .for_about_page

@@ -4,8 +4,6 @@ module Main
   module Persistence
     module Repositories
       class Sitemaps < Berg::Repository
-        relations :posts, :projects
-
         def post_slugs
           posts
             .published

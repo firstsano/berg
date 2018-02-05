@@ -5,8 +5,6 @@ module Main
   module Persistence
     module Repositories
       class Projects < Berg::Repository[:projects]
-        relations :projects
-
         def by_slug(slug)
           projects.by_slug(slug).as(Entities::Project).one
         end

@@ -6,8 +6,6 @@ module Admin
   module Persistence
     module Repositories
       class Posts < Berg::Repository[:posts]
-        relations :categories
-
         commands update: [:by_id, :by_slug]
         alias_method :update, :update_by_id
 

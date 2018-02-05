@@ -5,7 +5,6 @@ module Admin
   module Persistence
     module Repositories
       class People < Berg::Repository[:people]
-        relations :people
         commands :create, update: :by_slug
 
         def [](id)

@@ -113,7 +113,7 @@ namespace :assets do
   desc "Compile assets with webpack"
   task :precompile do
     Rake::Task["assets:clobber"].invoke
-    system "npm run build-production"
+    system "yarn run build-production"
   end
 
   desc "Remove compiled assets"
